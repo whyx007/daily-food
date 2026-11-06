@@ -1,0 +1,16 @@
+name: daily-food
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - fastapi
+      - "uvicorn[standard]"
+      - httpx
+      - "pydantic>=2"
+      - pydantic-settings
+      - python-dotenv
+      - pytest
+      - pytest-asyncio
+      - respx

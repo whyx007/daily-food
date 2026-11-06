@@ -1,0 +1,10 @@
+.env
+*.db
+*.db-wal
+*.db-shm
+__pycache__/
+.pytest_cache/
+.venv/
+.conda-env/
+
+pip-unpack-*/

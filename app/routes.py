@@ -1,0 +1,233 @@
+import hashlib
+import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+from fastapi import APIRouter, Request
+from fastapi.responses import JSONResponse, Response
+
+from app import guard, picker
+from app.amap import AmapError
+from app.geo import haversine_m, quantize_grid
+from app.models import Envelope, Meta, Poi
+
+router = APIRouter()
+TZ = ZoneInfo("Asia/Shanghai")
+
+
+def today_key() -> str:
+    return datetime.now(TZ).date().isoformat()
+
+
+def _now() -> int:
+    return int(time.time())
+
+
+def _client_ip(request: Request) -> str:
+    forwarded = request.headers.get("X-Real-IP")
+    if forwarded:
+        return forwarded
+    return request.client.host if request.client else "unknown"
+
+
+def _envelope(data, meta: Meta) -> dict:
+    return Envelope(data=data, meta=meta).model_dump()
+
+
+def _pois(payload: list[dict]) -> list[Poi]:
+    return [Poi(**item) for item in payload]
+
+
+def _classic_poi(item: dict) -> dict:
+    return Poi(id=item["poiid"], name=item["name"], lat=item["lat"], lng=item["lng"],
+               rating=item.get("rating"), cost=item.get("cost"),
+               type=item.get("type"), address=item.get("address")).model_dump()
+
+
+def _with_distance(items: list[Poi], lat: float, lng: float, keep_distance: bool) -> list[Poi]:
+    out = []
+    for poi in items:
+        if not keep_distance or poi.distance is None:
+            poi.distance = haversine_m(lat, lng, poi.lat, poi.lng)
+        out.append(poi)
+    return out
+
+
+@router.get("/api/health")
+def health():
+    return {"data": {"status": "ok"}, "meta": {"stale": False, "degraded": None}}
+
+
+@router.get("/api/config")
+def config(request: Request):
+    s = request.app.state.settings
+    state = guard.breaker_state(request.app.state.store, today_key(), s.daily_call_limit)
+    return _envelope({
+        "siteName": s.site_name,
+        "defaultCenter": {"lat": s.default_lat, "lng": s.default_lng},
+        "radiusOptions": s.radius_list,
+        "modes": ["area", "classic", "weighted"],
+        "jsKey": s.amap_js_key,
+        "securityServiceHost": request.headers.get("host", ""),
+    }, Meta(degraded=None if state == "warning" else state))
+
+
+@router.get("/api/today")
+async def today(request: Request, lat: float, lng: float, mode: str = "area",
+                radius: int = 1000, nonce: int = 0):
+    settings = request.app.state.settings
+    store = request.app.state.store
+    if not request.app.state.limiter.allow(_client_ip(request)):
+        return JSONResponse(status_code=429, content={"detail": "too_many_requests"},
+                            headers={"Retry-After": "60"})
+    if mode not in {"area", "classic", "weighted"}:
+        return JSONResponse(status_code=400, content={"detail": "bad_mode"})
+    if mode != "classic" and radius not in settings.radius_list:
+        radius = settings.radius_list[min(1, len(settings.radius_list) - 1)]
+
+    grid = quantize_grid(lat, lng)
+    day = today_key()
+    degraded = guard.breaker_state(store, day, settings.daily_call_limit)
+    if degraded == "warning":
+        degraded = None
+
+    stale = False
+    pool: list[dict] = []
+    fetched_at: int | None = None
+
+    if mode == "classic":
+        pool = [_classic_poi(item) for item in store.list_classics()]
+    else:
+        cached = store.get_pool(day, grid, radius)
+        if cached is not None:
+            pool, fetched_at = cached
+        elif degraded != "daily_limit_reached":
+            try:
+                fetched = await request.app.state.client.around(lat, lng, radius)
+                store.bump_calls(day)
+                payload = [p.model_dump() for p in fetched]
+                store.put_pool(day, grid, radius, "all", payload, _now())
+                pool, fetched_at = payload, _now()
+            except AmapError as exc:
+                if exc.info in {"INVALID_USER_KEY", "USERKEY_PLAT_NOMATCH"}:
+                    degraded = "misconfigured"
+        if not pool:
+            latest = store.get_latest_pool(grid, radius)
+            if latest is not None:
+                pool, fetched_at, _ = latest
+                stale = True
+
+    if not pool:
+        return JSONResponse(status_code=404, content={
+            "data": None, "meta": {"stale": False, "degraded": degraded or "no_data"}})
+
+    try:
+        chosen, picked_degraded = picker.pick(_pois(pool), date=day, grid=grid, mode=mode,
+                                              radius=radius, nonce=nonce)
+    except ValueError:
+        return JSONResponse(status_code=404, content={
+            "data": None, "meta": {"stale": stale, "degraded": "no_data"}})
+
+    if chosen.distance is None:
+        chosen.distance = haversine_m(lat, lng, chosen.lat, chosen.lng)
+
+    candidates = _with_distance(_pois(pool)[:20], lat, lng, keep_distance=True)
+    return _envelope({
+        "pick": chosen.model_dump(),
+        "candidates": [p.model_dump() for p in candidates],
+        "mode": mode,
+    }, Meta(cachedAt=fetched_at, stale=stale, degraded=picked_degraded or degraded,
+            seed=picker.seed_text(day, grid, mode, radius, nonce)))
+
+
+def _grid_query_key(grid: str, q: str | None, category: str | None, radius: int) -> str:
+    raw = f"{grid}|{q or ''}|{category or ''}|{radius}"
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
+@router.get("/api/search")
+async def search(request: Request, lat: float, lng: float, q: str | None = None,
+                 category: str | None = None, radius: int = 1000):
+    store = request.app.state.store
+    if (q or "").strip() and len(q.strip()) < 2:
+        return JSONResponse(status_code=400, content={"detail": "query_too_short"})
+    if not q and not category:
+        return JSONResponse(status_code=400, content={"detail": "query_required"})
+    if not request.app.state.limiter.allow(_client_ip(request)):
+        return JSONResponse(status_code=429, content={"detail": "too_many_requests"})
+
+    grid = quantize_grid(lat, lng)
+    key = _grid_query_key(grid, q, category, radius)
+    cached = store.get_search(key, ttl=300)
+    if cached is not None:
+        payload, fetched_at = cached
+        return _envelope({"items": payload, "cached": True}, Meta(cachedAt=fetched_at))
+
+    day = today_key()
+    limit = request.app.state.settings.daily_call_limit
+    if guard.breaker_state(store, day, limit) == "daily_limit_reached":
+        return _envelope({"items": [], "cached": False}, Meta(degraded="daily_limit_reached"))
+
+    try:
+        items = await request.app.state.client.around(lat, lng, radius,
+                                                      keywords=(q or None), types=category or "050000")
+        store.bump_calls(day)
+    except AmapError as exc:
+        return _envelope({"items": [], "cached": False}, Meta(degraded=f"amap:{exc.info}"))
+
+    payload = [p.model_dump() for p in _with_distance(items[:20], lat, lng, keep_distance=True)]
+    store.put_search(key, payload, _now())
+    return _envelope({"items": payload, "cached": False}, Meta(cachedAt=_now()))
+
+
+@router.get("/api/classics")
+def list_classics(request: Request):
+    items = request.app.state.store.list_classics()
+    return _envelope({"items": items}, Meta())
+
+
+@router.post("/api/classics")
+async def add_classic(request: Request, body: dict):
+    token = request.headers.get("X-Client-Token", "")
+    if not token:
+        return JSONResponse(status_code=400, content={"detail": "missing_token"})
+    body = body or {}
+    poiid = body.get("poiid", "")
+    name = body.get("name", "")
+    address = body.get("address", "")
+
+    if poiid:
+        poi = await request.app.state.client.detail(poiid)
+    elif name and address:
+        coords = await request.app.state.client.geocode(address)
+        if coords is None:
+            return JSONResponse(status_code=404, content={"detail": "address_not_found"})
+        lat, lng = coords
+        raw = hashlib.sha1(f"{name}|{address}".encode("utf-8")).hexdigest()[:12]
+        poi = Poi(id=f"addr:{raw}", name=name, lat=lat, lng=lng, address=address)
+    else:
+        return JSONResponse(status_code=400, content={"detail": "poiid_or_address_required"})
+
+    if poi is None:
+        return JSONResponse(status_code=404, content={"detail": "poi_not_found"})
+    request.app.state.store.upsert_classic(poi.model_dump(), token, body.get("note"))
+    return _envelope({"ok": True, "poiid": poi.id}, Meta())
+
+
+@router.delete("/api/classics/{poiid}")
+def delete_classic(request: Request, poiid: str):
+    token = request.headers.get("X-Client-Token", "")
+    admin = request.app.state.settings.admin_token
+    ok = request.app.state.store.delete_classic(poiid, token, admin)
+    if not ok:
+        return JSONResponse(status_code=403, content={"detail": "forbidden"})
+    return _envelope({"ok": True}, Meta())
+
+
+@router.get("/api/staticmap")
+async def staticmap(request: Request, lat: float, lng: float, zoom: int = 14):
+    try:
+        data = await request.app.state.client.staticmap(lat, lng, zoom=zoom)
+    except Exception:
+        return JSONResponse(status_code=503, content={"detail": "staticmap_unavailable"})
+    return Response(content=data, media_type="image/png")

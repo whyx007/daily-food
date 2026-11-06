@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2328; }
+#layout { display: grid; grid-template-columns: 1.6fr 1fr; height: 100vh; }
+#map-pane { position: relative; background: #eef1f5; }
+#map, #map-fallback { width: 100%; height: 100%; }
+#panel { display: flex; flex-direction: column; gap: 12px; padding: 16px; overflow: hidden; border-left: 1px solid #e5e7eb; }
+#panel header h1 { font-size: 18px; margin: 0 0 8px; }
+#search-form { display: flex; gap: 8px; }
+#search-input { flex: 1; padding: 8px 10px; border: 1px solid #d0d7de; border-radius: 8px; }
+#search-form button { padding: 8px 14px; border: 0; border-radius: 8px; background: #1f2328; color: #fff; cursor: pointer; }
+#chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.chip { padding: 4px 10px; border-radius: 999px; border: 1px solid #d0d7de; background: #fff; cursor: pointer; font-size: 13px; }
+.chip.active { background: #1f2328; color: #fff; }
+#daily-card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; }
+#daily-card .name { font-size: 20px; font-weight: 600; }
+#daily-card .meta { color: #57606a; font-size: 13px; margin: 4px 0 10px; }
+#daily-card .actions { display: flex; gap: 8px; }
+.btn { padding: 8px 12px; border-radius: 8px; border: 1px solid #d0d7de; background: #fff; cursor: pointer; }
+.btn.primary { background: #1f2328; color: #fff; border-color: #1f2328; }
+#list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+.item { padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: pointer; }
+.item.active { border-color: #1f2328; background: #f6f8fa; }
+.item .sub { color: #57606a; font-size: 12px; }
+#panel footer { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+#radius-row { display: flex; gap: 6px; }
+.notice { color: #9a6700; font-size: 12px; margin-top: 8px; }
+@media (max-width: 860px) {
+  #layout { grid-template-columns: 1fr; grid-template-rows: 45vh 1fr; }
+  #panel { border-left: 0; border-top: 1px solid #e5e7eb; }
+}

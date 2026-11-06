@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>今天吃啥</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="layout">
+  <main id="map-pane">
+    <div id="map"></div>
+    <div id="map-fallback" hidden></div>
+  </main>
+  <aside id="panel">
+    <header>
+      <h1 id="site-name">今天吃啥</h1>
+      <form id="search-form">
+        <input id="search-input" placeholder="搜饺子、面、火锅…" autocomplete="off">
+        <button type="submit">搜</button>
+      </form>
+      <div id="chips"></div>
+    </header>
+    <section id="daily-card"></section>
+    <section id="list"></section>
+    <footer>
+      <button id="btn-random" class="btn">🎲 区域随机</button>
+      <button id="btn-classic" class="btn">⭐ 经典馆子</button>
+      <div id="radius-row"></div>
+    </footer>
+  </aside>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

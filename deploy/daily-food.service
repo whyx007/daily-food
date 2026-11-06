@@ -1,0 +1,15 @@
+[Unit]
+Description=Daily Food API
+After=network.target
+
+[Service]
+Type=simple
+User=dailyfood
+WorkingDirectory=/opt/daily-food
+EnvironmentFile=/opt/daily-food/.env
+ExecStart=/opt/daily-food/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

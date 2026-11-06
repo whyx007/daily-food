@@ -59,7 +59,7 @@ Nginx（Ubuntu）→ /_AMapService/ 反代，注入 JS API 安全密钥
 
 | 能力 | 接口 | 用途 |
 |---|---|---|
-| 周边搜索 | `GET https://restapi.amap.com/v3/place/around` | 主体：`location`、`radius`、`types=050000`、可选 `keywords`、`offset=25`、`page` 翻页至 60 条 |
+| 周边搜索 | `GET https://restapi.amap.com/v3/place/around` | 主体：`location`、`radius`、`types=050000`、可选 `keywords`；每页 `offset=25`，最多翻 3 页，取前 60 条 |
 | 关键词搜索 | 同上 + `keywords`（不另用 `place/text`） | 保证结果落在用户半径内 |
 | POI 详情 | 同上 + `id=` | 录入名人堂时服务端回查补全字段 |
 | 静态地图 | `GET https://restapi.amap.com/v3/staticmap` | JS API 加载失败时的左侧兜底图 |
@@ -110,7 +110,7 @@ CREATE TABLE call_log (
 );
 ```
 
-- `grid`：`round(lat, 2位小数) + ',' + round(lng, 2位小数)` 的 0.005° 量化（约 500m）；
+- `grid`：按 0.005° 量化，`round(lat * 200) / 200 + ',' + round(lng * 200) / 200`，纬度方向约 550m、国内经度方向约 430m，取 `f"{lat_q:.3f},{lng_q:.3f}"` 作为字符串；
 - `area_pool` 的 `date` 为 `Asia/Shanghai` 的 `YYYY-MM-DD`，跨日自然失效，不需要额外清理任务；
 - `search_cache` TTL 5 分钟；
 - 过期行按需删除即可，不做后台 GC。
@@ -145,6 +145,10 @@ CREATE TABLE call_log (
 
 参数：`q`（≥2 字符）或 `category`（餐饮子类码）、`lat`、`lng`、`radius`。返回 `items`（最多 20 条）+ `meta`。
 
+### GET /api/staticmap
+
+参数：`lat`、`lng`、可选 `zoom`（默认 14）。返回 `image/png`，用高德静态地图 API 生成、带默认中心标记；JS API 加载失败时前端左栏用它兜底。外部额度耗尽时返回 503，前端显示占位图。
+
 ### GET /api/classics
 
 返回 `items`（POI 结构 + `note`、`addedBy`），按 `created_at` 倒序。
@@ -167,7 +171,7 @@ CREATE TABLE call_log (
 **PRNG**：`seed = fnv1a32(f"{date}|{grid}|{radius}|{mode}" + (f"|n{nonce}" if nonce else ""))`，用 mulberry32 生成确定性序列。
 
 1. **area（区域均匀）**：`index = floor(prng() * len(pool))`。
-2. **classic（名人堂均匀）**：池为 `classics` 全量，不按距离过滤；`seed` 用 `date|grid|classic|nonce`。结果带距离，>3km 时前端提示"较远"。
+2. **classic（名人堂均匀）**：池为 `classics` 全量，不按距离过滤；`seed = f"{date}|{grid}|classic"`，**不含 radius**（该模式下 `radius` 参数被忽略，避免切换距离档位导致推荐变化）。名人堂记录没有 `distance` 字段，用 haversine 从用户坐标实时计算；>3km 时前端提示"较远"。
 3. **weighted（评分加权）**：
    - `rating_norm = rating / 5.0`；`rating` 缺失时取池内已评分店的**中位数**；
    - `distance_decay = 1 - min(distance / radius, 1.0)`；
@@ -274,6 +278,8 @@ RADIUS_OPTIONS=500,1000,2000,3000
 SITE_NAME=今天吃啥
 ADMIN_TOKEN=…
 ```
+
+`.gitignore` 至少包含：`.env`、`*.db`、`*.db-wal`、`*.db-shm`、`__pycache__/`、`.pytest_cache/`。
 
 ## 13. 风险与待办
 

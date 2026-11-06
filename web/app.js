@@ -176,6 +176,7 @@ async function boot() {
 
   $('#btn-random').onclick = () => { state.mode = 'area'; state.nonce += 1; loadToday(); };
   $('#btn-classic').onclick = () => { state.mode = 'classic'; state.nonce += 1; loadToday(); };
+  $('#btn-weighted').onclick = () => { state.mode = 'weighted'; state.nonce += 1; loadToday(); };
 
   $('#radius-row').innerHTML = cfg.radiusOptions
     .map((r) => `<span class="chip ${r === state.radius ? 'active' : ''}" data-r="${r}">${r}m</span>`)

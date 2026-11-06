@@ -1,6 +1,6 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
-  map: null, markers: [], selectedId: null, lock: false,
+  map: null, markers: [], selectedId: null, lock: false, lastItems: [],
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -65,6 +65,7 @@ function renderList(items) {
 }
 
 function renderMarkers(items) {
+  state.lastItems = items;
   if (!state.map || !window.AMap) return;
   state.map.remove(state.markers);
   state.markers = items.slice(0, 20).map((p) => new AMap.Marker({
@@ -72,6 +73,27 @@ function renderMarkers(items) {
   }));
   state.map.add(state.markers);
   state.markers.forEach((m) => m.on('click', () => select(m.getExtData())));
+}
+
+function ensureMap() {
+  if (state.map || !window.AMap) return;
+  $('#map-fallback').hidden = true;
+  $('#map').hidden = false;
+  state.map = new AMap.Map('map', { center: [state.lng, state.lat], zoom: 15, viewMode: '2D' });
+  renderMarkers(state.lastItems || []);
+}
+
+function showFallback() {
+  if (state.map) return;
+  $('#map').hidden = true;
+  $('#map-fallback').hidden = false;
+  if (!$('#map-fallback').querySelector('img')) {
+    const img = document.createElement('img');
+    img.src = `/api/staticmap?lat=${state.lat}&lng=${state.lng}`;
+    img.alt = '附近地图';
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover';
+    $('#map-fallback').appendChild(img);
+  }
 }
 
 function select(poi) {
@@ -123,17 +145,11 @@ async function search(q) {
 }
 
 function initMap() {
-  if (!window.AMap) {
-    $('#map').hidden = true;
-    $('#map-fallback').hidden = false;
-    const img = document.createElement('img');
-    img.src = `/api/staticmap?lat=${state.lat}&lng=${state.lng}`;
-    img.alt = '附近地图';
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover';
-    $('#map-fallback').appendChild(img);
-    return;
+  if (window.AMap) {
+    ensureMap();
+  } else {
+    showFallback();
   }
-  state.map = new AMap.Map('map', { center: [state.lng, state.lat], zoom: 15, viewMode: '2D' });
 }
 
 async function boot() {
@@ -146,12 +162,16 @@ async function boot() {
   state.lng = geo ? geo.lng : cfg.defaultCenter.lng;
 
   if (cfg.jsKey) {
-    window._AMapSecurityConfig = { serviceHost: cfg.securityServiceHost || location.host };
+    // serviceHost 必须是「源 + 代理前缀」的完整地址，否则 JS API 会把主机名当成路径拼出来
+    window._AMapSecurityConfig = { serviceHost: `${location.origin}/_AMapService` };
     await new Promise((resolve) => {
       const s = document.createElement('script');
       s.src = `https://webapi.amap.com/maps?v=2.0&key=${cfg.jsKey}`;
-      s.onload = resolve;
-      s.onerror = resolve;
+      let settled = false;
+      const done = () => { if (!settled) { settled = true; resolve(); } };
+      s.onload = () => { done(); if (window.AMap && !state.map) ensureMap(); };
+      s.onerror = done;
+      setTimeout(done, 6000);
       document.head.appendChild(s);
     });
   }

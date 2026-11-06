@@ -3,6 +3,7 @@ import time
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+import httpx
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse, Response
 
@@ -222,6 +223,26 @@ def delete_classic(request: Request, poiid: str):
     if not ok:
         return JSONResponse(status_code=403, content={"detail": "forbidden"})
     return _envelope({"ok": True}, Meta())
+
+
+@router.get("/_AMapService/{path:path}")
+async def amap_proxy(request: Request, path: str):
+    """把 JS API 的安全密钥注入后转发给高德，前端不暴露 jscode。
+
+    生产环境可以交给 Nginx 做同一件事；这里保留是因为本地开发没有 Nginx 也能跑通 2.0。
+    """
+    params = dict(request.query_params)
+    code = request.app.state.settings.amap_security_code
+    if code:
+        params["jscode"] = code
+    host = "https://webapi.amap.com" if path.startswith("v4/map/styles") else "https://restapi.amap.com"
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        try:
+            resp = await client.get(f"{host}/{path}", params=params)
+        except httpx.HTTPError:
+            return JSONResponse(status_code=502, content={"detail": "amap_proxy_unavailable"})
+    return Response(content=resp.content, status_code=resp.status_code,
+                    media_type=resp.headers.get("content-type"))
 
 
 @router.get("/api/staticmap")

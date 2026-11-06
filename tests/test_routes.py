@@ -1,6 +1,8 @@
 from datetime import date as date_cls, timedelta
 
+import httpx
 import pytest
+import respx
 from fastapi.testclient import TestClient
 
 from app.config import Settings
@@ -34,7 +36,8 @@ class FakeAmap:
 
 @pytest.fixture
 def client(tmp_path):
-    app = create_app(Settings(_env_file=None, db_path=str(tmp_path / "t.db"), admin_token="secret"))
+    app = create_app(Settings(_env_file=None, db_path=str(tmp_path / "t.db"),
+                              admin_token="secret", amap_security_code="sc"))
     app.state.client = FakeAmap()
     return TestClient(app)
 
@@ -118,6 +121,16 @@ def test_classic_pick_has_computed_distance(client):
                 headers={"X-Client-Token": "tok-a"})
     body = client.get("/api/today", params={"lat": 39.91, "lng": 116.40, "mode": "classic"}).json()
     assert body["data"]["pick"]["distance"] is not None
+
+
+@respx.mock
+def test_amap_proxy_injects_jscode(client):
+    route = respx.get("https://restapi.amap.com/v3/ip").mock(
+        return_value=httpx.Response(200, json={"status": "1", "info": "OK"}))
+    r = client.get("/_AMapService/v3/ip", params={"key": "k"})
+    assert r.status_code == 200
+    assert route.called
+    assert "jscode=sc" in str(route.calls[0].request.url)
 
 
 def test_staticmap_returns_png(client):

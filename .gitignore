@@ -6,5 +6,5 @@ __pycache__/
 .pytest_cache/
 .venv/
 .conda-env/
-
+.chrome-tmp*/
 pip-unpack-*/

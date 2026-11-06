@@ -17,7 +17,18 @@ uvicorn app.main:app --reload --port 8000
 打开 http://127.0.0.1:8000 。
 
 - 没有 `AMAP_JS_KEY` 时，左栏自动降级为静态地图图片（`/api/staticmap`）；
-- 想用交互式地图，再申请「Web端 (JS API)」key 与安全密钥，填 `AMAP_JS_KEY` / `AMAP_SECURITY_CODE`，并在 Nginx 配置 `/_AMapService/` 反代。
+- 配好 `AMAP_JS_KEY` 后左栏是真正的交互地图。JS API 2.0 的 `securityJsCode` 不能放在前端，本项目内置了 `/_AMapService/` 反向代理（见 `app/routes.py` 的 `amap_proxy`），把 `AMAP_SECURITY_CODE` 填进 `.env` 即可，本地开发不需要 Nginx；
+- 前端把 `serviceHost` 设为 `${location.origin}/_AMapService`，这个值必须是「源 + 前缀」的完整地址，只写主机名会让 JS API 把主机名拼进路径。
+
+页面自检（需要 Chrome）：
+
+```powershell
+chrome --headless=new --disable-gpu --remote-debugging-port=9223 --remote-allow-origins=* `
+  --user-data-dir=.chrome-tmp http://127.0.0.1:8000
+python scripts/cdp_check.py
+```
+
+输出里 `container=false` 说明地图没起来（多半是 key 平台不是「Web端 (JS API)」）。
 
 ## 测试
 

@@ -13,7 +13,9 @@ class AmapError(Exception):
 
 
 CONFIG_ERRORS = {"INVALID_USER_KEY", "USERKEY_PLAT_NOMATCH", "INVALID_USER_IP", "INVALID_USER_DOMAIN"}
-QUOTA_ERRORS = {"DAILY_QUERY_OVER_LIMIT", "USER_DAILY_QUERY_OVER_LIMIT", "ACCESS_TOO_FREQUENT"}
+TEMP_ERRORS = {"CUQPS_HAS_EXCEEDED_THE_LIMIT", "CQPS_HAS_EXCEEDED_THE_LIMIT",
+               "CKQPS_HAS_EXCEEDED_THE_LIMIT", "QPS_HAS_EXCEEDED_THE_LIMIT",
+               "ACCESS_TOO_FREQUENT"}
 
 
 def _text(value) -> str | None:
@@ -112,6 +114,8 @@ class AmapClient:
         params = {**params, "key": self._key}
         async with self._sem:
             data = None
+            last_info = "NO_RESPONSE"
+            last_code = ""
             for attempt in (1, 2):
                 try:
                     resp = await self._http.get(f"{self._base}{path}", params=params)
@@ -120,16 +124,24 @@ class AmapClient:
                         continue
                     resp.raise_for_status()
                     data = resp.json()
-                    break
                 except (httpx.TimeoutException, httpx.HTTPError):
                     if attempt == 2:
                         raise
                     await asyncio.sleep(1.0)
-        if data is None:
-            raise AmapError("NO_RESPONSE")
-        if str(data.get("status")) != "1":
-            raise AmapError(str(data.get("info") or "UNKNOWN"), str(data.get("infocode") or ""))
-        return data
+                    continue
+
+                if str(data.get("status")) == "1":
+                    return data
+
+                last_info = str(data.get("info") or "UNKNOWN")
+                last_code = str(data.get("infocode") or "")
+                if last_info in TEMP_ERRORS and attempt == 1:
+                    # 高德 QPS 限流是业务错误码（HTTP 200），退避后重试一次
+                    await asyncio.sleep(1.2)
+                    data = None
+                    continue
+                break
+        raise AmapError(last_info, last_code)
 
     async def around(self, lat: float, lng: float, radius: int,
                      keywords: str | None = None, types: str | None = "050000",

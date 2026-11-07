@@ -173,6 +173,21 @@ async def test_regeo_exposes_nearest_poi():
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_qps_limit_is_retried_once():
+    route = respx.get("https://restapi.amap.com/v3/place/around")
+    route.side_effect = [
+        httpx.Response(200, json={"status": "0", "info": "CUQPS_HAS_EXCEEDED_THE_LIMIT", "infocode": "10021"}),
+        httpx.Response(200, json=SAMPLE),
+    ]
+    client = AmapClient(key="k")
+    pois = await client.around(39.9, 116.4, 1000)
+    await client.aclose()
+    assert len(pois) == 2
+    assert route.call_count == 2
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_detail_returns_poi():
     respx.get("https://restapi.amap.com/v3/place/detail").mock(
         return_value=httpx.Response(200, json=SAMPLE))

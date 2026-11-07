@@ -469,6 +469,8 @@ function setMode(mode) {
     const el = $(sel);
     if (el) el.classList.toggle('active', m === mode);
   });
+  const row = $('#radius-row');
+  if (row) row.classList.toggle('disabled', mode === 'classic');
   loadToday();
 }
 
@@ -602,16 +604,18 @@ async function loadToday() {
   }
 }
 
-async function search(q) {
+async function search(q, expand = false) {
   state.lastQuery = q;
   try {
     const body = await api('/api/search', {
-      q, lat: state.lat, lng: state.lng, radius: Math.max(state.radius, 5000),
+      q, lat: state.lat, lng: state.lng, radius: state.radius, expand: expand ? 'true' : 'false',
     });
     state.lastMeta = body.meta;
     const items = body.data.items || [];
     if (!items.length) {
-      $('#list').innerHTML = `<div class="notice">附近没搜到「${esc(q)}」，换个关键词，或右键地图换个出发点试试</div>`;
+      $('#list').innerHTML = `<div class="notice">${state.radius} 米内没搜到「${esc(q)}」
+        <button class="btn" id="btn-expand-search" type="button">放宽到 5 公里搜</button></div>`;
+      $('#btn-expand-search').onclick = () => search(q, true);
       renderMarkers([]);
       return;
     }
@@ -726,7 +730,7 @@ async function boot() {
       state.radius = Number(el.dataset.r);
       $('#radius-row').querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
       el.classList.add('active');
-      loadToday();
+      refreshCurrent();
     };
   });
 

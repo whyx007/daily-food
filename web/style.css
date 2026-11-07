@@ -46,6 +46,7 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 .item .sub { color: #57606a; font-size: 12px; }
 #panel footer { position: relative; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 #radius-row { display: flex; gap: 6px; }
+#radius-row.disabled { opacity: .45; pointer-events: none; }
 .menu { position: absolute; bottom: calc(100% + 8px); left: 0; display: flex; flex-direction: column; gap: 2px;
   min-width: 132px; padding: 6px; background: #fff; border: 1px solid #d0d7de; border-radius: 10px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .12); z-index: 60; }

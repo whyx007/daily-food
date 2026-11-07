@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     site_name: str = "今天吃啥"
     admin_token: str = ""
     db_path: str = "daily-food.db"
+    seed_file: str = "data/classics.json"
     qps: int = 3
     rate_limit_per_min: int = 120
 

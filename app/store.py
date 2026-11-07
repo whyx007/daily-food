@@ -122,6 +122,11 @@ class Store:
             self._conn.commit()
         return True
 
+    def count_classics(self) -> int:
+        with self._lock:
+            row = self._conn.execute("SELECT count(*) AS c FROM classics").fetchone()
+        return int(row["c"])
+
     def upsert_fix(self, poiid: str, lat: float, lng: float) -> None:
         with self._lock:
             self._conn.execute(

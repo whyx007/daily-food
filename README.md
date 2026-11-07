@@ -20,6 +20,18 @@
 设计文档见 [docs/superpowers/specs/2026-11-07-daily-food-design.md](docs/superpowers/specs/2026-11-07-daily-food-design.md)，
 实现计划见 [docs/superpowers/plans/2026-11-07-daily-food-plan.md](docs/superpowers/plans/2026-11-07-daily-food-plan.md)。
 
+## 经典馆子（名人堂）的数据怎么留
+
+名人堂存在 SQLite 里（`daily-food.db`，已被 `.gitignore` 排除），所以**默认不进 git**。要让名单跟着仓库走：
+
+```powershell
+# 导出当前数据库里的名人堂到 data/classics.json
+python scripts/export_classics.py
+git add data/classics.json && git commit -m "data: 更新经典馆子名单"
+```
+
+服务启动时，如果数据库里**一条名人堂都没有**，会自动从 `data/classics.json` 导入。所以换机器 / 部署到 Ubuntu 时，clone 下来第一次启动就有名单；之后本地增删不会自动写回这个文件，需要重新导出才同步（避免本地操作覆盖仓库版本）。想禁用自动导入就把 `.env` 里的 `SEED_FILE` 设为空。
+
 ## 本地运行（Windows）
 
 ```powershell

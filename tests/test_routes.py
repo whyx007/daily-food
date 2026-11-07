@@ -1,4 +1,4 @@
-from datetime import date as date_cls, timedelta
+﻿from datetime import date as date_cls, timedelta
 
 import httpx
 import pytest
@@ -36,7 +36,7 @@ class FakeAmap:
 
 @pytest.fixture
 def client(tmp_path):
-    app = create_app(Settings(_env_file=None, db_path=str(tmp_path / "t.db"),
+    app = create_app(Settings(_env_file=None, seed_file="", db_path=str(tmp_path / "t.db"),
                               admin_token="secret", amap_security_code="sc"))
     app.state.client = FakeAmap()
     return TestClient(app)
@@ -140,7 +140,7 @@ def test_amap_proxy_injects_jscode(client):
 
 
 def test_rate_limit_uses_settings(client, tmp_path):
-    app = create_app(Settings(_env_file=None, db_path=str(tmp_path / "rl.db"), rate_limit_per_min=1))
+    app = create_app(Settings(_env_file=None, seed_file="", db_path=str(tmp_path / "rl.db"), rate_limit_per_min=1))
     app.state.client = FakeAmap()
     c = TestClient(app)
     assert c.get("/api/today", params={"lat": 39.91, "lng": 116.40}).status_code == 200

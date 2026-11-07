@@ -2,6 +2,7 @@ const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
+  lastMeta: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -65,7 +66,7 @@ function pos() {
   });
 }
 
-function renderDaily(pick, meta) {
+function renderCard(pick, meta, source) {
   const card = $('#daily-card');
   if (!pick) { card.innerHTML = '<div class="notice">今天没有可选的结果</div>'; return; }
   const rating = pick.rating ? `· ${pick.rating} 分` : '';
@@ -86,13 +87,28 @@ function renderDaily(pick, meta) {
     select(pick);
     toast(`地图上标出了：${pick.name}`);
   };
-  card.querySelector('#btn-again').onclick = () => { state.nonce += 1; loadToday(); };
+  card.querySelector('#btn-again').onclick = () => {
+    if (source === 'list') cycleFromList();
+    else { state.nonce += 1; loadToday(); }
+  };
   if (meta && meta.degraded) {
     card.insertAdjacentHTML('beforeend', `<div class="notice">${meta.degraded}</div>`);
   }
   if (meta && meta.stale) {
     card.insertAdjacentHTML('beforeend', '<div class="notice">显示的是缓存结果</div>');
   }
+}
+
+function renderDaily(pick, meta) {
+  renderCard(pick, meta, 'daily');
+}
+
+function cycleFromList() {
+  const items = state.lastItems || [];
+  if (!items.length) { state.nonce += 1; loadToday(); return; }
+  const idx = items.findIndex((p) => p.id === state.selectedId);
+  const next = items[(idx + 1) % items.length];
+  select(next);
 }
 
 function renderList(items) {
@@ -337,6 +353,7 @@ function select(poi) {
   $('#list').querySelectorAll('.item').forEach((el) => {
     el.classList.toggle('active', el.dataset.id === poi.id);
   });
+  renderCard(poi, state.lastMeta || null, 'list');
   renderSelectedMarker(poi);
   if (state.map) state.map.setCenter([poi.lng, poi.lat]);
 }
@@ -369,6 +386,8 @@ async function loadToday() {
                      radius: state.radius, nonce: state.nonce };
     if (state.mode === 'weighted' && state.minRating) params.min_rating = state.minRating;
     const body = await api('/api/today', params);
+    state.lastMeta = body.meta;
+    state.selectionActive = false;
     renderDaily(body.data.pick, body.meta);
     renderList(body.data.candidates);
     renderMarkers(body.data.candidates);
@@ -399,6 +418,7 @@ async function search(q) {
     const body = await api('/api/search', {
       q, lat: state.lat, lng: state.lng, radius: Math.max(state.radius, 5000),
     });
+    state.lastMeta = body.meta;
     const items = body.data.items || [];
     if (!items.length) {
       $('#list').innerHTML = `<div class="notice">附近没搜到「${esc(q)}」，换个关键词，或右键地图换个出发点试试</div>`;

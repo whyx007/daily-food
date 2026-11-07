@@ -377,10 +377,35 @@ async function addClassicByCoords(name, lat, lng, poiId) {
       headers: { 'Content-Type': 'application/json', 'X-Client-Token': token() },
       body: JSON.stringify(payload),
     });
-    toast(resp.ok ? `已加入经典馆子：${name}` : `加入失败（${resp.status}）`);
+    if (resp.ok) afterClassicAdd(name);
+    else toast(`加入失败（${resp.status}）`);
   } catch (e) {
     toast('加入失败，请检查网络');
   }
+}
+
+function setMode(mode) {
+  state.mode = mode;
+  state.nonce += 1;
+  const map = { area: '#btn-random', classic: '#btn-classic', weighted: '#btn-weighted' };
+  Object.entries(map).forEach(([m, sel]) => {
+    const el = $(sel);
+    if (el) el.classList.toggle('active', m === mode);
+  });
+  loadToday();
+}
+
+async function afterClassicAdd(name) {
+  // 加入后立即把右侧列表刷成经典馆子，让新增的这家马上可见
+  try {
+    const body = await api('/api/classics');
+    const count = (body.data.items || []).length;
+    toast(`已加入经典馆子：${name}（共 ${count} 家）`);
+  } catch (e) {
+    toast(`已加入经典馆子：${name}`);
+  }
+  if (state.mode === 'classic') loadToday();
+  else setMode('classic');
 }
 
 function openNameDialog(prefill, subtitle, onSubmit) {
@@ -415,7 +440,8 @@ async function addClassic(poi) {
       headers: { 'Content-Type': 'application/json', 'X-Client-Token': token() },
       body: JSON.stringify({ poiid: poi.id }),
     });
-    toast(resp.ok ? `已加入经典馆子：${poi.name}` : `加入失败（${resp.status}）`);
+    if (resp.ok) afterClassicAdd(poi.name);
+    else toast(`加入失败（${resp.status}）`);
   } catch (e) {
     toast('加入失败，请检查网络');
   }
@@ -582,12 +608,6 @@ async function boot() {
   };
 
   const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'), weighted: $('#btn-weighted') };
-  const setMode = (mode) => {
-    state.mode = mode;
-    state.nonce += 1;
-    Object.entries(modeButtons).forEach(([m, el]) => el.classList.toggle('active', m === mode));
-    loadToday();
-  };
   modeButtons.area.onclick = () => setMode('area');
   modeButtons.classic.onclick = () => setMode('classic');
 
@@ -635,7 +655,8 @@ async function boot() {
 
   bindMapMenu();
   setMode('area');
-  window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02, buildNavUrl };
+  window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02, buildNavUrl,
+    afterClassicAdd, setMode };
 }
 
 boot().catch(() => {

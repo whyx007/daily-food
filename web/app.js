@@ -1,6 +1,6 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
-  map: null, markers: [], selectedId: null, lock: false, lastItems: [],
+  map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -17,7 +17,12 @@ const token = () => {
 async function api(path, params = {}) {
   const qs = new URLSearchParams(params);
   const resp = await fetch(`${path}?${qs}`, { headers: { 'X-Client-Token': token() } });
-  if (!resp.ok) throw new Error(`${path} ${resp.status}`);
+  if (!resp.ok) {
+    const err = new Error(`${path} ${resp.status}`);
+    err.status = resp.status;
+    err.retryAfter = Number(resp.headers.get('Retry-After') || 0);
+    throw err;
+  }
   return resp.json();
 }
 
@@ -127,8 +132,19 @@ async function loadToday() {
     renderDaily(body.data.pick, body.meta);
     renderList(body.data.candidates);
     renderMarkers(body.data.candidates);
+    state.retries = 0;
   } catch (e) {
-    $('#daily-card').innerHTML = '<div class="notice">加载失败，稍后再试</div>';
+    if (e.status === 429 && (state.retries || 0) < 2) {
+      state.retries = (state.retries || 0) + 1;
+      $('#daily-card').innerHTML = '<div class="notice">点得太快了，稍后自动重试…</div>';
+      setTimeout(() => loadToday(), 2500);
+    } else if (e.status === 429) {
+      $('#daily-card').innerHTML = '<div class="notice">点得太快了，请等一会儿再试</div>';
+    } else if (e.status === 404) {
+      $('#daily-card').innerHTML = '<div class="notice">这个区域暂时没有可选餐厅</div>';
+    } else {
+      $('#daily-card').innerHTML = '<div class="notice">加载失败，稍后再试</div>';
+    }
   } finally {
     state.lock = false;
   }

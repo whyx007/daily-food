@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     admin_token: str = ""
     db_path: str = "daily-food.db"
     qps: int = 3
+    rate_limit_per_min: int = 120
 
     @property
     def radius_list(self) -> list[int]:

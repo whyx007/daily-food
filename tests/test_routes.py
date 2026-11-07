@@ -133,6 +133,16 @@ def test_amap_proxy_injects_jscode(client):
     assert "jscode=sc" in str(route.calls[0].request.url)
 
 
+def test_rate_limit_uses_settings(client, tmp_path):
+    app = create_app(Settings(_env_file=None, db_path=str(tmp_path / "rl.db"), rate_limit_per_min=1))
+    app.state.client = FakeAmap()
+    c = TestClient(app)
+    assert c.get("/api/today", params={"lat": 39.91, "lng": 116.40}).status_code == 200
+    resp = c.get("/api/today", params={"lat": 39.91, "lng": 116.40})
+    assert resp.status_code == 429
+    assert resp.headers["Retry-After"] == "60"
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

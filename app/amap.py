@@ -87,19 +87,20 @@ class AmapClient:
         return data
 
     async def around(self, lat: float, lng: float, radius: int,
-                     keywords: str | None = None, types: str = "050000",
+                     keywords: str | None = None, types: str | None = "050000",
                      max_items: int = 60) -> list[Poi]:
         out: list[Poi] = []
         for page in range(1, 4):
             params = {
                 "location": f"{lng:.6f},{lat:.6f}",
                 "radius": radius,
-                "types": types,
                 "offset": 25,
                 "page": page,
                 "extensions": "all",
                 "sortrule": "distance",
             }
+            if types:
+                params["types"] = types
             if keywords:
                 params["keywords"] = keywords
             data = await self._get("/v3/place/around", params)

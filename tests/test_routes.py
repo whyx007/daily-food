@@ -171,6 +171,24 @@ def test_weighted_min_rating_no_match(client):
     assert r.json()["meta"]["degraded"] == "no_match"
 
 
+def test_search_expands_when_empty(client):
+    calls = []
+
+    async def fake_around(lat, lng, radius, keywords=None, types="050000", max_items=60):
+        calls.append({"radius": radius, "types": types})
+        if len(calls) == 1:
+            return []
+        return [Poi(id="B900", name="鲍家水饺", distance=3065, lat=lat, lng=lng, rating="4.2")]
+
+    client.app.state.client.around = fake_around
+    r = client.get("/api/search", params={"q": "鲍家水饺", "lat": 34.17, "lng": 108.86, "radius": 1000})
+    assert r.status_code == 200
+    assert r.json()["data"]["items"][0]["name"] == "鲍家水饺"
+    assert len(calls) == 2
+    assert calls[1]["radius"] == 5000
+    assert calls[1]["types"] is None
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

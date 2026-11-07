@@ -187,6 +187,10 @@ async def search(request: Request, lat: float, lng: float, q: str | None = None,
         items = await request.app.state.client.around(lat, lng, radius,
                                                       keywords=(q or None), types=category or "050000")
         store.bump_calls(day)
+        if not items and (q or "").strip() and radius < 5000:
+            # 附近 1km 内没有，放宽到 5km 并且不强制餐饮分类，避免"明明有店却搜不到"
+            items = await request.app.state.client.around(lat, lng, 5000, keywords=q.strip(), types=None)
+            store.bump_calls(day)
     except AmapError as exc:
         return _envelope({"items": [], "cached": False}, Meta(degraded=f"amap:{exc.info}"))
 

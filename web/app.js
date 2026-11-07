@@ -15,6 +15,10 @@ const token = () => {
   return t;
 };
 
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+}[c]));
+
 async function api(path, params = {}) {
   const qs = new URLSearchParams(params);
   const resp = await fetch(`${path}?${qs}`, { headers: { 'X-Client-Token': token() } });
@@ -66,10 +70,10 @@ function renderDaily(pick, meta) {
   if (!pick) { card.innerHTML = '<div class="notice">今天没有可选的结果</div>'; return; }
   const rating = pick.rating ? `· ${pick.rating} 分` : '';
   const cost = pick.cost ? `· 人均 ¥${pick.cost}` : '';
-  const addr = pick.address ? `${pick.address} · ` : '';
+  const addr = pick.address ? `${esc(pick.address)} · ` : '';
   const address = `<div class="meta">${addr}<span class="coord">${pick.lat.toFixed(5)}, ${pick.lng.toFixed(5)}</span></div>`;
   card.innerHTML = `
-    <div class="name">${pick.name}</div>
+    <div class="name">${esc(pick.name)}</div>
     <div class="meta">${pick.distance ?? '?'}m ${rating} ${cost}</div>
     ${address}
     <div class="actions">
@@ -95,7 +99,7 @@ function renderList(items) {
   const list = $('#list');
   list.innerHTML = items.map((p) => `
     <div class="item" data-id="${p.id}">
-      <div>${p.name}</div>
+      <div>${esc(p.name)}</div>
       <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}</div>
     </div>`).join('');
   list.querySelectorAll('.item').forEach((el) => {
@@ -342,11 +346,19 @@ async function loadToday() {
 
 async function search(q) {
   try {
-    const body = await api('/api/search', { q, lat: state.lat, lng: state.lng, radius: state.radius });
-    renderList(body.data.items);
-    renderMarkers(body.data.items);
+    const body = await api('/api/search', {
+      q, lat: state.lat, lng: state.lng, radius: Math.max(state.radius, 5000),
+    });
+    const items = body.data.items || [];
+    if (!items.length) {
+      $('#list').innerHTML = `<div class="notice">附近没搜到「${esc(q)}」，换个关键词，或右键地图换个出发点试试</div>`;
+      renderMarkers([]);
+      return;
+    }
+    renderList(items);
+    renderMarkers(items);
   } catch (e) {
-    /* 保持原列表 */
+    $('#list').innerHTML = `<div class="notice">搜索失败（${e.status || '网络'}），稍后再试</div>`;
   }
 }
 

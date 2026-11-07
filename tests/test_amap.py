@@ -50,6 +50,20 @@ async def test_platform_mismatch_raises_amap_error():
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_around_omits_types_when_none():
+    route = respx.get("https://restapi.amap.com/v3/place/around").mock(
+        return_value=httpx.Response(200, json=SAMPLE))
+    client = AmapClient(key="k")
+    await client.around(39.9, 116.4, 5000, keywords="鲍家水饺", types=None)
+    await client.aclose()
+    assert route.called
+    url = str(route.calls[0].request.url)
+    assert "types=" not in url
+    assert "keywords=" in url
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_detail_returns_poi():
     respx.get("https://restapi.amap.com/v3/place/detail").mock(
         return_value=httpx.Response(200, json=SAMPLE))

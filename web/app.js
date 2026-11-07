@@ -126,6 +126,23 @@ function toast(text) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
 }
 
+function positionRatingMenu() {
+  const menu = $('#rating-menu');
+  const footer = $('#panel footer');
+  const btn = $('#btn-weighted');
+  const f = footer.getBoundingClientRect();
+  const b = btn.getBoundingClientRect();
+  const wasHidden = menu.hidden;
+  menu.hidden = false; // 先显示才能量到宽度
+  const w = menu.offsetWidth || 150;
+  let left = b.left - f.left + (b.width - w) / 2;
+  left = Math.min(Math.max(left, 4), Math.max(4, f.width - w - 4));
+  menu.style.left = `${Math.round(left)}px`;
+  menu.style.bottom = `${Math.round(f.bottom - b.top + 8)}px`;
+  menu.style.top = 'auto';
+  menu.hidden = wasHidden;
+}
+
 function nearestMarker(pixel) {
   if (!state.map || !pixel) return null;
   let best = null;
@@ -368,7 +385,12 @@ async function boot() {
   });
   modeButtons.weighted.onclick = (e) => {
     e.stopPropagation();
-    ratingMenu.hidden = !ratingMenu.hidden;
+    if (ratingMenu.hidden) {
+      positionRatingMenu();
+      ratingMenu.hidden = false;
+    } else {
+      ratingMenu.hidden = true;
+    }
   };
   document.addEventListener('click', (e) => {
     if (!ratingMenu.hidden && !ratingMenu.contains(e.target)) closeRatingMenu();

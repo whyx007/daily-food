@@ -243,6 +243,29 @@ def test_classic_with_poiid_and_coords_keeps_user_point(client):
     assert item["lat"] == 39.95 and item["lng"] == 116.45
 
 
+def test_poi_nearby_resolves_shop(client):
+    async def fake_regeo(lat, lng, radius=300):
+        return {"label": "某某广场", "address": "某路 1 号", "poiName": "老王水饺",
+                "poiId": "B001", "poiDistance": 20}
+
+    client.app.state.client.regeo = fake_regeo
+    body = client.get("/api/poi-nearby", params={"lat": 39.91, "lng": 116.40}).json()
+    assert body["data"]["poi"]["name"] == "详情店"
+    assert body["data"]["poi"]["rating"] == "4.2"
+    assert body["data"]["click"] == {"lat": 39.91, "lng": 116.40}
+
+
+def test_poi_nearby_without_poi_falls_back_to_label(client):
+    async def fake_regeo(lat, lng, radius=300):
+        return {"label": "某某广场", "address": "某路 1 号", "poiName": "",
+                "poiId": "", "poiDistance": None}
+
+    client.app.state.client.regeo = fake_regeo
+    body = client.get("/api/poi-nearby", params={"lat": 39.91, "lng": 116.40}).json()
+    assert body["data"]["poi"]["name"] == "某某广场"
+    assert body["data"]["poi"]["id"].startswith("pt:")
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

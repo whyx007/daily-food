@@ -168,7 +168,7 @@ function ensureMap() {
   state.map.on('rightclick', (e) => {
     showMapMenu(e.pixel, e.lnglat, nearestMarker(e.pixel));
   });
-  state.map.on('click', closeMapMenu);
+  state.map.on('click', handleMapClick);
   renderOrigin();
   renderMarkers(state.lastItems || []);
   updateOriginBadge();
@@ -381,6 +381,83 @@ async function addClassicByCoords(name, lat, lng, poiId) {
     else toast(`加入失败（${resp.status}）`);
   } catch (e) {
     toast('加入失败，请检查网络');
+  }
+}
+
+function hidePoiPopup() {
+  const pop = $('#poi-popup');
+  if (pop) pop.hidden = true;
+}
+
+function renderPoiPopup(poi, pixel, click) {
+  const pop = $('#poi-popup');
+  const body = $('#poi-body');
+  const rating = poi.rating ? `${poi.rating} 分` : '';
+  const cost = poi.cost ? `人均 ¥${poi.cost}` : '';
+  const meta = [rating, cost].filter(Boolean).join(' · ');
+  const tel = poi.tel ? `<div class="poi-line">📞 ${telHtml(poi.tel).replace(/^<div[^>]*>|<\/div>$/g, '')}</div>` : '';
+  body.innerHTML = `
+    <div class="poi-name">${esc(poi.name)}</div>
+    ${poi.type ? `<div class="poi-line">${esc(poi.type)}</div>` : ''}
+    ${meta ? `<div class="poi-line">${meta}</div>` : ''}
+    ${poi.address ? `<div class="poi-line">${esc(poi.address)}</div>` : ''}
+    ${tel}
+    <div class="poi-line">${poi.lat.toFixed(5)}, ${poi.lng.toFixed(5)}</div>
+    <div class="poi-actions">
+      <button class="btn primary" data-act="nav">去这里</button>
+      <button class="btn" data-act="classic">加入经典馆子</button>
+      <button class="btn" data-act="origin">设为出发点</button>
+    </div>`;
+  body.querySelector('[data-act="nav"]').onclick = () => navigate(poi);
+  body.querySelector('[data-act="classic"]').onclick = () => {
+    if (poi.id.startsWith('pt:')) {
+      openNameDialog(poi.name, '这个点位没有对应的商家档案，确认名字后加入', (name) => {
+        if (name) addClassicByCoords(name, poi.lat, poi.lng, null);
+      });
+    } else {
+      addClassic(poi);
+    }
+    hidePoiPopup();
+  };
+  body.querySelector('[data-act="origin"]').onclick = () => {
+    state.lat = click.lat;
+    state.lng = click.lng;
+    state.originSource = 'manual';
+    if (state.map) state.map.setCenter([state.lng, state.lat]);
+    renderOrigin();
+    hidePoiPopup();
+    toast('出发点已改到这里');
+    loadToday();
+  };
+
+  const pane = $('#map-pane').getBoundingClientRect();
+  pop.hidden = false;
+  const w = pop.offsetWidth || 240;
+  const h = pop.offsetHeight || 150;
+  pop.style.left = `${Math.round(Math.min(Math.max(8, pixel.x - w / 2), pane.width - w - 8))}px`;
+  pop.style.top = `${Math.round(Math.min(Math.max(8, pixel.y - h - 12), pane.height - h - 8))}px`;
+  $('#poi-close').onclick = hidePoiPopup;
+}
+
+async function handleMapClick(e) {
+  hidePoiPopup();
+  closeMapMenu();
+  if (!e || !e.lnglat || !e.pixel) return;
+  const click = { lat: e.lnglat.lat, lng: e.lnglat.lng };
+  const pop = $('#poi-popup');
+  const body = $('#poi-body');
+  pop.hidden = false;
+  body.innerHTML = '<div class="poi-line">正在识别这个位置的商家…</div>';
+  pop.style.left = `${Math.round(e.pixel.x)}px`;
+  pop.style.top = `${Math.round(e.pixel.y - 60)}px`;
+  try {
+    const resp = await api('/api/poi-nearby', { lat: click.lat, lng: click.lng });
+    const data = resp.data;
+    if (!data || !data.poi) { hidePoiPopup(); toast('这个位置没识别到商家'); return; }
+    renderPoiPopup(data.poi, e.pixel, click);
+  } catch (err) {
+    hidePoiPopup();
+    toast(`识别失败（${err.status || '网络'}）`);
   }
 }
 
@@ -656,7 +733,7 @@ async function boot() {
   bindMapMenu();
   setMode('area');
   window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02, buildNavUrl,
-    afterClassicAdd, setMode };
+    afterClassicAdd, setMode, handleMapClick };
 }
 
 boot().catch(() => {

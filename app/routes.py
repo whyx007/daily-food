@@ -343,6 +343,54 @@ async def regeo(request: Request, lat: float, lng: float):
     return _envelope(payload, Meta(cachedAt=_now()))
 
 
+async def _resolve_point(store, client, lat: float, lng: float) -> dict:
+    """把一个地图点位解析成商家信息：先逆地理编码找最近的店，再补详情。"""
+    info = await client.regeo(lat, lng)
+    poi = None
+    poi_id = info.get("poiId") or ""
+    distance = info.get("poiDistance")
+    if poi_id and isinstance(distance, (int, float)) and distance <= 150:
+        try:
+            poi = await client.detail(poi_id)
+        except AmapError:
+            poi = None
+    if poi is None:
+        name = info.get("label") or info.get("address") or "地图选点"
+        raw = hashlib.sha1(f"{lat:.6f},{lng:.6f}".encode()).hexdigest()[:10]
+        poi = Poi(id=f"pt:{raw}", name=name, lat=lat, lng=lng, address=info.get("address") or None)
+    payload = poi.model_dump()
+    fix = store.list_fixes().get(payload["id"])
+    if fix:
+        payload["lat"], payload["lng"] = fix
+    return payload
+
+
+@router.get("/api/poi-nearby")
+async def poi_nearby(request: Request, lat: float, lng: float):
+    store = request.app.state.store
+    key = "poiinfo:" + hashlib.sha1(f"{lat:.5f},{lng:.5f}".encode()).hexdigest()
+    cached = store.get_search(key, ttl=86400)
+    if cached is not None:
+        payload, fetched_at = cached
+        return _envelope(payload, Meta(cachedAt=fetched_at))
+    if not request.app.state.limiter.allow(_client_ip(request)):
+        return JSONResponse(status_code=429, content={"detail": "too_many_requests"})
+
+    day = today_key()
+    if guard.breaker_state(store, day, request.app.state.settings.daily_call_limit) == "daily_limit_reached":
+        return _envelope({"poi": None, "click": {"lat": lat, "lng": lng}},
+                         Meta(degraded="daily_limit_reached"))
+    try:
+        poi = await _resolve_point(store, request.app.state.client, lat, lng)
+        store.bump_calls(day)
+    except AmapError as exc:
+        return _envelope({"poi": None, "click": {"lat": lat, "lng": lng}},
+                         Meta(degraded=f"amap:{exc.info}"))
+    payload = {"poi": poi, "click": {"lat": lat, "lng": lng}}
+    store.put_search(key, payload, _now())
+    return _envelope(payload, Meta(cachedAt=_now()))
+
+
 @router.get("/api/staticmap")
 async def staticmap(request: Request, lat: float, lng: float, zoom: int = 14):
     try:

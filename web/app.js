@@ -74,20 +74,29 @@ function renderList(items) {
 }
 
 function renderMarkers(items) {
+  // 默认不在地图上铺满标记，只有右侧选中某家时才落地一个标记
   state.lastItems = items;
+  if (state.selectedId && !items.some((p) => p.id === state.selectedId)) {
+    state.selectedId = null;
+    renderSelectedMarker(null);
+  }
+}
+
+function renderSelectedMarker(poi) {
   if (!state.map || !window.AMap) return;
   state.map.remove(state.markers);
-  state.markers = items.slice(0, 20).map((p) => new AMap.Marker({
-    position: [p.lng, p.lat], title: p.name, anchor: 'bottom-center', extData: p,
-  }));
-  state.map.add(state.markers);
-  state.markers.forEach((m) => {
-    m.on('click', () => select(m.getExtData()));
-    m.on('rightclick', () => {
-      const p = state.map.lngLatToContainer(m.getPosition());
-      showMapMenu(p, m.getPosition(), m.getExtData());
-    });
+  state.markers = [];
+  if (!poi) return;
+  const marker = new AMap.Marker({
+    position: [poi.lng, poi.lat], title: poi.name, anchor: 'bottom-center', zIndex: 110, extData: poi,
   });
+  marker.on('click', () => select(poi));
+  marker.on('rightclick', () => {
+    const p = state.map.lngLatToContainer(marker.getPosition());
+    showMapMenu(p, marker.getPosition(), poi);
+  });
+  state.markers.push(marker);
+  state.map.add(marker);
 }
 
 function ensureMap() {
@@ -101,6 +110,8 @@ function ensureMap() {
   state.map.on('click', closeMapMenu);
   renderOrigin();
   renderMarkers(state.lastItems || []);
+  const selected = (state.lastItems || []).find((p) => p.id === state.selectedId);
+  if (selected) renderSelectedMarker(selected);
 }
 
 function renderOrigin() {
@@ -250,6 +261,7 @@ function select(poi) {
   $('#list').querySelectorAll('.item').forEach((el) => {
     el.classList.toggle('active', el.dataset.id === poi.id);
   });
+  renderSelectedMarker(poi);
   if (state.map) state.map.setCenter([poi.lng, poi.lat]);
 }
 

@@ -1,7 +1,7 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
-  originMarker: null,
+  originMarker: null, minRating: 0,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -22,6 +22,7 @@ async function api(path, params = {}) {
     const err = new Error(`${path} ${resp.status}`);
     err.status = resp.status;
     err.retryAfter = Number(resp.headers.get('Retry-After') || 0);
+    try { err.data = await resp.json(); } catch (e) { err.data = null; }
     throw err;
   }
   return resp.json();
@@ -177,10 +178,10 @@ async function loadToday() {
   if (state.lock) return;
   state.lock = true;
   try {
-    const body = await api('/api/today', {
-      lat: state.lat, lng: state.lng, mode: state.mode,
-      radius: state.radius, nonce: state.nonce,
-    });
+    const params = { lat: state.lat, lng: state.lng, mode: state.mode,
+                     radius: state.radius, nonce: state.nonce };
+    if (state.mode === 'weighted' && state.minRating) params.min_rating = state.minRating;
+    const body = await api('/api/today', params);
     renderDaily(body.data.pick, body.meta);
     renderList(body.data.candidates);
     renderMarkers(body.data.candidates);
@@ -193,7 +194,10 @@ async function loadToday() {
     } else if (e.status === 429) {
       $('#daily-card').innerHTML = '<div class="notice">点得太快了，请等一会儿再试</div>';
     } else if (e.status === 404) {
-      $('#daily-card').innerHTML = '<div class="notice">这个区域暂时没有可选餐厅</div>';
+      const code = e.data && e.data.meta && e.data.meta.degraded;
+      $('#daily-card').innerHTML = code === 'no_match'
+        ? '<div class="notice">没有达到这个评分的餐厅，换个档位试试</div>'
+        : '<div class="notice">这个区域暂时没有可选餐厅</div>';
     } else {
       $('#daily-card').innerHTML = '<div class="notice">加载失败，稍后再试</div>';
     }
@@ -271,7 +275,31 @@ async function boot() {
   };
   modeButtons.area.onclick = () => setMode('area');
   modeButtons.classic.onclick = () => setMode('classic');
-  modeButtons.weighted.onclick = () => setMode('weighted');
+
+  const ratingMenu = $('#rating-menu');
+  const ratingButtons = [...ratingMenu.querySelectorAll('button')];
+  const closeRatingMenu = () => { ratingMenu.hidden = true; };
+  const applyRatingLabel = () => {
+    $('#btn-weighted').textContent = state.minRating
+      ? `🏆 高分优先 ${state.minRating}+`
+      : '🏆 高分优先';
+  };
+  ratingButtons.forEach((btn) => {
+    btn.onclick = () => {
+      state.minRating = Number(btn.dataset.r) || 0;
+      ratingButtons.forEach((b) => b.classList.toggle('active', b === btn));
+      applyRatingLabel();
+      closeRatingMenu();
+      setMode('weighted');
+    };
+  });
+  modeButtons.weighted.onclick = (e) => {
+    e.stopPropagation();
+    ratingMenu.hidden = !ratingMenu.hidden;
+  };
+  document.addEventListener('click', (e) => {
+    if (!ratingMenu.hidden && !ratingMenu.contains(e.target)) closeRatingMenu();
+  });
 
   $('#radius-row').innerHTML = cfg.radiusOptions
     .map((r) => `<span class="chip ${r === state.radius ? 'active' : ''}" data-r="${r}">${r}m</span>`)

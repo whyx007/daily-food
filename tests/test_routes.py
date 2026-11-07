@@ -143,6 +143,20 @@ def test_rate_limit_uses_settings(client, tmp_path):
     assert resp.headers["Retry-After"] == "60"
 
 
+def test_weighted_min_rating_filters_candidates(client):
+    body = client.get("/api/today", params={"lat": 39.91, "lng": 116.40,
+                                             "mode": "weighted", "min_rating": 4.5}).json()
+    assert body["data"]["candidates"]
+    assert all(float(c["rating"]) >= 4.5 for c in body["data"]["candidates"])
+
+
+def test_weighted_min_rating_no_match(client):
+    r = client.get("/api/today", params={"lat": 39.91, "lng": 116.40,
+                                          "mode": "weighted", "min_rating": 6})
+    assert r.status_code == 404
+    assert r.json()["meta"]["degraded"] == "no_match"
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

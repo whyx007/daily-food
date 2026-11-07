@@ -45,6 +45,13 @@ def _classic_poi(item: dict) -> dict:
                type=item.get("type"), address=item.get("address")).model_dump()
 
 
+def _rating_float(value) -> float | None:
+    try:
+        return float(value) if value not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
+
+
 def _with_distance(items: list[Poi], lat: float, lng: float, keep_distance: bool) -> list[Poi]:
     out = []
     for poi in items:
@@ -75,7 +82,7 @@ def config(request: Request):
 
 @router.get("/api/today")
 async def today(request: Request, lat: float, lng: float, mode: str = "area",
-                radius: int = 1000, nonce: int = 0):
+                radius: int = 1000, nonce: int = 0, min_rating: float | None = None):
     settings = request.app.state.settings
     store = request.app.state.store
     if not request.app.state.limiter.allow(_client_ip(request)):
@@ -121,6 +128,13 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
     if not pool:
         return JSONResponse(status_code=404, content={
             "data": None, "meta": {"stale": False, "degraded": degraded or "no_data"}})
+
+    if mode == "weighted" and min_rating is not None:
+        pool = [item for item in pool
+                if (_rating_float(item.get("rating")) or 0) >= min_rating]
+        if not pool:
+            return JSONResponse(status_code=404, content={
+                "data": None, "meta": {"stale": stale, "degraded": "no_match"}})
 
     try:
         chosen, picked_degraded = picker.pick(_pois(pool), date=day, grid=grid, mode=mode,

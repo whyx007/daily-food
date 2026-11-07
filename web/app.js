@@ -311,15 +311,24 @@ function select(poi) {
   if (state.map) state.map.setCenter([poi.lng, poi.lat]);
 }
 
+function buildNavUrl(poi) {
+  const to = `${poi.lng},${poi.lat},${encodeURIComponent(poi.name || '目的地')}`;
+  // 出发点仍是默认点时不要传 from，交给高德用设备定位，避免从几千公里外规划路线
+  const known = state.originSource === 'geo' || state.originSource === 'manual';
+  const from = known ? `${state.lng},${state.lat},${encodeURIComponent('出发点')}` : '';
+  const src = encodeURIComponent(state.config ? state.config.siteName : 'daily-food');
+  return `https://uri.amap.com/navigation?from=${from}&to=${to}&mode=walk&callnative=1&src=${src}`;
+}
+
 function navigate(poi) {
   if (/MicroMessenger/i.test(navigator.userAgent)) {
     alert('微信内无法唤起高德，请点右上角「在浏览器中打开」后再试。');
     return;
   }
-  const to = `${poi.lng},${poi.lat},${encodeURIComponent(poi.name)}`;
-  const from = state.lat ? `${state.lng},${state.lat},我的位置` : '';
-  const src = encodeURIComponent(state.config ? state.config.siteName : 'daily-food');
-  window.location.href = `https://uri.amap.com/navigation?from=${from}&to=${to}&mode=walk&callnative=1&src=${src}`;
+  if (state.originSource === 'default') {
+    toast('出发点还是默认点，已交给高德使用手机定位；想固定起点可右键地图设置');
+  }
+  window.location.href = buildNavUrl(poi);
 }
 
 async function loadToday() {
@@ -486,7 +495,7 @@ async function boot() {
 
   bindMapMenu();
   setMode('area');
-  window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02 };
+  window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02, buildNavUrl };
 }
 
 boot().catch(() => {

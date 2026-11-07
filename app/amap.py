@@ -178,6 +178,26 @@ class AmapClient:
                 return poi
         return None
 
+    async def text_search(self, keywords: str, city: str | None = None,
+                          types: str | None = "050000", max_items: int = 60) -> list[Poi]:
+        """城市范围关键字搜索（place/text），不受半径约束。"""
+        out: list[Poi] = []
+        for page in range(1, 4):
+            params = {"keywords": keywords, "offset": 25, "page": page, "extensions": "all"}
+            if city:
+                params["city"] = city
+                params["citylimit"] = "true"
+            if types:
+                params["types"] = types
+            data = await self._get("/v3/place/text", params)
+            for raw in data.get("pois") or []:
+                poi = _parse_poi(raw)
+                if poi is not None:
+                    out.append(poi)
+            if len(data.get("pois") or []) < 25 or len(out) >= max_items:
+                break
+        return out[:max_items]
+
     async def regeo(self, lat: float, lng: float, radius: int = 300) -> dict:
         data = await self._get("/v3/geocode/regeo", {
             "location": f"{lng:.6f},{lat:.6f}",
@@ -186,12 +206,15 @@ class AmapClient:
         })
         rc = data.get("regeocode") or {}
         nearest = _nearest_poi(rc)
+        ac = rc.get("addressComponent") or {}
         return {
             "label": _regeo_label(rc),
             "address": _text(rc.get("formatted_address")) or "",
             "poiName": nearest[0] if nearest else "",
             "poiId": nearest[1] if nearest else "",
             "poiDistance": int(nearest[2]) if nearest and nearest[2] < 999 else None,
+            "city": _text(ac.get("city")) or _text(ac.get("province")) or "",
+            "adcode": _text(ac.get("adcode")) or "",
         }
 
     async def geocode(self, address: str) -> tuple[float, float] | None:

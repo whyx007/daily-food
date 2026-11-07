@@ -176,7 +176,8 @@ def _grid_query_key(grid: str, q: str | None, category: str | None, radius: int)
 
 @router.get("/api/search")
 async def search(request: Request, lat: float, lng: float, q: str | None = None,
-                 category: str | None = None, radius: int = 1000, expand: bool = False):
+                 category: str | None = None, radius: int = 1000, expand: bool = False,
+                 city: bool = False):
     store = request.app.state.store
     if not (q or "").strip() and not category:
         return JSONResponse(status_code=400, content={"detail": "query_required"})
@@ -187,6 +188,8 @@ async def search(request: Request, lat: float, lng: float, q: str | None = None,
     key = _grid_query_key(grid, q, category, radius)
     if expand:
         key = "expand:" + key
+    if city:
+        key = "city:" + key
     cached = store.get_search(key, ttl=300)
     if cached is not None:
         payload, fetched_at = cached
@@ -198,13 +201,22 @@ async def search(request: Request, lat: float, lng: float, q: str | None = None,
         return _envelope({"items": [], "cached": False}, Meta(degraded="daily_limit_reached"))
 
     try:
-        items = await request.app.state.client.around(lat, lng, radius,
-                                                      keywords=(q or None), types=category or "050000")
-        store.bump_calls(day)
-        if not items and expand and (q or "").strip() and radius < 5000:
-            # 只有用户显式要求时才放宽到 5km，默认严格按所选距离
-            items = await request.app.state.client.around(lat, lng, 5000, keywords=q.strip(), types=None)
+        if city:
+            # 全城市搜索：先用逆地理编码拿 adcode，再按城市关键字搜索
+            info = await request.app.state.client.regeo(lat, lng)
             store.bump_calls(day)
+            adcode = info.get("adcode") or ""
+            items = await request.app.state.client.text_search(
+                (q or category or "").strip(), city=adcode, types=(category or None) or ("050000" if not q else None))
+            store.bump_calls(day)
+        else:
+            items = await request.app.state.client.around(lat, lng, radius,
+                                                          keywords=(q or None), types=category or "050000")
+            store.bump_calls(day)
+            if not items and expand and (q or "").strip() and radius < 5000:
+                # 只有用户显式要求时才放宽到 5km，默认严格按所选距离
+                items = await request.app.state.client.around(lat, lng, 5000, keywords=q.strip(), types=None)
+                store.bump_calls(day)
     except AmapError as exc:
         return _envelope({"items": [], "cached": False}, Meta(degraded=f"amap:{exc.info}"))
 

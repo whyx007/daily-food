@@ -695,15 +695,14 @@ async function loadToday() {
 async function search(q, expand = false) {
   state.lastQuery = q;
   try {
+    // 搜索不受距离档位约束：按当前城市全城搜索
     const body = await api('/api/search', {
-      q, lat: state.lat, lng: state.lng, radius: state.radius, expand: expand ? 'true' : 'false',
+      q, lat: state.lat, lng: state.lng, city: 'true', expand: expand ? 'true' : 'false',
     });
     state.lastMeta = body.meta;
     const items = body.data.items || [];
     if (!items.length) {
-      $('#list').innerHTML = `<div class="notice">${state.radius} 米内没搜到「${esc(q)}」
-        <button class="btn" id="btn-expand-search" type="button">放宽到 5 公里搜</button></div>`;
-      $('#btn-expand-search').onclick = () => search(q, true);
+      $('#list').innerHTML = `<div class="notice">本市没搜到「${esc(q)}」，换个关键词试试</div>`;
       renderMarkers([]);
       return;
     }

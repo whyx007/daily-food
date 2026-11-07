@@ -15,11 +15,21 @@ from app.routes import today_key
 class FakeAmap:
     def __init__(self):
         self.calls = 0
+        self.city_calls = 0
 
     async def around(self, lat, lng, radius, keywords=None, types="050000", max_items=60):
         self.calls += 1
         return [Poi(id=f"B{i:03d}", name=f"店{i}", distance=100 * (i + 1), lat=lat, lng=lng,
                     rating=f"{3 + i % 3}.0", cost="40", type="中餐") for i in range(6)]
+
+    async def text_search(self, keywords, city=None, types=None, max_items=60):
+        self.city_calls += 1
+        return [Poi(id="C001", name=f"{keywords}全城店", distance=None, lat=lat, lng=lng,
+                    rating="4.0", cost="30", type="中餐") for lat, lng in [(34.17, 108.86)]]
+
+    async def regeo(self, lat, lng, radius=300):
+        return {"label": "西安", "address": "陕西省西安市", "poiName": "", "poiId": "",
+                "poiDistance": None, "city": "西安市", "adcode": "610100"}
 
     async def detail(self, poiid):
         return Poi(id=poiid, name="详情店", lat=39.91, lng=116.40, rating="4.2")
@@ -309,6 +319,15 @@ def test_poi_nearby_without_poi_falls_back_to_label(client):
     body = client.get("/api/poi-nearby", params={"lat": 39.91, "lng": 116.40}).json()
     assert body["data"]["poi"]["name"] == "某某广场"
     assert body["data"]["poi"]["id"].startswith("pt:")
+
+
+def test_search_city_mode_uses_text_search(client):
+    r = client.get("/api/search", params={"q": "鲍家水饺", "lat": 34.17, "lng": 108.86, "city": "true"})
+    assert r.status_code == 200
+    assert r.json()["data"]["items"][0]["name"] == "鲍家水饺全城店"
+    assert client.app.state.client.city_calls == 1
+    # 计算了到出发点的距离
+    assert r.json()["data"]["items"][0]["distance"] is not None
 
 
 def test_staticmap_returns_png(client):

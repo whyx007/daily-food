@@ -1,7 +1,7 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
-  originMarker: null, minRating: 0, menuTarget: null, originSource: 'default',
+  originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -217,6 +217,11 @@ function showMapMenu(pixel, lnglat, poi) {
   $('#mm-rest').textContent = poi
     ? `⭐ 加入经典馆子：${poi.name}`
     : '⭐ 输入馆子名称加入经典馆子';
+  const fixBtn = $('#mm-fix');
+  const fixTarget = poi || (state.lastItems || []).find((p) => p.id === state.selectedId) || null;
+  state.menuFix = fixTarget;
+  fixBtn.hidden = !fixTarget;
+  if (fixTarget) fixBtn.textContent = `📌 把「${fixTarget.name}」的位置校正到这里`;
   const pane = $('#map-pane').getBoundingClientRect();
   menu.hidden = false;
   menu.style.left = `${Math.round(Math.min(Math.max(8, pixel.x), pane.width - 210))}px`;
@@ -227,6 +232,12 @@ function closeMapMenu() {
   const menu = $('#map-menu');
   if (menu) menu.hidden = true;
   state.menuTarget = null;
+  state.menuFix = null;
+}
+
+function refreshCurrent() {
+  if (state.lastQuery) search(state.lastQuery);
+  else loadToday();
 }
 
 function bindMapMenu() {
@@ -253,6 +264,25 @@ function bindMapMenu() {
       closeMapMenu();
       if (name && name.trim()) addClassicByCoords(name.trim(), t.lnglat.lat, t.lnglat.lng);
     }
+  };
+  $('#mm-fix').onclick = async () => {
+    const t = state.menuTarget;
+    const target = state.menuFix;
+    if (!t || !target) return;
+    const payload = { poiid: target.id, lat: t.lnglat.lat, lng: t.lnglat.lng };
+    closeMapMenu();
+    try {
+      const resp = await fetch('/api/fixes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Client-Token': token() },
+        body: JSON.stringify(payload),
+      });
+      toast(resp.ok ? `已校正「${target.name}」的位置` : `校正失败（${resp.status}）`);
+    } catch (e) {
+      toast('校正失败，请检查网络');
+    }
+    state.selectedId = null;
+    refreshCurrent();
   };
   document.addEventListener('click', (e) => {
     const menu = $('#map-menu');
@@ -364,6 +394,7 @@ async function loadToday() {
 }
 
 async function search(q) {
+  state.lastQuery = q;
   try {
     const body = await api('/api/search', {
       q, lat: state.lat, lng: state.lng, radius: Math.max(state.radius, 5000),

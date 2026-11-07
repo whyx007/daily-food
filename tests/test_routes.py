@@ -189,6 +189,20 @@ def test_search_expands_when_empty(client):
     assert calls[1]["types"] is None
 
 
+def test_poi_fix_overrides_coordinates(client):
+    r = client.post("/api/fixes", json={"poiid": "B001", "lat": 39.95, "lng": 116.45},
+                    headers={"X-Client-Token": "tok-a"})
+    assert r.status_code == 200
+    body = client.get("/api/today", params={"lat": 39.91, "lng": 116.40}).json()
+    fixed = [c for c in body["data"]["candidates"] if c["id"] == "B001"]
+    assert fixed and fixed[0]["lat"] == 39.95 and fixed[0]["lng"] == 116.45
+
+
+def test_poi_fix_rejects_invalid(client):
+    r = client.post("/api/fixes", json={"poiid": "B001", "lat": 999, "lng": 116.4})
+    assert r.status_code == 400
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

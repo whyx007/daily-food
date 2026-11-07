@@ -52,6 +52,17 @@ def _rating_float(value) -> float | None:
         return None
 
 
+def _apply_fixes(store, items: list[dict]) -> list[dict]:
+    """用户手工校正过的点位优先于高德原始 POI 坐标。"""
+    fixes = store.list_fixes()
+    for item in items:
+        fix = fixes.get(item.get("id"))
+        if fix:
+            item["lat"], item["lng"] = fix
+            item["distance"] = None
+    return items
+
+
 def _with_distance(items: list[Poi], lat: float, lng: float, keep_distance: bool) -> list[Poi]:
     out = []
     for poi in items:
@@ -136,8 +147,11 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
             return JSONResponse(status_code=404, content={
                 "data": None, "meta": {"stale": stale, "degraded": "no_match"}})
 
+    pool = _apply_fixes(store, pool)
+
     try:
-        chosen, picked_degraded = picker.pick(_pois(pool), date=day, grid=grid, mode=mode,
+        computed = _with_distance(_pois(pool), lat, lng, keep_distance=False)
+        chosen, picked_degraded = picker.pick(computed, date=day, grid=grid, mode=mode,
                                               radius=radius, nonce=nonce)
     except ValueError:
         return JSONResponse(status_code=404, content={
@@ -146,7 +160,7 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
     if chosen.distance is None:
         chosen.distance = haversine_m(lat, lng, chosen.lat, chosen.lng)
 
-    candidates = _with_distance(_pois(pool)[:20], lat, lng, keep_distance=True)
+    candidates = _with_distance(_pois(pool)[:20], lat, lng, keep_distance=False)
     return _envelope({
         "pick": chosen.model_dump(),
         "candidates": [p.model_dump() for p in candidates],
@@ -194,7 +208,8 @@ async def search(request: Request, lat: float, lng: float, q: str | None = None,
     except AmapError as exc:
         return _envelope({"items": [], "cached": False}, Meta(degraded=f"amap:{exc.info}"))
 
-    payload = [p.model_dump() for p in _with_distance(items[:20], lat, lng, keep_distance=True)]
+    payload = _apply_fixes(store, [p.model_dump() for p in items[:20]])
+    payload = [p.model_dump() for p in _with_distance(_pois(payload), lat, lng, keep_distance=False)]
     store.put_search(key, payload, _now())
     return _envelope({"items": payload, "cached": False}, Meta(cachedAt=_now()))
 
@@ -271,6 +286,26 @@ async def amap_proxy(request: Request, path: str):
             return JSONResponse(status_code=502, content={"detail": "amap_proxy_unavailable"})
     return Response(content=resp.content, status_code=resp.status_code,
                     media_type=resp.headers.get("content-type"))
+
+
+@router.post("/api/fixes")
+def add_fix(request: Request, body: dict):
+    try:
+        poiid = str((body or {}).get("poiid") or "")
+        lat = float(body["lat"])
+        lng = float(body["lng"])
+    except (KeyError, TypeError, ValueError):
+        return JSONResponse(status_code=400, content={"detail": "invalid_fix"})
+    if not poiid or not (-90 <= lat <= 90 and -180 <= lng <= 180):
+        return JSONResponse(status_code=400, content={"detail": "invalid_fix"})
+    request.app.state.store.upsert_fix(poiid, lat, lng)
+    return _envelope({"ok": True, "poiid": poiid}, Meta())
+
+
+@router.delete("/api/fixes/{poiid}")
+def remove_fix(request: Request, poiid: str):
+    ok = request.app.state.store.delete_fix(poiid)
+    return _envelope({"ok": ok}, Meta())
 
 
 @router.get("/api/staticmap")

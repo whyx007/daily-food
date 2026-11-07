@@ -21,6 +21,9 @@ CREATE TABLE IF NOT EXISTS classics (
 CREATE TABLE IF NOT EXISTS call_log (
   date TEXT PRIMARY KEY, count INTEGER NOT NULL DEFAULT 0
 );
+CREATE TABLE IF NOT EXISTS poi_fixes (
+  poiid TEXT PRIMARY KEY, lat REAL NOT NULL, lng REAL NOT NULL, updated_at INTEGER NOT NULL
+);
 """
 
 
@@ -118,6 +121,25 @@ class Store:
             self._conn.execute("DELETE FROM classics WHERE poiid=?", (poiid,))
             self._conn.commit()
         return True
+
+    def upsert_fix(self, poiid: str, lat: float, lng: float) -> None:
+        with self._lock:
+            self._conn.execute(
+                "INSERT OR REPLACE INTO poi_fixes (poiid, lat, lng, updated_at) VALUES (?, ?, ?, ?)",
+                (poiid, lat, lng, int(time.time())),
+            )
+            self._conn.commit()
+
+    def list_fixes(self) -> dict[str, tuple[float, float]]:
+        with self._lock:
+            rows = self._conn.execute("SELECT poiid, lat, lng FROM poi_fixes").fetchall()
+        return {r["poiid"]: (r["lat"], r["lng"]) for r in rows}
+
+    def delete_fix(self, poiid: str) -> bool:
+        with self._lock:
+            cur = self._conn.execute("DELETE FROM poi_fixes WHERE poiid=?", (poiid,))
+            self._conn.commit()
+        return cur.rowcount > 0
 
     def bump_calls(self, date: str) -> int:
         with self._lock:

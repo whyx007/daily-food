@@ -3,6 +3,8 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 #layout { display: grid; grid-template-columns: 1.6fr 1fr; height: 100vh; }
 #map-pane { position: relative; background: #eef1f5; }
 #map, #map-fallback { width: 100%; height: 100%; }
+.origin-badge { position: absolute; top: 76px; left: 12px; z-index: 35; padding: 5px 10px; border-radius: 999px;
+  background: rgba(255, 255, 255, .92); color: #57606a; font-size: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
 #map-hint { position: absolute; left: 12px; bottom: 12px; padding: 6px 10px; border-radius: 8px;
   background: rgba(255, 255, 255, .92); color: #57606a; font-size: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
 .map-search { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 40;

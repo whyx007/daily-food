@@ -1,7 +1,7 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
-  originMarker: null, minRating: 0, menuTarget: null,
+  originMarker: null, minRating: 0, menuTarget: null, originSource: 'default',
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -146,11 +146,20 @@ function ensureMap() {
   state.map.on('click', closeMapMenu);
   renderOrigin();
   renderMarkers(state.lastItems || []);
+  updateOriginBadge();
   const selected = (state.lastItems || []).find((p) => p.id === state.selectedId);
   if (selected) renderSelectedMarker(selected);
 }
 
+function updateOriginBadge() {
+  const el = $('#origin-badge');
+  if (!el) return;
+  const src = state.originSource === 'geo' ? '定位' : state.originSource === 'manual' ? '右键设置' : '默认点';
+  el.textContent = `📍 出发点 ${state.lat.toFixed(5)}, ${state.lng.toFixed(5)}（${src}）`;
+}
+
 function renderOrigin() {
+  updateOriginBadge();
   if (!state.map || !window.AMap) return;
   const pos = [state.lng, state.lat];
   if (!state.originMarker) {
@@ -226,6 +235,7 @@ function bindMapMenu() {
     if (!t) return;
     state.lat = t.lnglat.lat;
     state.lng = t.lnglat.lng;
+    state.originSource = 'manual';
     if (state.map) state.map.setCenter([state.lng, state.lat]);
     renderOrigin();
     closeMapMenu();
@@ -378,6 +388,7 @@ async function boot() {
   const geo = await pos();
   state.lat = geo ? geo.lat : cfg.defaultCenter.lat;
   state.lng = geo ? geo.lng : cfg.defaultCenter.lng;
+  state.originSource = geo ? 'geo' : 'default';
 
   if (cfg.jsKey) {
     // serviceHost 必须是「源 + 代理前缀」的完整地址，否则 JS API 会把主机名当成路径拼出来
@@ -394,6 +405,7 @@ async function boot() {
     });
   }
   initMap();
+  updateOriginBadge();
 
   const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐']];
   $('#chips').innerHTML = chips

@@ -1,7 +1,7 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
-  originMarker: null, minRating: 0,
+  originMarker: null, minRating: 0, menuTarget: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -83,7 +83,10 @@ function renderMarkers(items) {
   state.map.add(state.markers);
   state.markers.forEach((m) => {
     m.on('click', () => select(m.getExtData()));
-    m.on('rightclick', () => addClassic(m.getExtData()));
+    m.on('rightclick', () => {
+      const p = state.map.lngLatToContainer(m.getPosition());
+      showMapMenu(p, m.getPosition(), m.getExtData());
+    });
   });
 }
 
@@ -93,13 +96,9 @@ function ensureMap() {
   $('#map').hidden = false;
   state.map = new AMap.Map('map', { center: [state.lng, state.lat], zoom: 15, viewMode: '2D' });
   state.map.on('rightclick', (e) => {
-    state.lat = e.lnglat.lat;
-    state.lng = e.lnglat.lng;
-    state.map.setCenter([state.lng, state.lat]);
-    renderOrigin();
-    toast('出发点已改到这里');
-    loadToday();
+    showMapMenu(e.pixel, e.lnglat, nearestMarker(e.pixel));
   });
+  state.map.on('click', closeMapMenu);
   renderOrigin();
   renderMarkers(state.lastItems || []);
 }
@@ -125,6 +124,80 @@ function toast(text) {
   el.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+
+function nearestMarker(pixel) {
+  if (!state.map || !pixel) return null;
+  let best = null;
+  let bestDist = 26;
+  state.markers.forEach((m) => {
+    const p = state.map.lngLatToContainer(m.getPosition());
+    const d = Math.hypot(p.x - pixel.x, p.y - pixel.y);
+    if (d < bestDist) { bestDist = d; best = m.getExtData(); }
+  });
+  return best;
+}
+
+function showMapMenu(pixel, lnglat, poi) {
+  state.menuTarget = { lnglat, poi };
+  const menu = $('#map-menu');
+  $('#mm-rest').textContent = poi
+    ? `⭐ 加入经典馆子：${poi.name}`
+    : '⭐ 输入馆子名称加入经典馆子';
+  const pane = $('#map-pane').getBoundingClientRect();
+  menu.hidden = false;
+  menu.style.left = `${Math.round(Math.min(Math.max(8, pixel.x), pane.width - 210))}px`;
+  menu.style.top = `${Math.round(Math.min(Math.max(8, pixel.y), pane.height - 92))}px`;
+}
+
+function closeMapMenu() {
+  const menu = $('#map-menu');
+  if (menu) menu.hidden = true;
+  state.menuTarget = null;
+}
+
+function bindMapMenu() {
+  $('#mm-origin').onclick = () => {
+    const t = state.menuTarget;
+    if (!t) return;
+    state.lat = t.lnglat.lat;
+    state.lng = t.lnglat.lng;
+    if (state.map) state.map.setCenter([state.lng, state.lat]);
+    renderOrigin();
+    closeMapMenu();
+    toast('出发点已改到这里');
+    loadToday();
+  };
+  $('#mm-rest').onclick = () => {
+    const t = state.menuTarget;
+    if (!t) return;
+    if (t.poi) {
+      addClassic(t.poi);
+      closeMapMenu();
+    } else {
+      const name = window.prompt('这家馆子叫什么？');
+      closeMapMenu();
+      if (name && name.trim()) addClassicByCoords(name.trim(), t.lnglat.lat, t.lnglat.lng);
+    }
+  };
+  document.addEventListener('click', (e) => {
+    const menu = $('#map-menu');
+    if (menu && !menu.hidden && !menu.contains(e.target)) closeMapMenu();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMapMenu(); });
+}
+
+async function addClassicByCoords(name, lat, lng) {
+  try {
+    const resp = await fetch('/api/classics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Client-Token': token() },
+      body: JSON.stringify({ name, lat, lng }),
+    });
+    toast(resp.ok ? `已加入经典馆子：${name}` : `加入失败（${resp.status}）`);
+  } catch (e) {
+    toast('加入失败，请检查网络');
+  }
 }
 
 async function addClassic(poi) {
@@ -313,6 +386,7 @@ async function boot() {
     };
   });
 
+  bindMapMenu();
   setMode('area');
   window.__df = { state, addClassic, toast, loadToday };
 }

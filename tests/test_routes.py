@@ -143,6 +143,20 @@ def test_rate_limit_uses_settings(client, tmp_path):
     assert resp.headers["Retry-After"] == "60"
 
 
+def test_classics_add_by_coordinates(client):
+    r = client.post("/api/classics", json={"name": "路口小馆", "lat": 39.91, "lng": 116.40},
+                    headers={"X-Client-Token": "tok-a"})
+    assert r.status_code == 200
+    items = client.get("/api/classics").json()["data"]["items"]
+    assert items[0]["name"] == "路口小馆"
+
+
+def test_classics_add_by_coordinates_rejects_bad_latlng(client):
+    r = client.post("/api/classics", json={"name": "x", "lat": 999, "lng": 116.4},
+                    headers={"X-Client-Token": "tok-a"})
+    assert r.status_code == 400
+
+
 def test_weighted_min_rating_filters_candidates(client):
     body = client.get("/api/today", params={"lat": 39.91, "lng": 116.40,
                                              "mode": "weighted", "min_rating": 4.5}).json()

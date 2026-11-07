@@ -213,6 +213,16 @@ async def add_classic(request: Request, body: dict):
 
     if poiid:
         poi = await request.app.state.client.detail(poiid)
+    elif name and body.get("lat") is not None and body.get("lng") is not None:
+        try:
+            lat = float(body["lat"])
+            lng = float(body["lng"])
+        except (TypeError, ValueError):
+            return JSONResponse(status_code=400, content={"detail": "invalid_coordinates"})
+        if not (-90 <= lat <= 90 and -180 <= lng <= 180):
+            return JSONResponse(status_code=400, content={"detail": "invalid_coordinates"})
+        raw = hashlib.sha1(f"{name}|{lat:.6f}|{lng:.6f}".encode("utf-8")).hexdigest()[:12]
+        poi = Poi(id=f"manual:{raw}", name=name, lat=lat, lng=lng)
     elif name and address:
         coords = await request.app.state.client.geocode(address)
         if coords is None:

@@ -91,8 +91,14 @@ def test_search_uses_cache(client):
     assert client.app.state.client.calls == first
 
 
-def test_search_requires_two_chars(client):
-    resp = client.get("/api/search", params={"q": "饺", "lat": 39.91, "lng": 116.40})
+def test_search_allows_single_cjk_char(client):
+    resp = client.get("/api/search", params={"q": "面", "lat": 39.91, "lng": 116.40})
+    assert resp.status_code == 200
+    assert resp.json()["data"]["items"]
+
+
+def test_search_requires_query(client):
+    resp = client.get("/api/search", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 400
 
 

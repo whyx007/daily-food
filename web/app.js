@@ -1,4 +1,4 @@
-const state = {
+﻿const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
@@ -66,6 +66,14 @@ function pos() {
   });
 }
 
+function telHtml(tel) {
+  if (!tel) return '';
+  const numbers = String(tel).split(/[;,、\s]+/).filter((x) => x.trim());
+  if (!numbers.length) return '';
+  const links = numbers.map((n) => `<a class="tel" href="tel:${esc(n)}">${esc(n)}</a>`).join(' / ');
+  return `<div class="meta tel-row">📞 ${links}</div>`;
+}
+
 function renderCard(pick, meta, source) {
   const card = $('#daily-card');
   if (!pick) { card.innerHTML = '<div class="notice">今天没有可选的结果</div>'; return; }
@@ -77,6 +85,7 @@ function renderCard(pick, meta, source) {
     <div class="name">${esc(pick.name)}</div>
     <div class="meta">${pick.distance ?? '?'}m ${rating} ${cost}</div>
     ${address}
+    ${telHtml(pick.tel)}
     <div class="actions">
       <button class="btn primary" data-nav="${pick.id}">去这里</button>
       <button class="btn" data-locate="${pick.id}">📍 地图定位</button>
@@ -116,7 +125,7 @@ function renderList(items) {
   list.innerHTML = items.map((p) => `
     <div class="item" data-id="${p.id}">
       <div>${esc(p.name)}</div>
-      <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}</div>
+      <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}${p.tel ? ' · 📞' : ''}</div>
     </div>`).join('');
   list.querySelectorAll('.item').forEach((el) => {
     const item = items.find((p) => p.id === el.dataset.id);
@@ -171,7 +180,19 @@ function updateOriginBadge() {
   const el = $('#origin-badge');
   if (!el) return;
   const src = state.originSource === 'geo' ? '定位' : state.originSource === 'manual' ? '右键设置' : '默认点';
-  el.textContent = `📍 出发点 ${state.lat.toFixed(5)}, ${state.lng.toFixed(5)}（${src}）`;
+  el.innerHTML = `<span class="text">📍 出发点 ${state.lat.toFixed(5)}, ${state.lng.toFixed(5)}（${src}）</span>
+    <button class="locate-me" type="button">用我的定位</button>`;
+  el.querySelector('.locate-me').onclick = async () => {
+    const geo = await pos();
+    if (!geo) { toast('拿不到定位权限，请右键地图手动设置出发点'); return; }
+    state.lat = geo.lat;
+    state.lng = geo.lng;
+    state.originSource = 'geo';
+    if (state.map) state.map.setCenter([state.lng, state.lat]);
+    renderOrigin();
+    toast('出发点已改为当前位置');
+    loadToday();
+  };
 }
 
 function renderOrigin() {
@@ -482,14 +503,14 @@ async function boot() {
     e.preventDefault();
     const v = $('#search-input').value.trim();
     $('#map-search-input').value = v;
-    if (v.length >= 2) search(v);
+    if (v.length >= 1) search(v);
   };
 
   $('#map-search-form').onsubmit = (e) => {
     e.preventDefault();
     const v = $('#map-search-input').value.trim();
     $('#search-input').value = v;
-    if (v.length >= 2) search(v);
+    if (v.length >= 1) search(v);
   };
 
   const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'), weighted: $('#btn-weighted') };

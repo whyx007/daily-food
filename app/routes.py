@@ -178,9 +178,7 @@ def _grid_query_key(grid: str, q: str | None, category: str | None, radius: int)
 async def search(request: Request, lat: float, lng: float, q: str | None = None,
                  category: str | None = None, radius: int = 1000):
     store = request.app.state.store
-    if (q or "").strip() and len(q.strip()) < 2:
-        return JSONResponse(status_code=400, content={"detail": "query_too_short"})
-    if not q and not category:
+    if not (q or "").strip() and not category:
         return JSONResponse(status_code=400, content={"detail": "query_required"})
     if not request.app.state.limiter.allow(_client_ip(request)):
         return JSONResponse(status_code=429, content={"detail": "too_many_requests"})

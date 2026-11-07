@@ -353,6 +353,14 @@ async function boot() {
   $('#search-form').onsubmit = (e) => {
     e.preventDefault();
     const v = $('#search-input').value.trim();
+    $('#map-search-input').value = v;
+    if (v.length >= 2) search(v);
+  };
+
+  $('#map-search-form').onsubmit = (e) => {
+    e.preventDefault();
+    const v = $('#map-search-input').value.trim();
+    $('#search-input').value = v;
     if (v.length >= 2) search(v);
   };
 

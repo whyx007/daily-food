@@ -2,7 +2,7 @@ const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
-  lastMeta: null, originLabel: null, originLabelKey: null,
+  lastMeta: null, originLabel: null, originLabelKey: null, showClassicOnMap: false, classicMarkers: [],
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -307,6 +307,43 @@ function refreshCurrent() {
   else loadToday();
 }
 
+function removeClassicMarkers() {
+  if (!state.map || !window.AMap) { state.classicMarkers = []; return; }
+  state.map.remove(state.classicMarkers);
+  state.classicMarkers = [];
+}
+
+async function renderClassicMarkers() {
+  if (!state.map || !window.AMap) return;
+  removeClassicMarkers();
+  if (!state.showClassicOnMap) return;
+  try {
+    const body = await api('/api/classics');
+    const items = body.data.items || [];
+    state.classicMarkers = items.map((c) => {
+      const m = new AMap.Marker({
+        position: [c.lng, c.lat],
+        content: '<div class="star-marker">⭐</div>',
+        anchor: 'center',
+        zIndex: 90,
+        extData: {
+          id: c.poiid, name: c.name, lat: c.lat, lng: c.lng,
+          rating: c.rating, cost: c.cost, type: c.type, address: c.address,
+        },
+      });
+      m.on('click', () => select(m.getExtData()));
+      m.on('rightclick', () => {
+        const p = state.map.lngLatToContainer(m.getPosition());
+        showMapMenu(p, m.getPosition(), m.getExtData());
+      });
+      return m;
+    });
+    state.map.add(state.classicMarkers);
+  } catch (e) {
+    toast('经典馆子位置加载失败');
+  }
+}
+
 function bindMapMenu() {
   $('#mm-origin').onclick = () => {
     const t = state.menuTarget;
@@ -469,7 +506,7 @@ async function handleMapClick(e) {
 
 function syncClassicCheck() {
   const chk = $('#chk-classic');
-  if (chk) chk.checked = state.mode === 'classic';
+  if (chk) chk.checked = state.showClassicOnMap;
 }
 
 function setMode(mode) {
@@ -482,7 +519,6 @@ function setMode(mode) {
   });
   const row = $('#radius-row');
   if (row) row.classList.toggle('disabled', mode === 'classic');
-  syncClassicCheck();
   loadToday();
 }
 
@@ -745,8 +781,10 @@ async function boot() {
   modeButtons.area.onclick = () => setMode('area');
   modeButtons.classic.onclick = () => setMode('classic');
   $('#chk-classic').onchange = (e) => {
-    if (e.target.checked) setMode('classic');
-    else setMode('area');
+    state.showClassicOnMap = e.target.checked;
+    syncClassicCheck();
+    if (state.showClassicOnMap) renderClassicMarkers();
+    else removeClassicMarkers();
   };
 
   const ratingMenu = $('#rating-menu');

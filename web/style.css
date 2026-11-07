@@ -61,6 +61,8 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 .classic-check input { accent-color: #1f2328; cursor: pointer; }
 .star-btn { padding: 8px 12px; }
 .star-btn .star { display: inline-block; animation: star-bob 1s ease-in-out infinite; font-size: 14px; }
+.star-marker { font-size: 18px; line-height: 1; animation: star-bob 1s ease-in-out infinite;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.35)); }
 @keyframes star-bob {
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(-3px); opacity: .55; }

@@ -695,13 +695,14 @@ async function loadToday() {
   }
 }
 
-async function search(q, expand = false) {
+async function search(q, cityMode = false) {
   state.lastQuery = q;
   try {
-    // 搜索不受距离档位约束：按当前城市全城搜索
-    const body = await api('/api/search', {
-      q, lat: state.lat, lng: state.lng, city: 'true', expand: expand ? 'true' : 'false',
-    });
+    // 词片/周边搜索受距离档位约束；搜索框走全城搜索
+    const params = { q, lat: state.lat, lng: state.lng };
+    if (cityMode) params.city = 'true';
+    else params.radius = state.radius;
+    const body = await api('/api/search', params);
     state.lastMeta = body.meta;
     const items = body.data.items || [];
     if (!items.length) {
@@ -799,7 +800,7 @@ const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快
       $('#chips').querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
       el.classList.add('active');
       if (state.mode === 'classic') filterClassicsByKeyword(el.dataset.q);
-      else search(el.dataset.q);
+      else search(el.dataset.q, false);  // 词片：周边搜索，受距离档位约束
     };
   });
   $('#chips-reset').onclick = clearFilter;
@@ -808,14 +809,14 @@ const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快
     e.preventDefault();
     const v = $('#search-input').value.trim();
     $('#map-search-input').value = v;
-    if (v.length >= 1) search(v);
+    if (v.length >= 1) search(v, true);  // 搜索框：全城搜索
   };
 
   $('#map-search-form').onsubmit = (e) => {
     e.preventDefault();
     const v = $('#map-search-input').value.trim();
     $('#search-input').value = v;
-    if (v.length >= 1) search(v);
+    if (v.length >= 1) search(v, true);  // 搜索框：全城搜索
   };
 
   const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'), weighted: $('#btn-weighted') };

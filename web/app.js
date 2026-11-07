@@ -758,16 +758,51 @@ async function boot() {
   syncClassicCheck();
   renderClassicMarkers();
 
-  const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐']];
+async function filterClassicsByKeyword(kw) {
+  // 经典馆子模式下，词片只在经典馆子里过滤
+  try {
+    const body = await api('/api/classics');
+    const items = body.data.items || [];
+    const filtered = items.filter((c) => (c.name || '').includes(kw));
+    if (!filtered.length) {
+      $('#list').innerHTML = `<div class="notice">经典馆子里没有「${esc(kw)}」</div>`;
+      renderMarkers([]);
+      return;
+    }
+    const pois = filtered.map((c) => ({
+      id: c.poiid, name: c.name, lat: c.lat, lng: c.lng,
+      rating: c.rating, cost: c.cost, type: c.type, address: c.address,
+    }));
+    renderList(pois);
+    renderMarkers(pois);
+    state.selectedId = null;
+    select(pois[0]);
+  } catch (e) {
+    toast('经典馆子过滤失败');
+  }
+}
+
+function clearFilter() {
+  $('#chips').querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+  $('#search-input').value = '';
+  $('#map-search-input').value = '';
+  loadToday();
+}
+
+const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐'],
+               ['牛羊肉泡馍', '牛羊肉泡馍'], ['葫芦头', '葫芦头'], ['炒菜', '炒菜'], ['烧烤', '烧烤']];
   $('#chips').innerHTML = chips
-    .map(([label, q]) => `<span class="chip" data-q="${q}">${label}</span>`).join('');
+    .map(([label, q]) => `<span class="chip" data-q="${q}">${label}</span>`).join('')
+    + '<button id="chips-reset" class="chip-reset" type="button">✕ 取消</button>';
   $('#chips').querySelectorAll('.chip').forEach((el) => {
     el.onclick = () => {
       $('#chips').querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
       el.classList.add('active');
-      search(el.dataset.q);
+      if (state.mode === 'classic') filterClassicsByKeyword(el.dataset.q);
+      else search(el.dataset.q);
     };
   });
+  $('#chips-reset').onclick = clearFilter;
 
   $('#search-form').onsubmit = (e) => {
     e.preventDefault();

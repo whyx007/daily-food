@@ -31,6 +31,9 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 #chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
 .chip { padding: 4px 10px; border-radius: 999px; border: 1px solid #d0d7de; background: #fff; cursor: pointer; font-size: 13px; }
 .chip.active { background: #1f2328; color: #fff; }
+.chip-reset { margin-left: 2px; padding: 4px 10px; border-radius: 999px; border: 1px solid #d73a49;
+  background: #fff; color: #d73a49; cursor: pointer; font-size: 13px; }
+.chip-reset:hover { background: #d73a49; color: #fff; }
 #daily-card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; }
 #daily-card .name { font-size: 20px; font-weight: 600; }
 #daily-card .meta { color: #57606a; font-size: 13px; margin: 4px 0 10px; }

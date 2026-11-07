@@ -180,6 +180,7 @@ function ensureMap() {
   updateOriginBadge();
   const selected = (state.lastItems || []).find((p) => p.id === state.selectedId);
   if (selected) renderSelectedMarker(selected);
+  if (state.showClassicOnMap) renderClassicMarkers();
 }
 
 function updateOriginBadge() {
@@ -531,6 +532,7 @@ async function afterClassicAdd(name) {
   } catch (e) {
     toast(`已加入经典馆子：${name}`);
   }
+  if (state.showClassicOnMap) renderClassicMarkers();  // 新店立即在地图上显示星星
   if (state.mode === 'classic') loadToday();
   else setMode('classic');
 }
@@ -556,6 +558,7 @@ function openDeleteDialog(poi) {
       if (resp.ok) {
         toast(`已删除：${poi.name}`);
         state.selectedId = null;
+        if (state.showClassicOnMap) renderClassicMarkers();  // 删除后地图星星即时移除
         if (state.mode === 'classic') loadToday();
         else refreshCurrent();
       } else if (resp.status === 403) {
@@ -750,6 +753,10 @@ async function boot() {
   }
   initMap();
   updateOriginBadge();
+  // 默认在地图上显示经典馆子星星
+  state.showClassicOnMap = true;
+  syncClassicCheck();
+  renderClassicMarkers();
 
   const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐']];
   $('#chips').innerHTML = chips
@@ -832,7 +839,7 @@ async function boot() {
   bindMapMenu();
   setMode('area');
   window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02, buildNavUrl,
-    afterClassicAdd, setMode, handleMapClick };
+    afterClassicAdd, setMode, handleMapClick, addClassicByCoords };
 }
 
 boot().catch(() => {

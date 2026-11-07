@@ -28,11 +28,35 @@ async function api(path, params = {}) {
   return resp.json();
 }
 
+function wgs84ToGcj02(lat, lng) {
+  // 浏览器定位是 WGS-84，高德底图/POI 是 GCJ-02，不转换会整体偏几百米
+  if (lng < 72.004 || lng > 137.8347 || lat < 0.8293 || lat > 55.8271) return { lat, lng };
+  const a = 6378245.0;
+  const ee = 0.00669342162296594323;
+  const tLat = (x, y) => -100 + 2 * x + 3 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x))
+    + (20 * Math.sin(6 * x * Math.PI) + 20 * Math.sin(2 * x * Math.PI)) * 2 / 3
+    + (20 * Math.sin(y * Math.PI) + 40 * Math.sin(y / 3 * Math.PI)) * 2 / 3
+    + (160 * Math.sin(y / 12 * Math.PI) + 320 * Math.sin(y * Math.PI / 30)) * 2 / 3;
+  const tLng = (x, y) => 300 + x + 2 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x))
+    + (20 * Math.sin(6 * x * Math.PI) + 20 * Math.sin(2 * x * Math.PI)) * 2 / 3
+    + (20 * Math.sin(x * Math.PI) + 40 * Math.sin(x / 3 * Math.PI)) * 2 / 3
+    + (150 * Math.sin(x / 12 * Math.PI) + 300 * Math.sin(x / 30 * Math.PI)) * 2 / 3;
+  let dLat = tLat(lng - 105, lat - 35);
+  let dLng = tLng(lng - 105, lat - 35);
+  const radLat = lat / 180 * Math.PI;
+  let magic = Math.sin(radLat);
+  magic = 1 - ee * magic * magic;
+  const sqrtMagic = Math.sqrt(magic);
+  dLat = (dLat * 180) / ((a * (1 - ee)) / (magic * sqrtMagic) * Math.PI);
+  dLng = (dLng * 180) / (a / sqrtMagic * Math.cos(radLat) * Math.PI);
+  return { lat: lat + dLat, lng: lng + dLng };
+}
+
 function pos() {
   return new Promise((resolve) => {
     if (!navigator.geolocation) return resolve(null);
     navigator.geolocation.getCurrentPosition(
-      (p) => resolve({ lat: p.coords.latitude, lng: p.coords.longitude }),
+      (p) => resolve(wgs84ToGcj02(p.coords.latitude, p.coords.longitude)),
       () => resolve(null), { timeout: 8000 });
   });
 }
@@ -430,7 +454,7 @@ async function boot() {
 
   bindMapMenu();
   setMode('area');
-  window.__df = { state, addClassic, toast, loadToday };
+  window.__df = { state, addClassic, toast, loadToday, toGcj: wgs84ToGcj02 };
 }
 
 boot().catch(() => {

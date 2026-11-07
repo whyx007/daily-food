@@ -127,6 +127,52 @@ async def test_regeo_uses_nearby_poi_within_200m():
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_regeo_prefers_restaurant_poi():
+    payload = {
+        "status": "1", "info": "OK",
+        "regeocode": {
+            "formatted_address": "某地",
+            "addressComponent": {"township": "某街道", "district": "某区", "streetNumber": {}},
+            "aois": [],
+            "pois": [{"name": "某打卡点", "id": "B0XX", "distance": "20", "type": "风景名胜;景点"},
+                     {"name": "老王水饺", "id": "B0ABC", "distance": "80", "type": "餐饮服务;中餐厅"}],
+        },
+    }
+    respx.get("https://restapi.amap.com/v3/geocode/regeo").mock(
+        return_value=httpx.Response(200, json=payload))
+    client = AmapClient(key="k")
+    out = await client.regeo(34.17, 108.86)
+    await client.aclose()
+    assert out["poiName"] == "老王水饺"
+    assert out["poiId"] == "B0ABC"
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_regeo_exposes_nearest_poi():
+    payload = {
+        "status": "1", "info": "OK",
+        "regeocode": {
+            "formatted_address": "某地",
+            "addressComponent": {"township": "某街道", "district": "某区", "streetNumber": {}},
+            "aois": [{"name": "某某广场", "distance": "0"}],
+            "pois": [{"name": "老王水饺", "id": "B0ABC", "distance": "35"},
+                     {"name": "别家", "id": "B0DEF", "distance": "180"}],
+        },
+    }
+    respx.get("https://restapi.amap.com/v3/geocode/regeo").mock(
+        return_value=httpx.Response(200, json=payload))
+    client = AmapClient(key="k")
+    out = await client.regeo(34.17, 108.86)
+    await client.aclose()
+    assert out["label"] == "某某广场"
+    assert out["poiName"] == "老王水饺"
+    assert out["poiId"] == "B0ABC"
+    assert out["poiDistance"] == 35
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_detail_returns_poi():
     respx.get("https://restapi.amap.com/v3/place/detail").mock(
         return_value=httpx.Response(200, json=SAMPLE))

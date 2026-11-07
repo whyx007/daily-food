@@ -233,6 +233,16 @@ def test_regeo_is_cached(client):
     assert len(calls) == 1
 
 
+def test_classic_with_poiid_and_coords_keeps_user_point(client):
+    r = client.post("/api/classics",
+                    json={"poiid": "B001", "name": "详情店", "lat": 39.95, "lng": 116.45},
+                    headers={"X-Client-Token": "tok-a"})
+    assert r.status_code == 200
+    item = client.get("/api/classics").json()["data"]["items"][0]
+    assert item["poiid"] == "B001"
+    assert item["lat"] == 39.95 and item["lng"] == 116.45
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

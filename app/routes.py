@@ -230,6 +230,17 @@ async def add_classic(request: Request, body: dict):
 
     if poiid:
         poi = await request.app.state.client.detail(poiid)
+        if poi is not None and body.get("lat") is not None and body.get("lng") is not None:
+            # 用户点定的位置优先：字段用高德的，坐标用用户选中的点
+            try:
+                coords = float(body["lat"]), float(body["lng"])
+            except (TypeError, ValueError):
+                return JSONResponse(status_code=400, content={"detail": "invalid_coordinates"})
+            if not (-90 <= coords[0] <= 90 and -180 <= coords[1] <= 180):
+                return JSONResponse(status_code=400, content={"detail": "invalid_coordinates"})
+            poi.lat, poi.lng = coords
+            if (body.get("name") or "").strip():
+                poi.name = body["name"].strip()
     elif name and body.get("lat") is not None and body.get("lng") is not None:
         try:
             lat = float(body["lat"])

@@ -277,7 +277,7 @@ function showMapMenu(pixel, lnglat, poi) {
   const menu = $('#map-menu');
   $('#mm-rest').textContent = poi
     ? `⭐ 加入经典馆子：${poi.name}`
-    : '⭐ 输入馆子名称加入经典馆子';
+    : '⭐ 加入经典馆子（按此处识别店名）';
   const fixBtn = $('#mm-fix');
   const fixTarget = poi || (state.lastItems || []).find((p) => p.id === state.selectedId) || null;
   state.menuFix = fixTarget;
@@ -314,17 +314,33 @@ function bindMapMenu() {
     toast('出发点已改到这里');
     loadToday();
   };
-  $('#mm-rest').onclick = () => {
+  $('#mm-rest').onclick = async () => {
     const t = state.menuTarget;
     if (!t) return;
     if (t.poi) {
       addClassic(t.poi);
       closeMapMenu();
-    } else {
-      const name = window.prompt('这家馆子叫什么？');
-      closeMapMenu();
-      if (name && name.trim()) addClassicByCoords(name.trim(), t.lnglat.lat, t.lnglat.lng);
+      return;
     }
+    const lat = t.lnglat.lat;
+    const lng = t.lnglat.lng;
+    closeMapMenu();
+    toast('正在识别这个位置的商家…');
+    let info = { label: '', address: '', poiName: '', poiId: '', poiDistance: null };
+    try {
+      const body = await api('/api/regeo', { lat, lng });
+      info = body.data || info;
+    } catch (e) { /* 识别失败就留空让用户手填 */ }
+    const guess = info.poiName || info.label || '';
+    const bits = [];
+    if (info.address) bits.push(info.address);
+    bits.push(`${lat.toFixed(6)}, ${lng.toFixed(6)}`);
+    if (info.poiDistance) bits.push(`最近的店约 ${info.poiDistance} 米`);
+    openNameDialog(guess, bits.join(' · '), (name) => {
+      if (!name) return;
+      const keepPoiid = info.poiId && guess && name === guess;
+      addClassicByCoords(name, lat, lng, keepPoiid ? info.poiId : null);
+    });
   };
   $('#mm-fix').onclick = async () => {
     const t = state.menuTarget;
@@ -352,17 +368,43 @@ function bindMapMenu() {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMapMenu(); });
 }
 
-async function addClassicByCoords(name, lat, lng) {
+async function addClassicByCoords(name, lat, lng, poiId) {
+  const payload = { name, lat, lng };
+  if (poiId) payload.poiid = poiId;
   try {
     const resp = await fetch('/api/classics', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-Client-Token': token() },
-      body: JSON.stringify({ name, lat, lng }),
+      body: JSON.stringify(payload),
     });
     toast(resp.ok ? `已加入经典馆子：${name}` : `加入失败（${resp.status}）`);
   } catch (e) {
     toast('加入失败，请检查网络');
   }
+}
+
+function openNameDialog(prefill, subtitle, onSubmit) {
+  const dlg = $('#name-dialog');
+  const input = $('#dialog-name');
+  $('#dialog-sub').textContent = subtitle || '';
+  input.value = prefill || '';
+  dlg.hidden = false;
+  input.focus();
+  input.select();
+
+  const close = () => { dlg.hidden = true; onSubmit(null); };
+  const ok = () => {
+    const name = input.value.trim();
+    if (!name) { input.focus(); return; }
+    dlg.hidden = true;
+    onSubmit(name);
+  };
+  $('#dialog-cancel').onclick = close;
+  $('#dialog-ok').onclick = ok;
+  input.onkeydown = (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); ok(); }
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+  };
 }
 
 async function addClassic(poi) {

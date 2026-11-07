@@ -52,6 +52,26 @@ def _parse_poi(raw: dict) -> Poi | None:
     )
 
 
+def _nearest_poi(rc: dict) -> tuple[str, str, float] | None:
+    """最近的一个 POI（名称、id、距离）；餐饮类优先，用于猜"这个位置是哪家店"。"""
+    candidates = []
+    for poi in rc.get("pois") or []:
+        name = _text(poi.get("name"))
+        if not name:
+            continue
+        try:
+            distance = float(_text(poi.get("distance")) or 999)
+        except ValueError:
+            continue
+        is_food = "餐饮" in (_text(poi.get("type")) or "")
+        candidates.append((name, _text(poi.get("id")) or "", distance, is_food))
+    if not candidates:
+        return None
+    food = [c for c in candidates if c[3]]
+    best = min(food or candidates, key=lambda c: c[2])
+    return best[0], best[1], best[2]
+
+
 def _regeo_label(rc: dict) -> str:
     """把逆地理编码结果压成一个人类可读的地名：优先小区/园区/商圈，其次附近 POI，最后街道。"""
     for aoi in rc.get("aois") or []:
@@ -153,9 +173,13 @@ class AmapClient:
             "radius": radius,
         })
         rc = data.get("regeocode") or {}
+        nearest = _nearest_poi(rc)
         return {
             "label": _regeo_label(rc),
             "address": _text(rc.get("formatted_address")) or "",
+            "poiName": nearest[0] if nearest else "",
+            "poiId": nearest[1] if nearest else "",
+            "poiDistance": int(nearest[2]) if nearest and nearest[2] < 999 else None,
         }
 
     async def geocode(self, address: str) -> tuple[float, float] | None:

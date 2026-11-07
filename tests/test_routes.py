@@ -244,22 +244,36 @@ def test_classic_with_poiid_and_coords_keeps_user_point(client):
 
 
 def test_poi_nearby_resolves_shop(client):
-    async def fake_regeo(lat, lng, radius=300):
-        return {"label": "某某广场", "address": "某路 1 号", "poiName": "老王水饺",
-                "poiId": "B001", "poiDistance": 20}
+    async def fake_around(lat, lng, radius, keywords=None, types="050000", max_items=60):
+        return [Poi(id="B001", name="老王水饺", distance=18, lat=lat, lng=lng,
+                    rating="4.5", cost="25", type="餐饮服务;中餐厅", address="某路 1 号")]
 
-    client.app.state.client.regeo = fake_regeo
+    client.app.state.client.around = fake_around
     body = client.get("/api/poi-nearby", params={"lat": 39.91, "lng": 116.40}).json()
-    assert body["data"]["poi"]["name"] == "详情店"
-    assert body["data"]["poi"]["rating"] == "4.2"
+    assert body["data"]["poi"]["name"] == "老王水饺"
+    assert body["data"]["poi"]["rating"] == "4.5"
     assert body["data"]["click"] == {"lat": 39.91, "lng": 116.40}
 
 
+def test_poi_nearby_skips_transport_poi(client):
+    async def fake_around(lat, lng, radius, keywords=None, types="050000", max_items=60):
+        return [Poi(id="B900", name="某某停车场", distance=5, lat=lat, lng=lng, type="交通设施服务;停车场"),
+                Poi(id="B901", name="老王水饺", distance=40, lat=lat, lng=lng, type="餐饮服务;中餐厅")]
+
+    client.app.state.client.around = fake_around
+    body = client.get("/api/poi-nearby", params={"lat": 39.91, "lng": 116.40}).json()
+    assert body["data"]["poi"]["name"] == "老王水饺"
+
+
 def test_poi_nearby_without_poi_falls_back_to_label(client):
+    async def fake_around(lat, lng, radius, keywords=None, types="050000", max_items=60):
+        return []
+
     async def fake_regeo(lat, lng, radius=300):
         return {"label": "某某广场", "address": "某路 1 号", "poiName": "",
                 "poiId": "", "poiDistance": None}
 
+    client.app.state.client.around = fake_around
     client.app.state.client.regeo = fake_regeo
     body = client.get("/api/poi-nearby", params={"lat": 39.91, "lng": 116.40}).json()
     assert body["data"]["poi"]["name"] == "某某广场"

@@ -343,18 +343,27 @@ async def regeo(request: Request, lat: float, lng: float):
     return _envelope(payload, Meta(cachedAt=_now()))
 
 
+EXCLUDED_TYPE_HINTS = ("交通", "地名", "公交", "地铁", "停车场", "道路", "路口", "出入口", "收费站", "桥梁")
+
+
+def _pick_nearest(items):
+    usable = [p for p in items
+              if not any(hint in (p.type or "") for hint in EXCLUDED_TYPE_HINTS)]
+    if not usable:
+        usable = items
+    return min(usable, key=lambda p: p.distance if p.distance is not None else 10**9)
+
+
 async def _resolve_point(store, client, lat: float, lng: float) -> dict:
-    """把一个地图点位解析成商家信息：先逆地理编码找最近的店，再补详情。"""
-    info = await client.regeo(lat, lng)
+    """识别某个点位上是哪家店：直接按点周边搜索（比逆地理编码准），逐级放大半径。"""
     poi = None
-    poi_id = info.get("poiId") or ""
-    distance = info.get("poiDistance")
-    if poi_id and isinstance(distance, (int, float)) and distance <= 150:
-        try:
-            poi = await client.detail(poi_id)
-        except AmapError:
-            poi = None
+    for radius in (60, 150, 300):
+        items = await client.around(lat, lng, radius, types=None, max_items=25)
+        if items:
+            poi = _pick_nearest(items)
+            break
     if poi is None:
+        info = await client.regeo(lat, lng)
         name = info.get("label") or info.get("address") or "地图选点"
         raw = hashlib.sha1(f"{lat:.6f},{lng:.6f}".encode()).hexdigest()[:10]
         poi = Poi(id=f"pt:{raw}", name=name, lat=lat, lng=lng, address=info.get("address") or None)

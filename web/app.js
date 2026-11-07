@@ -126,7 +126,7 @@ function renderList(items) {
   list.innerHTML = items.map((p) => `
     <div class="item" data-id="${p.id}">
       <div class="item-main">
-        <div>${esc(p.name)}</div>
+        <div>${inClassic ? '<span class="star-item">⭐</span> ' : ''}${esc(p.name)}</div>
         <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}${p.tel ? ' · 📞' : ''}</div>
       </div>
       ${inClassic ? `<button class="item-del" data-del="${p.id}" title="删除">🗑</button>` : ''}
@@ -467,6 +467,11 @@ async function handleMapClick(e) {
   }
 }
 
+function syncClassicCheck() {
+  const chk = $('#chk-classic');
+  if (chk) chk.checked = state.mode === 'classic';
+}
+
 function setMode(mode) {
   state.mode = mode;
   state.nonce += 1;
@@ -477,6 +482,7 @@ function setMode(mode) {
   });
   const row = $('#radius-row');
   if (row) row.classList.toggle('disabled', mode === 'classic');
+  syncClassicCheck();
   loadToday();
 }
 
@@ -691,6 +697,7 @@ async function boot() {
   state.lat = geo ? geo.lat : cfg.defaultCenter.lat;
   state.lng = geo ? geo.lng : cfg.defaultCenter.lng;
   state.originSource = geo ? 'geo' : 'default';
+  if (!cfg.radiusOptions.includes(state.radius)) state.radius = cfg.radiusOptions[0];
 
   if (cfg.jsKey) {
     // serviceHost 必须是「源 + 代理前缀」的完整地址，否则 JS API 会把主机名当成路径拼出来
@@ -737,6 +744,10 @@ async function boot() {
   const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'), weighted: $('#btn-weighted') };
   modeButtons.area.onclick = () => setMode('area');
   modeButtons.classic.onclick = () => setMode('classic');
+  $('#chk-classic').onchange = (e) => {
+    if (e.target.checked) setMode('classic');
+    else setMode('area');
+  };
 
   const ratingMenu = $('#rating-menu');
   const ratingButtons = [...ratingMenu.querySelectorAll('button')];
@@ -768,8 +779,9 @@ async function boot() {
     if (!ratingMenu.hidden && !ratingMenu.contains(e.target)) closeRatingMenu();
   });
 
+  const fmtKm = (r) => (r >= 1000 ? `${r / 1000}km` : `${r}m`);
   $('#radius-row').innerHTML = cfg.radiusOptions
-    .map((r) => `<span class="chip ${r === state.radius ? 'active' : ''}" data-r="${r}">${r}m</span>`)
+    .map((r) => `<span class="chip ${r === state.radius ? 'active' : ''}" data-r="${r}">${fmtKm(r)}</span>`)
     .join('');
   $('#radius-row').querySelectorAll('.chip').forEach((el) => {
     el.onclick = () => {

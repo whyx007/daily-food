@@ -90,6 +90,12 @@ sudo systemctl enable --now daily-food
 
 Nginx 配置见 `deploy/nginx.conf.example`，把 `REPLACE_WITH_SECURITY_CODE` 换成 JS API 安全密钥。
 
+**已上线实例**（2026-11-07）：`http://www.whyx.site:9000`
+- Ubuntu 22.04 / systemd 托管 uvicorn，端口 9000，随开机自启；
+- 代码在 `/opt/daily-food`，`daily-food.db` 含名人堂数据（7 家种子 + 本地新增）；
+- 服务器上 80/443 端口已被其他服务（Caddy/xray）占用，因此未配置域名反代，直接走 9000 端口；
+- 重新部署：本地改代码后跑 `python scripts/upload_to_vps.py` 上传，再 `python scripts/run_deploy.py` 重启（脚本通过 SSH 操作，SSH 信息用环境变量 `DSH_SSH_HOST/PORT/USER/PASSWORD` 提供）。
+
 ## 额度与降级
 
 - 周边池按「日期 + 网格（约 500m）+ 半径」缓存，跨日失效；同一区域的人共用一次外部调用；

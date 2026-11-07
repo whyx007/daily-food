@@ -64,6 +64,69 @@ async def test_around_omits_types_when_none():
 
 @pytest.mark.asyncio
 @respx.mock
+async def test_regeo_prefers_aoi_name():
+    payload = {
+        "status": "1", "info": "OK",
+        "regeocode": {
+            "formatted_address": "陕西省西安市长安区郭杜街道西部大道103号",
+            "addressComponent": {"township": "郭杜街道", "district": "长安区",
+                                 "streetNumber": {"street": "西部大道"}},
+            "aois": [{"name": "西安市高新区新型工业园", "distance": "0"}],
+            "pois": [{"name": "阳光天地SOHO", "distance": "192"}],
+        },
+    }
+    respx.get("https://restapi.amap.com/v3/geocode/regeo").mock(
+        return_value=httpx.Response(200, json=payload))
+    client = AmapClient(key="k")
+    out = await client.regeo(34.172176, 108.862074)
+    await client.aclose()
+    assert out["label"] == "西安市高新区新型工业园"
+    assert "西部大道" in out["address"]
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_regeo_falls_back_to_township_and_street():
+    payload = {
+        "status": "1", "info": "OK",
+        "regeocode": {
+            "formatted_address": "某地",
+            "addressComponent": {"township": "郭杜街道", "district": "长安区",
+                                 "streetNumber": {"street": "西部大道"}},
+            "aois": [],
+            "pois": [{"name": "某店", "distance": "800"}],
+        },
+    }
+    respx.get("https://restapi.amap.com/v3/geocode/regeo").mock(
+        return_value=httpx.Response(200, json=payload))
+    client = AmapClient(key="k")
+    out = await client.regeo(34.17, 108.86)
+    await client.aclose()
+    assert out["label"] == "郭杜街道 西部大道"
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_regeo_uses_nearby_poi_within_200m():
+    payload = {
+        "status": "1", "info": "OK",
+        "regeocode": {
+            "formatted_address": "某地",
+            "addressComponent": {"township": "某街道", "district": "某区", "streetNumber": {}},
+            "aois": [],
+            "pois": [{"name": "阳光天地SOHO", "distance": "192"}],
+        },
+    }
+    respx.get("https://restapi.amap.com/v3/geocode/regeo").mock(
+        return_value=httpx.Response(200, json=payload))
+    client = AmapClient(key="k")
+    out = await client.regeo(34.17, 108.86)
+    await client.aclose()
+    assert out["label"] == "阳光天地SOHO附近"
+
+
+@pytest.mark.asyncio
+@respx.mock
 async def test_detail_returns_poi():
     respx.get("https://restapi.amap.com/v3/place/detail").mock(
         return_value=httpx.Response(200, json=SAMPLE))

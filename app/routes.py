@@ -306,6 +306,32 @@ def remove_fix(request: Request, poiid: str):
     return _envelope({"ok": ok}, Meta())
 
 
+@router.get("/api/regeo")
+async def regeo(request: Request, lat: float, lng: float):
+    """把坐标换成人能读的地名（小区/园区/商圈），30 天内复用缓存。"""
+    store = request.app.state.store
+    key = "regeo:" + hashlib.sha1(f"{lat:.4f},{lng:.4f}".encode()).hexdigest()
+    cached = store.get_search(key, ttl=2592000)
+    if cached is not None:
+        payload, fetched_at = cached
+        return _envelope(payload, Meta(cachedAt=fetched_at))
+    if not request.app.state.limiter.allow(_client_ip(request)):
+        return JSONResponse(status_code=429, content={"detail": "too_many_requests"})
+
+    day = today_key()
+    if guard.breaker_state(store, day, request.app.state.settings.daily_call_limit) == "daily_limit_reached":
+        return _envelope({"label": "", "address": ""}, Meta(degraded="daily_limit_reached"))
+    try:
+        payload = await request.app.state.client.regeo(lat, lng)
+        store.bump_calls(day)
+    except AmapError as exc:
+        return _envelope({"label": "", "address": ""}, Meta(degraded=f"amap:{exc.info}"))
+    if not payload.get("label"):
+        payload["label"] = payload.get("address") or ""
+    store.put_search(key, payload, _now())
+    return _envelope(payload, Meta(cachedAt=_now()))
+
+
 @router.get("/api/staticmap")
 async def staticmap(request: Request, lat: float, lng: float, zoom: int = 14):
     try:

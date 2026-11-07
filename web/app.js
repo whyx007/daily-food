@@ -1,8 +1,8 @@
-﻿const state = {
+const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
-  lastMeta: null,
+  lastMeta: null, originLabel: null, originLabelKey: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -180,7 +180,13 @@ function updateOriginBadge() {
   const el = $('#origin-badge');
   if (!el) return;
   const src = state.originSource === 'geo' ? '定位' : state.originSource === 'manual' ? '右键设置' : '默认点';
-  el.innerHTML = `<span class="text">📍 出发点 ${state.lat.toFixed(5)}, ${state.lng.toFixed(5)}（${src}）</span>
+  const coords = `${state.lat.toFixed(5)}, ${state.lng.toFixed(5)}`;
+  const place = state.originLabel || '（定位中…）';
+  el.innerHTML = `
+    <div class="text">
+      <div class="place">📍 ${esc(place)}</div>
+      <div class="sub-coords">${coords} · ${src}</div>
+    </div>
     <button class="locate-me" type="button">用我的定位</button>`;
   el.querySelector('.locate-me').onclick = async () => {
     const geo = await pos();
@@ -195,8 +201,26 @@ function updateOriginBadge() {
   };
 }
 
+async function refreshOriginLabel() {
+  const key = `${state.lat.toFixed(4)},${state.lng.toFixed(4)}`;
+  if (state.originLabelKey === key) { updateOriginBadge(); return; }
+  state.originLabelKey = key;
+  state.originLabel = null;
+  updateOriginBadge();
+  try {
+    const body = await api('/api/regeo', { lat: state.lat, lng: state.lng });
+    if (state.originLabelKey !== key) return;
+    state.originLabel = body.data.label || body.data.address || '';
+  } catch (e) {
+    if (state.originLabelKey !== key) return;
+    state.originLabel = '';
+  }
+  updateOriginBadge();
+}
+
 function renderOrigin() {
   updateOriginBadge();
+  refreshOriginLabel();
   if (!state.map || !window.AMap) return;
   const pos = [state.lng, state.lat];
   if (!state.originMarker) {

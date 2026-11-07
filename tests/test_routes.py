@@ -209,6 +209,30 @@ def test_poi_fix_rejects_invalid(client):
     assert r.status_code == 400
 
 
+def test_regeo_returns_label(client):
+    async def fake_regeo(lat, lng, radius=300):
+        return {"label": "天安门", "address": "北京市东城区东华门街道天安门"}
+
+    client.app.state.client.regeo = fake_regeo
+    r = client.get("/api/regeo", params={"lat": 39.90923, "lng": 116.397428})
+    assert r.status_code == 200
+    assert r.json()["data"]["label"] == "天安门"
+
+
+def test_regeo_is_cached(client):
+    calls = []
+
+    async def fake_regeo(lat, lng, radius=300):
+        calls.append(1)
+        return {"label": "某小区", "address": "某地址"}
+
+    client.app.state.client.regeo = fake_regeo
+    params = {"lat": 39.90923, "lng": 116.397428}
+    client.get("/api/regeo", params=params)
+    client.get("/api/regeo", params=params)
+    assert len(calls) == 1
+
+
 def test_staticmap_returns_png(client):
     resp = client.get("/api/staticmap", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 200

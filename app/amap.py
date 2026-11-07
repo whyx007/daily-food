@@ -52,6 +52,31 @@ def _parse_poi(raw: dict) -> Poi | None:
     )
 
 
+def _regeo_label(rc: dict) -> str:
+    """把逆地理编码结果压成一个人类可读的地名：优先小区/园区/商圈，其次附近 POI，最后街道。"""
+    for aoi in rc.get("aois") or []:
+        name = _text(aoi.get("name"))
+        if name:
+            return name
+    for poi in rc.get("pois") or []:
+        name = _text(poi.get("name"))
+        distance = _text(poi.get("distance"))
+        if not name:
+            continue
+        try:
+            if distance and float(distance) <= 200:
+                return f"{name}附近"
+        except ValueError:
+            continue
+    ac = rc.get("addressComponent") or {}
+    township = _text(ac.get("township")) or _text(ac.get("district"))
+    street = _text((ac.get("streetNumber") or {}).get("street"))
+    parts = [p for p in (township, street) if p]
+    if parts:
+        return " ".join(parts)
+    return _text(rc.get("formatted_address")) or ""
+
+
 class AmapClient:
     def __init__(self, key: str, base: str = "https://restapi.amap.com",
                  timeout: float = 5.0, max_concurrency: int = 3) -> None:
@@ -120,6 +145,18 @@ class AmapClient:
             if poi is not None:
                 return poi
         return None
+
+    async def regeo(self, lat: float, lng: float, radius: int = 300) -> dict:
+        data = await self._get("/v3/geocode/regeo", {
+            "location": f"{lng:.6f},{lat:.6f}",
+            "extensions": "all",
+            "radius": radius,
+        })
+        rc = data.get("regeocode") or {}
+        return {
+            "label": _regeo_label(rc),
+            "address": _text(rc.get("formatted_address")) or "",
+        }
 
     async def geocode(self, address: str) -> tuple[float, float] | None:
         data = await self._get("/v3/geocode/geo", {"address": address})

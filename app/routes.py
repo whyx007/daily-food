@@ -271,9 +271,14 @@ async def add_classic(request: Request, body: dict):
 
 @router.delete("/api/classics/{poiid}")
 def delete_classic(request: Request, poiid: str):
-    token = request.headers.get("X-Client-Token", "")
     admin = request.app.state.settings.admin_token
-    ok = request.app.state.store.delete_classic(poiid, token, admin)
+    password = request.headers.get("X-Admin-Password", "")
+    # 密码确认优先：密码正确（或等于添加者 token）才允许删除
+    if password and password == admin:
+        ok = request.app.state.store.delete_classic(poiid, admin, admin)
+    else:
+        token = request.headers.get("X-Client-Token", "")
+        ok = request.app.state.store.delete_classic(poiid, token, admin)
     if not ok:
         return JSONResponse(status_code=403, content={"detail": "forbidden"})
     return _envelope({"ok": True}, Meta())

@@ -122,15 +122,21 @@ function cycleFromList() {
 
 function renderList(items) {
   const list = $('#list');
+  const inClassic = state.mode === 'classic';
   list.innerHTML = items.map((p) => `
     <div class="item" data-id="${p.id}">
-      <div>${esc(p.name)}</div>
-      <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}${p.tel ? ' · 📞' : ''}</div>
+      <div class="item-main">
+        <div>${esc(p.name)}</div>
+        <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}${p.tel ? ' · 📞' : ''}</div>
+      </div>
+      ${inClassic ? `<button class="item-del" data-del="${p.id}" title="删除">🗑</button>` : ''}
     </div>`).join('');
   list.querySelectorAll('.item').forEach((el) => {
     const item = items.find((p) => p.id === el.dataset.id);
     el.onclick = () => select(item);
     el.oncontextmenu = (e) => { e.preventDefault(); addClassic(item); };
+    const del = el.querySelector('.item-del');
+    if (del) del.onclick = (e) => { e.stopPropagation(); openDeleteDialog(item); };
   });
 }
 
@@ -485,6 +491,46 @@ async function afterClassicAdd(name) {
   }
   if (state.mode === 'classic') loadToday();
   else setMode('classic');
+}
+
+function openDeleteDialog(poi) {
+  if (!poi) return;
+  const dlg = $('#delete-dialog');
+  $('#delete-sub').textContent = poi.name;
+  $('#delete-password').value = '';
+  dlg.hidden = false;
+  $('#delete-password').focus();
+
+  const close = () => { dlg.hidden = true; };
+  const ok = async () => {
+    const pwd = $('#delete-password').value.trim();
+    if (!pwd) { $('#delete-password').focus(); return; }
+    dlg.hidden = true;
+    try {
+      const resp = await fetch(`/api/classics/${encodeURIComponent(poi.id)}`, {
+        method: 'DELETE',
+        headers: { 'X-Admin-Password': pwd },
+      });
+      if (resp.ok) {
+        toast(`已删除：${poi.name}`);
+        state.selectedId = null;
+        if (state.mode === 'classic') loadToday();
+        else refreshCurrent();
+      } else if (resp.status === 403) {
+        toast('密码错误，无法删除');
+      } else {
+        toast(`删除失败（${resp.status}）`);
+      }
+    } catch (e) {
+      toast('删除失败，请检查网络');
+    }
+  };
+  $('#delete-cancel').onclick = close;
+  $('#delete-ok').onclick = ok;
+  $('#delete-password').onkeydown = (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); ok(); }
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+  };
 }
 
 function openNameDialog(prefill, subtitle, onSubmit) {

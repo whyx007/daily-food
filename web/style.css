@@ -41,8 +41,12 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 .btn:active { transform: scale(.95); }
 .btn.active { background: #1f2328; color: #fff; border-color: #1f2328; }
 #list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
-.item { padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: pointer;
+.item { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: pointer;
   transition: border-color .15s ease, background .15s ease, transform .08s ease; }
+.item-main { flex: 1; min-width: 0; }
+.item-del { flex: none; padding: 4px 7px; border: 1px solid #e5e7eb; border-radius: 6px; background: #fff;
+  cursor: pointer; font-size: 12px; line-height: 1; opacity: .65; }
+.item-del:hover { opacity: 1; border-color: #d73a49; }
 .item:hover { border-color: #8c959f; }
 .item:active { transform: scale(.99); }
 .item.active { border-color: #1f2328; background: #f6f8fa; }

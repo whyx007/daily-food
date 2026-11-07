@@ -1,4 +1,4 @@
-﻿from datetime import date as date_cls, timedelta
+from datetime import date as date_cls, timedelta
 
 import httpx
 import pytest
@@ -100,6 +100,22 @@ def test_search_allows_single_cjk_char(client):
 def test_search_requires_query(client):
     resp = client.get("/api/search", params={"lat": 39.91, "lng": 116.40})
     assert resp.status_code == 400
+
+
+def test_classics_delete_with_password(client):
+    client.post("/api/classics", json={"poiid": "B001"},
+                headers={"X-Client-Token": "tok-a"})
+    r = client.delete("/api/classics/B001", headers={"X-Admin-Password": "secret"})
+    assert r.status_code == 200
+    assert client.get("/api/classics").json()["data"]["items"] == []
+
+
+def test_classics_delete_wrong_password_forbidden(client):
+    client.post("/api/classics", json={"poiid": "B001"},
+                headers={"X-Client-Token": "tok-a"})
+    r = client.delete("/api/classics/B001", headers={"X-Admin-Password": "wrong"})
+    assert r.status_code == 403
+    assert len(client.get("/api/classics").json()["data"]["items"]) == 1
 
 
 def test_classics_add_list_delete(client):

@@ -66,14 +66,22 @@ function renderDaily(pick, meta) {
   if (!pick) { card.innerHTML = '<div class="notice">今天没有可选的结果</div>'; return; }
   const rating = pick.rating ? `· ${pick.rating} 分` : '';
   const cost = pick.cost ? `· 人均 ¥${pick.cost}` : '';
+  const addr = pick.address ? `${pick.address} · ` : '';
+  const address = `<div class="meta">${addr}<span class="coord">${pick.lat.toFixed(5)}, ${pick.lng.toFixed(5)}</span></div>`;
   card.innerHTML = `
     <div class="name">${pick.name}</div>
     <div class="meta">${pick.distance ?? '?'}m ${rating} ${cost}</div>
+    ${address}
     <div class="actions">
       <button class="btn primary" data-nav="${pick.id}">去这里</button>
+      <button class="btn" data-locate="${pick.id}">📍 地图定位</button>
       <button class="btn" id="btn-again">换一换</button>
     </div>`;
   card.querySelector('[data-nav]').onclick = () => navigate(pick);
+  card.querySelector('[data-locate]').onclick = () => {
+    select(pick);
+    toast(`地图上标出了：${pick.name}`);
+  };
   card.querySelector('#btn-again').onclick = () => { state.nonce += 1; loadToday(); };
   if (meta && meta.degraded) {
     card.insertAdjacentHTML('beforeend', `<div class="notice">${meta.degraded}</div>`);

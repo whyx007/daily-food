@@ -53,6 +53,7 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 .menu button:hover { background: #f3f4f6; }
 .menu button.active { background: #1f2328; color: #fff; }
 .notice { color: #9a6700; font-size: 12px; margin-top: 8px; }
+.coord { color: #8c959f; font-size: 12px; }
 .origin-dot { width: 14px; height: 14px; border-radius: 50%; background: #2f6fed; border: 2px solid #fff;
   box-shadow: 0 0 0 2px rgba(47, 111, 237, .35); }
 #toast { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); padding: 8px 14px;

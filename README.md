@@ -1,6 +1,13 @@
 # 今天吃啥（daily-food）
 
 每天随机推荐一家附近餐厅：左侧高德地图 + 导航，右侧搜索、候选列表、共享名人堂。
+
+交互要点：
+
+- 三个模式按钮（区域随机 / 经典馆子 / 高分优先）有选中态与按压反馈；
+- **右键地图**任意位置 → 把那里设为出发点（蓝点标记），距离与导航起点都随它变；
+- **右键店铺**（地图标记或右侧列表项）→ 直接加入经典馆子；
+- 点「去这里」唤起高德导航，微信内会提示换浏览器打开。
 设计文档见 [docs/superpowers/specs/2026-11-07-daily-food-design.md](docs/superpowers/specs/2026-11-07-daily-food-design.md)，
 实现计划见 [docs/superpowers/plans/2026-11-07-daily-food-plan.md](docs/superpowers/plans/2026-11-07-daily-food-plan.md)。
 

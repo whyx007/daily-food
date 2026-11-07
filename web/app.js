@@ -1,6 +1,7 @@
 const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
+  originMarker: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -65,7 +66,9 @@ function renderList(items) {
       <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}</div>
     </div>`).join('');
   list.querySelectorAll('.item').forEach((el) => {
-    el.onclick = () => select(items.find((p) => p.id === el.dataset.id));
+    const item = items.find((p) => p.id === el.dataset.id);
+    el.onclick = () => select(item);
+    el.oncontextmenu = (e) => { e.preventDefault(); addClassic(item); };
   });
 }
 
@@ -77,7 +80,10 @@ function renderMarkers(items) {
     position: [p.lng, p.lat], title: p.name, anchor: 'bottom-center', extData: p,
   }));
   state.map.add(state.markers);
-  state.markers.forEach((m) => m.on('click', () => select(m.getExtData())));
+  state.markers.forEach((m) => {
+    m.on('click', () => select(m.getExtData()));
+    m.on('rightclick', () => addClassic(m.getExtData()));
+  });
 }
 
 function ensureMap() {
@@ -85,7 +91,53 @@ function ensureMap() {
   $('#map-fallback').hidden = true;
   $('#map').hidden = false;
   state.map = new AMap.Map('map', { center: [state.lng, state.lat], zoom: 15, viewMode: '2D' });
+  state.map.on('rightclick', (e) => {
+    state.lat = e.lnglat.lat;
+    state.lng = e.lnglat.lng;
+    state.map.setCenter([state.lng, state.lat]);
+    renderOrigin();
+    toast('出发点已改到这里');
+    loadToday();
+  });
+  renderOrigin();
   renderMarkers(state.lastItems || []);
+}
+
+function renderOrigin() {
+  if (!state.map || !window.AMap) return;
+  const pos = [state.lng, state.lat];
+  if (!state.originMarker) {
+    state.originMarker = new AMap.Marker({
+      position: pos, anchor: 'center', zIndex: 120, content: '<div class="origin-dot"></div>',
+    });
+    state.map.add(state.originMarker);
+  } else {
+    state.originMarker.setPosition(pos);
+  }
+}
+
+let toastTimer = null;
+function toast(text) {
+  let el = $('#toast');
+  if (!el) { el = document.createElement('div'); el.id = 'toast'; document.body.appendChild(el); }
+  el.textContent = text;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+
+async function addClassic(poi) {
+  if (!poi || !poi.id) return;
+  try {
+    const resp = await fetch('/api/classics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Client-Token': token() },
+      body: JSON.stringify({ poiid: poi.id }),
+    });
+    toast(resp.ok ? `已加入经典馆子：${poi.name}` : `加入失败（${resp.status}）`);
+  } catch (e) {
+    toast('加入失败，请检查网络');
+  }
 }
 
 function showFallback() {
@@ -210,9 +262,16 @@ async function boot() {
     if (v.length >= 2) search(v);
   };
 
-  $('#btn-random').onclick = () => { state.mode = 'area'; state.nonce += 1; loadToday(); };
-  $('#btn-classic').onclick = () => { state.mode = 'classic'; state.nonce += 1; loadToday(); };
-  $('#btn-weighted').onclick = () => { state.mode = 'weighted'; state.nonce += 1; loadToday(); };
+  const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'), weighted: $('#btn-weighted') };
+  const setMode = (mode) => {
+    state.mode = mode;
+    state.nonce += 1;
+    Object.entries(modeButtons).forEach(([m, el]) => el.classList.toggle('active', m === mode));
+    loadToday();
+  };
+  modeButtons.area.onclick = () => setMode('area');
+  modeButtons.classic.onclick = () => setMode('classic');
+  modeButtons.weighted.onclick = () => setMode('weighted');
 
   $('#radius-row').innerHTML = cfg.radiusOptions
     .map((r) => `<span class="chip ${r === state.radius ? 'active' : ''}" data-r="${r}">${r}m</span>`)
@@ -226,7 +285,8 @@ async function boot() {
     };
   });
 
-  loadToday();
+  setMode('area');
+  window.__df = { state, addClassic, toast, loadToday };
 }
 
 boot().catch(() => {

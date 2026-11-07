@@ -514,6 +514,8 @@ async function search(q) {
     }
     renderList(items);
     renderMarkers(items);
+    state.selectedId = null;
+    select(items[0]);
   } catch (e) {
     $('#list').innerHTML = `<div class="notice">搜索失败（${e.status || '网络'}），稍后再试</div>`;
   }

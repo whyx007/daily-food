@@ -15,6 +15,12 @@
       <input id="map-search-input" placeholder="搜商家：饺子、星巴克、火锅…" autocomplete="off">
       <button type="submit">搜索</button>
     </form>
+    <button id="btn-settings" class="map-settings" title="设置">⚙</button>
+    <div id="settings-menu" class="settings-menu" hidden>
+      <div class="settings-title">列表排序</div>
+      <label class="settings-item"><input type="radio" name="sortBy" value="distance" checked> 按距离排序</label>
+      <label class="settings-item"><input type="radio" name="sortBy" value="rating"> 按打分排序</label>
+    </div>
     <div id="map"></div>
     <div id="map-fallback" hidden></div>
     <div id="map-hint">右键地图：设置出发点 / 加入经典馆子</div>
@@ -49,6 +55,7 @@
     </div>
   </main>
   <aside id="panel">
+    <button id="btn-panel-toggle" class="panel-toggle" title="收起/展开">«</button>
     <header>
       <div class="site-head">
         <img src="/logo.png" alt="logo" class="site-logo">

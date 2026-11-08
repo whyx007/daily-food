@@ -3,6 +3,7 @@ const state = {
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
   lastMeta: null, originLabel: null, originLabelKey: null, showClassicOnMap: false, classicMarkers: [],
+  sortBy: 'distance',
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -120,10 +121,29 @@ function cycleFromList() {
   select(next);
 }
 
+function sortItems(items) {
+  const arr = [...items];
+  if (state.sortBy === 'rating') {
+    arr.sort((a, b) => {
+      const ra = a.rating == null ? -1 : parseFloat(a.rating);
+      const rb = b.rating == null ? -1 : parseFloat(b.rating);
+      return rb - ra;
+    });
+  } else {
+    arr.sort((a, b) => {
+      const da = a.distance == null ? Infinity : a.distance;
+      const db = b.distance == null ? Infinity : b.distance;
+      return da - db;
+    });
+  }
+  return arr;
+}
+
 function renderList(items) {
   const list = $('#list');
   const inClassic = state.mode === 'classic';
-  list.innerHTML = items.map((p) => `
+  const sorted = sortItems(items);
+  list.innerHTML = sorted.map((p) => `
     <div class="item" data-id="${p.id}">
       <div class="item-main">
         <div>${inClassic ? '<span class="star-item">⭐</span> ' : ''}${esc(p.name)}</div>
@@ -132,7 +152,7 @@ function renderList(items) {
       ${inClassic ? `<button class="item-del" data-del="${p.id}" title="删除">🗑</button>` : ''}
     </div>`).join('');
   list.querySelectorAll('.item').forEach((el) => {
-    const item = items.find((p) => p.id === el.dataset.id);
+    const item = sorted.find((p) => p.id === el.dataset.id);
     el.onclick = () => select(item);
     el.oncontextmenu = (e) => { e.preventDefault(); addClassic(item); };
     const del = el.querySelector('.item-del');
@@ -858,6 +878,32 @@ const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快
   document.addEventListener('click', (e) => {
     if (!ratingMenu.hidden && !ratingMenu.contains(e.target)) closeRatingMenu();
   });
+
+  $('#btn-settings').onclick = (e) => {
+    e.stopPropagation();
+    const menu = $('#settings-menu');
+    menu.hidden = !menu.hidden;
+  };
+  $('#settings-menu').querySelectorAll('input[name="sortBy"]').forEach((radio) => {
+    radio.onchange = () => {
+      state.sortBy = radio.value;
+      $('#settings-menu').hidden = true;
+      loadToday();
+    };
+  });
+  document.addEventListener('click', (e) => {
+    const menu = $('#settings-menu');
+    if (menu && !menu.hidden && !menu.contains(e.target) && e.target.id !== 'btn-settings') {
+      menu.hidden = true;
+    }
+  });
+
+  $('#btn-panel-toggle').onclick = () => {
+    const layout = $('#layout');
+    const collapsed = layout.classList.toggle('panel-collapsed');
+    $('#btn-panel-toggle').textContent = collapsed ? '»' : '«';
+    if (state.map) setTimeout(() => state.map.setCenter([state.lng, state.lat]), 320);
+  };
 
   const fmtKm = (r) => (r >= 1000 ? `${r / 1000}km` : `${r}m`);
   $('#radius-row').innerHTML = cfg.radiusOptions

@@ -902,7 +902,14 @@ const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快
     const layout = $('#layout');
     const collapsed = layout.classList.toggle('panel-collapsed');
     $('#btn-panel-toggle').textContent = collapsed ? '»' : '«';
-    if (state.map) setTimeout(() => state.map.setCenter([state.lng, state.lat]), 320);
+    // 面板宽度变化后需要让地图重新计算尺寸，否则会错位/可拖动露出面板
+    let steps = 0;
+    const tick = () => {
+      if (state.map && typeof state.map.resize === 'function') state.map.resize();
+      steps += 1;
+      if (steps < 12) setTimeout(tick, 40);
+    };
+    tick();
   };
 
   const fmtKm = (r) => (r >= 1000 ? `${r / 1000}km` : `${r}m`);

@@ -1,8 +1,9 @@
 * { box-sizing: border-box; }
 body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2328; }
-#layout { display: grid; grid-template-columns: 1.6fr minmax(300px, 1fr); height: 100vh; transition: grid-template-columns .25s ease; }
-#layout.panel-collapsed { grid-template-columns: 1fr 0px; }
-#map-pane { position: relative; background: #eef1f5; min-width: 0; }
+#layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr); height: 100vh;
+  transition: grid-template-columns .25s ease; overflow: hidden; }
+#layout.panel-collapsed { grid-template-columns: minmax(0, 1fr) 0px; }
+#map-pane { position: relative; background: #eef1f5; min-width: 0; overflow: hidden; }
 #map, #map-fallback { width: 100%; height: 100%; }
 .origin-badge { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; padding: 6px 10px; border-radius: 8px;
   background: #f3f6fb; color: #425466; font-size: 12px; border: 1px solid #dbe4f0; }
@@ -21,10 +22,12 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 .map-search input { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid #d0d7de; border-radius: 8px; font-size: 14px; }
 .map-search input:focus { outline: none; border-color: #1f2328; }
 .map-search button { padding: 8px 16px; border: 0; border-radius: 8px; background: #1f2328; color: #fff; cursor: pointer; }
-#panel { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 16px; overflow: visible; border-left: 1px solid #e5e7eb; }
-.panel-toggle { position: absolute; top: 50%; left: -18px; transform: translateY(-50%); z-index: 60;
-  width: 18px; height: 44px; border: 1px solid #d0d7de; border-left: 0; border-radius: 0 8px 8px 0;
-  background: #fff; cursor: pointer; font-size: 12px; color: #57606a; box-shadow: 1px 0 6px rgba(0,0,0,.08); }
+#panel { position: relative; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 16px;
+  overflow: hidden; border-left: 1px solid #e5e7eb; transition: opacity .2s ease; }
+#layout.panel-collapsed #panel { padding: 0; border-left: 0; opacity: 0; pointer-events: none; }
+.panel-toggle { position: absolute; top: 50%; right: 0; transform: translateY(-50%); z-index: 60;
+  width: 18px; height: 52px; border: 1px solid #d0d7de; border-right: 0; border-radius: 8px 0 0 8px;
+  background: #fff; cursor: pointer; font-size: 12px; color: #57606a; box-shadow: -1px 0 6px rgba(0,0,0,.08); }
 .panel-toggle:hover { background: #f3f4f6; }
 #panel header h1 { font-size: 18px; margin: 0 0 8px; }
 .site-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; position: relative; }

@@ -810,7 +810,7 @@ function clearFilter() {
   loadToday();
 }
 
-const chips = [['饺子', '饺子'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐'],
+const chips = [['饺子', '饺子'], ['凉皮夹馍', '凉皮'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐'],
                ['牛羊肉泡馍', '牛羊肉泡馍'], ['葫芦头', '葫芦头'], ['炒菜', '炒菜'], ['烧烤', '烧烤']];
   $('#chips').innerHTML = chips
     .map(([label, q]) => `<span class="chip" data-q="${q}">${label}</span>`).join('')

@@ -1,0 +1,13 @@
+services:
+  daily-food:
+    build: .
+    image: daily-food:latest
+    container_name: daily-food
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DB_PATH: /data/daily-food.db
+    ports:
+      - "9000:8000"
+    volumes:
+      - ./data-store:/data

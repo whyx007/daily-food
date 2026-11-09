@@ -379,5 +379,21 @@
     "tier": "official",
     "note": "高新区官方号，介绍高新三期餐饮",
     "trust_prior": 0.65
+  },
+  {
+    "id": "smzdm_kutu",
+    "name": "狂徒老爹（什么值得买）",
+    "platform": "什么值得买",
+    "tier": "blogger",
+    "note": "西安本地作者，自述“家住长安”，写秦镇米皮与关中吃食，内容为本人实地",
+    "trust_prior": 0.6
+  },
+  {
+    "id": "ctrip_food",
+    "name": "携程美食点评用户",
+    "platform": "携程",
+    "tier": "media",
+    "note": "携程餐厅页的真实用户点评（非点评/美团），多数为到店食客",
+    "trust_prior": 0.42
   }
 ]

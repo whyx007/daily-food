@@ -1780,5 +1780,59 @@
     "url": "https://www.sohu.com/a/1084118447_681384",
     "published_at": "2026-10-05",
     "snippet": "雷哥锅包肉、香葱大饼、砂锅米线等"
+  },
+  {
+    "poi_name": "秦镇第一味米皮总店",
+    "category": "凉皮酿皮",
+    "sub_category": "秦镇米皮",
+    "author_id": "smzdm_kutu",
+    "url": "https://post.smzdm.com/talk/p/agg6wr3d/",
+    "published_at": "2026-06-08",
+    "snippet": "在秦镇桥头有凉皮店数十家，有人喜欢薛家，有人喜欢吕家，有称第一家，也有称第一味。今天去的第一味，米皮7元，肉夹馍8元，15元套餐吃得饱饱的。"
+  },
+  {
+    "poi_name": "吕家米皮老店",
+    "category": "凉皮酿皮",
+    "sub_category": "秦镇米皮",
+    "author_id": "smzdm_kutu",
+    "url": "https://post.smzdm.com/talk/p/agg6wr3d/",
+    "published_at": "2026-06-08",
+    "snippet": "在秦镇桥头有凉皮店数十家，有人喜欢薛家，有人喜欢吕家；米皮讲究白、光、薄、细、软、韧，标配豆芽加芹菜打底。"
+  },
+  {
+    "poi_name": "秦镇薛家米皮",
+    "category": "凉皮酿皮",
+    "sub_category": "秦镇米皮",
+    "author_id": "smzdm_kutu",
+    "url": "https://post.smzdm.com/talk/p/agg6wr3d/",
+    "published_at": "2026-06-08",
+    "snippet": "在秦镇桥头有凉皮店数十家，有人喜欢薛家，有人喜欢吕家，有称第一家，也有称第一味，说实话口味之间难分伯仲。"
+  },
+  {
+    "poi_name": "东东炒菜（郭杜东街店）",
+    "category": "炒菜",
+    "sub_category": "家常炒菜",
+    "author_id": "ctrip_food",
+    "url": "https://you.ctrip.com/food/xian7/5072354-dianping108942836.html",
+    "published_at": "2020-04-13",
+    "snippet": "郭杜老十字向东约一百米路南，馆子不大，人超多，饭点一般都需要等位，可见味道不一般；点了六个菜也就一百五十多，平均一个菜也就二十多，价格还是可以接受。"
+  },
+  {
+    "poi_name": "高记肉夹馍(黄良镇店)",
+    "category": "肉夹馍",
+    "sub_category": "腊汁肉夹馍",
+    "author_id": "private",
+    "url": "",
+    "published_at": "",
+    "snippet": "雇主自述：长安黄良镇的高记肉夹馍很不错，是他常去的一家。"
+  },
+  {
+    "poi_name": "竹间葫芦鸡",
+    "category": "炒菜",
+    "sub_category": "葫芦鸡",
+    "author_id": "private",
+    "url": "",
+    "published_at": "",
+    "snippet": "雇主自述：长安的竹间葫芦鸡很不错。"
   }
 ]

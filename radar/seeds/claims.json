@@ -1591,5 +1591,194 @@
     "url": "https://www.sohu.com/a/652277179_348920",
     "published_at": "2023-03-10",
     "snippet": "李记搅团、乐乐餐厅、传家菜、杨超炒菜馆、清真老望家常炒菜、王凯老菜馆、金魁川菜馆都是口碑不错实惠下饭的馆子"
+  },
+  {
+    "poi_name": "湘子门小炒",
+    "category": "牛羊肉小炒",
+    "sub_category": "小炒泡馍",
+    "author_id": "a04",
+    "url": "https://www.sohu.com/a/209600423_348972",
+    "published_at": "2017-12-09",
+    "snippet": "这家店是除了坊上的那些个外，一个很拿得出手的选择。"
+  },
+  {
+    "poi_name": "东滩水盆羊肉",
+    "category": "水盆羊肉",
+    "sub_category": "澄城水盆羊肉",
+    "author_id": "a04",
+    "url": "https://m.sohu.com/coo/sg/213044731_348972",
+    "published_at": "2017-12-27",
+    "snippet": "比较亲民的一家餐馆，性价比比较高，水盆羊肉会赠送一份小菜，吃起来清脆爽口，饼子是现场烤制的"
+  },
+  {
+    "poi_name": "辣呦中国菜",
+    "category": "炒菜",
+    "sub_category": "川菜",
+    "author_id": "sohu_dejing",
+    "url": "https://www.sohu.com/a/326635016_364019",
+    "published_at": "2019-07-13",
+    "snippet": "辣呦靠着地道的川菜，和几年未变的超低人均，这样良心的性价比，一路在西安俘获万千粉丝"
+  },
+  {
+    "poi_name": "范家大院",
+    "category": "烤肉",
+    "sub_category": "烧烤",
+    "author_id": "sohu-meishidarentu",
+    "url": "https://www.sohu.com/a/165542859_632977",
+    "published_at": "2017-08-18",
+    "snippet": "一间有态度的烧烤店！有颜有味道。"
+  },
+  {
+    "poi_name": "小六汤包·永安渠店",
+    "category": "饺子蒸饺",
+    "sub_category": "灌汤包",
+    "author_id": "thepaper_gov",
+    "url": "https://m.thepaper.cn/newsDetail_forward_34023234",
+    "published_at": "2026-09-06",
+    "snippet": "招牌汤包“先开窗、后喝汤”，鲜得眉毛掉下来"
+  },
+  {
+    "poi_name": "小屁儿椒乡野山土菜",
+    "category": "炒菜",
+    "sub_category": "湘菜土菜",
+    "author_id": "thepaper_gov",
+    "url": "https://m.thepaper.cn/newsDetail_forward_34023234",
+    "published_at": "2026-09-06",
+    "snippet": "238㎡的湘土菜馆，原木桌椅、暖黄吊灯、开放式明厨——在这里，锅气看得见，辣香闻得着！"
+  },
+  {
+    "poi_name": "皇城轩葫芦头",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "sohu_cunzhang",
+    "url": "https://www.sohu.com/a/308808977_120046807",
+    "published_at": "2019-04-18",
+    "snippet": "这家将近20年的老字号葫芦头应该是很多长安小伙伴们的集体记忆。"
+  },
+  {
+    "poi_name": "皇城轩葫芦头",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "sohu_shanxi_food",
+    "url": "https://www.sohu.com/a/259897535_100027901",
+    "published_at": "2018-10-16",
+    "snippet": "位于西安长安区韦曲北街十字，有家皇城轩葫芦头，他们家的葫芦头泡馍、卤猪蹄、脆皮葫芦鸡等多种菜品口味俱佳"
+  },
+  {
+    "poi_name": "泥波南院门葫芦头",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "sohu_cunzhang",
+    "url": "https://www.sohu.com/a/308808977_120046807",
+    "published_at": "2019-04-18",
+    "snippet": "郭杜十字这家南院门葫芦头，开店到现在快30年了。"
+  },
+  {
+    "poi_name": "皮薄村味园",
+    "category": "饺子蒸饺",
+    "sub_category": "莲菜大肉饺子",
+    "author_id": "sohu_cunzhang",
+    "url": "https://www.sohu.com/a/308808977_120046807",
+    "published_at": "2019-04-18",
+    "snippet": "皮薄饺子开业到现在已经有30年了，从原来单一的卖饺子发展成了现在的饺子炒菜。"
+  },
+  {
+    "poi_name": "竹间葫芦鸡",
+    "category": "炒菜",
+    "sub_category": "葫芦鸡",
+    "author_id": "sohu_cunzhang",
+    "url": "https://www.sohu.com/a/308808977_120046807",
+    "published_at": "2019-04-18",
+    "snippet": "要说长安葫芦鸡，当属外院南侧的竹间葫芦鸡最为有名和正宗。"
+  },
+  {
+    "poi_name": "小清花粥铺",
+    "category": "炒菜",
+    "sub_category": "家常小炒",
+    "author_id": "sohu_cunzhang",
+    "url": "https://www.sohu.com/a/308808977_120046807",
+    "published_at": "2019-04-18",
+    "snippet": "店里菜品分量很足，小炒素材清新可口，辣椒炒肉也是非常下饭。"
+  },
+  {
+    "poi_name": "大千麻辣鱼",
+    "category": "炒菜",
+    "sub_category": "麻辣鱼",
+    "author_id": "sohu_cunzhang",
+    "url": "https://www.sohu.com/a/308808977_120046807",
+    "published_at": "2019-04-18",
+    "snippet": "要说他家最大的特点，莫过于所有的鱼都是由顾客自己选择，而后活鱼现杀，所以味道尤为鲜美。"
+  },
+  {
+    "poi_name": "老程米线",
+    "category": "米线",
+    "sub_category": "麻辣米线",
+    "author_id": "sohu_pudong",
+    "url": "https://www.163.com/dy/article/KILPT5UK05562DDE.html",
+    "published_at": "2026-01-07",
+    "snippet": "很经典的麻辣米线配置，碗底是葱、香菜、紫菜、虾皮，热气腾腾麻辣鲜香，米线也是细米线，又韧又弹。"
+  },
+  {
+    "poi_name": "老北川",
+    "category": "炒菜",
+    "sub_category": "盖浇饭",
+    "author_id": "sohu_pudong",
+    "url": "https://www.163.com/dy/article/KILPT5UK05562DDE.html",
+    "published_at": "2026-01-07",
+    "snippet": "作为政法、邮电的“第二食堂”，老北川菜量和口味都没得挑，点了一份土豆片盐煎肉，熟悉的感觉回来了。"
+  },
+  {
+    "poi_name": "雪儿食屋",
+    "category": "炒菜",
+    "sub_category": "家常菜",
+    "author_id": "sohu_pudong",
+    "url": "https://www.163.com/dy/article/KILPT5UK05562DDE.html",
+    "published_at": "2026-01-07",
+    "snippet": "雪儿食屋也还在，这家鱼香烘蛋几乎是桌桌必点，鸡蛋水嫩蓬松，吸满汤汁后就是妥妥的下饭神器。"
+  },
+  {
+    "poi_name": "林香蒸肉",
+    "category": "肉夹馍",
+    "sub_category": "粉蒸肉夹馍",
+    "author_id": "sohu_pudong",
+    "url": "https://www.163.com/dy/article/KILPT5UK05562DDE.html",
+    "published_at": "2026-01-07",
+    "snippet": "夹馍大多是十来块钱的套餐，每份肉自带两个荷叶饼子。"
+  },
+  {
+    "poi_name": "老程家秦镇米皮",
+    "category": "凉皮酿皮",
+    "sub_category": "秦镇米皮",
+    "author_id": "sohu_chunhua",
+    "url": "https://m.sohu.com/a/998091053_122649853/",
+    "published_at": "2026-03-18",
+    "snippet": "小吃有臭豆腐还有油炸小土豆，宫廷酥牛肉饼（外皮酥脆掉渣）、甑糕（软糯香甜）、老程家秦镇米皮（薄韧入味）"
+  },
+  {
+    "poi_name": "老程家秦镇米皮",
+    "category": "凉皮酿皮",
+    "sub_category": "秦镇米皮",
+    "author_id": "sohu_baihe",
+    "url": "https://m.sohu.com/a/937920143_122498614/",
+    "published_at": "2025-09-23",
+    "snippet": "必尝美食：老街蒸肉、西翻炒凉皮、老程家秦镇米皮、现炸菜盒、老焦熏肉大饼、老街油茶、木炭烙葱花大饼、甑糕，荞面饸饹，胡辣汤。"
+  },
+  {
+    "poi_name": "胡大刀擀面皮",
+    "category": "凉皮酿皮",
+    "sub_category": "擀面皮",
+    "author_id": "sohu_bendibao",
+    "url": "https://www.sohu.com/a/934120854_681384",
+    "published_at": "2025-09-12",
+    "snippet": "胡辣汤、糯米糕、杂肝汤、驴肉火烧、葱花大饼、胡大刀擀面皮、上海生煎包…"
+  },
+  {
+    "poi_name": "雷哥锅包肉",
+    "category": "炒菜",
+    "sub_category": "东北锅包肉",
+    "author_id": "sohu_bendibao",
+    "url": "https://www.sohu.com/a/1084118447_681384",
+    "published_at": "2026-10-05",
+    "snippet": "雷哥锅包肉、香葱大饼、砂锅米线等"
   }
 ]

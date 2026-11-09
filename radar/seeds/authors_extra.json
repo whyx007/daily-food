@@ -331,5 +331,53 @@
     "tier": "media",
     "note": "美食探店，偏门店介绍",
     "trust_prior": 0.45
+  },
+  {
+    "id": "sohu_cunzhang",
+    "name": "村长带你逛西安",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "长安 6 家老牌饭馆清单，地址完整",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu_shanxi_food",
+    "name": "陕西美食篇",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "皇城轩葫芦头专文，写明韦曲北街位置",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sohu_chunhua",
+    "name": "实在人的春暖花开",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "韦曲老街逛吃攻略，点名老程家秦镇米皮",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sohu_baihe",
+    "name": "百合ss",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "韦曲老街必尝小吃清单",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sohu_dejing",
+    "name": "得劲儿",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "必吃榜整理，含高新店",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "thepaper_gov",
+    "name": "西安高新",
+    "platform": "澎湃号",
+    "tier": "official",
+    "note": "高新区官方号，介绍高新三期餐饮",
+    "trust_prior": 0.65
   }
 ]

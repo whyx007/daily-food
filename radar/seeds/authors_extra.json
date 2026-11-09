@@ -267,5 +267,69 @@
     "tier": "media",
     "note": "本地资讯号，探店图文",
     "trust_prior": 0.5
+  },
+  {
+    "id": "sohu-xianchihe",
+    "name": "西安吃喝玩乐杂志",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "本地吃喝玩乐号，冬季水盆合集类文章",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu-sanjin",
+    "name": "三秦人文地理",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "陕西人文地理号，老店/水盆推荐，附地址",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sohu-meishidarentu",
+    "name": "西安美食达人圈",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "57位美食达人推荐整理的高新区美食地图",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu-chengshi-shx",
+    "name": "搜狐城市-陕西",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "搜狐城市陕西站，高新区餐饮打卡攻略",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu-shihejingxuan",
+    "name": "吃喝玩乐西安精选",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "本地探店号，苍蝇馆子盘点",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sina-lifeservice",
+    "name": "新浪生活服务社",
+    "platform": "新浪",
+    "tier": "media",
+    "note": "本地生活号，网红店/老店对比测评",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "163-laocheng",
+    "name": "老城探店",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "网易号探店作者，苍蝇馆子实地探访",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "163-chengshi-meishi",
+    "name": "城市美食名片",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "美食探店，偏门店介绍",
+    "trust_prior": 0.45
   }
 ]

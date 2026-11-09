@@ -1,0 +1,37 @@
+{
+  "authors": [
+    {"id":"sohu-xianchihe","name":"西安吃喝玩乐杂志","platform":"搜狐号","tier":"media","note":"本地吃喝玩乐号，冬季水盆合集类文章","trust_prior":0.55},
+    {"id":"sohu-sanjin","name":"三秦人文地理","platform":"搜狐号","tier":"media","note":"陕西人文地理号，老店/水盆推荐，附地址","trust_prior":0.50},
+    {"id":"sohu-meishidarentu","name":"西安美食达人圈","platform":"搜狐号","tier":"media","note":"57位美食达人推荐整理的高新区美食地图","trust_prior":0.55},
+    {"id":"sohu-chengshi-shx","name":"搜狐城市-陕西","platform":"搜狐号","tier":"media","note":"搜狐城市陕西站，高新区餐饮打卡攻略","trust_prior":0.55},
+    {"id":"sohu-shihejingxuan","name":"吃喝玩乐西安精选","platform":"搜狐号","tier":"media","note":"本地探店号，苍蝇馆子盘点","trust_prior":0.50},
+    {"id":"sina-lifeservice","name":"新浪生活服务社","platform":"新浪","tier":"media","note":"本地生活号，网红店/老店对比测评","trust_prior":0.45},
+    {"id":"163-laocheng","name":"老城探店","platform":"网易号","tier":"media","note":"网易号探店作者，苍蝇馆子实地探访","trust_prior":0.50},
+    {"id":"163-chengshi-meishi","name":"城市美食名片","platform":"网易号","tier":"media","note":"美食探店，偏门店介绍","trust_prior":0.45}
+  ],
+  "claims": [
+    {"poi_name":"马家老六水盆羊肉羊杂羔","category":"水盆羊肉","sub_category":"坊上水盆","author_id":"sohu_luantan","url":"https://www.sohu.com/a/298285085_348920","published_at":"2019-02-28","snippet":"典型的坊上味道，重油、重口，却意外的好吃，都是大块的肉，可以不要辣子、明油、葱花、香菜或味精，适合各种口味的小伙伴~"},
+    {"poi_name":"马家老六水盆羊肉羊杂羔","category":"水盆羊肉","sub_category":"坊上水盆","author_id":"sohu-sanjin","url":"https://m.sohu.com/coo/sg/205256404_100023089","published_at":"2017-11-19","snippet":"虽然店面环境一般，但靠着纯正的味道，还是在当地建立了很高的口碑。"},
+    {"poi_name":"叼蒲城水盆羊肉","category":"水盆羊肉","sub_category":"蒲城水盆","author_id":"sohu_luantan","url":"https://www.sohu.com/a/298285085_348920","published_at":"2019-02-28","snippet":"汤头好，味道很浓，整体还是很鲜的，羊肉不是很多，但是吃起来紧致，不散，而且完全没有膻味，不加辣子喝起来也是别有一番风味~"},
+    {"poi_name":"澄城会馆","category":"水盆羊肉","sub_category":"澄城水盆","author_id":"sohu_luantan","url":"https://www.sohu.com/a/298285085_348920","published_at":"2019-02-28","snippet":"超大一份的水盆羊肉，满满的浓汤，保证喝到舒服！"},
+    {"poi_name":"东滩水盆羊肉","category":"水盆羊肉","sub_category":"西安本土水盆","author_id":"sohu_luantan","url":"https://www.sohu.com/a/298285085_348920","published_at":"2019-02-28","snippet":"就在绿地饕餮里面，好利来隔壁，比较亲民的一家餐馆，性价比比较高。"},
+    {"poi_name":"东滩水盆羊肉","category":"水盆羊肉","sub_category":"西安本土水盆","author_id":"sohu-xianchihe","url":"https://m.sohu.com/coo/sg/213044731_348972","published_at":"2017-12-27","snippet":"比较亲民的一家餐馆，性价比比较高，水盆羊肉会赠送一份小菜，吃起来清脆爽口，饼子是现场烤制的"},
+    {"poi_name":"吕记澄城水盆羊肉","category":"水盆羊肉","sub_category":"澄城水盆","author_id":"sohu-xianchihe","url":"https://m.sohu.com/coo/sg/213044731_348972","published_at":"2017-12-27","snippet":"汤头好，味道很浓，羊肉不是很多。但是吃起来紧致，不散，而且完全没有膻味，不加辣子喝起来也是别有一番风味"},
+    {"poi_name":"老金家水盆羊肉","category":"水盆羊肉","sub_category":"坊上水盆","author_id":"sohu-sanjin","url":"https://m.sohu.com/coo/sg/205256404_100023089","published_at":"2017-11-19","snippet":"老金家水盆羊肉是典型的回民老店。水盆汤鲜肉烂，绿油油的蒜苗叶，不仅祛了羊汤的膻味儿，还带来了一丝美感。"},
+    {"poi_name":"澄城学斌水盆（大唐不夜城总店）","category":"水盆羊肉","sub_category":"澄城水盆","author_id":"sina-lifeservice","url":"https://www.sina.cn/news/article/comos_nisktzp2138749.html","published_at":"2026-09-20","snippet":"而步行5分钟到旁边雁南一路的澄城学斌水盆总店，一碗水盆羊肉仅40元，汤鲜肉烂，还是40年非遗传承"},
+    {"poi_name":"老吴家水盆羊肉","category":"水盆羊肉","sub_category":"西安本土水盆","author_id":"kanchai","url":"https://sina.cn/news/detail/4993350887015079.html","published_at":"2024-01-23","snippet":"老吴家水盆也是传承三代人的老店，现在的地址就在东举院巷一家叫巷子深面的隔壁，放在以前不太好找，好在有导航，很容易就找到了。"},
+
+    {"poi_name":"苏乞儿","category":"炒菜","sub_category":"川菜小馆","author_id":"sohu-meishidarentu","url":"https://www.sohu.com/a/165542859_632977","published_at":"2017-08-18","snippet":"因为是苏福记旗下的川餐馆，所以环境差不多是一个风格，各种暖色系，空间特别大，各式的桌位都有。"},
+    {"poi_name":"昶丰臭桂鱼","category":"炒菜","sub_category":"徽菜馆子","author_id":"sohu-chengshi-shx","url":"https://www.sohu.com/a/724282303_100185418","published_at":"2023-09-28","snippet":"一家因 “臭” 闻名的馆子，主打徽菜，其中以臭桂鱼最为知名。"},
+    {"poi_name":"朝花里川菜小馆","category":"炒菜","sub_category":"川菜小馆","author_id":"163-chengshi-meishi","url":"https://m.163.com/dy/article/L6UNEEIU0514CEAB.html","published_at":"2026-09-16","snippet":"现炒川菜最讲究的是「锅气」。朝花里川菜小馆这点做得比较扎实：菜品现点现做、明火现炒。"},
+    {"poi_name":"湘君家常菜馆","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/898766107_348920","published_at":"2025-05-26","snippet":"从小窗口开成门店，是被建大学子推荐了无数次的小店。"},
+    {"poi_name":"富顺豆花（鹿塬街）","category":"炒菜","sub_category":"苍蝇馆子","author_id":"163-laocheng","url":"https://www.163.com/dy/article/HECIABCO0530MB2G.html","published_at":"2022-08-10","snippet":"这不，刷到一个做自贡菜的苍蝇馆子，坐标西安灞桥区，网上就一条评价，一张爆炒猪肝的图，看着就很家常的那种可口"},
+    {"poi_name":"宁夏特色炒肉片","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_pudong","url":"https://www.163.com/dy/article/K7IFCLAF05562DDE_pdya11y.html","published_at":"2025-08-22","snippet":"宁夏炒肉片，我愿称之为无敌下饭王！啥叫锅气，啥叫实在，一大盘端上来就能感受到了。"},
+    {"poi_name":"棠季·长沙市井菜","category":"炒菜","sub_category":"湘菜小炒","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"没有外卖，没有团购，只可以打包的一家馆子，位于育才路这个单行线路上"},
+    {"poi_name":"蜀乐翘脚牛肉","category":"炒菜","sub_category":"川菜小馆","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"不到70元的双人套餐，有肉有菜有米饭，米饭肉汤无限续，宝藏啊！"},
+    {"poi_name":"虞丰一小馆","category":"炒菜","sub_category":"苍蝇馆子","author_id":"sohu-shihejingxuan","url":"https://m.sohu.com/coo/sg/299960553_99965610","published_at":"2019-03-08","snippet":"朋友推荐了好几次的店，一对小夫妻开的，老板主后厨，老板娘小姐姐主前厅，店不大，七八张桌子。"},
+    {"poi_name":"渔美菜香","category":"炒菜","sub_category":"大排档","author_id":"sohu-shihejingxuan","url":"https://m.sohu.com/coo/sg/299960553_99965610","published_at":"2019-03-08","snippet":"走进这条街的时候，很多人内心是拒绝的，大排档般的门，城隍庙般的门头和老式的格局的装修难免让人略有失望。"},
+    {"poi_name":"杨超炒菜馆","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"李记搅团、乐乐餐厅、传家菜、杨超炒菜馆、清真老望家常炒菜、王凯老菜馆、金魁川菜馆都是口碑不错实惠下饭的馆子"},
+    {"poi_name":"清真老望家常炒菜","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"李记搅团、乐乐餐厅、传家菜、杨超炒菜馆、清真老望家常炒菜、王凯老菜馆、金魁川菜馆都是口碑不错实惠下饭的馆子"}
+  ]
+}

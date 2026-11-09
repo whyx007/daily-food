@@ -2050,5 +2050,194 @@
     "url": "https://you.ctrip.com/food/xian7/5071497.html",
     "published_at": "2020-07-30",
     "snippet": "西安的面食多种多样，想要来碗绿色的菠菜面，菠菜面既有白面条的口感，也有蔬菜的营养。"
+  },
+  {
+    "poi_name": "辣呦麻麻鱼·川菜(高新店)",
+    "category": "炒菜",
+    "sub_category": "川菜",
+    "author_id": "ctrip_food",
+    "url": "https://you.ctrip.com/food/xian7/17594993-dianping160732838.html",
+    "published_at": "2019-12-15",
+    "snippet": "五星好评口碑极佳的必吃榜中国菜✨辣呦✨从街边小店到美食必吃榜依旧让人留恋！"
+  },
+  {
+    "poi_name": "苏福记·川菜·渔村(高新店)",
+    "category": "炒菜",
+    "sub_category": "川菜",
+    "author_id": "ctrip_food",
+    "url": "https://you.ctrip.com/food/xian7/5076253.html",
+    "published_at": "2025-12-04",
+    "snippet": "这家店真的绝了！菜品种类超多，而且上菜速度巨快！刚坐下没一会儿就全上齐了，价格也特别友好，人均才几十块。"
+  },
+  {
+    "poi_name": "苏福记(高新店)",
+    "category": "炒菜",
+    "sub_category": "川菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "苏福记(高新店)— 地址：雁塔区高新三路高科广场—电话：81881866—人均：￥32"
+  },
+  {
+    "poi_name": "小谭川菜(紫薇田园店)",
+    "category": "炒菜",
+    "sub_category": "川菜",
+    "author_id": "ctrip_food",
+    "url": "https://you.ctrip.com/food/xian7/5074267.html",
+    "published_at": "2025-08-30",
+    "snippet": "这家川菜味儿挺正的！烤鸭得提前打电话约，不然到店可能吃不上。菜量是真的大，我们两个人点了三个菜根本吃不完"
+  },
+  {
+    "poi_name": "小谭川菜",
+    "category": "炒菜",
+    "sub_category": "川菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "小谭川菜—地址：锦业三路—电话：88852299—人均：￥46"
+  },
+  {
+    "poi_name": "大厨小馆(光华路店)",
+    "category": "炒菜",
+    "sub_category": "陕菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "大厨小馆(光华路店)—地址：高新一路7号—电话：68806166—人均：￥45"
+  },
+  {
+    "poi_name": "小阁楼湘菜",
+    "category": "炒菜",
+    "sub_category": "湘菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "小阁楼湘菜—地址：科技路与白沙路交叉口西北角—电话：68823555—人均：￥33"
+  },
+  {
+    "poi_name": "两湖人家",
+    "category": "炒菜",
+    "sub_category": "湘菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "两湖人家—地址：高新路108号枫林绿洲西门—电话：68909311—人均：￥47"
+  },
+  {
+    "poi_name": "毛公湘菜馆(高新店)",
+    "category": "炒菜",
+    "sub_category": "湘菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "毛公湘菜馆(高新店) — 绿地世纪城食饕界唐道锅锅2--3楼—电话：68790222—人均：￥40"
+  },
+  {
+    "poi_name": "梁记菜馆",
+    "category": "炒菜",
+    "sub_category": "家常炒菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "梁记菜馆—地址：丈八北路7号南风大厦1楼—电话：68810111—人均：￥48"
+  },
+  {
+    "poi_name": "唐道碗菜(锦业路店)",
+    "category": "炒菜",
+    "sub_category": "家常炒菜",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "唐道碗菜(锦业路店)—地址：雁塔区丈八三路锦业路餐界A区10108号铺—电话：87970111—人均：￥43"
+  },
+  {
+    "poi_name": "王菊面馆",
+    "category": "面",
+    "sub_category": "牛肉面",
+    "author_id": "au_163_wangju",
+    "url": "https://m.163.com/dy/article_cambrian/EP1PKGSP0525JCE3.html",
+    "published_at": "2019-09-14",
+    "snippet": "这家面真的太“硬”了，这也算一家神奇小店了，这家的宣传语是：东辛庄最好吃的牛肉面。【地址：高新六路东辛庄小区西门口】"
+  },
+  {
+    "poi_name": "关中老碗",
+    "category": "面",
+    "sub_category": "油泼面",
+    "author_id": "au_163_mianguan",
+    "url": "https://www.163.com/dy/article/DF04O0UL0522DEEN.html",
+    "published_at": "2018-04-09",
+    "snippet": "推荐：三合一臊子面、油泼面。地址：高新一路创业大厦一楼"
+  },
+  {
+    "poi_name": "图味",
+    "category": "面",
+    "sub_category": "重庆小面",
+    "author_id": "sohu-chengshi-shx",
+    "url": "https://www.sohu.com/a/724282303_100185418",
+    "published_at": "2023-09-28",
+    "snippet": "图味的特色是重庆小面、豌杂面、排骨格格、腊肠和各式小酒，乌梅酿和冰醪糟也强烈推荐"
+  },
+  {
+    "poi_name": "春发芽葫芦头泡馍(科技二路店)",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "sohu_luantan",
+    "url": "https://www.sohu.com/a/210025616_348920",
+    "published_at": "2017-12-12",
+    "snippet": "春发芽算的上葫芦头届的“大当家”，公认的老字号。科技路店 地址：科技二路(近白沙路)"
+  },
+  {
+    "poi_name": "同盛祥(高新店)",
+    "category": "牛羊肉小炒",
+    "sub_category": "牛羊肉泡馍",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "同盛祥(高新店)—地址：科技路34号欧锦园A座NOVO2楼—电话：88352698—人均：60"
+  },
+  {
+    "poi_name": "东滩水盆(唐兴路分店)",
+    "category": "水盆羊肉",
+    "sub_category": "水盆羊肉",
+    "author_id": "ctrip_food",
+    "url": "https://you.ctrip.com/food/xian7/11904781.html",
+    "published_at": "",
+    "snippet": "人均：¥30(来自用户反馈) 地址：陕西省西安市雁塔区高新区唐兴路13号一层"
+  },
+  {
+    "poi_name": "香泉羊肉汤",
+    "category": "水盆羊肉",
+    "sub_category": "羊肉汤",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "香泉羊肉汤—地址：西高新科技四路西口路北—电话：88746228—人均：24"
+  },
+  {
+    "poi_name": "丈八串串",
+    "category": "烤肉",
+    "sub_category": "串串",
+    "author_id": "sohu_pudong",
+    "url": "https://www.163.com/dy/article/ECR7NFDM05373XL6.html",
+    "published_at": "2019-04-15",
+    "snippet": "而就在最近，一个藏在城中村、名叫“丈八串串”的小店突然在抖音上火了起来，勾起了不少人的回忆。"
+  },
+  {
+    "poi_name": "买卖提烤肉",
+    "category": "烤肉",
+    "sub_category": "烤肉",
+    "author_id": "laoyao",
+    "url": "https://blog.sina.cn/dpool/blog/s/blog_6e1083630102vuuu.html",
+    "published_at": "2015-10-14",
+    "snippet": "新疆人开了七、八年的烤肉摊，风头已然盖过了西安本土烤肉 地址：丈八路和大寨路十字西南角"
+  },
+  {
+    "poi_name": "六婆串串香火锅(沙井村店)",
+    "category": "烤肉",
+    "sub_category": "串串",
+    "author_id": "au_sohu_gaoxinmap",
+    "url": "https://www.sohu.com/a/126887490_355339",
+    "published_at": "2017-02-21",
+    "snippet": "六婆串串香火锅(沙井村店) — 地址：科技二路沙井村—电话：88221518—人均：￥46"
   }
 ]

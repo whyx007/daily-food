@@ -403,5 +403,29 @@
     "tier": "media",
     "note": "西安碳水逛吃路线实地记录",
     "trust_prior": 0.55
+  },
+  {
+    "id": "au_sohu_gaoxinmap",
+    "name": "长安范儿《高新吃货地图》",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "2017 年高新区餐馆目录，逐店给地址/电话/人均，属黄页式整理而非探店",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "au_163_wangju",
+    "name": "XIAN微旅行",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "面馆盘点，逐店写口感与具体街道地址",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "au_163_mianguan",
+    "name": "小王讲择校",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "面馆清单，含高新一路关中老碗及人均",
+    "trust_prior": 0.45
   }
 ]

@@ -203,5 +203,69 @@
     "tier": "media",
     "note": "旅游攻略合集，洒金桥本地早点线索",
     "trust_prior": 0.45
+  },
+  {
+    "id": "doudouai",
+    "name": "豆豆爱",
+    "platform": "搜狐号/微博",
+    "tier": "blogger",
+    "note": "食尚徐州美食大V，搜狐号《西安大咖老妖引路，徐州顶级吃货豆豆爱吃了100种西安经典美食》三日百店实测；非西安本地，权重相应下调",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "dongkeping",
+    "name": "董克平",
+    "platform": "微博/搜狐号",
+    "tier": "blogger",
+    "note": "美食评论家，搜狐号《妖哥带我吃水盆羊肉》本人实录，由老妖带店",
+    "trust_prior": 0.65
+  },
+  {
+    "id": "xiaoyu",
+    "name": "小渔的行旅日记",
+    "platform": "新浪看点/微博",
+    "tier": "blogger",
+    "note": "新浪看点优质旅游领域创作者，大皮院砂锅实测",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "a03",
+    "name": "西安旅游局",
+    "platform": "搜狐号",
+    "tier": "official",
+    "note": "官方号，梆梆肉/葫芦头专题",
+    "trust_prior": 0.62
+  },
+  {
+    "id": "a04",
+    "name": "吃喝玩乐在西安",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "本地探店号，葫芦头六家盘点",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "a05",
+    "name": "西安美食频道",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "美食自媒体，九家饺子馆盘点",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "a08",
+    "name": "态度城市",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "网易陕西城市号，高新区小吃店报道",
+    "trust_prior": 0.6
+  },
+  {
+    "id": "a09",
+    "name": "陕西小喇叭",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "本地资讯号，探店图文",
+    "trust_prior": 0.5
   }
 ]

@@ -86,19 +86,23 @@ def verify_claims(conn, client, key: str, limit: int | None = None) -> tuple[int
 
 
 def _consensus(items) -> tuple[float, dict]:
-    """重合度/稳定性：独立来源权重之和 + 时间跨度加成。"""
-    tiers = {}
+    """重合度/稳定性：独立来源权重之和 + 时间跨度加成。
+
+    同一个作者的多条线索只算一个来源，避免同一篇文章自我加分。
+    """
+    by_author = {}
     for r in items:
-        tiers.setdefault(r["tier"], set()).add(r["author"])
-    # 每个来源按层级权重计，同层级多个来源各算一份
-    weight_sum = sum(TIER_WEIGHT.get(r["tier"], 0.5) for r in items if r["author"])
-    distinct = len({(r["author"]) for r in items})
+        if r["author"]:
+            by_author.setdefault(r["author"], r["tier"])
+    weight_sum = sum(TIER_WEIGHT.get(tier, 0.5) for tier in by_author.values())
+    distinct = len(by_author)
+    tiers = len(set(by_author.values()))
     base = min(1.0, weight_sum / 1.6) * 80          # 两个独立强源即可接近满分
     span = _span_days(items)
     bonus = 8 if span >= 180 else (15 if span >= 365 else 0)
     score = round(min(100.0, base + bonus), 1)
     detail = {"distinct_sources": distinct, "weight_sum": round(weight_sum, 2),
-              "span_days": span, "tier_count": len(tiers)}
+              "span_days": span, "tier_count": tiers}
     return score, detail
 
 

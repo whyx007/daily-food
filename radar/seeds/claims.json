@@ -1006,5 +1006,392 @@
     "url": "https://www.163.com/dy/article/F7EBV3360545B9G0.html",
     "published_at": "2020-03-11",
     "snippet": "是一家连锁店，主打岐山擀面皮，味道算是比较正宗的"
+  },
+  {
+    "poi_name": "湘子门牛羊肉小炒",
+    "category": "牛羊肉小炒",
+    "sub_category": "汉民牛羊肉小炒",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "汉民做的一家牛羊肉小炒，当地人公认的好吃，也一定要加鸡蛋，就一个香字，我认为并不输坊上那几家"
+  },
+  {
+    "poi_name": "锦弘水盆羊肉",
+    "category": "水盆羊肉",
+    "sub_category": "水盆羊肉",
+    "author_id": "laoyao",
+    "url": "https://www.sohu.com/a/776794744_107242",
+    "published_at": "2024-05-07",
+    "snippet": "落地西安，老妖带我去吃水盆羊肉。"
+  },
+  {
+    "poi_name": "锦弘水盆羊肉",
+    "category": "水盆羊肉",
+    "sub_category": "水盆羊肉",
+    "author_id": "dongkeping",
+    "url": "https://www.sohu.com/a/776794744_107242",
+    "published_at": "2024-05-07",
+    "snippet": "周六，车行顺利，机场到锦弘水盆羊肉用了一个小时。"
+  },
+  {
+    "poi_name": "老白家水盆羊肉",
+    "category": "水盆羊肉",
+    "sub_category": "水盆羊肉",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "本期舌尖3当旅游美食介绍还是靠谱的，毕竟这家火了很多年"
+  },
+  {
+    "poi_name": "老白家水盆羊肉",
+    "category": "水盆羊肉",
+    "sub_category": "水盆羊肉（纪录片取景）",
+    "author_id": "doc_shejian",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "自从上了舌尖3，这里的火爆就不需多说了"
+  },
+  {
+    "poi_name": "马二酸汤水饺",
+    "category": "饺子蒸饺",
+    "sub_category": "酸汤水饺",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "西安排名第一的水饺，老板几十年如一日的只做一种馅，就是韭黄牛肉"
+  },
+  {
+    "poi_name": "尤素福饺子馆",
+    "category": "饺子蒸饺",
+    "sub_category": "牛肉饺子",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "西安排名第二的饺子，仅次于马二。"
+  },
+  {
+    "poi_name": "志亮灌汤蒸饺",
+    "category": "饺子蒸饺",
+    "sub_category": "灌汤蒸饺",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "从洒金桥搬家到这里的志亮，铺面整洁了不少，他家的灌汤蒸饺一定要沾满满的辣碟来吃，才是锦上添花。"
+  },
+  {
+    "poi_name": "解放路饺子馆",
+    "category": "饺子蒸饺",
+    "sub_category": "饺子宴",
+    "author_id": "sohu_pudong",
+    "url": "https://www.sohu.com/a/919019079_121681094",
+    "published_at": "2025-07-30",
+    "snippet": "始于1935年，见证了一群人初踏入西安的第一餐，记录了一群人离开西安的最后一餐。"
+  },
+  {
+    "poi_name": "秦豫肉夹馍",
+    "category": "肉夹馍",
+    "sub_category": "腊汁肉夹馍",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "还没有《舌尖上的中国》这个纪录片的时候，我每次来西安第一件事就是直奔东木头市吃一份优质肉夹馍"
+  },
+  {
+    "poi_name": "张凌峰肉夹馍",
+    "category": "肉夹馍",
+    "sub_category": "腊汁肉夹馍",
+    "author_id": "sohu_pudong",
+    "url": "https://www.sohu.com/a/919019079_121681094",
+    "published_at": "2025-07-30",
+    "snippet": "凉皮、米线、肉夹馍，三秦套餐里的排队王，不少陕西老餮心里的肉夹馍TOP3。"
+  },
+  {
+    "poi_name": "盛家酿皮",
+    "category": "凉皮酿皮",
+    "sub_category": "麻酱酿皮",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "这家盛家才是我个人认为最好吃的麻酱酿皮"
+  },
+  {
+    "poi_name": "盛志望麻酱酿皮铺",
+    "category": "凉皮酿皮",
+    "sub_category": "麻酱酿皮",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "对西安美食略觉醒的游客基本都要来这里打卡，当然这家的味道也不坏，就是后味略发苦，没有盛家那么香"
+  },
+  {
+    "poi_name": "杨坡红油米线",
+    "category": "米线",
+    "sub_category": "红油米线",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "看似满满一碗红油，其实并不会太辣，非常的香且麻，加一份豆皮更美味。"
+  },
+  {
+    "poi_name": "阿伊莎过桥米线",
+    "category": "米线",
+    "sub_category": "过桥米线",
+    "author_id": "sohu_pudong",
+    "url": "https://www.sohu.com/a/919019079_121681094",
+    "published_at": "2025-07-30",
+    "snippet": "老网红了，每次提到五路口美食，他家一定赫然在榜。"
+  },
+  {
+    "poi_name": "穆萨砂锅",
+    "category": "米线",
+    "sub_category": "砂锅米线",
+    "author_id": "xiaoyu",
+    "url": "https://k.sina.com.cn/article_2503571737_9539791902001hb3k.html",
+    "published_at": "2026-04-10",
+    "snippet": "我要的是米线砂锅（主食可选粉丝、米线、粉带、刀削面等），米线就是老西安常吃的细米线"
+  },
+  {
+    "poi_name": "哈桑烤肉",
+    "category": "烤肉",
+    "sub_category": "坊上烤肉",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "哈桑的烤肉是全部好吃没有弱项的，尤其推荐筋和腰子"
+  },
+  {
+    "poi_name": "新亮烤肉",
+    "category": "烤肉",
+    "sub_category": "烤肉",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "这家的肥瘦肉筋都很好吃，肉串大，很受欢迎"
+  },
+  {
+    "poi_name": "朱秀英梆梆肉葫芦头",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "葫芦头就是大肠头泡馍了，味道居然会很清爽，丝毫没有大肠的臭气，强烈建议尝试一下。"
+  },
+  {
+    "poi_name": "醉长安",
+    "category": "炒菜",
+    "sub_category": "陕菜",
+    "author_id": "doudouai",
+    "url": "https://m.sohu.com/coo/sg/224756611_594283",
+    "published_at": "2018-03-02",
+    "snippet": "西安排名第一的陕菜馆子，正宗陕菜传人坐镇，几乎是必须打卡的地方。"
+  },
+  {
+    "poi_name": "豫宾楼",
+    "category": "炒菜",
+    "sub_category": "清真炒菜",
+    "author_id": "sohu_pudong",
+    "url": "https://www.sohu.com/a/919019079_121681094",
+    "published_at": "2025-07-30",
+    "snippet": "这家是清真餐厅，主做民族菜，花样非常多，五大必点样样不踩雷。"
+  },
+  {
+    "poi_name": "老花家饺子",
+    "category": "饺子蒸饺",
+    "sub_category": "酸汤水饺",
+    "author_id": "a05",
+    "url": "https://m.sohu.com/coo/sg/115285429_228780",
+    "published_at": "2016-09-29",
+    "snippet": "这家店开了少说也有十几二十年了，在很多西安人心目中，尤其是中医医院人的心目中，吃饺子来老花家，早已成了一种习惯。"
+  },
+  {
+    "poi_name": "饺子王",
+    "category": "饺子蒸饺",
+    "sub_category": "酸汤水饺",
+    "author_id": "a05",
+    "url": "https://m.sohu.com/coo/sg/115285429_228780",
+    "published_at": "2016-09-29",
+    "snippet": "多年来店面变化不大，饺子的口味变化也不大，酸汤上飘满了辣子，看上去油汪汪的，但汤喝起来却很是清爽。"
+  },
+  {
+    "poi_name": "三姐妹饺子",
+    "category": "饺子蒸饺",
+    "sub_category": "饺子馆",
+    "author_id": "a05",
+    "url": "https://m.sohu.com/coo/sg/115285429_228780",
+    "published_at": "2016-09-29",
+    "snippet": "虾肉饺子尤其好吃，每一个饺子里都有完整的虾仁，嚼起来口感很不错。"
+  },
+  {
+    "poi_name": "军嫂饺子馆",
+    "category": "饺子蒸饺",
+    "sub_category": "饺子馆",
+    "author_id": "a05",
+    "url": "https://m.sohu.com/coo/sg/115285429_228780",
+    "published_at": "2016-09-29",
+    "snippet": "饺子种类很多，馅儿多，圆滚滚，不坑人。店不大，但人气很旺，中午通常满座，不过服务员人手比较足，翻台很快。"
+  },
+  {
+    "poi_name": "大清花饺子馆",
+    "category": "饺子蒸饺",
+    "sub_category": "饺子馆",
+    "author_id": "a05",
+    "url": "https://m.sohu.com/coo/sg/115285429_228780",
+    "published_at": "2016-09-29",
+    "snippet": "东北风味的饺子馆，人非常多，饭点去经常没座位。饺子馅种类比较多，鲅鱼馅儿很有特色。"
+  },
+  {
+    "poi_name": "海荣锅贴馆",
+    "category": "饺子蒸饺",
+    "sub_category": "锅贴",
+    "author_id": "sohu_li_lianyuan",
+    "url": "https://www.sohu.com/a/690315394_406027",
+    "published_at": "2023-06-28",
+    "snippet": "西安五味什字东南角是海荣锅贴馆开创之初的老店。"
+  },
+  {
+    "poi_name": "东仪路饺子馆",
+    "category": "饺子蒸饺",
+    "sub_category": "饺子馆",
+    "author_id": "sohu_bendibao",
+    "url": "https://www.sohu.com/a/988837409_681384",
+    "published_at": "2026-02-21",
+    "snippet": "推荐菜品：韭黄牛肉、韭菜鸡蛋、茴香牛肉..."
+  },
+  {
+    "poi_name": "清真瑞宝斋马峰酸汤水饺",
+    "category": "饺子蒸饺",
+    "sub_category": "酸汤水饺",
+    "author_id": "sohu_bendibao",
+    "url": "https://www.sohu.com/a/988837409_681384",
+    "published_at": "2026-02-21",
+    "snippet": "推荐菜品：韭黄牛肉、牛奶鸡蛋醪糟、韭黄牛肉饼..."
+  },
+  {
+    "poi_name": "大麦市街酸汤饺子馆",
+    "category": "饺子蒸饺",
+    "sub_category": "酸汤水饺",
+    "author_id": "sohu_bendibao",
+    "url": "https://www.sohu.com/a/988837409_681384",
+    "published_at": "2026-02-21",
+    "snippet": "推荐菜品：牛肉虾仁、牛肉韭黄..."
+  },
+  {
+    "poi_name": "老陈家蒸饺",
+    "category": "饺子蒸饺",
+    "sub_category": "蒸饺",
+    "author_id": "sohu_luantan",
+    "url": "https://m.sohu.com/coo/sg/502942069_348920",
+    "published_at": "2021-11-23",
+    "snippet": "店小但是价格实惠，而且现包现蒸，真材实料看得见，14元一笼牛肉韭黄蒸饺，可以说是西安性价比zui高的蒸饺了。"
+  },
+  {
+    "poi_name": "陕西水饺家宴",
+    "category": "饺子蒸饺",
+    "sub_category": "饺子馆",
+    "author_id": "a08",
+    "url": "https://www.163.com/dy/article/JJI1BMK2051495SS.html",
+    "published_at": "2024-12-16",
+    "snippet": "如果你手头一时拮据，或遇到困难时，来到西安高新区橡树街区陕西水饺家宴里，说出“暗号”——“A套餐”，就能吃上一顿免费饭。"
+  },
+  {
+    "poi_name": "土门老刘家粉汤羊血",
+    "category": "汉民泡馍",
+    "sub_category": "粉汤羊血",
+    "author_id": "langxian",
+    "url": "https://www.163.com/dy/article/L6SH6FBV05259AMT.html",
+    "published_at": "2026-09-15",
+    "snippet": "土门老刘家粉汤羊血，人均十二块，开在居民区里，豆腐是自家做的，去吃的多是附近住了几十年的老邻居。"
+  },
+  {
+    "poi_name": "赵西安三鲜煮馍",
+    "category": "汉民泡馍",
+    "sub_category": "三鲜煮馍",
+    "author_id": "sohu_li_lianyuan",
+    "url": "https://www.sohu.com/a/998836969_406027",
+    "published_at": "2026-03-23",
+    "snippet": "2002年他将店迁到了大车家巷92号，装修之际，一位七旬老者自告奋勇要为他写招牌。"
+  },
+  {
+    "poi_name": "赵西安三鲜煮馍",
+    "category": "汉民泡馍",
+    "sub_category": "三鲜煮馍",
+    "author_id": "langxian",
+    "url": "https://www.163.com/dy/article/L5B31A7M05259AMT.html",
+    "published_at": "2026-08-27",
+    "snippet": "赵西安三鲜煮馍：大车家巷14号楼16号，在当地经营多年，是知名度较高的老店。"
+  },
+  {
+    "poi_name": "姜家三鲜煮馍",
+    "category": "汉民泡馍",
+    "sub_category": "三鲜煮馍",
+    "author_id": "langxian",
+    "url": "https://www.163.com/dy/article/L5B31A7M05259AMT.html",
+    "published_at": "2026-08-27",
+    "snippet": "姜家三鲜煮馍：1993年开始经营，口味多年保持稳定。"
+  },
+  {
+    "poi_name": "老朋友三鲜煮馍",
+    "category": "汉民泡馍",
+    "sub_category": "三鲜煮馍",
+    "author_id": "langxian",
+    "url": "https://www.163.com/dy/article/L5B31A7M05259AMT.html",
+    "published_at": "2026-08-27",
+    "snippet": "老朋友三鲜煮馍：老爷子曾是西安饭庄的特一级厨师，他家的“三鲜小炒”被不少老顾客认为是西安独一份。"
+  },
+  {
+    "poi_name": "诚信和葫芦头泡馍馆",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "a04",
+    "url": "https://www.sohu.com/a/124834002_348972",
+    "published_at": "2017-01-20",
+    "snippet": "诚信和家的葫芦头和梆梆肉在西安特别有名，梆梆肉就放在门口的大铁盆里，一点都不油腻。"
+  },
+  {
+    "poi_name": "诚信和葫芦头泡馍馆",
+    "category": "汉民泡馍",
+    "sub_category": "梆梆肉",
+    "author_id": "a03",
+    "url": "https://www.sohu.com/a/246437917_351156",
+    "published_at": "2018-08-09",
+    "snippet": "梆梆肉用卤水煮好，筋筋脆脆。本身是咸的，但蘸上醋汁、加点辣油，吃一口，咬上一点生蒜。"
+  },
+  {
+    "poi_name": "老耿家梆梆肉",
+    "category": "汉民泡馍",
+    "sub_category": "梆梆肉",
+    "author_id": "a03",
+    "url": "https://www.sohu.com/a/246437917_351156",
+    "published_at": "2018-08-09",
+    "snippet": "老耿家梆梆肉开了好多年了，在新民街这一带很火，光顾的都是熟客，老板很任性"
+  },
+  {
+    "poi_name": "方记葫芦头泡馍馆",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "a04",
+    "url": "https://www.sohu.com/a/124834002_348972",
+    "published_at": "2017-01-20",
+    "snippet": "这家肥肠处理的特别仔细，去掉了肥厚的肠油"
+  },
+  {
+    "poi_name": "老南院门葫芦头",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "a04",
+    "url": "https://www.sohu.com/a/124834002_348972",
+    "published_at": "2017-01-20",
+    "snippet": "葫芦头是老派做法，很多人都好这一口"
+  },
+  {
+    "poi_name": "皇城轩葫芦头泡馍",
+    "category": "汉民泡馍",
+    "sub_category": "葫芦头泡馍",
+    "author_id": "a09",
+    "url": "https://www.163.com/dy/article/DUV16T540525QOAC.html",
+    "published_at": "2018-10-25",
+    "snippet": "皇城轩葫芦头泡馍门店地址：长安区韦曲北街和长兴北路十字向西50米路北"
   }
 ]

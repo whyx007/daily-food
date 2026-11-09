@@ -91,7 +91,30 @@ uvicorn app.main:app --port 8123
 python scripts/smoke.py http://127.0.0.1:8123
 ```
 
-## Ubuntu 部署
+## Docker 部署（当前线上方式）
+
+镜像由仓库里的 `Dockerfile` + `docker-compose.yml` 构建，容器内监听 8000，宿主机映射到 **9000**：
+
+```bash
+cd /opt/daily-food
+sudo docker compose build
+sudo docker compose up -d
+```
+
+- 配置走 `env_file: .env`（不进镜像），数据库通过 `DB_PATH=/data/daily-food.db` 落到宿主机 `./data-store/`，重启/重建镜像都保留名人堂数据；
+- `restart: unless-stopped`，宿主重启后容器自动拉起；
+- `.env` 的 `RADIUS_OPTIONS` 需要包含新档位（当前 `3000,5000,15000`）。
+
+**代码同步**：本地提交后用 git bundle 走 SSH 推送（GitHub 不可达时也能用），一条命令完成同步 + 停旧服务 + 迁移数据库 + 重建容器 + 健康检查：
+
+```powershell
+python scripts/deploy_docker.py        # 完整部署
+python scripts/deploy_docker.py --dry  # 只看远端现状
+```
+
+脚本做的事：`git bundle create` → SFTP 上传 → 停并 disable 旧的 systemd 服务 → 把 `daily-food.db*` 复制进 `data-store/` → 远端 `git fetch <bundle> main && git reset --hard` → 修 `.env` 半径档位 → `docker compose build`/`up -d` → 轮询 `/api/health`。
+
+## Ubuntu 裸机部署（已被 Docker 取代，保留备查）
 
 ```bash
 conda env create -f environment.yml
@@ -108,12 +131,13 @@ sudo systemctl enable --now daily-food
 
 Nginx 配置见 `deploy/nginx.conf.example`，把 `REPLACE_WITH_SECURITY_CODE` 换成 JS API 安全密钥。
 
-**已上线实例**（2026-11-07）：**https://www.whyx.site**（Caddy 自动 HTTPS，HTTP 自动 308 跳转）
-- Ubuntu 22.04 / systemd 托管 uvicorn，端口 9000，随开机自启；
+**已上线实例**（2026-11-07，2026-11-09 改为 Docker）：**https://www.whyx.site**（Caddy 自动 HTTPS，HTTP 自动 308 跳转）
+- Ubuntu 22.04 / **Docker 容器 `daily-food`**，宿主 9000 → 容器 8000，`restart: unless-stopped` 随开机自启；
+- 旧的 systemd 单元 `daily-food.service` 已 `stop` + `disable`，代码仍在 `/opt/daily-food`（同一个 git 仓库，供 bundle 同步用）；
 - Caddy 站点 `www.whyx.site` 反代到 9000，Let's Encrypt 自动签发证书；`http://www.whyx.site` 自动跳 HTTPS；
 - 原 xray（443 代理）已按用户要求停止并释放 443；rss/search 两个子域名站点未受影响；
-- 代码在 `/opt/daily-food`，`daily-food.db` 含名人堂数据；
-- 重新部署：本地改代码后跑 `python scripts/upload_to_vps.py` 上传，再 `python scripts/run_deploy.py` 重启（SSH 信息用环境变量 `DSH_SSH_HOST/PORT/USER/PASSWORD` 提供）。
+- 数据：`/opt/daily-food/data-store/daily-food.db`（含 8 家名人堂），容器内 `/data`；
+- 重新部署：`python scripts/deploy_docker.py`（SSH 信息用环境变量 `DSH_SSH_HOST/PORT/USER/PASSWORD` 提供）。
 
 ## 额度与降级
 

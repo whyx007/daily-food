@@ -1,0 +1,31 @@
+{
+  "authors": [
+    {"id":"smzdm_xc","name":"嬉游（什么值得买）","platform":"什么值得买","tier":"media","note":"西安碳水逛吃路线实地记录","trust_prior":0.55}
+  ],
+  "claims": [
+    {"poi_name":"永明岐山面(高新店)","category":"面","sub_category":"臊子面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/176813.html","published_at":"2021-12-10","snippet":"环境不错，一碗汤面+一个臊子肉夹馍，舒服，很有地方特色，口味真的不错！"},
+    {"poi_name":"永明岐山面(高新店)","category":"面","sub_category":"臊子面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"西安最早的岐山面连锁品牌，汤底酸辣浓郁，面条薄筋光，臊子由肉丁、木耳、胡萝卜等炒制而成。"},
+    {"poi_name":"古觉面片(高新四路大都荟店)","category":"面","sub_category":"炒面片","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/22570708.html","published_at":"2026-01-04","snippet":"这家炒面片我吃了好几次，就爱它那股锅气！面片切得薄薄的，酱香味特别浓。"},
+    {"poi_name":"一一面馆(融鑫路店)","category":"面","sub_category":"油泼面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/11177120.html","published_at":"2021-02-05","snippet":"吃了他家的素臊子拉条子！首先，拉条子是现做的，透过玻璃窗可以看到一个盆面！"},
+    {"poi_name":"丹妹手工面馆(富力城南区店)","category":"面","sub_category":"手擀面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/2015097/17589827.html","published_at":"2026-03-21","snippet":"傍晚一个人来吃面，点了一碗肉臊子干拌。手擀面真的特别劲道，裹着满满的臊子，每一口都很扎实。"},
+    {"poi_name":"明东驴蹄子面(智慧谷店)","category":"面","sub_category":"驴蹄子面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/15622199.html","published_at":"2026-03-07","snippet":"驴蹄面确实是陕西特色，面条口感很关键。他家面煮得火候正好，筋道不硬，能挂住汤汁。"},
+    {"poi_name":"清真马虎面馆(西七路店)","category":"面","sub_category":"牛肉面","author_id":"langxian","url":"https://www.163.com/dy/article/L5VM822205259AMT_pdya11y.html","published_at":"2026-09-04","snippet":"西七路的老店，灰色砖墙上一块贾平凹题的牌子。"},
+    {"poi_name":"清真马虎面馆(西七路店)","category":"面","sub_category":"牛肉面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"20年专注牛肉面，碗底铺大块炖牛肉+秘制酱料，面条粗犷劲道，搭配酸辣萝卜干平衡油腻，呈现“卤香四溢、越嚼越香”的关中豪迈风味。"},
+    {"poi_name":"清真马虎面馆(西七路店)","category":"面","sub_category":"牛肉面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/174513.html","published_at":"2018-02-01","snippet":"味道挺好的，每次到西安都要去吃，不过量变小了"},
+    {"poi_name":"爱骅裤带面馆(总店)","category":"面","sub_category":"biangbiang面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/16573410.html","published_at":"2026-10-29","snippet":"藏在钟楼附近的老牌面馆，明厨能看见师傅手工扯面，烟火气十足。"},
+    {"poi_name":"爱骅裤带面馆(总店)","category":"面","sub_category":"biangbiang面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"网红与实力兼具的“裤带面专家”，主打biangbiang面，面条宽厚超长，一根面即为一碗。"},
+    {"poi_name":"老白家面馆(测绘东路总店)","category":"面","sub_category":"油泼面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/15878999.html","published_at":"2021-01-05","snippet":"面老白家三合一选的大肉块儿、肉臊子和西红柿鸡蛋觉得特别香。"},
+    {"poi_name":"老白家面馆(测绘东路总店)","category":"面","sub_category":"油泼面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"36年老店，被称为“西安油泼面名片”，面条弹牙筋道，泼油瞬间香气四溢。"},
+    {"poi_name":"郭老三面庄(大雁塔店)","category":"面","sub_category":"油泼面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/12475357.html","published_at":"2025-11-11","snippet":"十五年的品牌老店了，本地人都爱吃，味道是真不错"},
+    {"poi_name":"尚寨嫽扎咧面馆(凤城九路店)","category":"面","sub_category":"油泼面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/77900918.html","published_at":"2025-09-23","snippet":"油泼面确实是招牌！宽面特别筋道，裹上臊子和油泼汁，那个香味一下就出来了。"},
+    {"poi_name":"尚寨嫽扎咧面馆(凤城九路店)","category":"面","sub_category":"油泼面","author_id":"sohu_bendibao","url":"https://www.sohu.com/a/961416850_681384","published_at":"2025-12-04","snippet":"油泼辣子超绝，面碗很大、量很多，店面装修充满关中风情，价格实惠，性价比高。"},
+    {"poi_name":"王菊面馆","category":"面","sub_category":"牛肉面","author_id":"langxian","url":"https://m.163.com/dy/article/KLL8IPAF05564O2L.html","published_at":"2026-02-13","snippet":"到底是纯手工拉的，面特别筋道，如果吃的时候不小心回弹，恐怕会弹掉牙"},
+    {"poi_name":"马安安油泼面","category":"面","sub_category":"油泼面","author_id":"smzdm_xc","url":"https://post.smzdm.com/p/aoqoe7v7/","published_at":"2025-03-26","snippet":"这家马安安油泼面店的规模不小，店里除了常规的面条以外，还兼顾烧烤生意"},
+    {"poi_name":"眼镜张牛肉块扯面","category":"面","sub_category":"牛肉面","author_id":"sohu_bendibao","url":"https://www.sohu.com/a/961416850_681384","published_at":"2025-12-04","snippet":"西安老店，本地人好评的面馆，面条软硬适中，分量不错，性价比高。"},
+    {"poi_name":"清真德海牛肉面(含光路店)","category":"面","sub_category":"牛肉面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"西安四大正宗兰州拉面之一，汤底醇厚浓郁，面条筋道，牛肉软烂入味，辣椒红亮却不燥。"},
+    {"poi_name":"汪茂元羊肉面(雁塔区育才路店)","category":"面","sub_category":"羊肉面片","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"榆林老字号西安分店，陕北横山羊肉+手工揪面片，羊肉奶香无膻，汤头清鲜，配辣酱与香菜升华风味。"},
+    {"poi_name":"清真巷子深面(汇鑫家园店)","category":"面","sub_category":"鸡丁面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"30年以上老店，每天仅营业4小时，招牌鸡丁面和牛肉面配菜丰富，五香炸鸡腿限量供应。"},
+    {"poi_name":"南院门郑大妈biangbiang面(翠华南路店)","category":"面","sub_category":"biangbiang面","author_id":"hualu","url":"https://www.sohu.com/a/990914622_120104414","published_at":"2026-02-28","snippet":"上过《天天向上》，面条宽如裤带，单条可拉至三米长。"},
+    {"poi_name":"清真高坷台坤坤菠菜面(夏家什字店)","category":"面","sub_category":"菠菜面","author_id":"ctrip_food","url":"https://you.ctrip.com/food/xian7/5071497.html","published_at":"2020-07-30","snippet":"西安的面食多种多样，想要来碗绿色的菠菜面，菠菜面既有白面条的口感，也有蔬菜的营养。"}
+  ]
+}

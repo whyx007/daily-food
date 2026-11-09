@@ -395,5 +395,13 @@
     "tier": "media",
     "note": "携程餐厅页的真实用户点评（非点评/美团），多数为到店食客",
     "trust_prior": 0.42
+  },
+  {
+    "id": "smzdm_xc",
+    "name": "嬉游（什么值得买）",
+    "platform": "什么值得买",
+    "tier": "media",
+    "note": "西安碳水逛吃路线实地记录",
+    "trust_prior": 0.55
   }
 ]

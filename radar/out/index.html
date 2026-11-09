@@ -1,0 +1,368 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>西安美食雷达</title><style>
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f6f7f9;color:#1f2328}
+header{padding:18px 24px;background:#fff;border-bottom:1px solid #e5e7eb}
+h1{margin:0;font-size:20px} .sub{color:#57606a;font-size:13px;margin-top:4px}
+#chips{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #e5e7eb}
+.chip{padding:5px 12px;border:1px solid #d0d7de;border-radius:999px;background:#fff;cursor:pointer;font-size:13px}
+.chip.active{background:#1f2328;color:#fff}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:16px 24px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px}
+.head{display:flex;justify-content:space-between;align-items:baseline}
+.name{font-size:16px;font-weight:600} .trust{font-weight:700;font-size:15px}
+.meta{color:#57606a;font-size:12px;margin-top:4px}
+.dims{display:flex;gap:12px;margin-top:8px;font-size:12px;color:#57606a}
+.dims b{color:#1f2328}
+.reason{margin-top:8px;font-size:13px;line-height:1.6;color:#24292f}
+.src{margin-top:8px;font-size:11px;color:#8b949e}
+</style></head><body>
+<header><h1>🍜 西安美食雷达</h1>
+<div class="sub">可信度 = 来源先验 + 反软广信号 + 交叉来源 + 高德核验 · 共 28 家 · 更新 2026-11-09T23:03</div></header>
+<div id="chips"><button class="chip active" data-cat="__all">全部</button><button class="chip" data-cat="水盆羊肉">水盆羊肉</button><button class="chip" data-cat="泡馍">泡馍</button><button class="chip" data-cat="甑糕">甑糕</button><button class="chip" data-cat="米线">米线</button><button class="chip" data-cat="肉夹馍">肉夹馍</button><button class="chip" data-cat="葫芦头">葫芦头</button><button class="chip" data-cat="面">面</button><button class="chip" data-cat="饺子">饺子</button></div>
+<div id="grid">
+        <div class="card" data-cat="泡馍">
+          <div class="head"><span class="name">果渊斋老米家泡馍</span>
+            <span class="trust" style="color:#9a6700">55.8</span></div>
+          <div class="meta">泡馍 · 丈八东路8号西安通信学院1号楼一层12室</div>
+          <div class="dims">
+            <span>重合度 <b>25.0</b></span>
+            <span>博主力荐 <b>77.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“回坊总店藏在巷子里，汤鲜肉烂、馍香浓郁。博主@吴穹亲测认证，本地人反复光顾。人均35-40元，不建议饭点去，座位紧张。”</div>
+          <div class="src">微博博主 @吴穹_西班牙萨拉曼卡 · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="葫芦头">
+          <div class="head"><span class="name">春发生(南院门店)</span>
+            <span class="trust" style="color:#8b949e">35.5</span></div>
+          <div class="meta">葫芦头 · 南院门25号</div>
+          <div class="dims">
+            <span>重合度 <b>42.5</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“春發生飯店（南院門店）係西安最具代表性嘅非清真泡饃老字號，葫蘆頭泡饃起源於唐代煎白腸；2021年入選西安市級非物質文化遺產。招牌菜：精腸葫蘆頭、梆梆肉。地址：碑林區南院門25號”</div>
+          <div class="src">中华老字号（商务部） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="肉夹馍">
+          <div class="head"><span class="name">樊记腊汁肉夹馍</span>
+            <span class="trust" style="color:#8b949e">35.5</span></div>
+          <div class="meta">肉夹馍 · 竹笆市街53号(广济街地铁站C口步行410米)</div>
+          <div class="dims">
+            <span>重合度 <b>42.5</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“樊記臘汁肉夾饃始創於1904年，由樊炳仁創立；2006年獲中國飯店協會「中國名點」稱號。臘汁肉用多種香料長時間燉煮，夾入剛出爐嘅白吉饃。總店地址：碑林區竹笆街53號。”</div>
+          <div class="src">中华老字号（商务部） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="面">
+          <div class="head"><span class="name">柳巷面</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">面 · 案板街18号吉庆大厦(钟楼地铁站6号口步行420米)</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“柳巷面位於鐘樓案板街內，以單一品種清真面聞名，全西安只此一家；麵條勁道味足，分大、小碗，配菜包括土豆、胡蘿蔔、菜花、木耳、黃豆芽。食客眾多，係西安本地人常去嘅清真面老店。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="肉夹馍">
+          <div class="head"><span class="name">子午路张记肉夹馍</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">肉夹馍 · 翠花南路229号挚友大厦一楼</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“子午路張記肉夾饃係西安三秦套餐（涼皮+肉夾饃+冰峰）嘅首推代表，白吉饃烤至酥脆；建設東路店曾出鏡韓國美食節目《街頭美食鬥士2》，翠華路店最受本地人推崇。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="水盆羊肉">
+          <div class="head"><span class="name">澄城崇斌水盆羊肉（后宰门店）</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">水盆羊肉 · 筑梦幼儿园南门旁</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“澄城崇斌水盆羊肉（後宰門店）嘅水盆羊肉於2016年入選陝西省第5批非物質文化遺產名錄；湯清肉爛，肥而不膩；搭配月牙狀燒餅，先烙後烤，熱吃脆、冷吃酥。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="葫芦头">
+          <div class="head"><span class="name">朱秀英梆梆肉葫芦头</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">葫芦头 · 下马陵六号</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“朱秀英梆梆肉葫蘆頭係開業多年嘅非清真小館，主打梆梆肉（燻製大腸及內臟）同葫蘆頭泡饃；肉嫩味醇，薰香濃郁，係喜歡小館子風格嘅本地人首選。總店地址：蓮湖區琉璃街2號”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="泡馍">
+          <div class="head"><span class="name">马洪小炒泡馍</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">泡馍 · 红埠街46号(近莲湖区区委)</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“馬洪小炒泡饃館係西安泡饃界嘅口碑老店；小炒泡饃用油潑辣子同醋炒製，既有泡饃嘅濃郁厚重，仲有酸辣爽口嘅獨特滋味。地址：蓮湖區紅埠街46號，營業時間09:00–21:00。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="泡馍">
+          <div class="head"><span class="name">一真楼</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">泡馍 · 大皮院18号(近北院门)</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“一真樓係西安享有盛譽嘅老字號清真泡饃店，歷史可追溯至1985年；食泡饃需手掰饃至黃豆粒大小，配辣子醬同糖蒜。本地人一般點普通牛肉泡饃。地址：蓮湖區大皮院18號，營業時間06:00–21:30。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="饺子">
+          <div class="head"><span class="name">志亮灌汤蒸饺</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">饺子 · 庙后街200号</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“志亮灌湯蒸餃位於蓮湖區灑金橋，一籠10個，皮薄肉多，湯汁四溢，可蘸辣椒醋汁；秘製八寶粥用糯米、紅棗、山楂、百合、瓜子仁熬製。地址：蓮湖區灑金橋。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="甑糕">
+          <div class="head"><span class="name">马文章胖子甑糕</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">甑糕 · 西安城市交通投资集团西门西北70米</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“馬文章胖子甑糕位於回坊區域，早上6點開賣，賣完為止；糯米香甜，棗泥細膩，滿滿棗泥裹有芸豆、蜜棗等小料。”</div>
+          <div class="src">阿Pen旅遊記（永安旅遊） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="泡馍">
+          <div class="head"><span class="name">同盛斋牛羊肉泡馍</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">泡馍 · 西大街唐人步行街C座7号(西大街夏家什字口)</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“同盛斋牛羊肉泡馍（唐人街店）：多年老牌子，位置好找，口感稳定，人均30-40元。”</div>
+          <div class="src">邻里览观（新浪） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="泡馍">
+          <div class="head"><span class="name">同盛祥</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">泡馍 · 西大街5号(钟楼地铁站C口步行280米)</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“同盛祥：西安最知名泡馍品牌之一，常年排队，人均35-45元，适合第一次尝试的游客。”</div>
+          <div class="src">邻里览观（新浪） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="泡馍">
+          <div class="head"><span class="name">老孙家</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">泡馍 · 东关正街78号招商广场商业裙楼2-5层</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“老孙家：与同盛祥齐名，出品稳定，名气最大，人均35-45元，适合第一次尝试的游客。”</div>
+          <div class="src">邻里览观（新浪） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">巧嫂过桥米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 高新区丈八街办南窑头西区综合楼41号</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“开了N多年，人气只涨不掉。只卖米线，且米线只有三种：三鲜、微辣和麻辣。米线可以免费无限加，素菜每份米线可以加一份。地址：新城区西七路西口。”</div>
+          <div class="src">新浪看点·米线盘点（2019） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">天府米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 经济技术开发区尚苑路2188号星雨华府6-3-104A铺</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“老板是四川人，每次来买米线前面至少排了5个人。真宗的川味米线，辣、麻、红油、牛肉多。店特别小，环境不是很好，货真价实的苍蝇馆子。地址：莲湖区自强西路明珠巷。”</div>
+          <div class="src">新浪看点·米线盘点（2019） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">杨坡红油米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 西安市人大常委会家属院北门旁</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“这家主打红油米线，红汪汪的油打底。米线是那种圆圆的，粗粗的，颜色偏黄，吃到嘴里很饱满，很Q的感觉。地址：碑林区玄风桥。”</div>
+          <div class="src">新浪看点·米线盘点（2019） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">四红米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 地址未知</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“开了十多年的老店，老板夫妻是正宗川人，从路边摊移到小吃档口。大骨熬汤，米线筋道爽滑，配上泡菜海带等，麻辣鲜香。地址：碑林区友谊东路铁路局小吃城内。”</div>
+          <div class="src">新浪看点·米线盘点（2019） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">韦姐柳州螺蛳粉</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 大庆路潘家村欣集古镇东20号</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“粉里面可以加叉烧、牛腩、香肠等好多小料，最爱叉烧；酸笋吃多了就上瘾；汤味道香浓，辣椒是广西的做法、里面加了油葱。地址：莲湖区铁塔寺路中段。”</div>
+          <div class="src">新浪看点·米线盘点（2019） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">武小勇红油米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 尚勤路155号</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“一家老字号的门店，西安全城开了很多家，很有烟火气的小店，米线味道不错，后味麻辣比较重。人均13元，营业时间07:00-23:00。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">南街沐尧鸡汤米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 地址未知</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“老式细米线，调料味麻味比较重，里面是紫菜和虾皮。人均11元，营业时间07:30-20:00。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">阿洁云南过桥米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 北新街小区一号楼16号</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“苍蝇小馆，米线的口感类似于米粉，不同于传统的红油米线，嚼起来偏软，值得一去。人均21元。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">杨勇红油米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 西化小区南区南门东60米</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“米线比平常外面的要粗一点，口味是麻辣味，但是却香而不辣，豆泡和豆腐皮都挺入味的。人均8元，营业时间08:00-21:00。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">金康过桥米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 东新街149号安民里住宅小区</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“一碗清汤的米线，里面有青菜和鸡肉丝，还有一碗芝麻酱和辣椒调的蘸料，吃的时候把米线加到料碗里裹上酱汁。人均13元。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">陕南泡菜米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 大庆路236号劳动村小区</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“主打的就是泡菜，酸味足，腌制的时间刚好，很脆。红油米线麻辣鲜香。人均11元，营业时间07:00-20:00。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">老院子米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 纺建路与鹿原街交叉口东南20米</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“米线料很足，有排骨鸡肉丸子和肉末，配菜有青菜豆腐皮竹笋韭菜，口味偏麻，汤底不错。人均22元，营业时间07:00-14:00。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">马马米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 朱雀大街66号(朱雀菜市场斜对面)</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“红油米线分量挺大的，满满一大碗，麻麻辣辣的，是细米线，口感不错。人均14元，营业时间10:00-20:30。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div>
+        <div class="card" data-cat="米线">
+          <div class="head"><span class="name">一帆米线</span>
+            <span class="trust" style="color:#8b949e">28.0</span></div>
+          <div class="meta">米线 · 大寨路秦美花卉市场东门内</div>
+          <div class="dims">
+            <span>重合度 <b>30.0</b></span>
+            <span>博主力荐 <b>0.0</b></span>
+            <span>来源 <b>1</b></span>
+          </div>
+          <div class="reason">“性价比很高，米线味道很香，汤底口感醇厚，不辛辣，再配上一个肉夹馍绝了。人均13元。”</div>
+          <div class="src">西安本地宝（搜狐） · 提及 1 次</div>
+        </div></div>
+<script>
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));
+  c.classList.add('active');
+  const cat=c.dataset.cat;
+  document.querySelectorAll('.card').forEach(el=>{
+    el.style.display=(cat==='__all'||el.dataset.cat===cat)?'':'none';
+  });
+});
+</script></body></html>

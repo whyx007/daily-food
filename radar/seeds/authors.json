@@ -1,0 +1,110 @@
+[
+  {
+    "id": "wlala",
+    "name": "特别乌拉拉",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "2000万+",
+    "note": "西安人，定位面条主播，专探苍蝇馆子，自述“探店要讲真话，不好吃的不能推荐”；2025-10 删除郑州《炒八掺》视频，说明仍受商业或投诉压力；流量大，一到店就变味",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "daqi",
+    "name": "大琦",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "377万（2019前后）",
+    "note": "西安本地粉丝 76.9 万，本地占比在西安探店号里最高；数据较旧，只看量级与结构",
+    "trust_prior": 0.50
+  },
+  {
+    "id": "fanfan",
+    "name": "饭饭吃西安",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "146.8万",
+    "note": "本地粉 70.8 万，本地占比高",
+    "trust_prior": 0.50
+  },
+  {
+    "id": "fengwei",
+    "name": "是西安风味",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "178万",
+    "note": "偏本地生活视角，非游客向；内容偏短，信息密度低",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "rourou",
+    "name": "肉肉大搜索 / 耶叔",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "中腰部",
+    "note": "曾被西安文旅类稿件作为“打卡博主”提及，确实在一线跑店；商业化程度不透明",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "doc_zaocan",
+    "name": "《早餐中国》",
+    "platform": "纪录片",
+    "tier": "doc",
+    "followers": "",
+    "note": "取景店为真实到店拍摄，内容有制片约束",
+    "trust_prior": 0.90
+  },
+  {
+    "id": "doc_shejian",
+    "name": "《舌尖上的中国》",
+    "platform": "纪录片",
+    "tier": "doc",
+    "followers": "",
+    "note": "西安段取景店，拍摄时点真实",
+    "trust_prior": 0.90
+  },
+  {
+    "id": "doc_fengjian",
+    "name": "《风味人间》",
+    "platform": "纪录片",
+    "tier": "doc",
+    "followers": "",
+    "note": "回坊相关段落取景",
+    "trust_prior": 0.90
+  },
+  {
+    "id": "laozihao",
+    "name": "中华老字号（商务部）",
+    "platform": "官方名录",
+    "tier": "laozihao",
+    "followers": "",
+    "note": "政府认定名单，公开可查；老字号≠好吃，但真实性无疑",
+    "trust_prior": 0.85
+  },
+  {
+    "id": "shaanxi_laozihao",
+    "name": "陕西/西安老字号",
+    "platform": "官方名录",
+    "tier": "laozihao",
+    "followers": "",
+    "note": "地方商务部门认定名单",
+    "trust_prior": 0.80
+  },
+  {
+    "id": "zhihu",
+    "name": "知乎高赞",
+    "platform": "知乎",
+    "tier": "zhihu",
+    "followers": "",
+    "note": "长文有论证过程，软广相对少，需人工筛",
+    "trust_prior": 0.70
+  },
+  {
+    "id": "private",
+    "name": "私域（同事/朋友）",
+    "platform": "私域",
+    "tier": "private",
+    "followers": "",
+    "note": "已建立的经典馆子来源，最可靠",
+    "trust_prior": 1.00
+  }
+]

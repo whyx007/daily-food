@@ -52,6 +52,9 @@ CREATE TABLE IF NOT EXISTS pois (
     source_count  INTEGER DEFAULT 0,     -- 独立信号源数量
     consensus     REAL DEFAULT 0,        -- 维度一：重合度/稳定性 0-100
     endorsement   REAL DEFAULT 0,        -- 维度二：博主力荐 0-100
+    area          TEXT,                  -- 高新区 / 长安区 / NULL
+    area_bonus    REAL DEFAULT 0,        -- 区域加权分
+    verified      INTEGER DEFAULT 0,     -- 是否通过高德核验（弱化：只加减分，不作门槛）
     trust         REAL DEFAULT 0,        -- 综合可信度 0-100
     reason        TEXT,                  -- 最有说服力的一句推荐理由
     authors_json  TEXT,
@@ -63,3 +66,13 @@ CREATE TABLE IF NOT EXISTS pois (
 
 CREATE INDEX IF NOT EXISTS idx_claims_poi ON claims(poiid);
 CREATE INDEX IF NOT EXISTS idx_pois_trust ON pois(trust DESC);
+
+-- 区域缓存（高新区/长安区加权用）
+CREATE TABLE IF NOT EXISTS area_cache (
+    poiid      TEXT PRIMARY KEY,
+    district   TEXT,
+    adcode     TEXT,
+    area       TEXT,
+    bonus      REAL DEFAULT 0,
+    updated_at TEXT NOT NULL
+);

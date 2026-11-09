@@ -1,0 +1,41 @@
+{
+  "authors": [
+    {"id": "duizhang", "name": "队长爱睿克", "platform": "新浪新闻(微博)", "tier": "blogger", "note": "微博认证鲜城生活家，实吃到店记录，偏个人体验", "trust_prior": 0.60},
+    {"id": "hualu", "name": "花路旅游", "platform": "搜狐号", "tier": "media", "note": "旅游内容号，泡馍店榜单带地址与人均，商业属性较强", "trust_prior": 0.45},
+    {"id": "xafabu", "name": "西安发布", "platform": "新浪新闻(k.sina.cn)", "tier": "official", "note": "西安市委宣传部指导的官方发布账号，节气美食专栏", "trust_prior": 0.85},
+    {"id": "langxian", "name": "浪西安", "platform": "网易号", "tier": "media", "note": "本地文化类网易号，讲泡馍分类与代表店", "trust_prior": 0.55},
+    {"id": "mangguo", "name": "黄色的芒果", "platform": "网易号", "tier": "media", "note": "2018 年水盆羊肉店铺清单，逐店给地址与推荐菜", "trust_prior": 0.45},
+    {"id": "maww", "name": "马文国(美哉文艺)", "platform": "搜狐号", "tier": "blogger", "note": "文化领域创作者，随笔记录在报恩寺街天发芽吃饭", "trust_prior": 0.55}
+  ],
+  "claims": [
+    {"poi_name": "刘信牛羊肉泡馍小炒", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "laoyao", "url": "https://m.sohu.com/coo/sg/19665689_129690", "published_at": "2015-06-21", "snippet": "西安苍蝇馆子排行榜第一名，被无数网友誉为西安最好吃的小炒！肉块大，酸辣、料香、牛油气搭配，味道霸气十足的味道让人欲罢不能。"},
+    {"poi_name": "刘信牛羊肉泡馍小炒", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "hualu", "url": "https://m.sohu.com/a/974087745_120104414/", "published_at": "2026-01-09", "snippet": "酸辣泡馍代表店之一，牛肉酥烂入味，馍粒吸饱红油汤汁，搭配西红柿、木耳提鲜，口感层次丰富。"},
+    {"poi_name": "马洪小炒泡馍馆", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "laoyao", "url": "https://m.sohu.com/coo/sg/19665689_129690", "published_at": "2015-06-21", "snippet": "马洪小炒泡馍馆是近几年出现的泡馍界新军，牛羊肉泡馍和小炒泡馍都做得中规中距，虽然亮点不大，但同时在一家店里做到两种口味都不错。"},
+    {"poi_name": "马洪小炒泡馍馆", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "wingon", "url": "https://www.wingontravel.com/discovery/content/xian-local-old-food-shops.html", "published_at": "2026-08-24", "snippet": "馬洪小炒泡饃館係西安泡饃界嘅口碑老店。"},
+    {"poi_name": "马峰小炒泡馍", "category": "牛羊肉小炒", "sub_category": "生肉小炒", "author_id": "laoyao", "url": "https://m.sohu.com/coo/sg/19665689_129690", "published_at": "2015-06-21", "snippet": "下午五点钟才会开门营业，一直营业到夜里两三点钟，在西安生肉小炒里他家的味道是最好的，没有之一。"},
+    {"poi_name": "安家小炒泡馍", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "laoyao", "url": "https://m.sohu.com/coo/sg/19665689_129690", "published_at": "2015-06-21", "snippet": "安家小炒泡馍是坊上回民朋友一再推荐的，果然酸辣可口，香味十足，肉块大，和刘信家基本在一个水平线上"},
+    {"poi_name": "老乌家特色小炒泡馍", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "laoyao", "url": "https://m.sohu.com/coo/sg/19665689_129690", "published_at": "2015-06-21", "snippet": "老乌家卖得久了，现在来说在坊上算是卖小炒名气最大的，由于外地游客去得多些，口味总体上轻淡"},
+    {"poi_name": "马天小炒泡馍", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "duizhang", "url": "https://www.sina.cn/news/detail/5212990136647916.html", "published_at": "2025-09-20", "snippet": "我本人吃过最多次的马天小炒泡馍，圈粉只需一碗"},
+    {"poi_name": "马天小炒泡馍", "category": "牛羊肉小炒", "sub_category": "小炒泡馍", "author_id": "duizhang", "url": "https://sina.cn/news/detail/5232242755897877.html", "published_at": "2025-11-12", "snippet": "老板做了20多年泡馍，在西安已经开了17家店（科技三路店正在装修中），作为本地人严选的泡馍馆，品质和含金量不用我多说了吧！"},
+    {"poi_name": "一真楼", "category": "牛羊肉小炒", "sub_category": "牛羊肉泡馍", "author_id": "wingon", "url": "https://www.wingontravel.com/discovery/content/xian-local-old-food-shops.html", "published_at": "2026-08-24", "snippet": "一真樓係西安享有盛譽嘅老字號清真泡饃店，歷史可追溯至1985年，以秦川黃牛肉同內蒙羊肉為上品"},
+    {"poi_name": "春发生", "category": "汉民泡馍", "sub_category": "葫芦头泡馍", "author_id": "sohu_bendibao", "url": "https://www.sohu.com/a/831918984_681384", "published_at": "2024-11-30", "snippet": "春发生饭店，创建于1920年，店里的“葫芦头泡馍”制作时有秘方“三绝”，洗肠留香怯异、熬汤料精味浓，泮馍渗透均匀，适合口味淡的食客。"},
+    {"poi_name": "春发生", "category": "汉民泡馍", "sub_category": "葫芦头泡馍", "author_id": "xafabu", "url": "https://k.sina.cn/article_3757167087_dff1d1ef019017guo.html", "published_at": "2024-03-20", "snippet": "到了1920年，以杜甫诗句“好雨知时节，当春乃发生”为名的“春发生”葫芦头在西安南院门附近开张"},
+    {"poi_name": "春发生", "category": "汉民泡馍", "sub_category": "葫芦头泡馍", "author_id": "wingon", "url": "https://www.wingontravel.com/discovery/content/xian-local-old-food-shops.html", "published_at": "2026-08-24", "snippet": "春發生飯店（南院門店）係西安最具代表性嘅非清真泡饃老字號，歷史可追溯至近百年前。"},
+    {"poi_name": "天发芽", "category": "汉民泡馍", "sub_category": "葫芦头泡馍", "author_id": "laoyao", "url": "https://www.sohu.com/a/24665928_129690", "published_at": "2015-07-29", "snippet": "天发芽：小南门里报恩寺街中段"},
+    {"poi_name": "天发芽", "category": "汉民泡馍", "sub_category": "葫芦头泡馍", "author_id": "maww", "url": "https://www.sohu.com/a/985445370_99965497", "published_at": "2026-02-09", "snippet": "昨晚，相约报恩寺街的“天发芽”。"},
+    {"poi_name": "春发芽", "category": "汉民泡馍", "sub_category": "葫芦头泡馍", "author_id": "langxian", "url": "https://www.163.com/dy/article/JT48TTOR05259AMT_pdya11y.html", "published_at": "2025-04-14", "snippet": "葫芦头泡馍除了春发生和春发芽之外，其他的也值得一试"},
+    {"poi_name": "朱秀英梆梆肉葫芦头", "category": "汉民泡馍", "sub_category": "梆梆肉", "author_id": "wingon", "url": "https://www.wingontravel.com/discovery/content/xian-local-old-food-shops.html", "published_at": "2026-08-24", "snippet": "朱秀英梆梆肉葫蘆頭係開業多年嘅非清真小館，主打梆梆肉（燻製大腸及內臟，用木屑、茶葉、鋸末、柏枝等不完全燃燒燻製）同葫蘆頭泡饃。"},
+    {"poi_name": "周老大梆梆肉葫芦头", "category": "汉民泡馍", "sub_category": "梆梆肉", "author_id": "laoyao", "url": "https://www.sohu.com/a/24665928_129690", "published_at": "2015-07-29", "snippet": "周老大梆梆肉葫芦头：小南门里报恩寺街西口"},
+    {"poi_name": "韩记三鲜煮馍", "category": "汉民泡馍", "sub_category": "三鲜煮馍", "author_id": "laoyao", "url": "https://www.sohu.com/a/24665928_129690", "published_at": "2015-07-29", "snippet": "韩记三鲜煮馍：四府街十字西南角"},
+    {"poi_name": "惠记粉汤羊血", "category": "汉民泡馍", "sub_category": "粉汤羊血泡馍", "author_id": "laoyao", "url": "https://www.sohu.com/a/24665928_129690", "published_at": "2015-07-29", "snippet": "惠记粉汤羊血：进小南门里第一个十字口向左前方看就到了。在惠记吃粉汤羊血吃货们一定是要吃单走的"},
+    {"poi_name": "朱家水盆", "category": "水盆羊肉", "sub_category": "水盆羊肉", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【朱家水盆】地址：建国路 省政协对面 推荐：水盆羊肉、杂肝、肉末辣子"},
+    {"poi_name": "老白家水盆羊肉", "category": "水盆羊肉", "sub_category": "水盆羊肉", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【老白家水盆羊肉】地址：北广济街百盛向北200米 推荐：水盆羊肉、普通水盆牛肉、酱牛肉"},
+    {"poi_name": "虎子水盆羊肉", "category": "水盆羊肉", "sub_category": "水盆羊肉", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【虎子水盆羊肉】地址：大唐通易坊与翠华路十字朝北150米 推荐：水盆羊肉、辣子蒜羊血、火爆羊杂"},
+    {"poi_name": "东府小杨澄城水盆羊肉", "category": "水盆羊肉", "sub_category": "澄城水盆", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【东府小杨澄城水盆羊肉】地址：五味十字西南侧 推荐：水盆羊肉、月牙饼、羊肉墩子"},
+    {"poi_name": "锦弘水盆羊肉", "category": "水盆羊肉", "sub_category": "水盆羊肉", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【锦弘水盆羊肉】地址：振兴路和朱雀东坊的丁字口 推荐：水盆羊肉、月牙饼、小菜、辣子蒜羊血"},
+    {"poi_name": "清雅水盆羊肉", "category": "水盆羊肉", "sub_category": "水盆羊肉", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【清雅水盆羊肉】地址：纬二十九街西口路北萧家巷内70米 推荐：水盆羊肉、锅盔、牛肉水盆"},
+    {"poi_name": "雷记水盆羊肉", "category": "水盆羊肉", "sub_category": "水盆羊肉", "author_id": "mangguo", "url": "http://www.163.com/dy/article/DMMM3LI60522UFJ8_pdya11y.html", "published_at": "2018-07-14", "snippet": "【雷记水盆羊肉】地址：报恩寺街西口路南 推荐：水盆羊肉、月牙饼、爽口小菜、青辣子和咸菜、羊肉、双合水盆"},
+    {"poi_name": "澄城崇斌水盆羊肉（后宰门店）", "category": "水盆羊肉", "sub_category": "澄城水盆", "author_id": "wingon", "url": "https://www.wingontravel.com/discovery/content/xian-local-old-food-shops.html", "published_at": "2026-08-24", "snippet": "澄城崇斌水盆羊肉（後宰門店）提供嘅水盆羊肉，於2016年入選陝西省第5批非物質文化遺產名錄"},
+    {"poi_name": "澄城崇斌水盆羊肉（后宰门店）", "category": "水盆羊肉", "sub_category": "澄城水盆", "author_id": "sohu_pudong", "url": "https://www.163.com/dy/article/KQDA6T4E05562DDE.html", "published_at": "2026-04-13", "snippet": "连续超过5年上了必吃榜，而且不是那种上了榜就飘的店，他家出的水盆羊肉礼盒都能大卖。"}
+  ]
+}

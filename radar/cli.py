@@ -62,6 +62,9 @@ def cmd_build(conn, args):
     info = export.export(conn)
     print(f"打分：作者 {n_auth}，线索 {n_claim}，聚合店 {n_poi}")
     print(f"导出：{info['pois']} 家 -> {info['md']}")
+    print("品类分布：" + "  ".join(f"{k}={v}" for k, v in info["counts"].items()))
+    if info.get("other"):
+        print(f"未归类：{info['other']} 家")
     print(f"HTML：{info['html']}")
 
 

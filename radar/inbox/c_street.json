@@ -1,0 +1,42 @@
+{
+  "authors": [
+    {"id":"sohu_luantan","name":"秦腔广播西安乱弹","platform":"搜狐号","tier":"media","note":"陕西本地广播媒体号，西安老馆子/苍蝇小馆系列探店合集，常标注人均与地址","trust_prior":0.6},
+    {"id":"sohu_bendibao","name":"西安本地宝","platform":"搜狐号","tier":"media","note":"本地生活服务号，米线/烤肉清单式推荐，自称全程无广","trust_prior":0.55},
+    {"id":"sohu_zipan","name":"自立米线老潘","platform":"搜狐号","tier":"media","note":"米线垂类个人号，20家米线大盘点，逐店写口感与人均","trust_prior":0.5},
+    {"id":"sohu_pudong","name":"西安扑通生活君","platform":"搜狐号","tier":"media","note":"西安本地生活方式号，专写北郊6号大院等非网红小馆","trust_prior":0.55},
+    {"id":"n163_meishituan","name":"美食团","platform":"网易号","tier":"media","note":"网易号美食媒体，按风格盘点十家烤肉，含回坊与北郊老店","trust_prior":0.5},
+    {"id":"n163_xingchen","name":"星尘故事会","platform":"网易号","tier":"media","note":"个人探店号，写南稍门开了20年以上的老街馆子","trust_prior":0.5},
+    {"id":"n163_bichi","name":"比吃我最在行","platform":"网易号","tier":"media","note":"接地气美食号，西安路边摊合集，含烤面筋等摊档","trust_prior":0.5}
+  ],
+  "claims": [
+    {"poi_name":"程记米线店","category":"米线","sub_category":"麻辣米线","author_id":"sohu_zipan","url":"https://www.sohu.com/a/445868948_120081421","published_at":"2021-01-21","snippet":"麻辣酸菜米线感觉很带感，是越吃越有味道的那种，米线偏软，汤的味道感觉都融入到了米线里面。"},
+    {"poi_name":"程记米线店","category":"米线","sub_category":"红油米线","author_id":"n163_xingchen","url":"http://www.163.com/dy/article/FFH5U2V80545B9G0_pdya11y.html","published_at":"2020-06-19","snippet":"尤其是麻辣米线，里面的辣子味道更是一绝，上面的那层红油油亮油亮的，看着就特别诱人。"},
+    {"poi_name":"红红米线店","category":"米线","sub_category":"砂锅米线","author_id":"sohu_zipan","url":"https://www.sohu.com/a/445868948_120081421","published_at":"2021-01-21","snippet":"一个人不知道该吃啥的时候，第一个想到的就是红红米线，一碗麻辣米线再来一小把烤肉，简直了。"},
+    {"poi_name":"米线张","category":"米线","sub_category":"麻辣米线","author_id":"sohu_zipan","url":"https://www.sohu.com/a/445868948_120081421","published_at":"2021-01-21","snippet":"麻辣米线、笼笼肉夹馍、茶叶蛋，这三样是标配，麻辣味重，所以吃完嘴很麻。"},
+    {"poi_name":"老八米线","category":"米线","sub_category":"干拌米线","author_id":"sohu_zipan","url":"https://www.sohu.com/a/445868948_120081421","published_at":"2021-01-21","snippet":"他家的米线可以加鱼丸，还有干拌、大宽、二宽好多种样式，活生生地把米线吃出了咱陕西人的感觉，比较推荐麻辣的，很给力。"},
+    {"poi_name":"纺建米线","category":"米线","sub_category":"麻辣米线","author_id":"sohu_zipan","url":"https://www.sohu.com/a/445868948_120081421","published_at":"2021-01-21","snippet":"纺织城很好吃的一家小馆子，米线是小时候吃的传统的那种细细的米线，放了海带丝和豆腐皮丝，麻辣味很香很麻"},
+    {"poi_name":"老满客过桥米线","category":"米线","sub_category":"过桥米线","author_id":"sohu_zipan","url":"https://www.sohu.com/a/445868948_120081421","published_at":"2021-01-21","snippet":"只有资深红旗厂吃货才能找到。很小的一家苍蝇馆子，在红旗厂的小巷子里，来这里的也都是多年的回头客。"},
+    {"poi_name":"海家粉蒸肉砂锅米线","category":"米线","sub_category":"砂锅米线","author_id":"sohu_bendibao","url":"https://m.sohu.com/a/954617097_681384/","published_at":"2025-11-15","snippet":"满满的一层油泼辣子+芝麻，配菜和肉的量也很足，吃的很过瘾，美中不足是排队时间有点长。"},
+    {"poi_name":"张嫂家红油米线","category":"米线","sub_category":"红油米线","author_id":"sohu_bendibao","url":"https://m.sohu.com/a/954617097_681384/","published_at":"2025-11-15","snippet":"米线咸香麻辣，豆腐泡吸满汤汁，配着小笼包很绝"},
+    {"poi_name":"螺小胖柳州螺蛳粉","category":"米线","sub_category":"螺蛳粉","author_id":"n163_xingchen","url":"http://www.163.com/dy/article/FFH5U2V80545B9G0_pdya11y.html","published_at":"2020-06-19","snippet":"位于大话南门后面的这家螺蛳粉店在西安其实分店挺多的，但是经不住他家味道好，因此也深受附近的人们的喜爱"},
+    {"poi_name":"重庆欣欣砂锅","category":"米线","sub_category":"砂锅米线","author_id":"sohu_luantan","url":"https://www.sohu.com/a/887601693_348920","published_at":"2025-04-22","snippet":"再一个必点的就是砂锅米线，这家不仅配菜多，米线也给的实在，米线一夹起来全挂上红油，一口下去就是个满足。"},
+    {"poi_name":"军良烤肉","category":"烤肉","sub_category":"烤肉","author_id":"n163_meishituan","url":"https://www.163.com/dy/article/CL6KDOBI0522A187.html","published_at":"2017-05-24","snippet":"北郊大名鼎鼎的人气烤肉，据说已经开了20多年。不光烤肉的品质好，就连师傅的手上功夫都跟“无影手”一般。"},
+    {"poi_name":"陈记农家挂炉烤肉","category":"烤肉","sub_category":"烤肉","author_id":"n163_meishituan","url":"https://www.163.com/dy/article/CL6KDOBI0522A187.html","published_at":"2017-05-24","snippet":"他家主打的是挂炉烤肉，签子要比一般的烤肉长，不论是牛肉还是羊肉都是论斤上，基本半斤就是十串。"},
+    {"poi_name":"小小亮鸡胗王","category":"烤肉","sub_category":"烤肉","author_id":"n163_meishituan","url":"https://www.163.com/dy/article/CL6KDOBI0522A187.html","published_at":"2017-05-24","snippet":"最好吃的一定要数鸡胗，不愧是镇店之宝。热辣脆嫩，很有嚼劲，很适合几个大老爷们下酒。"},
+    {"poi_name":"费萨尔烤肉","category":"烤肉","sub_category":"回坊烤肉","author_id":"sohu_bendibao","url":"https://www.sohu.com/a/785998732_681384","published_at":"2024-06-14","snippet":"肉质新鲜，烤馕必点，香辣酥暄，满满的孜然香！"},
+    {"poi_name":"安老虎烤肉","category":"烤肉","sub_category":"回坊烤肉","author_id":"sohu_bendibao","url":"https://www.sohu.com/a/785998732_681384","published_at":"2024-06-14","snippet":"喜欢重口味的宝子推荐，蒜蓉烤馕很独特，牛奶鸡蛋醪糟很好喝！"},
+    {"poi_name":"杨家烤肉","category":"烤肉","sub_category":"回坊烤肉","author_id":"sohu_bendibao","url":"https://www.sohu.com/a/785998732_681384","published_at":"2024-06-14","snippet":"非常个性，老板烤什么就吃什么，食材新鲜，性价比很高！"},
+    {"poi_name":"马峰烤肉","category":"烤肉","sub_category":"回坊烤肉","author_id":"sohu_luantan","url":"https://www.sohu.com/a/436132115_348920","published_at":"2020-12-03","snippet":"去坊上吃烤肉，怎么也绕不开马峰烤肉，1块钱1串的烤肉、烤筋、烤腰子，价格便宜，份量和质量可不唬人。"},
+    {"poi_name":"大串烧肉","category":"烤肉","sub_category":"烤肉","author_id":"sohu_luantan","url":"https://www.sohu.com/a/436132115_348920","published_at":"2020-12-03","snippet":"老牌夜市里的老牌烤肉，老板负责烤肉，老板娘负责招呼客人，很典型的苍蝇小馆，没人带很难找到。"},
+    {"poi_name":"刘宝老家铜锅串串","category":"烤肉","sub_category":"串串","author_id":"n163_xingchen","url":"http://www.163.com/dy/article/FFH5U2V80545B9G0_pdya11y.html","published_at":"2020-06-19","snippet":"这附近爱吃串串的小伙伴一定对刘宝串串不陌生，而南稍门这家可是刘宝串串的总店。他家的味道很辣很重"},
+    {"poi_name":"邱记开心涮涮","category":"烤肉","sub_category":"串串","author_id":"sohu_luantan","url":"https://www.sohu.com/a/436132115_348920","published_at":"2020-12-03","snippet":"西安入冬后，小伙伴想吃涮涮的心就一天比一天强烈，妞忍不住要推荐这家北郊ZUI好吃的涮涮——邱记开心涮涮。"},
+    {"poi_name":"小魏哥哥果仁面筋","category":"烤肉","sub_category":"烤面筋","author_id":"n163_bichi","url":"https://www.163.com/dy/article/DL02KFNG0522TAB1.html","published_at":"2018-06-23","snippet":"烤面筋是很多人的最爱，面筋的实在加上烤后的外脆里嫩，实在俘获人心。尤其再撒上厚厚的果仁，有时一串都不能满足。"},
+    {"poi_name":"山仔大排档","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"这家经营了十来年的苍蝇馆子，每逢饭点儿必人山人海，已然成为附近学校的学生和上班族的后食堂"},
+    {"poi_name":"陕歌人家","category":"炒菜","sub_category":"陕菜小馆","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"文艺路陕歌家属院里面最深处就能找到的一家私房馆子了，经营的时间近10年了，文艺气息超级浓重！"},
+    {"poi_name":"三丁一体菜","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/652277179_348920","published_at":"2023-03-10","snippet":"开在了老城区的小巷子里，一锅一锅上的一家馆子，干锅做的很惊艳！"},
+    {"poi_name":"老游独一佳湘菜","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/436132115_348920","published_at":"2020-12-03","snippet":"在西安开了足足14个年头，目前分店遍布全城，不过很多人心底的老游还得是大差市这家。"},
+    {"poi_name":"乐乐餐厅","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/436132115_348920","published_at":"2020-12-03","snippet":"从开始的几张桌子，到现在三层小楼，开了20多年的乐乐餐厅，味道是实实在在的好。"},
+    {"poi_name":"天天饭店","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_luantan","url":"https://www.sohu.com/a/436132115_348920","published_at":"2020-12-03","snippet":"西安本地很有名的老餐馆——天天饭店，至今还是传统点餐方式，让食客自己手写菜品点餐。"},
+    {"poi_name":"湘当有味","category":"炒菜","sub_category":"家常炒菜","author_id":"sohu_pudong","url":"https://www.sohu.com/a/926689989_121681094","published_at":"2025-08-22","snippet":"18秒黄牛肉和土匪猪肝是必点的“米饭杀手”，但个人认为各种腊肉炒的菜在湖南爽辣之外也自带烟熏风味，超级香。"}
+  ]
+}

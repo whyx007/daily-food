@@ -106,5 +106,95 @@
     "followers": "",
     "note": "已建立的经典馆子来源，最可靠",
     "trust_prior": 1.00
+  },
+  {
+    "id": "tanwei",
+    "name": "探味小幺",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "",
+    "note": "西安本地探店号，中腰部，需用反软广规则验证商业内容比例",
+    "trust_prior": 0.48
+  },
+  {
+    "id": "tiger",
+    "name": "Tiger西西",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "",
+    "note": "西安探店号，需验证",
+    "trust_prior": 0.46
+  },
+  {
+    "id": "xianmeishi",
+    "name": "西安美食侦探",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "",
+    "note": "名字直指本地探店，需验证",
+    "trust_prior": 0.48
+  },
+  {
+    "id": "junkzai",
+    "name": "君在西安",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "",
+    "note": "有百度百科词条的本地账号",
+    "trust_prior": 0.48
+  },
+  {
+    "id": "zhuzhu",
+    "name": "猪猪七分饱",
+    "platform": "抖音",
+    "tier": "blogger",
+    "followers": "",
+    "note": "有百度百科词条，需验证地域覆盖是否为西安",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "kanchai",
+    "name": "砍柴书生",
+    "platform": "公众号",
+    "tier": "blogger",
+    "followers": "",
+    "note": "写过硬核西安美食攻略，图文密度高",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "dongshu",
+    "name": "东树",
+    "platform": "B站",
+    "tier": "blogger",
+    "followers": "",
+    "note": "自述“独立探店”，但简介写明“合作请私信”，说明接商单，必须过滤",
+    "trust_prior": 0.52
+  },
+  {
+    "id": "laoyao",
+    "name": "老妖带你吃西安",
+    "platform": "微博/搜狐号",
+    "tier": "blogger",
+    "followers": "",
+    "note": "西安资深吃货，专写坊上小馆与苍蝇馆子；2015 年两篇单品清单质量很高，但年份老需注意地址变动",
+    "trust_prior": 0.72
+  },
+  {
+    "id": "daoyue",
+    "name": "盗月社食遇记",
+    "platform": "B站",
+    "tier": "blogger",
+    "followers": "",
+    "note": "西安起家的美食 UP，内容制作规格高；偏全国题材，西安篇信息量大",
+    "trust_prior": 0.60
+  },
+  {
+    "id": "yomi",
+    "name": "yomi旅记",
+    "platform": "小红书",
+    "tier": "blogger",
+    "followers": "",
+    "note": "游客向碳水打卡笔记，作为反向信号：只被此类账号提到的店要降权",
+    "trust_prior": 0.35
   }
 ]

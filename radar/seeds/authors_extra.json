@@ -1,7 +1,207 @@
 [
-  {"id":"wingon","name":"阿Pen旅遊記（永安旅遊）","platform":"攻略站","tier":"media","followers":"","note":"旅游达人攻略，逐店给地址/招牌菜","trust_prior":0.62},
-  {"id":"sina_paomo","name":"邻里览观（新浪）","platform":"媒体","tier":"media","followers":"","note":"泡馍实测对比，引用多条微博博主反馈","trust_prior":0.60},
-  {"id":"sina_mixian","name":"新浪看点·米线盘点（2019）","platform":"媒体","tier":"media","followers":"","note":"2019 年米线盘点，年份旧需时间衰减","trust_prior":0.55},
-  {"id":"sohu_mixian","name":"西安本地宝（搜狐）","platform":"本地号","tier":"media","followers":"","note":"2025 年米线第二期，自称“全程无广”，逐店给营业时间与人均","trust_prior":0.66},
-  {"id":"weibo_wuqiong","name":"微博博主 @吴穹_西班牙萨拉曼卡","platform":"微博","tier":"blogger","followers":"","note":"被媒体引用做泡馍实测认证，本地老饕向","trust_prior":0.62}
+  {
+    "id": "wingon",
+    "name": "阿Pen旅遊記（永安旅遊）",
+    "platform": "攻略站",
+    "tier": "media",
+    "followers": "",
+    "note": "旅游达人攻略，逐店给地址/招牌菜",
+    "trust_prior": 0.62
+  },
+  {
+    "id": "sina_paomo",
+    "name": "邻里览观（新浪）",
+    "platform": "媒体",
+    "tier": "media",
+    "followers": "",
+    "note": "泡馍实测对比，引用多条微博博主反馈",
+    "trust_prior": 0.6
+  },
+  {
+    "id": "sina_mixian",
+    "name": "新浪看点·米线盘点（2019）",
+    "platform": "媒体",
+    "tier": "media",
+    "followers": "",
+    "note": "2019 年米线盘点，年份旧需时间衰减",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu_mixian",
+    "name": "西安本地宝（搜狐）",
+    "platform": "本地号",
+    "tier": "media",
+    "followers": "",
+    "note": "2025 年米线第二期，自称“全程无广”，逐店给营业时间与人均",
+    "trust_prior": 0.66
+  },
+  {
+    "id": "weibo_wuqiong",
+    "name": "微博博主 @吴穹_西班牙萨拉曼卡",
+    "platform": "微博",
+    "tier": "blogger",
+    "followers": "",
+    "note": "被媒体引用做泡馍实测认证，本地老饕向",
+    "trust_prior": 0.62
+  },
+  {
+    "id": "sohu_luantan",
+    "name": "秦腔广播西安乱弹",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "陕西本地广播媒体号，西安老馆子/苍蝇小馆系列探店合集，常标注人均与地址",
+    "trust_prior": 0.6
+  },
+  {
+    "id": "sohu_bendibao",
+    "name": "西安本地宝",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "本地生活服务号，米线/烤肉清单式推荐，自称全程无广",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu_zipan",
+    "name": "自立米线老潘",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "米线垂类个人号，20家米线大盘点，逐店写口感与人均",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sohu_pudong",
+    "name": "西安扑通生活君",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "西安本地生活方式号，专写北郊6号大院等非网红小馆",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "n163_meishituan",
+    "name": "美食团",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "网易号美食媒体，按风格盘点十家烤肉，含回坊与北郊老店",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "n163_xingchen",
+    "name": "星尘故事会",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "个人探店号，写南稍门开了20年以上的老街馆子",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "n163_bichi",
+    "name": "比吃我最在行",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "接地气美食号，西安路边摊合集，含烤面筋等摊档",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "duizhang",
+    "name": "队长爱睿克",
+    "platform": "新浪新闻(微博)",
+    "tier": "blogger",
+    "note": "微博认证鲜城生活家，实吃到店记录，偏个人体验",
+    "trust_prior": 0.6
+  },
+  {
+    "id": "hualu",
+    "name": "花路旅游",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "旅游内容号，泡馍店榜单带地址与人均，商业属性较强",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "xafabu",
+    "name": "西安发布",
+    "platform": "新浪新闻(k.sina.cn)",
+    "tier": "official",
+    "note": "西安市委宣传部指导的官方发布账号，节气美食专栏",
+    "trust_prior": 0.85
+  },
+  {
+    "id": "langxian",
+    "name": "浪西安",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "本地文化类网易号，讲泡馍分类与代表店",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "mangguo",
+    "name": "黄色的芒果",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "2018 年水盆羊肉店铺清单，逐店给地址与推荐菜",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "maww",
+    "name": "马文国(美哉文艺)",
+    "platform": "搜狐号",
+    "tier": "blogger",
+    "note": "文化领域创作者，随笔记录在报恩寺街天发芽吃饭",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sina_dskb",
+    "name": "陕西都市快报",
+    "platform": "新浪新闻",
+    "tier": "official",
+    "note": "《都市快报》官方账号，德发长非遗饺子报道",
+    "trust_prior": 0.75
+  },
+  {
+    "id": "sohu_meili_beilin",
+    "name": "魅力碑林",
+    "platform": "搜狐号",
+    "tier": "official",
+    "note": "碑林区文旅政务号，转载西安文旅碳水店铺清单",
+    "trust_prior": 0.62
+  },
+  {
+    "id": "sohu_cui_xiaoman",
+    "name": "崔小满",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "2016 年凉皮 20 店长清单，老店信息密度高但年代较早",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "netease_shijishe",
+    "name": "食戟社",
+    "platform": "网易号",
+    "tier": "media",
+    "note": "转载《风味星球》西安酸汤饺子长文，写法偏体验",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu_yueu",
+    "name": "悦U",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "西安本地生活号，“最low餐厅”清单，主打苍蝇馆子",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sohu_li_lianyuan",
+    "name": "李连源",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "西安饮食史作者，解放路饺子馆沿革考据",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "sohu_fengjing",
+    "name": "风景同行游天下",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "旅游攻略合集，洒金桥本地早点线索",
+    "trust_prior": 0.45
+  }
 ]

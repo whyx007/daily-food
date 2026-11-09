@@ -1,0 +1,44 @@
+{
+  "authors": [
+    {"id":"sina_dskb","name":"陕西都市快报","platform":"新浪新闻","tier":"official","note":"《都市快报》官方账号，德发长非遗饺子报道","trust_prior":0.75},
+    {"id":"sohu_meili_beilin","name":"魅力碑林","platform":"搜狐号","tier":"official","note":"碑林区文旅政务号，转载西安文旅碳水店铺清单","trust_prior":0.62},
+    {"id":"sohu_cui_xiaoman","name":"崔小满","platform":"搜狐号","tier":"media","note":"2016 年凉皮 20 店长清单，老店信息密度高但年代较早","trust_prior":0.50},
+    {"id":"netease_shijishe","name":"食戟社","platform":"网易号","tier":"media","note":"转载《风味星球》西安酸汤饺子长文，写法偏体验","trust_prior":0.55},
+    {"id":"sohu_yueu","name":"悦U","platform":"搜狐号","tier":"media","note":"西安本地生活号，“最low餐厅”清单，主打苍蝇馆子","trust_prior":0.50},
+    {"id":"sohu_li_lianyuan","name":"李连源","platform":"搜狐号","tier":"media","note":"西安饮食史作者，解放路饺子馆沿革考据","trust_prior":0.55},
+    {"id":"sohu_fengjing","name":"风景同行游天下","platform":"搜狐号","tier":"media","note":"旅游攻略合集，洒金桥本地早点线索","trust_prior":0.45}
+  ],
+  "claims": [
+    {"poi_name":"马二酸汤水饺","category":"饺子蒸饺","sub_category":"酸汤水饺","author_id":"sohu_meili_beilin","url":"https://m.sohu.com/a/974420557_348943/","published_at":"2026-01-09","snippet":"马二酸汤水饺在大皮院，可是一家开了30年的老店，堪称酸汤饺子界的“扛把子”"},
+    {"poi_name":"马二酸汤水饺","category":"饺子蒸饺","sub_category":"酸汤水饺","author_id":"netease_shijishe","url":"https://www.163.com/dy/article/IMNVMCJL05525A58.html","published_at":"2023-12-24","snippet":"马二只有一个馅儿，韭黄牛肉，几十年都成了舌头记忆了，口味如何一吃便知。"},
+    {"poi_name":"尤素福饺子馆","category":"饺子蒸饺","sub_category":"酸汤水饺","author_id":"langxian","url":"https://m.sohu.com/n/543982409","published_at":"2018-07-20","snippet":"在西安众多的饺子馆中，尤素福饺子馆是西安人爱光顾的口碑老店之一，虽然地方不太好找，但却靠着独特的味道吸引了大批忠实粉丝。"},
+    {"poi_name":"城南饺子馆","category":"饺子蒸饺","sub_category":"水饺","author_id":"langxian","url":"https://m.163.com/dy/article_v5/L5IR00I605259AMT.html","published_at":"2026-08-30","snippet":"在西安，你要问哪家饺子馆最有名，十个人里至少有八个会提到“城南饺子馆”。"},
+    {"poi_name":"志亮灌汤蒸饺","category":"饺子蒸饺","sub_category":"灌汤蒸饺","author_id":"sohu_yueu","url":"https://www.sohu.com/a/321774852_526759","published_at":"2019-06-20","snippet":"大名鼎鼎的志亮灌汤蒸饺开了足足30年有余，之前的旧地址是在洒金桥，后来搬到了庙后街，是很多吃货必打卡的坊上美食。"},
+    {"poi_name":"德发长","category":"饺子蒸饺","sub_category":"饺子宴","author_id":"sina_dskb","url":"https://k.sina.com.cn/article_1915671961_m722ed59903301kp9e.html","published_at":"2026-02-24","snippet":"坐落在钟楼脚下的德发长，把西安的烟火气和文化味一起包进了饺子里。"},
+    {"poi_name":"解放路饺子馆","category":"饺子蒸饺","sub_category":"饺子宴","author_id":"sohu_li_lianyuan","url":"https://www.sohu.com/a/905043053_406027","published_at":"2025-06-19","snippet":"解放路饺子馆位于解放路229号，始建于1935年，原名菜根香饭馆"},
+
+    {"poi_name":"秦豫肉夹馍","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"30年老字号，《舌尖》认证，坚持现烤白吉馍“虎背铁圈菊花心”标准，外皮酥脆掉渣，内芯绵软吸汁，馍酥肉香天花板。"},
+    {"poi_name":"子午路张记肉夹馍","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"西安肉夹馍协会认证的“金牌馍”代表，西安肉夹馍分店最多的品牌，招牌“三肥七瘦”黄金比例腊汁肉"},
+    {"poi_name":"樊记腊汁肉","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"始于1925年的百年老字号，腊汁肉采用传统陶缸卤制，肉质红润香醇，肥而不腻"},
+    {"poi_name":"王魁腊汁肉夹馍","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"非遗技艺传承店，采用陶缸老卤慢炖带皮肉，口感层次分明。独家秘制辣子油香而不燥"},
+    {"poi_name":"王魁腊汁肉夹馍","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"langxian","url":"https://www.163.com/dy/article/L6PCIKH905259AMT.html","published_at":"2026-09-14","snippet":"但王魁有一批极其忠诚的本地食客。有人从三中上学吃到带着孩子来，有人每次从陕北过来第一站就是八仙庵。"},
+    {"poi_name":"王华峰潼关肉夹馍","category":"肉夹馍","sub_category":"潼关肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"北郊居民的“早餐首选”，馍皮柔软有嚼劲，腊汁肉炖得软烂入味，汤汁渗透到馍的每一层。"},
+    {"poi_name":"赵亚东腊汁肉店","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"低调实力派，肉极嫩卤香透骨，电饼铛烘馍酥脆加倍，配生汆丸子汤是隐藏吃法。"},
+    {"poi_name":"东关吉祥腊汁肉夹馍","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"馍皮偏软但肉量扎实，腊汁肉肥瘦相间，汤汁浓郁，搭配店内自制的辣椒酱，香辣过瘾。"},
+    {"poi_name":"李老四腊牛肉夹馍","category":"肉夹馍","sub_category":"腊牛肉夹馍","author_id":"hualu","url":"https://m.sohu.com/a/1010248433_120104414/","published_at":"2026-04-16","snippet":"主打腊牛肉夹馍，选用牛腱子肉经多道工序腌制炖煮，肉质紧实纹理清晰，咸香醇厚。馍皮偏软，能充分吸收肉汁。"},
+    {"poi_name":"老李家肉夹馍","category":"肉夹馍","sub_category":"腊汁肉夹馍","author_id":"sohu_fengjing","url":"https://m.sohu.com/a/870341505_122013818/","published_at":"2025-03-13","snippet":"老李家肉夹馍（腊汁肉肥瘦相间会爆汁）"},
+
+    {"poi_name":"云老四凉皮","category":"凉皮酿皮","sub_category":"米皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"凉皮口感筋道，味道那叫一个香，入口先是一阵清凉，随之而来的是浓烈的辣子香，吃起来真心过瘾。"},
+    {"poi_name":"铁头凉皮","category":"凉皮酿皮","sub_category":"凉皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"店家在调辣子的时候会抓几根凉皮在辣子油上蘸一下，之后放到碗里和其他调料一起搅拌"},
+    {"poi_name":"薛昌利大米面皮","category":"凉皮酿皮","sub_category":"秦镇米皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"凉皮里没什么配菜，只有一些豆芽，但是味道很好，蒜味比较重，吃起来很过瘾！米皮比较好吃，软糯适中！"},
+    {"poi_name":"薛昌利大米面皮","category":"凉皮酿皮","sub_category":"秦镇米皮","author_id":"langxian","url":"https://www.163.com/dy/article/L7E2D4U405259AMT.html","published_at":"2026-09-22","snippet":"南关正街的薛昌利是首选。永宁门地铁站B口出来走三百米就到，离钟楼也就一站路。"},
+    {"poi_name":"史玉林凉皮","category":"凉皮酿皮","sub_category":"秦镇米皮","author_id":"langxian","url":"https://www.163.com/dy/article/L7E2D4U405259AMT.html","published_at":"2026-09-22","snippet":"史玉林凉皮在三桥、土门小树林都有店，纯手工现蒸，米皮滑爽，红油层次分明，干拌和带汤两种吃法都有。"},
+    {"poi_name":"胖嫂秦镇大米面皮","category":"凉皮酿皮","sub_category":"秦镇米皮","author_id":"langxian","url":"https://www.163.com/dy/article/L7E2D4U405259AMT.html","published_at":"2026-09-22","snippet":"想吃现蒸的热米皮，胖嫂秦镇大米面皮在红专南路，中午去晚了可能就卖完了。"},
+    {"poi_name":"盛志望麻酱酿皮铺","category":"凉皮酿皮","sub_category":"麻酱酿皮","author_id":"n163_xingchen","url":"https://www.163.com/dy/article/F7EBV3360545B9G0.html","published_at":"2020-03-11","snippet":"坊上酿皮大多是麻酱的，口感和擀面皮及米皮都大有不同，吃的时候用筷子拌开，浓郁的口感一定会让你欲罢不能。"},
+    {"poi_name":"盛志望麻酱酿皮铺","category":"凉皮酿皮","sub_category":"麻酱酿皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"不同于陕西本地的米皮和面皮，酿皮坚持不洗面筋，所以微黄的酿皮具有更大的韧性"},
+    {"poi_name":"盛家酿皮","category":"凉皮酿皮","sub_category":"酿皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"酿皮很好吃，完全的真材实料，麻酱什么的给的很足"},
+    {"poi_name":"七七家手工秘制擀面皮","category":"凉皮酿皮","sub_category":"擀面皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"擀面皮调的味道比较正，辣椒很辣，但是却不会烧胃，擀面皮劲道好吃……"},
+    {"poi_name":"拴马桩擀面皮","category":"凉皮酿皮","sub_category":"擀面皮","author_id":"sohu_cui_xiaoman","url":"https://m.sohu.com/coo/sg/119130095_528431","published_at":"2016-11-16","snippet":"擀面皮味道很正，辣子和醋水的味道很棒，也可以来上一份面皮和呱呱的混搭。"},
+    {"poi_name":"岐风烙面皮","category":"凉皮酿皮","sub_category":"擀面皮","author_id":"n163_xingchen","url":"https://www.163.com/dy/article/F7EBV3360545B9G0.html","published_at":"2020-03-11","snippet":"是一家连锁店，主打岐山擀面皮，味道算是比较正宗的"}
+  ]
+}

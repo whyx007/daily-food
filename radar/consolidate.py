@@ -11,9 +11,11 @@ from datetime import datetime
 
 from radar import adfilter, db
 from radar.amap_verify import verify
+from radar.areas import classify
+from radar.categories import normalize
 
-TIER_WEIGHT = {"private": 1.00, "doc": 0.90, "laozihao": 0.85, "zhihu": 0.70,
-               "media": 0.60, "blogger": 0.50}
+TIER_WEIGHT = {"private": 1.00, "doc": 0.90, "official": 0.88, "laozihao": 0.85,
+               "zhihu": 0.70, "media": 0.60, "blogger": 0.50}
 
 # 博主力荐的措辞信号
 ENDORSE_WORDS = r"力荐|强烈推荐|必吃|最爱|常去|吃了\s*\d+\s*年|我推荐|闭眼冲|直接安利|按头安利"
@@ -123,29 +125,33 @@ def consolidate(conn) -> int:
 
     groups = {}
     for row in rows:
-        key = row["poiid"] or ("unverified:" + row["poi_name"])
+        key = row["poiid"] or ("name:" + (row["poi_name"] or "").strip())
         groups.setdefault(key, []).append(row)
 
     conn.execute("DELETE FROM pois")
     for key, items in groups.items():
-        if key.startswith("unverified:"):
-            continue
         best = max(items, key=lambda r: r["trust"] or 0)
         authors = sorted({r["author"] for r in items})
         consensus, c_info = _consensus(items)
         endorsement, e_info = _endorsement(items)
-        trust = round(0.6 * consensus + 0.4 * endorsement + 10, 1)  # +10 已通过高德核验
-        trust = max(0.0, min(100.0, trust))
+        verified = any(r["poiid"] for r in items)
+        # 高德核验弱化为加减分：查到 +10，查不到 -8（不再作为门槛）
+        trust = 0.6 * consensus + 0.4 * endorsement + (10 if verified else -8)
+        area, area_bonus = classify(None, best["address"], best["poi_name"],
+                                    None, best["lng"], best["lat"])
+        trust = round(max(0.0, min(100.0, trust + area_bonus)), 1)
+        canon = normalize(best["category"], None) or normalize(None, best["poi_name"])
 
         dates = [r["published_at"] or r["collected_at"] for r in items]
         db.upsert_poi(conn, {
             "poiid": key, "name": best["poi_name"],
             "lat": best["lat"], "lng": best["lng"], "address": best["address"],
-            "category": best["category"],
+            "category": canon or best["category"],
             "mention_count": len(items), "source_count": len(authors),
             "consensus": consensus, "endorsement": endorsement,
+            "area": area, "area_bonus": area_bonus, "verified": verified,
             "trust": trust, "reason": best["snippet"], "authors": authors,
-            "detail": {"consensus": c_info, "endorsement": e_info, "verified": True},
+            "detail": {"consensus": c_info, "endorsement": e_info, "verified": verified},
             "first_seen": min(dates) if dates else None,
             "last_seen": max(dates) if dates else None,
         })

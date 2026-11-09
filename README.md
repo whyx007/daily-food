@@ -49,6 +49,19 @@ uvicorn app.main:app --reload --port 8000
 
 打开 http://127.0.0.1:8000 。
 
+**局域网访问**（同一 WiFi 下的手机/平板）：
+
+```powershell
+pwsh -File scripts\serve_lan.ps1            # 默认 8123 端口，绑 0.0.0.0
+pwsh -File scripts\serve_lan.ps1 -Port 9000 # 换端口
+```
+
+脚本会把本机所有网卡 IP 的访问地址打印出来（形如 `http://192.168.1.7:8123`）。注意：
+
+- 必须绑 `0.0.0.0`（绑 `127.0.0.1` 时局域网连不上）；
+- Windows 防火墙需要放行 python 的入站连接（首次启动时弹窗选「允许」，当前 `daily-food` 的解释器规则已存在且覆盖「公用网络」）；
+- 手机浏览器访问 `http://` 地址时**不提供定位权限**（非 HTTPS 不是安全上下文），会退回 `.env` 里的 `DEFAULT_LAT/DEFAULT_LNG`；想用当前位置就右键地图「设为出发点」。
+
 - 没有 `AMAP_JS_KEY` 时，左栏自动降级为静态地图图片（`/api/staticmap`）；
 - 配好 `AMAP_JS_KEY` 后左栏是真正的交互地图。JS API 2.0 的 `securityJsCode` 不能放在前端，本项目内置了 `/_AMapService/` 反向代理（见 `app/routes.py` 的 `amap_proxy`），把 `AMAP_SECURITY_CODE` 填进 `.env` 即可，本地开发不需要 Nginx；
 - 前端把 `serviceHost` 设为 `${location.origin}/_AMapService`，这个值必须是「源 + 前缀」的完整地址，只写主机名会让 JS API 把主机名拼进路径。

@@ -427,5 +427,45 @@
     "tier": "media",
     "note": "面馆清单，含高新一路关中老碗及人均",
     "trust_prior": 0.45
+  },
+  {
+    "id": "fenghuang_shaanxi",
+    "name": "凤凰陕西",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "凤凰网陕西频道转载号，热米皮店铺盘点",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sina_ranfood",
+    "name": "然的美食",
+    "platform": "新浪号",
+    "tier": "media",
+    "note": "陕西馍类（含肉夹馍）全盘点",
+    "trust_prior": 0.5
+  },
+  {
+    "id": "sina_shaanxi_city",
+    "name": "新浪陕西城市频道",
+    "platform": "新浪",
+    "tier": "media",
+    "note": "新浪陕西本地新闻，实地报道高新区小店",
+    "trust_prior": 0.6
+  },
+  {
+    "id": "fengwujun",
+    "name": "西安凤五君",
+    "platform": "搜狐号",
+    "tier": "media",
+    "note": "本地美食作者，西安饺子馆盘点",
+    "trust_prior": 0.55
+  },
+  {
+    "id": "shaanxi_tourism",
+    "name": "陕西省旅游局（搜狐号）",
+    "platform": "搜狐号",
+    "tier": "official",
+    "note": "地铁三号线沿线美食盘点，逐店给人均与地址；2016 年文，年份老需注意店面变动",
+    "trust_prior": 0.5
   }
 ]

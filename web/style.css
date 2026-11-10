@@ -148,15 +148,18 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   transition: opacity .2s ease; pointer-events: none; z-index: 99; }
 #toast.show { opacity: 1; }
 @media (max-width: 860px) {
-  /* 手机端：整页滚动。原来的 45vh/1fr 网格 + overflow:hidden 会把信息栏裁掉且不给滚 */
-  #layout { grid-template-columns: 1fr; grid-template-rows: auto auto;
-    height: auto; min-height: 100vh; overflow: visible; }
-  #layout.panel-collapsed { grid-template-columns: 1fr; grid-template-rows: auto auto; }
-  #map-pane { height: 45vh; height: 45dvh; }
-  #panel { overflow: visible; padding: 14px 14px calc(28px + env(safe-area-inset-bottom));
-    border-left: 0; border-top: 1px solid #e5e7eb; height: auto; }
-  #list { overflow: visible; flex: none; }        /* 列表跟着页面滚，不做内部滚动 */
-  body { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  /* 手机端：地图固定在上半屏，只有下面信息栏自己滚 */
+  html, body { height: 100%; overflow: hidden; }
+  #layout { grid-template-columns: 1fr; grid-template-rows: 42vh 1fr;
+    height: 100vh; height: 100dvh; overflow: hidden; }
+  #layout.panel-collapsed { grid-template-columns: 1fr; grid-template-rows: 42vh 1fr; }
+  #map-pane { height: auto; min-height: 0; }
+  #panel { overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch;
+    height: auto; min-height: 0;
+    padding: 14px 14px calc(24px + env(safe-area-inset-bottom));
+    border-left: 0; border-top: 1px solid #e5e7eb;
+    overscroll-behavior: contain; }
+  #list { overflow: visible; flex: none; }        /* 列表不再单独滚，交给信息栏滚 */
   #map-hint { font-size: 11px; }
   .panel-toggle { display: none; }
 }

@@ -16,6 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt -i "$PIP_INDEX_URL"
 COPY app ./app
 COPY web ./web
 COPY data ./data
+# 网络推荐数据（/api/radar 读这里），来自美食雷达的导出
+COPY radar/out ./radar/out
 
 RUN mkdir -p /data
 

@@ -4,7 +4,7 @@ const state = {
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
   lastMeta: null, originLabel: null, originLabelKey: null,
   showClassicOnMap: false, classicMarkers: [],
-  showRadarOnMap: false, radarMarkers: [], radarItems: null,
+  showRadarOnMap: false, radarMarkers: [], radarItems: null, radarPickId: null,
   sortBy: 'distance',
 };
 
@@ -702,15 +702,18 @@ function showFallback() {
   }
 }
 
-function select(poi) {
+function select(poi, opts) {
   if (!poi) return;
   state.selectedId = poi.id;
   $('#list').querySelectorAll('.item').forEach((el) => {
     el.classList.toggle('active', el.dataset.id === poi.id);
   });
-  renderCard(poi, state.lastMeta || null, 'list');
+  // opts.keepCard=true：只做选中/定位，不重绘推荐卡（网络推荐模式自己管卡片）
+  if (!(opts && opts.keepCard)) {
+    renderCard(poi, state.lastMeta || null, 'list');
+  }
   renderSelectedMarker(poi);
-  if (state.map) state.map.setCenter([poi.lng, poi.lat]);
+  if (state.map && poi.lat != null && poi.lng != null) state.map.setCenter([poi.lng, poi.lat]);
 }
 
 function buildNavUrl(poi) {
@@ -803,6 +806,7 @@ async function loadRadar() {
     return;
   }
   const pick = items.find((i) => i.lat != null && i.lng != null) || items[0];
+  state.radarPickId = pick.id;
   renderRadarCard(pick, body.data);
   renderRadarList(items);
   renderMarkers([]);
@@ -814,20 +818,43 @@ function renderRadarCard(pick, meta) {
   const el = $('#daily-card');
   const area = pick.area ? ` · ${pick.area}` : '';
   const dist = pick.distance != null ? ` · ${fmtKm(pick.distance)}` : '';
+  const addr = pick.address ? `${esc(pick.address)} · ` : '';
   el.innerHTML = `
     <div class="name">${esc(pick.name)}</div>
     <div class="meta">${esc(pick.category || '')}${esc(area)}${dist} · 网络推荐可信度 ${pick.trust}</div>
+    <div class="meta">${addr}<span class="coord">${pick.lat != null ? pick.lat.toFixed(5) : '?'}, ${pick.lng != null ? pick.lng.toFixed(5) : '?'}</span></div>
     <div class="radar-reason">“${esc((pick.reason || '').slice(0, 120))}”</div>
     <div class="radar-src">来源：${esc((pick.authors || []).join('、'))} · 提及 ${pick.mentions} 次</div>
     <div class="actions">
-      <button class="btn" id="radar-open">在地图上查看</button>
+      <button class="btn primary" id="radar-nav">去这里</button>
+      <button class="btn" id="radar-locate">📍 地图定位</button>
+      <button class="btn" id="radar-again">换一换</button>
     </div>`;
-  const btn = $('#radar-open');
-  if (btn) btn.onclick = () => {
+
+  const nav = el.querySelector('#radar-nav');
+  if (nav) nav.onclick = () => navigate(pick);
+  const locate = el.querySelector('#radar-locate');
+  if (locate) locate.onclick = () => {
     if (pick.lat != null && state.map) state.map.setCenter([pick.lng, pick.lat]);
     select({ id: pick.id, name: pick.name, lat: pick.lat, lng: pick.lng,
-             rating: null, type: pick.category, address: pick.address });
+             rating: null, type: pick.category, address: pick.address }, { keepCard: true });
   };
+  const again = el.querySelector('#radar-again');
+  if (again) again.onclick = () => pickRandomRadar();
+}
+
+/** 网络推荐里「换一换」：从列表里随机换一家（不会连着同一家）。 */
+function pickRandomRadar() {
+  const items = (state.radarItems || []).filter((i) => i.lat != null && i.lng != null);
+  if (!items.length) { toast('还没有网络推荐数据'); return; }
+  let next = items[Math.floor(Math.random() * items.length)];
+  if (items.length > 1 && state.radarPickId === next.id) {
+    next = items[(items.indexOf(next) + 1) % items.length];
+  }
+  state.radarPickId = next.id;
+  renderRadarCard(next, state.lastMeta);
+  select({ id: next.id, name: next.name, lat: next.lat, lng: next.lng,
+           rating: null, type: next.category, address: next.address }, { keepCard: true });
 }
 
 function renderRadarList(items) {
@@ -843,8 +870,12 @@ function renderRadarList(items) {
 
   list.querySelectorAll('.item').forEach((el, idx) => {
     const item = items[idx];
-    el.onclick = () => select({ id: item.id, name: item.name, lat: item.lat, lng: item.lng,
-                                rating: null, type: item.category, address: item.address });
+    el.onclick = () => {
+      state.radarPickId = item.id;
+      renderRadarCard(item, state.lastMeta);
+      select({ id: item.id, name: item.name, lat: item.lat, lng: item.lng,
+               rating: null, type: item.category, address: item.address }, { keepCard: true });
+    };
   });
 }
 

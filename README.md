@@ -20,7 +20,7 @@
 - **地图默认不铺标记**：只有右侧列表选中某家时，才在地图上落一个标记并把视野移过去；
 - **位置校正**：选中某家后，右键地图上它真正的位置，选「📌 把「店名」的位置校正到这里」，之后列表距离、地图标记、导航都用校正后的坐标（存 `poi_fixes` 表；撤销可 `DELETE /api/fixes/{poiid}`）；
 - **右键右侧列表项** → 直接加入经典馆子；加入成功后右侧列表会立即切到「经典馆子」并高亮新增的那家，不用手动刷新；
-- **经典馆子列表删除**：每项带 🗑 删除按钮，需输入删除密码（`ADMIN_TOKEN`，当前为 `XCKF`）确认后才删除；
+- **经典馆子列表删除**：每项带 🗑 删除按钮，需输入删除密码（`.env` 的 `ADMIN_TOKEN`，本机与线上统一为 `XKKG`）确认后才删除；
 - 点「去这里」唤起高德导航，微信内会提示换浏览器打开。
 设计文档见 [docs/superpowers/specs/2026-11-07-daily-food-design.md](docs/superpowers/specs/2026-11-07-daily-food-design.md)，
 实现计划见 [docs/superpowers/plans/2026-11-07-daily-food-plan.md](docs/superpowers/plans/2026-11-07-daily-food-plan.md)。

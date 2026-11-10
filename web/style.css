@@ -71,6 +71,9 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 .item-del { flex: none; padding: 4px 7px; border: 1px solid #e5e7eb; border-radius: 6px; background: #fff;
   cursor: pointer; font-size: 12px; line-height: 1; opacity: .65; }
 .item-del:hover { opacity: 1; border-color: #d73a49; }
+.item-nav { flex: none; padding: 4px 7px; border: 1px solid #c8d3e0; border-radius: 6px; background: #fff;
+  cursor: pointer; font-size: 12px; line-height: 1; opacity: .8; }
+.item-nav:hover { opacity: 1; border-color: #2f6fed; color: #2f6fed; }
 .star-item { display: inline-block; animation: star-bob 1s ease-in-out infinite; font-size: 13px; }
 .star-item:nth-child(2) { animation-delay: .3s; }
 .item:hover { border-color: #8c959f; }

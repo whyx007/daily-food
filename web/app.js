@@ -152,12 +152,15 @@ function renderList(items) {
         <div>${inClassic ? '<span class="star-item">⭐</span> ' : ''}${esc(p.name)}</div>
         <div class="sub">${p.distance ?? '?'}m ${p.rating ? p.rating + ' 分' : '暂无评分'}${p.tel ? ' · 📞' : ''}</div>
       </div>
+      <button class="item-nav" data-nav="${p.id}" title="高德导航">🧭</button>
       ${inClassic ? `<button class="item-del" data-del="${p.id}" title="删除">🗑</button>` : ''}
     </div>`).join('');
   list.querySelectorAll('.item').forEach((el) => {
     const item = sorted.find((p) => p.id === el.dataset.id);
     el.onclick = () => select(item);
     el.oncontextmenu = (e) => { e.preventDefault(); addClassic(item); };
+    const nav = el.querySelector('.item-nav');
+    if (nav) nav.onclick = (e) => { e.stopPropagation(); navigate(item); };
     const del = el.querySelector('.item-del');
     if (del) del.onclick = (e) => { e.stopPropagation(); openDeleteDialog(item); };
   });
@@ -934,6 +937,7 @@ function renderRadarList(items) {
         <div class="sub">${esc(p.category || '')}${p.area ? ' · ' + esc(p.area) : ''}${p.distance != null ? ' · ' + fmtKm(p.distance) : ''}</div>
       </div>
       <div class="trust-badge">${p.trust}</div>
+      <button class="item-nav" data-nav="${esc(p.id)}" title="高德导航">🧭</button>
     </div>`).join('');
 
   list.querySelectorAll('.item').forEach((el, idx) => {
@@ -944,6 +948,8 @@ function renderRadarList(items) {
       select({ id: item.id, name: item.name, lat: item.lat, lng: item.lng,
                rating: null, type: item.category, address: item.address }, { keepCard: true });
     };
+    const nav = el.querySelector('.item-nav');
+    if (nav) nav.onclick = (e) => { e.stopPropagation(); navigate(item); };
   });
 }
 

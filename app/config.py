@@ -9,8 +9,8 @@ class Settings(BaseSettings):
     amap_key: str = ""
     amap_js_key: str = ""
     amap_security_code: str = ""
-    default_lat: float = 39.90923
-    default_lng: float = 116.397428
+    default_lat: float = 34.172176
+    default_lng: float = 108.862074
     daily_call_limit: int = 500
     radius_options: str = "500,1000,2000,3000"
     site_name: str = "今天吃啥"

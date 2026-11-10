@@ -1,6 +1,8 @@
 import hashlib
+import json
 import time
 from datetime import datetime
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import httpx
@@ -290,6 +292,58 @@ async def search(request: Request, lat: float, lng: float, q: str | None = None,
 def list_classics(request: Request):
     items = request.app.state.store.list_classics()
     return _envelope({"items": items}, Meta())
+
+
+# ---------- 网络推荐（来自「美食雷达」radar/out/food_table.json） ----------
+
+RADAR_JSON = Path(__file__).resolve().parent.parent / "radar" / "out" / "food_table.json"
+_radar_cache: dict = {"mtime": None, "payload": None}
+
+
+def _load_radar() -> dict:
+    """读取雷达导出的 JSON；文件变了才重新读（避免每次请求都解析 100KB+）。"""
+    try:
+        mtime = RADAR_JSON.stat().st_mtime
+    except OSError:
+        return {"items": [], "generatedAt": None}
+    cache = _radar_cache
+    if cache["mtime"] != mtime or cache["payload"] is None:
+        try:
+            data = json.loads(RADAR_JSON.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return {"items": [], "generatedAt": None}
+        cache["payload"] = data
+        cache["mtime"] = mtime
+    return cache["payload"]
+
+
+@router.get("/api/radar")
+def radar(request: Request, lat: float | None = None, lng: float | None = None,
+          category: str | None = None, min_trust: float = 0):
+    data = _load_radar()
+    items = list(data.get("items") or [])
+    if category and category != "all":
+        items = [i for i in items if (i.get("category") or "") == category]
+    if min_trust:
+        items = [i for i in items if (i.get("trust") or 0) >= min_trust]
+    # 带了出发点就补距离并排序：先按可信度，再按距离
+    if lat is not None and lng is not None:
+        for i in items:
+            if i.get("lat") is not None and i.get("lng") is not None:
+                i = i  # noqa: B007 - 保持原对象
+        items = [
+            {**i, "distance": round(haversine_m(lat, lng, i["lat"], i["lng"]))}
+            if i.get("lat") is not None and i.get("lng") is not None else {**i, "distance": None}
+            for i in items
+        ]
+    items.sort(key=lambda i: (-(i.get("trust") or 0), i.get("distance") or 10 ** 9))
+    cats = sorted({(i.get("category") or "其他") for i in (data.get("items") or [])})
+    return _envelope({
+        "items": items,
+        "total": len(data.get("items") or []),
+        "categories": cats,
+        "generatedAt": data.get("generatedAt"),
+    }, Meta())
 
 
 @router.post("/api/classics")

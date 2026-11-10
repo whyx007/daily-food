@@ -2,7 +2,9 @@ const state = {
   config: null, lat: null, lng: null, radius: 1000, mode: 'area', nonce: 0,
   map: null, markers: [], selectedId: null, lock: false, lastItems: [], retries: 0,
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
-  lastMeta: null, originLabel: null, originLabelKey: null, showClassicOnMap: false, classicMarkers: [],
+  lastMeta: null, originLabel: null, originLabelKey: null,
+  showClassicOnMap: false, classicMarkers: [],
+  showRadarOnMap: false, radarMarkers: [], radarItems: null,
   sortBy: 'distance',
 };
 
@@ -365,6 +367,50 @@ async function renderClassicMarkers() {
   }
 }
 
+function removeRadarMarkers() {
+  if (!state.map || !window.AMap) { state.radarMarkers = []; return; }
+  state.map.remove(state.radarMarkers);
+  state.radarMarkers = [];
+}
+
+async function renderRadarMarkers() {
+  if (!state.map || !window.AMap) return;
+  removeRadarMarkers();
+  if (!state.showRadarOnMap) return;
+  try {
+    let items = state.radarItems;
+    if (!items) {
+      const body = await api('/api/radar', { lat: state.lat, lng: state.lng });
+      items = body.data.items || [];
+      state.radarItems = items;
+    }
+    state.radarMarkers = items
+      .filter((c) => c.lat != null && c.lng != null)
+      .map((c) => {
+        const m = new AMap.Marker({
+          position: [c.lng, c.lat],
+          content: `<div class="radar-marker" title="网络推荐 ${c.trust} 分">🍜</div>`,
+          anchor: 'center',
+          zIndex: 88,
+          extData: {
+            id: c.id, name: c.name, lat: c.lat, lng: c.lng,
+            rating: null, cost: null, type: c.category, address: c.address,
+            radar: c,
+          },
+        });
+        m.on('click', () => select(m.getExtData()));
+        m.on('rightclick', () => {
+          const p = state.map.lngLatToContainer(m.getPosition());
+          showMapMenu(p, m.getPosition(), m.getExtData());
+        });
+        return m;
+      });
+    state.map.add(state.radarMarkers);
+  } catch (e) {
+    toast('网络推荐位置加载失败');
+  }
+}
+
 function bindMapMenu() {
   $('#mm-origin').onclick = () => {
     const t = state.menuTarget;
@@ -530,16 +576,22 @@ function syncClassicCheck() {
   if (chk) chk.checked = state.showClassicOnMap;
 }
 
+function syncRadarCheck() {
+  const chk = $('#chk-radar');
+  if (chk) chk.checked = state.showRadarOnMap;
+}
+
 function setMode(mode) {
   state.mode = mode;
   state.nonce += 1;
-  const map = { area: '#btn-random', classic: '#btn-classic', weighted: '#btn-weighted' };
+  const map = { area: '#btn-random', classic: '#btn-classic', weighted: '#btn-weighted',
+                radar: '#btn-radar' };
   Object.entries(map).forEach(([m, sel]) => {
     const el = $(sel);
     if (el) el.classList.toggle('active', m === mode);
   });
   const row = $('#radius-row');
-  if (row) row.classList.toggle('disabled', mode === 'classic');
+  if (row) row.classList.toggle('disabled', mode === 'classic' || mode === 'radar');
   loadToday();
 }
 
@@ -702,6 +754,7 @@ async function loadToday() {
   if (state.lock) return;
   state.lock = true;
   try {
+    if (state.mode === 'radar') { await loadRadar(); return; }
     const params = { lat: state.lat, lng: state.lng, mode: state.mode,
                      radius: state.radius, nonce: state.nonce };
     if (state.mode === 'weighted' && state.minRating) params.min_rating = state.minRating;
@@ -733,8 +786,69 @@ async function loadToday() {
   }
 }
 
+function fmtKm(r) {
+  return r >= 1000 ? `${Math.round(r / 100) / 10}km` : `${Math.round(r)}m`;
+}
+
+async function loadRadar() {
+  const body = await api('/api/radar', { lat: state.lat, lng: state.lng });
+  const items = body.data.items || [];
+  state.radarItems = items;
+  state.selectionActive = false;
+  if (!items.length) {
+    $('#daily-card').innerHTML = '<div class="notice">还没有网络推荐数据，先运行雷达刷新</div>';
+    $('#list').innerHTML = '';
+    renderMarkers([]);
+    $('#list-count').textContent = '';
+    return;
+  }
+  const pick = items.find((i) => i.lat != null && i.lng != null) || items[0];
+  renderRadarCard(pick, body.data);
+  renderRadarList(items);
+  renderMarkers([]);
+  $('#list-count').textContent =
+    `网络推荐 ${items.length} 家（列表显示前 ${Math.min(60, items.length)}，数据更新 ${(body.data.generatedAt || '').slice(0, 10)}）`;
+}
+
+function renderRadarCard(pick, meta) {
+  const el = $('#daily-card');
+  const area = pick.area ? ` · ${pick.area}` : '';
+  const dist = pick.distance != null ? ` · ${fmtKm(pick.distance)}` : '';
+  el.innerHTML = `
+    <div class="name">${esc(pick.name)}</div>
+    <div class="meta">${esc(pick.category || '')}${esc(area)}${dist} · 网络推荐可信度 ${pick.trust}</div>
+    <div class="radar-reason">“${esc((pick.reason || '').slice(0, 120))}”</div>
+    <div class="radar-src">来源：${esc((pick.authors || []).join('、'))} · 提及 ${pick.mentions} 次</div>
+    <div class="actions">
+      <button class="btn" id="radar-open">在地图上查看</button>
+    </div>`;
+  const btn = $('#radar-open');
+  if (btn) btn.onclick = () => {
+    if (pick.lat != null && state.map) state.map.setCenter([pick.lng, pick.lat]);
+    select({ id: pick.id, name: pick.name, lat: pick.lat, lng: pick.lng,
+             rating: null, type: pick.category, address: pick.address });
+  };
+}
+
+function renderRadarList(items) {
+  const list = $('#list');
+  list.innerHTML = items.slice(0, 60).map((p, i) => `
+    <div class="item" data-id="${esc(p.id)}">
+      <div class="item-main">
+        <div>${i + 1}. ${esc(p.name)}</div>
+        <div class="sub">${esc(p.category || '')}${p.area ? ' · ' + esc(p.area) : ''}${p.distance != null ? ' · ' + fmtKm(p.distance) : ''}</div>
+      </div>
+      <div class="trust-badge">${p.trust}</div>
+    </div>`).join('');
+
+  list.querySelectorAll('.item').forEach((el, idx) => {
+    const item = items[idx];
+    el.onclick = () => select({ id: item.id, name: item.name, lat: item.lat, lng: item.lng,
+                                rating: null, type: item.category, address: item.address });
+  });
+}
+
 async function search(q, cityMode = false) {
-  state.lastQuery = q;
   try {
     // 词片/周边搜索受距离档位约束；搜索框走全城搜索
     const params = { q, lat: state.lat, lng: state.lng };
@@ -796,6 +910,9 @@ async function boot() {
   state.showClassicOnMap = true;
   syncClassicCheck();
   renderClassicMarkers();
+  // 网络推荐默认不铺满地图（200+ 个点），由 checkbox 控制
+  state.showRadarOnMap = false;
+  syncRadarCheck();
 
 async function filterClassicsByKeyword(kw) {
   // 经典馆子模式下，词片只在经典馆子里过滤
@@ -857,14 +974,22 @@ const chips = [['饺子', '饺子'], ['凉皮夹馍', '凉皮'], ['面', '面'],
     if (v.length >= 1) search(v, true);  // 搜索框：全城搜索
   };
 
-  const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'), weighted: $('#btn-weighted') };
+  const modeButtons = { area: $('#btn-random'), classic: $('#btn-classic'),
+                        weighted: $('#btn-weighted'), radar: $('#btn-radar') };
   modeButtons.area.onclick = () => setMode('area');
   modeButtons.classic.onclick = () => setMode('classic');
+  modeButtons.radar.onclick = () => setMode('radar');
   $('#chk-classic').onchange = (e) => {
     state.showClassicOnMap = e.target.checked;
     syncClassicCheck();
     if (state.showClassicOnMap) renderClassicMarkers();
     else removeClassicMarkers();
+  };
+  $('#chk-radar').onchange = (e) => {
+    state.showRadarOnMap = e.target.checked;
+    syncRadarCheck();
+    if (state.showRadarOnMap) renderRadarMarkers();
+    else removeRadarMarkers();
   };
 
   const ratingMenu = $('#rating-menu');
@@ -930,7 +1055,6 @@ const chips = [['饺子', '饺子'], ['凉皮夹馍', '凉皮'], ['面', '面'],
     tick();
   };
 
-  const fmtKm = (r) => (r >= 1000 ? `${r / 1000}km` : `${r}m`);
   $('#radius-row').innerHTML = cfg.radiusOptions
     .map((r) => `<span class="chip ${r === state.radius ? 'active' : ''}" data-r="${r}">${fmtKm(r)}</span>`)
     .join('');

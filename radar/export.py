@@ -10,7 +10,8 @@ from radar.categories import CANONICAL
 OUT = Path(__file__).resolve().parent / "out"
 
 _COLS = ("poiid,name,address,category,trust,consensus,endorsement,"
-         "source_count,mention_count,reason,authors_json,first_seen,last_seen")
+         "source_count,mention_count,reason,authors_json,first_seen,last_seen,"
+         "lat,lng,verified")
 
 
 def _rows(conn):
@@ -166,6 +167,23 @@ document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{{
     (OUT / "index.html").write_text(page, encoding="utf-8")
 
     counts = {c: len(groups[c]) for c in CANONICAL}
+
+    # ---------- JSON（供吃饭推荐网站读取：/api/radar） ----------
+    items = []
+    for r in rows:
+        items.append({
+            "id": r["poiid"], "name": r["name"], "lat": r["lat"], "lng": r["lng"],
+            "address": r["address"], "category": r["category"],
+            "trust": r["trust"], "consensus": r["consensus"],
+            "endorsement": r["endorsement"],
+            "sources": r["source_count"], "mentions": r["mention_count"],
+            "reason": r["reason"], "authors": json.loads(r["authors_json"] or "[]"),
+            "verified": bool(r["verified"]), "lastSeen": (r["last_seen"] or "")[:10],
+        })
+    (OUT / "food_table.json").write_text(
+        json.dumps({"generatedAt": db.now(), "count": len(items), "items": items},
+                   ensure_ascii=False, indent=1), encoding="utf-8")
+
     return {"pois": len(rows), "counts": counts, "other": len(other),
             "md": str(OUT / "food_table.md"), "csv": str(csv_path),
-            "html": str(OUT / "index.html")}
+            "html": str(OUT / "index.html"), "json": str(OUT / "food_table.json")}

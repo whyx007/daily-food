@@ -1,0 +1,4157 @@
+{
+ "generatedAt": "2026-11-10T19:57:41+08:00",
+ "count": 216,
+ "items": [
+  {
+   "id": "B001D07S3Y",
+   "name": "锦弘水盆羊肉",
+   "lat": 34.245041,
+   "lng": 108.942449,
+   "address": "第六中学学校家属院北侧门面房A7-A12",
+   "category": "水盆羊肉",
+   "trust": 95.6,
+   "consensus": 88.0,
+   "endorsement": 82.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "落地西安，老妖带我去吃水盆羊肉。",
+   "authors": [
+    "老妖带你吃西安",
+    "董克平",
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2024-05-07"
+  },
+  {
+   "id": "B0FFIL3QXQ",
+   "name": "盛志望麻酱酿皮铺",
+   "lat": 34.264522,
+   "lng": 108.939132,
+   "address": "大皮院西口225号",
+   "category": "凉皮酿皮",
+   "trust": 84.8,
+   "consensus": 88.0,
+   "endorsement": 55.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "对西安美食略觉醒的游客基本都要来这里打卡，当然这家的味道也不坏，就是后味略发苦，没有盛家那么香",
+   "authors": [
+    "崔小满",
+    "星尘故事会",
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2020-03-11"
+  },
+  {
+   "id": "B0FFHXXXJ0",
+   "name": "志亮灌汤蒸饺",
+   "lat": 34.263074,
+   "lng": 108.933383,
+   "address": "庙后街200号",
+   "category": "饺子蒸饺",
+   "trust": 82.8,
+   "consensus": 88.0,
+   "endorsement": 50.0,
+   "sources": 4,
+   "mentions": 4,
+   "reason": "这家只卖一种牛肉陷的灌汤蒸饺，一个饺子就是一勺汤。轻轻提起来，咬一口外皮，汤汁倒入勺中一口喝下，再蘸料，太鲜太香了！",
+   "authors": [
+    "悦U",
+    "西安凤五君",
+    "豆豆爱",
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "name:马二酸汤水饺",
+   "name": "马二酸汤水饺",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "饺子蒸饺",
+   "trust": 78.8,
+   "consensus": 88.0,
+   "endorsement": 85.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "西安排名第一的水饺，老板几十年如一日的只做一种馅，就是韭黄牛肉",
+   "authors": [
+    "豆豆爱",
+    "食戟社",
+    "魅力碑林"
+   ],
+   "verified": false,
+   "lastSeen": "2026-01-09"
+  },
+  {
+   "id": "B0JA4SRU3G",
+   "name": "老白家水盆羊肉",
+   "lat": 34.261238,
+   "lng": 108.93899,
+   "address": "北广济街76号地铁口150米路西",
+   "category": "水盆羊肉",
+   "trust": 78.0,
+   "consensus": 80.0,
+   "endorsement": 50.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "自从上了舌尖3，这里的火爆就不需多说了",
+   "authors": [
+    "《舌尖上的中国》",
+    "豆豆爱",
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-14"
+  },
+  {
+   "id": "B0HA7ZYLZA",
+   "name": "东滩水盆羊肉",
+   "lat": 34.262116,
+   "lng": 108.870813,
+   "address": "汉城南路金辉优步商业街3-1-112号",
+   "category": "水盆羊肉",
+   "trust": 77.8,
+   "consensus": 88.0,
+   "endorsement": 0.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "就在绿地饕餮里面，好利来隔壁，比较亲民的一家餐馆，性价比比较高。",
+   "authors": [
+    "吃喝玩乐在西安",
+    "秦腔广播西安乱弹",
+    "西安吃喝玩乐杂志"
+   ],
+   "verified": true,
+   "lastSeen": "2019-02-28"
+  },
+  {
+   "id": "B001D06YQ0",
+   "name": "天发芽",
+   "lat": 34.252361,
+   "lng": 108.935223,
+   "address": "报恩寺街18号(近含光门)",
+   "category": "汉民泡馍",
+   "trust": 77.6,
+   "consensus": 58.0,
+   "endorsement": 82.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "天发芽：小南门里报恩寺街中段",
+   "authors": [
+    "老妖带你吃西安",
+    "马文国(美哉文艺)"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-09"
+  },
+  {
+   "id": "B001D0WGM0",
+   "name": "马洪小炒泡馍",
+   "lat": 34.266849,
+   "lng": 108.941569,
+   "address": "红埠街46号(近莲湖区区委)",
+   "category": "牛羊肉小炒",
+   "trust": 76.6,
+   "consensus": 63.0,
+   "endorsement": 72.0,
+   "sources": 2,
+   "mentions": 3,
+   "reason": "馬洪小炒泡饃館係西安泡饃界嘅口碑老店；小炒泡饃用油潑辣子同醋炒製，既有泡饃嘅濃郁厚重，仲有酸辣爽口嘅獨特滋味。地址：蓮湖區紅埠街46號，營業時間09:00–21:00。",
+   "authors": [
+    "老妖带你吃西安",
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B001D08DBR",
+   "name": "刘信牛羊肉泡馍小炒",
+   "lat": 34.266505,
+   "lng": 108.93275,
+   "address": "洒金桥129号(老关庙什字旁)",
+   "category": "牛羊肉小炒",
+   "trust": 76.6,
+   "consensus": 63.0,
+   "endorsement": 72.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "西安苍蝇馆子排行榜第一名，被无数网友誉为西安最好吃的小炒！肉块大，酸辣、料香、牛油气搭配，味道霸气十足的味道让人欲罢不能。",
+   "authors": [
+    "老妖带你吃西安",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-09"
+  },
+  {
+   "id": "B0FFFRIT7W",
+   "name": "皇城轩葫芦头",
+   "lat": 34.162559,
+   "lng": 108.936618,
+   "address": "韦曲北街177号",
+   "category": "汉民泡馍",
+   "trust": 74.8,
+   "consensus": 88.0,
+   "endorsement": 0.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "这家将近20年的老字号葫芦头应该是很多长安小伙伴们的集体记忆。",
+   "authors": [
+    "村长带你逛西安",
+    "陕西小喇叭",
+    "陕西美食篇"
+   ],
+   "verified": true,
+   "lastSeen": "2019-04-18"
+  },
+  {
+   "id": "B0HG3CD2JX",
+   "name": "朱秀英梆梆肉葫芦头",
+   "lat": 34.252139,
+   "lng": 108.95824,
+   "address": "下马陵六号",
+   "category": "汉民泡馍",
+   "trust": 73.8,
+   "consensus": 63.0,
+   "endorsement": 65.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "朱秀英梆梆肉葫蘆頭係開業多年嘅非清真小館，主打梆梆肉（燻製大腸及內臟）同葫蘆頭泡饃；肉嫩味醇，薰香濃郁，係喜歡小館子風格嘅本地人首選。總店地址：蓮湖區琉璃街2號",
+   "authors": [
+    "豆豆爱",
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B0LDOAV4CN",
+   "name": "秦豫肉夹馍",
+   "lat": 34.256357,
+   "lng": 108.950381,
+   "address": "步行街1号兴正元广场南区3号",
+   "category": "肉夹馍",
+   "trust": 73.8,
+   "consensus": 63.0,
+   "endorsement": 65.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "还没有《舌尖上的中国》这个纪录片的时候，我每次来西安第一件事就是直奔东木头市吃一份优质肉夹馍",
+   "authors": [
+    "花路旅游",
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-16"
+  },
+  {
+   "id": "B0KUVMVBWH",
+   "name": "果渊斋老米家泡馍",
+   "lat": 34.196997,
+   "lng": 108.928031,
+   "address": "丈八东路8号西安通信学院1号楼一层12室",
+   "category": "牛羊肉小炒",
+   "trust": 70.8,
+   "consensus": 25.0,
+   "endorsement": 77.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "回坊总店藏在巷子里，汤鲜肉烂、馍香浓郁。博主@吴穹亲测认证，本地人反复光顾。人均35-40元，不建议饭点去，座位紧张。",
+   "authors": [
+    "微博博主 @吴穹_西班牙萨拉曼卡"
+   ],
+   "verified": true,
+   "lastSeen": "2026-10-07"
+  },
+  {
+   "id": "B001D09R6P",
+   "name": "竹间葫芦鸡",
+   "lat": 34.133572,
+   "lng": 108.872346,
+   "address": "凤林南路(近西安外国语大学南门西400米)",
+   "category": "炒菜",
+   "trust": 70.0,
+   "consensus": 80.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "雇主自述：长安的竹间葫芦鸡很不错。",
+   "authors": [
+    "村长带你逛西安",
+    "私域（同事/朋友）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-11-09"
+  },
+  {
+   "id": "B0FFIPW500",
+   "name": "买卖提烤肉",
+   "lat": 34.247612,
+   "lng": 108.872518,
+   "address": "丈八北路486号(汉城南路地铁站C口步行470米)",
+   "category": "烤肉",
+   "trust": 68.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "新疆人开了七、八年的烤肉摊，风头已然盖过了西安本土烤肉 地址：丈八路和大寨路十字西南角",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-10-14"
+  },
+  {
+   "id": "B0FFFA8V7W",
+   "name": "杨坡红油米线",
+   "lat": 34.257601,
+   "lng": 108.965397,
+   "address": "西安市人大常委会家属院北门旁",
+   "category": "米线",
+   "trust": 67.8,
+   "consensus": 63.0,
+   "endorsement": 50.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "这家主打红油米线，红汪汪的油打底。米线是那种圆圆的，粗粗的，颜色偏黄，吃到嘴里很饱满，很Q的感觉。地址：碑林区玄风桥。",
+   "authors": [
+    "新浪看点·米线盘点（2019）",
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2019-12-31"
+  },
+  {
+   "id": "B001D06WQZ",
+   "name": "盛家酿皮",
+   "lat": 34.265903,
+   "lng": 108.938899,
+   "address": "北广济街262号",
+   "category": "凉皮酿皮",
+   "trust": 67.8,
+   "consensus": 63.0,
+   "endorsement": 50.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "酿皮很好吃，完全的真材实料，麻酱什么的给的很足",
+   "authors": [
+    "崔小满",
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2018-03-02"
+  },
+  {
+   "id": "B001D09IS8",
+   "name": "春发芽葫芦头泡馍(科技二路店)",
+   "lat": 34.219939,
+   "lng": 108.906279,
+   "address": "丈八街办科技二路西安文理学院北门一号后勤综合楼一层二层",
+   "category": "汉民泡馍",
+   "trust": 65.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "春发芽算的上葫芦头届的“大当家”，公认的老字号。科技路店 地址：科技二路(近白沙路)",
+   "authors": [
+    "浪西安",
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2025-04-14"
+  },
+  {
+   "id": "B0HAPAS9CM",
+   "name": "永明岐山面(高新店)",
+   "lat": 34.241748,
+   "lng": 108.90964,
+   "address": "汉中大厦1层(西北工业大学地铁站A口步行60米)",
+   "category": "面",
+   "trust": 65.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "西安最早的岐山面连锁品牌，汤底酸辣浓郁，面条薄筋光，臊子由肉丁、木耳、胡萝卜等炒制而成。",
+   "authors": [
+    "携程美食点评用户",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-28"
+  },
+  {
+   "id": "B0FFFPKR6G",
+   "name": "苏福记(高新店)",
+   "lat": 34.241676,
+   "lng": 108.901349,
+   "address": "雁塔区高新区高新三路2号海佳云顶商住楼1层",
+   "category": "炒菜",
+   "trust": 65.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "苏福记(高新店)— 地址：雁塔区高新三路高科广场—电话：81881866—人均：￥32",
+   "authors": [
+    "携程美食点评用户",
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2025-12-04"
+  },
+  {
+   "id": "B001D0WKKU",
+   "name": "小谭川菜",
+   "lat": 34.179535,
+   "lng": 108.879636,
+   "address": "锦业三路紫薇田园都市C区商铺2层",
+   "category": "炒菜",
+   "trust": 65.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "小谭川菜—地址：锦业三路—电话：88852299—人均：￥46",
+   "authors": [
+    "携程美食点评用户",
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2025-08-30"
+  },
+  {
+   "id": "B001D07LF0",
+   "name": "尤素福饺子馆",
+   "lat": 34.262846,
+   "lng": 108.931161,
+   "address": "东举院巷39号",
+   "category": "饺子蒸饺",
+   "trust": 63.0,
+   "consensus": 55.0,
+   "endorsement": 50.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "在西安众多的饺子馆中，尤素福饺子馆是西安人爱光顾的口碑老店之一，虽然地方不太好找，但却靠着独特的味道吸引了大批忠实粉丝。",
+   "authors": [
+    "浪西安",
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-20"
+  },
+  {
+   "id": "B0MGAZDRXS",
+   "name": "春发生",
+   "lat": 34.245969,
+   "lng": 108.965156,
+   "address": "建东街1号西安第一印刷厂大门西侧临街03号",
+   "category": "汉民泡馍",
+   "trust": 62.8,
+   "consensus": 88.0,
+   "endorsement": 0.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "到了1920年，以杜甫诗句“好雨知时节，当春乃发生”为名的“春发生”葫芦头在西安南院门附近开张",
+   "authors": [
+    "西安发布",
+    "西安本地宝",
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B001D0VP7K",
+   "name": "清真马虎面馆(西七路店)",
+   "lat": 34.273574,
+   "lng": 108.962013,
+   "address": "西七路20号(五路口地铁站A西北口步行480米)",
+   "category": "面",
+   "trust": 62.8,
+   "consensus": 88.0,
+   "endorsement": 0.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "西七路的老店，灰色砖墙上一块贾平凹题的牌子。",
+   "authors": [
+    "携程美食点评用户",
+    "浪西安",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-04"
+  },
+  {
+   "id": "B0JRYH4GRJ",
+   "name": "陕西水饺家宴",
+   "lat": 34.211247,
+   "lng": 108.886933,
+   "address": "雁塔区高新区沣惠南路36号橡树街区B座1-10202室",
+   "category": "饺子蒸饺",
+   "trust": 61.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "如果你手头一时拮据，或遇到困难时，来到西安高新区橡树街区陕西水饺家宴里，说出“暗号”——“A套餐”，就能吃上一顿免费饭。",
+   "authors": [
+    "态度城市",
+    "新浪陕西城市频道"
+   ],
+   "verified": true,
+   "lastSeen": "2024-12-16"
+  },
+  {
+   "id": "B001D06BXV",
+   "name": "诚信和葫芦头泡馍馆",
+   "lat": 34.252316,
+   "lng": 108.934961,
+   "address": "报恩寺街34号",
+   "category": "汉民泡馍",
+   "trust": 59.2,
+   "consensus": 82.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "梆梆肉用卤水煮好，筋筋脆脆。本身是咸的，但蘸上醋汁、加点辣油，吃一口，咬上一点生蒜。",
+   "authors": [
+    "吃喝玩乐在西安",
+    "西安旅游局"
+   ],
+   "verified": true,
+   "lastSeen": "2018-08-09"
+  },
+  {
+   "id": "B0FFGSFN3Y",
+   "name": "马天小炒泡馍",
+   "lat": 34.266933,
+   "lng": 108.943825,
+   "address": "二府街46号",
+   "category": "牛羊肉小炒",
+   "trust": 59.0,
+   "consensus": 25.0,
+   "endorsement": 85.0,
+   "sources": 1,
+   "mentions": 2,
+   "reason": "老板做了20多年泡馍，在西安已经开了17家店（科技三路店正在装修中），作为本地人严选的泡馍馆，品质和含金量不用我多说了吧！",
+   "authors": [
+    "队长爱睿克"
+   ],
+   "verified": true,
+   "lastSeen": "2025-11-12"
+  },
+  {
+   "id": "B001D07BBR",
+   "name": "子午路张记肉夹馍",
+   "lat": 34.220391,
+   "lng": 108.956743,
+   "address": "翠花南路229号挚友大厦一楼",
+   "category": "肉夹馍",
+   "trust": 58.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "子午路張記肉夾饃係西安三秦套餐（涼皮+肉夾饃+冰峰）嘅首推代表，白吉饃烤至酥脆；建設東路店曾出鏡韓國美食節目《街頭美食鬥士2》，翠華路店最受本地人推崇。",
+   "authors": [
+    "花路旅游",
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B0FFLKVBFB",
+   "name": "老吴家水盆羊肉",
+   "lat": 34.263219,
+   "lng": 108.931022,
+   "address": "东举院巷114号",
+   "category": "水盆羊肉",
+   "trust": 55.0,
+   "consensus": 25.0,
+   "endorsement": 75.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老吴家水盆也是传承三代人的老店，现在的地址就在东举院巷一家叫巷子深面的隔壁，放在以前不太好找，好在有导航，很容易就找到了。",
+   "authors": [
+    "砍柴书生"
+   ],
+   "verified": true,
+   "lastSeen": "2024-01-23"
+  },
+  {
+   "id": "B0IBCCX8IT",
+   "name": "马峰小炒泡馍",
+   "lat": 34.264181,
+   "lng": 108.938213,
+   "address": "光明巷27号",
+   "category": "牛羊肉小炒",
+   "trust": 53.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "下午五点钟才会开门营业，一直营业到夜里两三点钟，在西安生肉小炒里他家的味道是最好的，没有之一。",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-06-21"
+  },
+  {
+   "id": "B0FFGM4C0O",
+   "name": "安家小炒泡馍",
+   "lat": 34.261307,
+   "lng": 108.943688,
+   "address": "北院门57号(广济街地铁站D1口步行460米)",
+   "category": "牛羊肉小炒",
+   "trust": 53.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "安家小炒泡馍是坊上回民朋友一再推荐的，果然酸辣可口，香味十足，肉块大，和刘信家基本在一个水平线上",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-06-21"
+  },
+  {
+   "id": "B001D088YH",
+   "name": "老乌家特色小炒泡馍",
+   "lat": 34.264581,
+   "lng": 108.941829,
+   "address": "回民街大皮院91号(回民小吃街内)",
+   "category": "牛羊肉小炒",
+   "trust": 53.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老乌家卖得久了，现在来说在坊上算是卖小炒名气最大的，由于外地游客去得多些，口味总体上轻淡",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-06-21"
+  },
+  {
+   "id": "B0MDMMXP3L",
+   "name": "周老大梆梆肉葫芦头",
+   "lat": 34.301054,
+   "lng": 108.908993,
+   "address": "陕西省西安市未央区未央宫街办阁老门村156号",
+   "category": "汉民泡馍",
+   "trust": 53.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "周老大梆梆肉葫芦头：小南门里报恩寺街西口",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-07-29"
+  },
+  {
+   "id": "B0HAJA61AD",
+   "name": "韩记三鲜煮馍",
+   "lat": 34.255441,
+   "lng": 108.935847,
+   "address": "四府街78号",
+   "category": "汉民泡馍",
+   "trust": 53.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "韩记三鲜煮馍：四府街十字西南角",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-07-29"
+  },
+  {
+   "id": "B001D06KD1",
+   "name": "惠记粉汤羊血",
+   "lat": 34.25256,
+   "lng": 108.935932,
+   "address": "报恩寺街1号商铺",
+   "category": "汉民泡馍",
+   "trust": 53.8,
+   "consensus": 25.0,
+   "endorsement": 72.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "惠记粉汤羊血：进小南门里第一个十字口向左前方看就到了。在惠记吃粉汤羊血吃货们一定是要吃单走的",
+   "authors": [
+    "老妖带你吃西安"
+   ],
+   "verified": true,
+   "lastSeen": "2015-07-29"
+  },
+  {
+   "id": "B0FFGFM72U",
+   "name": "高记肉夹馍(黄良镇店)",
+   "lat": 34.090886,
+   "lng": 108.898706,
+   "address": "子午大道与251村道交叉口东北180米",
+   "category": "肉夹馍",
+   "trust": 52.0,
+   "consensus": 50.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "雇主自述：长安黄良镇的高记肉夹馍很不错，是他常去的一家。",
+   "authors": [
+    "私域（同事/朋友）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-11-09"
+  },
+  {
+   "id": "B0MBPD1EJ5",
+   "name": "小屁儿椒乡野山土菜",
+   "lat": 34.132125,
+   "lng": 108.825472,
+   "address": "雷沣路333号高新玫瑰ONE步行街",
+   "category": "炒菜",
+   "trust": 51.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "238㎡的湘土菜馆，原木桌椅、暖黄吊灯、开放式明厨——在这里，锅气看得见，辣香闻得着！",
+   "authors": [
+    "西安高新"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-06"
+  },
+  {
+   "id": "B0FFHUM1C9",
+   "name": "真爱中国餐馆(高新M店)",
+   "lat": 34.208556,
+   "lng": 108.973754,
+   "address": "芙蓉南路芙蓉新天地购物中心4层",
+   "category": "炒菜",
+   "trust": 51.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "沿着真爱一贯的好服务和好环境，菜品也是优质好味道，只是M餐厅价格更亲民，菜量缩小了，但性价比胜过真爱。",
+   "authors": [
+    "陕西省旅游局（搜狐号）"
+   ],
+   "verified": true,
+   "lastSeen": "2016-11-08"
+  },
+  {
+   "id": "B001D08DEJ",
+   "name": "穆萨砂锅",
+   "lat": 34.264554,
+   "lng": 108.941138,
+   "address": "大皮院中段路北101号",
+   "category": "米线",
+   "trust": 51.0,
+   "consensus": 25.0,
+   "endorsement": 65.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "我要的是米线砂锅（主食可选粉丝、米线、粉带、刀削面等），米线就是老西安常吃的细米线",
+   "authors": [
+    "小渔的行旅日记"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-10"
+  },
+  {
+   "id": "B001D074L4",
+   "name": "薛昌利大米面皮",
+   "lat": 34.24516,
+   "lng": 108.946598,
+   "address": "南关正街58号(永宁门地铁站B西南口步行300米)",
+   "category": "凉皮酿皮",
+   "trust": 50.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "南关正街的薛昌利是首选。永宁门地铁站B口出来走三百米就到，离钟楼也就一站路。",
+   "authors": [
+    "崔小满",
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-22"
+  },
+  {
+   "id": "B001D07VZ7",
+   "name": "马家老六水盆羊肉羊杂羔",
+   "lat": 34.26892,
+   "lng": 108.943065,
+   "address": "莲湖公园东门旁(北大街地铁站A2西北口步行460米)",
+   "category": "水盆羊肉",
+   "trust": 50.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "典型的坊上味道，重油、重口，却意外的好吃，都是大块的肉，可以不要辣子、明油、葱花、香菜或味精，适合各种口味的小伙伴~",
+   "authors": [
+    "三秦人文地理",
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2019-02-28"
+  },
+  {
+   "id": "B0KG57GAJV",
+   "name": "爱骅裤带面馆(总店)",
+   "lat": 34.256525,
+   "lng": 108.953725,
+   "address": "柏树林街道城市之心一层六号",
+   "category": "面",
+   "trust": 50.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "网红与实力兼具的“裤带面专家”，主打biangbiang面，面条宽厚超长，一根面即为一碗。",
+   "authors": [
+    "携程美食点评用户",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-10-29"
+  },
+  {
+   "id": "B0FFF9WKWW",
+   "name": "老白家面馆(测绘东路总店)",
+   "lat": 34.23665,
+   "lng": 108.96005,
+   "address": "测绘东路新旅城118号",
+   "category": "面",
+   "trust": 50.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "36年老店，被称为“西安油泼面名片”，面条弹牙筋道，泼油瞬间香气四溢。",
+   "authors": [
+    "携程美食点评用户",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-28"
+  },
+  {
+   "id": "B0FFIPN4QP",
+   "name": "王菊面馆",
+   "lat": 34.333579,
+   "lng": 108.94161,
+   "address": "西安中学北1门东200米",
+   "category": "面",
+   "trust": 50.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "到底是纯手工拉的，面特别筋道，如果吃的时候不小心回弹，恐怕会弹掉牙",
+   "authors": [
+    "XIAN微旅行",
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-13"
+  },
+  {
+   "id": "B0FFH9ZQNB",
+   "name": "秦镇第一味米皮总店",
+   "lat": 34.112452,
+   "lng": 108.754332,
+   "address": "秦渡镇秦三村112号",
+   "category": "凉皮酿皮",
+   "trust": 49.0,
+   "consensus": 25.0,
+   "endorsement": 60.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "在秦镇桥头有凉皮店数十家，有人喜欢薛家，有人喜欢吕家，有称第一家，也有称第一味。今天去的第一味，米皮7元，肉夹馍8元，15元套餐吃得饱饱的。",
+   "authors": [
+    "狂徒老爹（什么值得买）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-06-08"
+  },
+  {
+   "id": "B0FFHC6L18",
+   "name": "吕家米皮老店",
+   "lat": 34.108464,
+   "lng": 108.757214,
+   "address": "秦渡镇老南街",
+   "category": "凉皮酿皮",
+   "trust": 49.0,
+   "consensus": 25.0,
+   "endorsement": 60.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "在秦镇桥头有凉皮店数十家，有人喜欢薛家，有人喜欢吕家；米皮讲究白、光、薄、细、软、韧，标配豆芽加芹菜打底。",
+   "authors": [
+    "狂徒老爹（什么值得买）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-06-08"
+  },
+  {
+   "id": "B0FFG9VV65",
+   "name": "秦镇薛家米皮",
+   "lat": 34.305178,
+   "lng": 108.841278,
+   "address": "孙武路与建章路交叉口西60米",
+   "category": "凉皮酿皮",
+   "trust": 49.0,
+   "consensus": 25.0,
+   "endorsement": 60.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "在秦镇桥头有凉皮店数十家，有人喜欢薛家，有人喜欢吕家，有称第一家，也有称第一味，说实话口味之间难分伯仲。",
+   "authors": [
+    "狂徒老爹（什么值得买）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-06-08"
+  },
+  {
+   "id": "B0FFFA8H92",
+   "name": "澄城崇斌水盆羊肉（后宰门店）",
+   "lat": 34.271514,
+   "lng": 108.95372,
+   "address": "筑梦幼儿园南门旁",
+   "category": "水盆羊肉",
+   "trust": 46.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "澄城崇斌水盆羊肉（後宰門店）嘅水盆羊肉於2016年入選陝西省第5批非物質文化遺產名錄；湯清肉爛，肥而不膩；搭配月牙狀燒餅，先烙後烤，熱吃脆、冷吃酥。",
+   "authors": [
+    "西安扑通生活君",
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B0M65HIAU2",
+   "name": "解放路饺子馆",
+   "lat": 34.273146,
+   "lng": 108.963217,
+   "address": "解放路辅路与东七路交叉口南60米",
+   "category": "饺子蒸饺",
+   "trust": 46.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "解放路饺子馆位于解放路229号，始建于1935年，原名菜根香饭馆",
+   "authors": [
+    "李连源",
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2025-07-30"
+  },
+  {
+   "id": "B0FFILGTR7",
+   "name": "王魁腊汁肉夹馍",
+   "lat": 34.263445,
+   "lng": 108.983221,
+   "address": "华龙佳园1层",
+   "category": "肉夹馍",
+   "trust": 46.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "但王魁有一批极其忠诚的本地食客。有人从三中上学吃到带着孩子来，有人每次从陕北过来第一站就是八仙庵。",
+   "authors": [
+    "浪西安",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-14"
+  },
+  {
+   "id": "B0FFF9WDXX",
+   "name": "赵西安三鲜煮馍",
+   "lat": 34.253888,
+   "lng": 108.942,
+   "address": "大车家巷14号楼赵西安三鲜煮馍(南院门总店)",
+   "category": "汉民泡馍",
+   "trust": 46.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "赵西安三鲜煮馍：大车家巷14号楼16号，在当地经营多年，是知名度较高的老店。",
+   "authors": [
+    "李连源",
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-27"
+  },
+  {
+   "id": "B0FFM4NBS3",
+   "name": "老程家秦镇米皮",
+   "lat": 34.355819,
+   "lng": 108.957367,
+   "address": "凤城12路河址西社区村口",
+   "category": "凉皮酿皮",
+   "trust": 46.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "小吃有臭豆腐还有油炸小土豆，宫廷酥牛肉饼（外皮酥脆掉渣）、甑糕（软糯香甜）、老程家秦镇米皮（薄韧入味）",
+   "authors": [
+    "实在人的春暖花开",
+    "百合ss"
+   ],
+   "verified": true,
+   "lastSeen": "2026-03-18"
+  },
+  {
+   "id": "B0FFK930JH",
+   "name": "尚寨嫽扎咧面馆(凤城九路店)",
+   "lat": 34.347738,
+   "lng": 108.931921,
+   "address": "明光路与凤城九路交口东行100米路北中登广场1楼",
+   "category": "面",
+   "trust": 46.0,
+   "consensus": 60.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "油泼辣子超绝，面碗很大、量很多，店面装修充满关中风情，价格实惠，性价比高。",
+   "authors": [
+    "携程美食点评用户",
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2025-12-04"
+  },
+  {
+   "id": "B001D0W1RH",
+   "name": "湘子门牛羊肉小炒",
+   "lat": 34.252323,
+   "lng": 108.941934,
+   "address": "湘子庙街海友酒店一楼",
+   "category": "牛羊肉小炒",
+   "trust": 45.0,
+   "consensus": 25.0,
+   "endorsement": 50.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "汉民做的一家牛羊肉小炒，当地人公认的好吃，也一定要加鸡蛋，就一个香字，我认为并不输坊上那几家",
+   "authors": [
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2018-03-02"
+  },
+  {
+   "id": "B0FFHM82FY",
+   "name": "哈桑烤肉",
+   "lat": 34.266456,
+   "lng": 108.932764,
+   "address": "洒金桥125号(洒金桥地铁站B西南口步行380米)",
+   "category": "烤肉",
+   "trust": 45.0,
+   "consensus": 25.0,
+   "endorsement": 50.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "哈桑的烤肉是全部好吃没有弱项的，尤其推荐筋和腰子",
+   "authors": [
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2018-03-02"
+  },
+  {
+   "id": "B0FFGK0ZAP",
+   "name": "新亮烤肉",
+   "lat": 34.262947,
+   "lng": 108.932463,
+   "address": "大麦市街106号",
+   "category": "烤肉",
+   "trust": 45.0,
+   "consensus": 25.0,
+   "endorsement": 50.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家的肥瘦肉筋都很好吃，肉串大，很受欢迎",
+   "authors": [
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2018-03-02"
+  },
+  {
+   "id": "B0FFM3VF3Y",
+   "name": "巧嫂过桥米线",
+   "lat": 34.219156,
+   "lng": 108.881125,
+   "address": "高新区丈八街办南窑头西区综合楼41号",
+   "category": "米线",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "开了N多年，人气只涨不掉。只卖米线，且米线只有三种：三鲜、微辣和麻辣。米线可以免费无限加，素菜每份米线可以加一份。地址：新城区西七路西口。",
+   "authors": [
+    "新浪看点·米线盘点（2019）"
+   ],
+   "verified": true,
+   "lastSeen": "2019-12-31"
+  },
+  {
+   "id": "B0J2BZTD7J",
+   "name": "杨勇红油米线",
+   "lat": 34.249193,
+   "lng": 108.874453,
+   "address": "西化小区南区南门东60米",
+   "category": "米线",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "米线比平常外面的要粗一点，口味是麻辣味，但是却香而不辣，豆泡和豆腐皮都挺入味的。人均8元，营业时间08:00-21:00。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B0KDTCI092",
+   "name": "一帆米线",
+   "lat": 34.244874,
+   "lng": 108.865456,
+   "address": "大寨路秦美花卉市场东门内",
+   "category": "米线",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "性价比很高，米线味道很香，汤底口感醇厚，不辛辣，再配上一个肉夹馍绝了。人均13元。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B001D072OV",
+   "name": "小小亮鸡胗王",
+   "lat": 34.26398,
+   "lng": 108.893264,
+   "address": "团结中路32号",
+   "category": "烤肉",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "最好吃的一定要数鸡胗，不愧是镇店之宝。热辣脆嫩，很有嚼劲，很适合几个大老爷们下酒。",
+   "authors": [
+    "美食团"
+   ],
+   "verified": true,
+   "lastSeen": "2017-05-24"
+  },
+  {
+   "id": "B0FFIIEYKS",
+   "name": "土门老刘家粉汤羊血",
+   "lat": 34.256331,
+   "lng": 108.889222,
+   "address": "西二环18号3号楼(土门地铁站B口步行360米)",
+   "category": "汉民泡馍",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "土门老刘家粉汤羊血，人均十二块，开在居民区里，豆腐是自家做的，去吃的多是附近住了几十年的老邻居。",
+   "authors": [
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-15"
+  },
+  {
+   "id": "B0J2OUB24J",
+   "name": "杨超炒菜馆",
+   "lat": 34.169972,
+   "lng": 108.880381,
+   "address": "第五桥村小区西3门北160米",
+   "category": "炒菜",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "李记搅团、乐乐餐厅、传家菜、杨超炒菜馆、清真老望家常炒菜、王凯老菜馆、金魁川菜馆都是口碑不错实惠下饭的馆子",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "B0FFK3N3HV",
+   "name": "范家大院",
+   "lat": 34.198657,
+   "lng": 108.842471,
+   "address": "丈八街办飞阳商厦10105号",
+   "category": "烤肉",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "一间有态度的烧烤店！有颜有味道。",
+   "authors": [
+    "西安美食达人圈"
+   ],
+   "verified": true,
+   "lastSeen": "2017-08-18"
+  },
+  {
+   "id": "B0FFL89I7X",
+   "name": "泥波南院门葫芦头",
+   "lat": 34.173276,
+   "lng": 108.822799,
+   "address": "西部大道与上林苑三路十字向北80米路东",
+   "category": "汉民泡馍",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "郭杜十字这家南院门葫芦头，开店到现在快30年了。",
+   "authors": [
+    "村长带你逛西安"
+   ],
+   "verified": true,
+   "lastSeen": "2019-04-18"
+  },
+  {
+   "id": "B0FFKP39GO",
+   "name": "古觉面片(高新四路大都荟店)",
+   "lat": 34.23699,
+   "lng": 108.895758,
+   "address": "高新四路8号1幢10104室",
+   "category": "面",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家炒面片我吃了好几次，就爱它那股锅气！面片切得薄薄的，酱香味特别浓。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-04"
+  },
+  {
+   "id": "B0FFHHSWC7",
+   "name": "辣呦麻麻鱼·川菜(高新店)",
+   "lat": 34.245634,
+   "lng": 108.969179,
+   "address": "安东街55号",
+   "category": "炒菜",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "五星好评口碑极佳的必吃榜中国菜✨辣呦✨从街边小店到美食必吃榜依旧让人留恋！",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2019-12-15"
+  },
+  {
+   "id": "B001D0W5O2",
+   "name": "大厨小馆(光华路店)",
+   "lat": 34.23727,
+   "lng": 108.905895,
+   "address": "丈八街办高新一路7号高新枫尚A座3层305商铺",
+   "category": "炒菜",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "大厨小馆(光华路店)—地址：高新一路7号—电话：68806166—人均：￥45",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "B0KASOMX9N",
+   "name": "毛公湘菜馆(高新店)",
+   "lat": 34.178688,
+   "lng": 108.82535,
+   "address": "创汇社区E区南门旁",
+   "category": "炒菜",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "毛公湘菜馆(高新店) — 绿地世纪城食饕界唐道锅锅2--3楼—电话：68790222—人均：￥40",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "B001D0W94V",
+   "name": "梁记菜馆",
+   "lat": 34.242573,
+   "lng": 108.871848,
+   "address": "丈八北路7号南风大厦1层南边第一件商铺",
+   "category": "炒菜",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "梁记菜馆—地址：丈八北路7号南风大厦1楼—电话：68810111—人均：￥48",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "B0FFKR0FW9",
+   "name": "图味",
+   "lat": 34.18063,
+   "lng": 108.880419,
+   "address": "丈八二路与锦业三路交叉口东北角10118号商铺",
+   "category": "面",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "图味的特色是重庆小面、豌杂面、排骨格格、腊肠和各式小酒，乌梅酿和冰醪糟也强烈推荐",
+   "authors": [
+    "搜狐城市-陕西"
+   ],
+   "verified": true,
+   "lastSeen": "2023-09-28"
+  },
+  {
+   "id": "B0ID6XA2AP",
+   "name": "同盛祥(高新店)",
+   "lat": 34.209652,
+   "lng": 108.901614,
+   "address": "白沙路与木塔东路西北角香榭兰廷底商106/107室",
+   "category": "牛羊肉小炒",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "同盛祥(高新店)—地址：科技路34号欧锦园A座NOVO2楼—电话：88352698—人均：60",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "B001D09KUV",
+   "name": "东滩水盆(唐兴路分店)",
+   "lat": 34.23288,
+   "lng": 108.876253,
+   "address": "西安市高新区唐兴路13号一层",
+   "category": "水盆羊肉",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "人均：¥30(来自用户反馈) 地址：陕西省西安市雁塔区高新区唐兴路13号一层",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2026-11-09"
+  },
+  {
+   "id": "B0FFI3ZSE1",
+   "name": "丈八串串",
+   "lat": 34.199866,
+   "lng": 108.853508,
+   "address": "丈八西路丈八南村13排7号",
+   "category": "烤肉",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "而就在最近，一个藏在城中村、名叫“丈八串串”的小店突然在抖音上火了起来，勾起了不少人的回忆。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2019-04-15"
+  },
+  {
+   "id": "B0FFHGKHPK",
+   "name": "史玉林凉皮(高新店)",
+   "lat": 34.24176,
+   "lng": 108.898945,
+   "address": "高新四路6号(丰庆公园地铁站C1口步行430米)",
+   "category": "凉皮酿皮",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "在当地也是很有名气的，虽然门面不是很显眼，但是里面的环境很好的，规模不是很大，但里面的菜种还是可以的",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2026-11-10"
+  },
+  {
+   "id": "B001D06P4G",
+   "name": "西安李铁灌汤包(高新路店)",
+   "lat": 34.233814,
+   "lng": 108.907777,
+   "address": "西高新区光华路199号",
+   "category": "肉夹馍",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "开在小区里，挺家常的。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-13"
+  },
+  {
+   "id": "B0FFHR7DAY",
+   "name": "赵家腊汁肉(科技四路店)",
+   "lat": 34.220228,
+   "lng": 108.874344,
+   "address": "西安高新区科技二路78号城市风景·夏日景色2区",
+   "category": "肉夹馍",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "腊汁肉配上白吉馍，那叫一个绝配。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2021-11-08"
+  },
+  {
+   "id": "B0FFG51IUE",
+   "name": "飞鸿肉夹馍(枫林绿洲店)",
+   "lat": 34.212515,
+   "lng": 108.896229,
+   "address": "高新区枫林绿洲南门步行街",
+   "category": "肉夹馍",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "服务态度好，闻到也挺不错，离得挺近很方便，经常去",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2021-05-30"
+  },
+  {
+   "id": "B0FFKPMRCP",
+   "name": "老杨家菜场肉夹馍",
+   "lat": 34.173565,
+   "lng": 108.822852,
+   "address": "创汇社区A区",
+   "category": "肉夹馍",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "昨天，路过西安高新区的创汇社区，在上林苑三路的路边，看到一家名叫“老杨家菜场肉夹馍”的小店。",
+   "authors": [
+    "三秦人文地理"
+   ],
+   "verified": true,
+   "lastSeen": "2020-04-22"
+  },
+  {
+   "id": "B0FFGDFWEX",
+   "name": "大福饺子(大寨路店)",
+   "lat": 34.243998,
+   "lng": 108.875133,
+   "address": "大寨路8号一层5号",
+   "category": "饺子蒸饺",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "莲菜猪肉饺不错，馅料脆爽。茴香猪肉可以双拼。汤底酸辣口，挺开胃。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2025-11-26"
+  },
+  {
+   "id": "B0FFF9S6PE",
+   "name": "东仪路饺子馆(绿地店)",
+   "lat": 34.195623,
+   "lng": 108.877448,
+   "address": "锦业路1号绿地中央广场F1层",
+   "category": "饺子蒸饺",
+   "trust": 43.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "饺子现包的，皮薄馅大。肉馅挺鲜的，味道还行。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2026-05-29"
+  },
+  {
+   "id": "B0FFIARZW4",
+   "name": "醉长安",
+   "lat": 34.256769,
+   "lng": 108.943192,
+   "address": "南院门竹芭市7号7栋1单元10201室",
+   "category": "炒菜",
+   "trust": 41.0,
+   "consensus": 25.0,
+   "endorsement": 40.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安排名第一的陕菜馆子，正宗陕菜传人坐镇，几乎是必须打卡的地方。",
+   "authors": [
+    "豆豆爱"
+   ],
+   "verified": true,
+   "lastSeen": "2018-03-02"
+  },
+  {
+   "id": "B0FFHLWE8U",
+   "name": "南街沐尧鸡汤米线",
+   "lat": 34.150307,
+   "lng": 108.943198,
+   "address": "",
+   "category": "米线",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老式细米线，调料味麻味比较重，里面是紫菜和虾皮。人均11元，营业时间07:30-20:00。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B0FFFV5G2R",
+   "name": "小清花粥铺",
+   "lat": 34.168224,
+   "lng": 108.968659,
+   "address": "神舟三路257号",
+   "category": "炒菜",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "店里菜品分量很足，小炒素材清新可口，辣椒炒肉也是非常下饭。",
+   "authors": [
+    "村长带你逛西安"
+   ],
+   "verified": true,
+   "lastSeen": "2019-04-18"
+  },
+  {
+   "id": "B001D06ODL",
+   "name": "老程米线",
+   "lat": 34.151638,
+   "lng": 108.94327,
+   "address": "长安开发住宅小区二区西1门旁",
+   "category": "米线",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "很经典的麻辣米线配置，碗底是葱、香菜、紫菜、虾皮，热气腾腾麻辣鲜香，米线也是细米线，又韧又弹。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-07"
+  },
+  {
+   "id": "B0LKPC04R1",
+   "name": "老北川",
+   "lat": 34.158049,
+   "lng": 108.913643,
+   "address": "西长安街盛世商都1层",
+   "category": "炒菜",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "作为政法、邮电的“第二食堂”，老北川菜量和口味都没得挑，点了一份土豆片盐煎肉，熟悉的感觉回来了。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-07"
+  },
+  {
+   "id": "B001D09RHW",
+   "name": "雪儿食屋",
+   "lat": 34.15818,
+   "lng": 108.913668,
+   "address": "府东二路与西长安街交叉向北80米路西盛世商都1层",
+   "category": "炒菜",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "雪儿食屋也还在，这家鱼香烘蛋几乎是桌桌必点，鸡蛋水嫩蓬松，吸满汤汁后就是妥妥的下饭神器。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-07"
+  },
+  {
+   "id": "B0FFIGEV0F",
+   "name": "林香蒸肉",
+   "lat": 34.159788,
+   "lng": 108.867072,
+   "address": "郭杜街办郭杜东街19号",
+   "category": "肉夹馍",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "夹馍大多是十来块钱的套餐，每份肉自带两个荷叶饼子。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-07"
+  },
+  {
+   "id": "B0FFG0PZ7A",
+   "name": "胡大刀擀面皮",
+   "lat": 34.156554,
+   "lng": 108.945204,
+   "address": "韦曲老街小堡子村口",
+   "category": "凉皮酿皮",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "胡辣汤、糯米糕、杂肝汤、驴肉火烧、葱花大饼、胡大刀擀面皮、上海生煎包…",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2025-09-12"
+  },
+  {
+   "id": "B0MRLX666T",
+   "name": "雷哥锅包肉",
+   "lat": 34.127175,
+   "lng": 108.939575,
+   "address": "常宁大街与神禾二路交叉口北140米",
+   "category": "炒菜",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "雷哥锅包肉、香葱大饼、砂锅米线等",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2026-10-05"
+  },
+  {
+   "id": "B0H0KZKO6W",
+   "name": "东东炒菜（郭杜东街店）",
+   "lat": 34.15743,
+   "lng": 108.868674,
+   "address": "郭杜东街17号",
+   "category": "炒菜",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "郭杜老十字向东约一百米路南，馆子不大，人超多，饭点一般都需要等位，可见味道不一般；点了六个菜也就一百五十多，平均一个菜也就二十多，价格还是可以接受。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2020-04-13"
+  },
+  {
+   "id": "B0FFH3ML2E",
+   "name": "明东驴蹄子面(智慧谷店)",
+   "lat": 34.161243,
+   "lng": 108.972533,
+   "address": "智慧谷北1门旁(飞天路地铁站C东南口步行250米)",
+   "category": "面",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "驴蹄面确实是陕西特色，面条口感很关键。他家面煮得火候正好，筋道不硬，能挂住汤汁。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2026-03-07"
+  },
+  {
+   "id": "B0FFHSLA51",
+   "name": "南院门郑大妈biangbiang面(翠华南路店)",
+   "lat": 34.19437,
+   "lng": 108.956881,
+   "address": "紫薇·永和坊西1门南60米",
+   "category": "面",
+   "trust": 40.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "上过《天天向上》，面条宽如裤带，单条可拉至三米长。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-28"
+  },
+  {
+   "id": "B0FFF9W96L",
+   "name": "德发长",
+   "lat": 34.260394,
+   "lng": 108.945427,
+   "address": "西大街3号(钟楼地铁站1号口步行140米)",
+   "category": "饺子蒸饺",
+   "trust": 36.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "坐落在钟楼脚下的德发长，把西安的烟火气和文化味一起包进了饺子里。",
+   "authors": [
+    "陕西都市快报"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-24"
+  },
+  {
+   "id": "B0FFF9WCTV",
+   "name": "老耿家梆梆肉",
+   "lat": 34.266797,
+   "lng": 108.949828,
+   "address": "新民街65号",
+   "category": "汉民泡馍",
+   "trust": 36.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老耿家梆梆肉开了好多年了，在新民街这一带很火，光顾的都是熟客，老板很任性",
+   "authors": [
+    "西安旅游局"
+   ],
+   "verified": true,
+   "lastSeen": "2018-08-09"
+  },
+  {
+   "id": "B0LAUR7XMU",
+   "name": "小六汤包·永安渠店",
+   "lat": 34.133066,
+   "lng": 108.826173,
+   "address": "永安领汇中心",
+   "category": "饺子蒸饺",
+   "trust": 36.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "招牌汤包“先开窗、后喝汤”，鲜得眉毛掉下来",
+   "authors": [
+    "西安高新"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-06"
+  },
+  {
+   "id": "B0KUCLZC0H",
+   "name": "刘大饼香辣土豆片夹馍",
+   "lat": 34.356144,
+   "lng": 108.976985,
+   "address": "秦川路16号",
+   "category": "肉夹馍",
+   "trust": 36.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "辣味油香油香的，花干和土豆都很入味，汁多不干，5元一个，很适合来不及吃饭的时候填肚子。",
+   "authors": [
+    "陕西省旅游局（搜狐号）"
+   ],
+   "verified": true,
+   "lastSeen": "2016-11-08"
+  },
+  {
+   "id": "B001D06CEN",
+   "name": "春发生(南院门店)",
+   "lat": 34.255624,
+   "lng": 108.941357,
+   "address": "南院门25号",
+   "category": "汉民泡馍",
+   "trust": 35.5,
+   "consensus": 42.5,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "春發生飯店（南院門店）係西安最具代表性嘅非清真泡饃老字號，葫蘆頭泡饃起源於唐代煎白腸；2021年入選西安市級非物質文化遺產。招牌菜：精腸葫蘆頭、梆梆肉。地址：碑林區南院門25號",
+   "authors": [
+    "中华老字号（商务部）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B001D0890W",
+   "name": "樊记腊汁肉夹馍",
+   "lat": 34.257902,
+   "lng": 108.943654,
+   "address": "竹笆市街53号(广济街地铁站C口步行410米)",
+   "category": "肉夹馍",
+   "trust": 35.5,
+   "consensus": 42.5,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "樊記臘汁肉夾饃始創於1904年，由樊炳仁創立；2006年獲中國飯店協會「中國名點」稱號。臘汁肉用多種香料長時間燉煮，夾入剛出爐嘅白吉饃。總店地址：碑林區竹笆街53號。",
+   "authors": [
+    "中华老字号（商务部）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "name:xxc干锅公司(高新店)",
+   "name": "xxc干锅公司(高新店)",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "炒菜",
+   "trust": 33.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "浪漫灯光与重金属工业元素相结合，现代感十足的LOFT酒吧范。各种美味干锅与爽口菜品，吃一次就会爱上。",
+   "authors": [
+    "陕西省旅游局（搜狐号）"
+   ],
+   "verified": false,
+   "lastSeen": "2016-11-08"
+  },
+  {
+   "id": "name:成都呱串串(大寨路店)",
+   "name": "成都呱串串(大寨路店)",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "烤肉",
+   "trust": 33.4,
+   "consensus": 44.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "菜品和肉类种类丰富，并且有冷锅和热锅两种任君选择。至于味道不在话下，很多人都是专门开车来吃的。",
+   "authors": [
+    "陕西省旅游局（搜狐号）"
+   ],
+   "verified": false,
+   "lastSeen": "2016-11-08"
+  },
+  {
+   "id": "name:程记米线店",
+   "name": "程记米线店",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "米线",
+   "trust": 32.8,
+   "consensus": 68.0,
+   "endorsement": 0.0,
+   "sources": 2,
+   "mentions": 2,
+   "reason": "麻辣酸菜米线感觉很带感，是越吃越有味道的那种，米线偏软，汤的味道感觉都融入到了米线里面。",
+   "authors": [
+    "星尘故事会",
+    "自立米线老潘"
+   ],
+   "verified": false,
+   "lastSeen": "2021-01-21"
+  },
+  {
+   "id": "B0FFGIKFK3",
+   "name": "柳巷面",
+   "lat": 34.261127,
+   "lng": 108.950883,
+   "address": "案板街18号吉庆大厦(钟楼地铁站6号口步行420米)",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "柳巷面位於鐘樓案板街內，以單一品種清真面聞名，全西安只此一家；麵條勁道味足，分大、小碗，配菜包括土豆、胡蘿蔔、菜花、木耳、黃豆芽。食客眾多，係西安本地人常去嘅清真面老店。",
+   "authors": [
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B001D075S4",
+   "name": "一真楼",
+   "lat": 34.264412,
+   "lng": 108.942873,
+   "address": "大皮院18号(近北院门)",
+   "category": "牛羊肉小炒",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "一真樓係西安享有盛譽嘅老字號清真泡饃店，歷史可追溯至1985年；食泡饃需手掰饃至黃豆粒大小，配辣子醬同糖蒜。本地人一般點普通牛肉泡饃。地址：蓮湖區大皮院18號，營業時間06:00–21:30。",
+   "authors": [
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B0KG2C1JVX",
+   "name": "马文章胖子甑糕",
+   "lat": 34.267897,
+   "lng": 108.932655,
+   "address": "西安城市交通投资集团西门西北70米",
+   "category": "甑糕",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "馬文章胖子甑糕位於回坊區域，早上6點開賣，賣完為止；糯米香甜，棗泥細膩，滿滿棗泥裹有芸豆、蜜棗等小料。",
+   "authors": [
+    "阿Pen旅遊記（永安旅遊）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-24"
+  },
+  {
+   "id": "B001D0WKXP",
+   "name": "同盛斋牛羊肉泡馍",
+   "lat": 34.25796,
+   "lng": 108.930104,
+   "address": "西大街唐人步行街C座7号(西大街夏家什字口)",
+   "category": "牛羊肉小炒",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "同盛斋牛羊肉泡馍（唐人街店）：多年老牌子，位置好找，口感稳定，人均30-40元。",
+   "authors": [
+    "邻里览观（新浪）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-10-07"
+  },
+  {
+   "id": "B001D03L3T",
+   "name": "同盛祥",
+   "lat": 34.260282,
+   "lng": 108.945254,
+   "address": "西大街5号(钟楼地铁站C口步行280米)",
+   "category": "牛羊肉小炒",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "同盛祥：西安最知名泡馍品牌之一，常年排队，人均35-45元，适合第一次尝试的游客。",
+   "authors": [
+    "邻里览观（新浪）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-10-07"
+  },
+  {
+   "id": "B001D098SS",
+   "name": "老孙家",
+   "lat": 34.259058,
+   "lng": 108.974678,
+   "address": "东关正街78号招商广场商业裙楼2-5层",
+   "category": "牛羊肉小炒",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老孙家：与同盛祥齐名，出品稳定，名气最大，人均35-45元，适合第一次尝试的游客。",
+   "authors": [
+    "邻里览观（新浪）"
+   ],
+   "verified": true,
+   "lastSeen": "2026-10-07"
+  },
+  {
+   "id": "B0HR7HPGCB",
+   "name": "天府米线",
+   "lat": 34.375995,
+   "lng": 108.912506,
+   "address": "经济技术开发区尚苑路2188号星雨华府6-3-104A铺",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老板是四川人，每次来买米线前面至少排了5个人。真宗的川味米线，辣、麻、红油、牛肉多。店特别小，环境不是很好，货真价实的苍蝇馆子。地址：莲湖区自强西路明珠巷。",
+   "authors": [
+    "新浪看点·米线盘点（2019）"
+   ],
+   "verified": true,
+   "lastSeen": "2019-12-31"
+  },
+  {
+   "id": "B0GK0G990E",
+   "name": "四红米线",
+   "lat": 34.237261,
+   "lng": 108.976294,
+   "address": "",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "开了十多年的老店，老板夫妻是正宗川人，从路边摊移到小吃档口。大骨熬汤，米线筋道爽滑，配上泡菜海带等，麻辣鲜香。地址：碑林区友谊东路铁路局小吃城内。",
+   "authors": [
+    "新浪看点·米线盘点（2019）"
+   ],
+   "verified": true,
+   "lastSeen": "2019-12-31"
+  },
+  {
+   "id": "B0FFJUZXRY",
+   "name": "韦姐柳州螺蛳粉",
+   "lat": 34.272354,
+   "lng": 108.917626,
+   "address": "大庆路潘家村欣集古镇东20号",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "粉里面可以加叉烧、牛腩、香肠等好多小料，最爱叉烧；酸笋吃多了就上瘾；汤味道香浓，辣椒是广西的做法、里面加了油葱。地址：莲湖区铁塔寺路中段。",
+   "authors": [
+    "新浪看点·米线盘点（2019）"
+   ],
+   "verified": true,
+   "lastSeen": "2019-12-31"
+  },
+  {
+   "id": "B0LGYL6BJ3",
+   "name": "武小勇红油米线",
+   "lat": 34.264592,
+   "lng": 108.967067,
+   "address": "尚勤路155号",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "一家老字号的门店，西安全城开了很多家，很有烟火气的小店，米线味道不错，后味麻辣比较重。人均13元，营业时间07:00-23:00。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B0I0KS0J6K",
+   "name": "阿洁云南过桥米线",
+   "lat": 34.271143,
+   "lng": 108.954425,
+   "address": "北新街小区一号楼16号",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "苍蝇小馆，米线的口感类似于米粉，不同于传统的红油米线，嚼起来偏软，值得一去。人均21元。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B001D06M59",
+   "name": "金康过桥米线",
+   "lat": 34.265928,
+   "lng": 108.96779,
+   "address": "东新街149号安民里住宅小区",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "一碗清汤的米线，里面有青菜和鸡肉丝，还有一碗芝麻酱和辣椒调的蘸料，吃的时候把米线加到料碗里裹上酱汁。人均13元。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B0GUJBMMR1",
+   "name": "陕南泡菜米线",
+   "lat": 34.267916,
+   "lng": 108.912927,
+   "address": "大庆路236号劳动村小区",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "主打的就是泡菜，酸味足，腌制的时间刚好，很脆。红油米线麻辣鲜香。人均11元，营业时间07:00-20:00。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B0FFHSSV9J",
+   "name": "老院子米线",
+   "lat": 34.274851,
+   "lng": 109.070724,
+   "address": "纺建路与鹿原街交叉口东南20米",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "米线料很足，有排骨鸡肉丸子和肉末，配菜有青菜豆腐皮竹笋韭菜，口味偏麻，汤底不错。人均22元，营业时间07:00-14:00。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B0GK7SZ0IN",
+   "name": "马马米线",
+   "lat": 34.209954,
+   "lng": 108.938885,
+   "address": "朱雀大街66号(朱雀菜市场斜对面)",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "红油米线分量挺大的，满满一大碗，麻麻辣辣的，是细米线，口感不错。人均14元，营业时间10:00-20:30。",
+   "authors": [
+    "西安本地宝（搜狐）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-10-09"
+  },
+  {
+   "id": "B001D06RCS",
+   "name": "米线张",
+   "lat": 34.255241,
+   "lng": 109.004968,
+   "address": "长兴路 27 号长兴坊",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "麻辣米线、笼笼肉夹馍、茶叶蛋，这三样是标配，麻辣味重，所以吃完嘴很麻。",
+   "authors": [
+    "自立米线老潘"
+   ],
+   "verified": true,
+   "lastSeen": "2021-01-21"
+  },
+  {
+   "id": "B0FFF01LXC",
+   "name": "老八米线",
+   "lat": 34.381668,
+   "lng": 108.99085,
+   "address": "学府街区商铺10103号",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "他家的米线可以加鱼丸，还有干拌、大宽、二宽好多种样式，活生生地把米线吃出了咱陕西人的感觉，比较推荐麻辣的，很给力。",
+   "authors": [
+    "自立米线老潘"
+   ],
+   "verified": true,
+   "lastSeen": "2021-01-21"
+  },
+  {
+   "id": "B0FFG3NG1B",
+   "name": "纺建米线",
+   "lat": 34.274706,
+   "lng": 109.058674,
+   "address": "纺建路112号(半坡地铁站D东南口步行220米)",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "纺织城很好吃的一家小馆子，米线是小时候吃的传统的那种细细的米线，放了海带丝和豆腐皮丝，麻辣味很香很麻",
+   "authors": [
+    "自立米线老潘"
+   ],
+   "verified": true,
+   "lastSeen": "2021-01-21"
+  },
+  {
+   "id": "B0FFHWABIA",
+   "name": "老满客过桥米线",
+   "lat": 34.354237,
+   "lng": 108.97464,
+   "address": "秦晋家园西区南1门旁",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "只有资深红旗厂吃货才能找到。很小的一家苍蝇馆子，在红旗厂的小巷子里，来这里的也都是多年的回头客。",
+   "authors": [
+    "自立米线老潘"
+   ],
+   "verified": true,
+   "lastSeen": "2021-01-21"
+  },
+  {
+   "id": "B0J1F56482",
+   "name": "张嫂家红油米线",
+   "lat": 34.322225,
+   "lng": 108.970328,
+   "address": "百花家园10号商铺10102(四海中心正对面)",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "米线咸香麻辣，豆腐泡吸满汤汁，配着小笼包很绝",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2025-11-15"
+  },
+  {
+   "id": "B0FFKUOELX",
+   "name": "螺小胖柳州螺蛳粉",
+   "lat": 34.281078,
+   "lng": 109.072307,
+   "address": "华阳金街一楼中间通道",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "位于大话南门后面的这家螺蛳粉店在西安其实分店挺多的，但是经不住他家味道好，因此也深受附近的人们的喜爱",
+   "authors": [
+    "星尘故事会"
+   ],
+   "verified": true,
+   "lastSeen": "2020-06-19"
+  },
+  {
+   "id": "B001D08EP8",
+   "name": "重庆欣欣砂锅",
+   "lat": 34.226418,
+   "lng": 108.956957,
+   "address": "翠华路357号佳鑫大厦1层",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "再一个必点的就是砂锅米线，这家不仅配菜多，米线也给的实在，米线一夹起来全挂上红油，一口下去就是个满足。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2025-04-22"
+  },
+  {
+   "id": "B0FFGC3A1M",
+   "name": "军良烤肉",
+   "lat": 34.332138,
+   "lng": 108.968881,
+   "address": "常青二路与永贤路交叉路口",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "北郊大名鼎鼎的人气烤肉，据说已经开了20多年。不光烤肉的品质好，就连师傅的手上功夫都跟“无影手”一般。",
+   "authors": [
+    "美食团"
+   ],
+   "verified": true,
+   "lastSeen": "2017-05-24"
+  },
+  {
+   "id": "B0FFGH14FR",
+   "name": "陈记农家挂炉烤肉",
+   "lat": 34.664279,
+   "lng": 109.221157,
+   "address": "凤凰北路面粉厂8号门面房",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "他家主打的是挂炉烤肉，签子要比一般的烤肉长，不论是牛肉还是羊肉都是论斤上，基本半斤就是十串。",
+   "authors": [
+    "美食团"
+   ],
+   "verified": true,
+   "lastSeen": "2017-05-24"
+  },
+  {
+   "id": "B0G2CA6ENX",
+   "name": "费萨尔烤肉",
+   "lat": 34.263071,
+   "lng": 108.934617,
+   "address": "庙后街176号",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "肉质新鲜，烤馕必点，香辣酥暄，满满的孜然香！",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2024-06-14"
+  },
+  {
+   "id": "B0MBK7R8ZD",
+   "name": "安老虎烤肉",
+   "lat": 34.263277,
+   "lng": 108.934726,
+   "address": "庙后街149号",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "喜欢重口味的宝子推荐，蒜蓉烤馕很独特，牛奶鸡蛋醪糟很好喝！",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2024-06-14"
+  },
+  {
+   "id": "B0FFF756O3",
+   "name": "杨家烤肉",
+   "lat": 34.263268,
+   "lng": 108.935103,
+   "address": "庙后街西仓口137号",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "非常个性，老板烤什么就吃什么，食材新鲜，性价比很高！",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2024-06-14"
+  },
+  {
+   "id": "B0FFIBF90K",
+   "name": "马峰烤肉",
+   "lat": 34.261117,
+   "lng": 108.934745,
+   "address": "庙后街小学习巷北巷15号",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "去坊上吃烤肉，怎么也绕不开马峰烤肉，1块钱1串的烤肉、烤筋、烤腰子，价格便宜，份量和质量可不唬人。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2020-12-03"
+  },
+  {
+   "id": "B0K1TYUVQP",
+   "name": "邱记开心涮涮",
+   "lat": 34.279685,
+   "lng": 108.951659,
+   "address": "自强集市内(安远门地铁站C东南口步行400米)",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安入冬后，小伙伴想吃涮涮的心就一天比一天强烈，妞忍不住要推荐这家北郊ZUI好吃的涮涮——邱记开心涮涮。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2020-12-03"
+  },
+  {
+   "id": "B0FFHBTLT2",
+   "name": "小魏哥哥果仁面筋",
+   "lat": 34.290569,
+   "lng": 108.949142,
+   "address": "龙首中路公园1号东南门",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "烤面筋是很多人的最爱，面筋的实在加上烤后的外脆里嫩，实在俘获人心。尤其再撒上厚厚的果仁，有时一串都不能满足。",
+   "authors": [
+    "比吃我最在行"
+   ],
+   "verified": true,
+   "lastSeen": "2018-06-23"
+  },
+  {
+   "id": "B0IG0A6LK4",
+   "name": "山仔大排档",
+   "lat": 34.252493,
+   "lng": 108.997162,
+   "address": "金花南小区西门旁(咸宁路地铁站D东北口步行80米)",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家经营了十来年的苍蝇馆子，每逢饭点儿必人山人海，已然成为附近学校的学生和上班族的后食堂",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "B0FFF6UNX2",
+   "name": "陕歌人家",
+   "lat": 34.248403,
+   "lng": 108.957165,
+   "address": "文艺路北段路东陕歌大剧院内",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "文艺路陕歌家属院里面最深处就能找到的一家私房馆子了，经营的时间近10年了，文艺气息超级浓重！",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "B0LKDUNQ5I",
+   "name": "三丁一体菜",
+   "lat": 34.253262,
+   "lng": 108.946273,
+   "address": "南大街3号",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "开在了老城区的小巷子里，一锅一锅上的一家馆子，干锅做的很惊艳！",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "B0KB9C6ENP",
+   "name": "老游独一佳湘菜",
+   "lat": 34.293189,
+   "lng": 108.948958,
+   "address": "龙首北路29号(龙首原地铁站D东北口步行190米)",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "在西安开了足足14个年头，目前分店遍布全城，不过很多人心底的老游还得是大差市这家。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2020-12-03"
+  },
+  {
+   "id": "B001D04R5F",
+   "name": "乐乐餐厅",
+   "lat": 34.25298,
+   "lng": 108.944862,
+   "address": "大南门里湘子庙街11-A号",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "从开始的几张桌子，到现在三层小楼，开了20多年的乐乐餐厅，味道是实实在在的好。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2020-12-03"
+  },
+  {
+   "id": "B001D03OJ7",
+   "name": "天天饭店",
+   "lat": 34.26723,
+   "lng": 108.961063,
+   "address": "西三路9号(五路口地铁站F西南口步行240米)",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安本地很有名的老餐馆——天天饭店，至今还是传统点餐方式，让食客自己手写菜品点餐。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2020-12-03"
+  },
+  {
+   "id": "B0FFKVY8N3",
+   "name": "湘当有味",
+   "lat": 34.321432,
+   "lng": 108.959906,
+   "address": "6号大院(市第三医院地铁站D口步行400米)",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "18秒黄牛肉和土匪猪肝是必点的“米饭杀手”，但个人认为各种腊肉炒的菜在湖南爽辣之外也自带烟熏风味，超级香。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2025-08-22"
+  },
+  {
+   "id": "B001D06CQ4",
+   "name": "朱家水盆",
+   "lat": 34.253912,
+   "lng": 108.966848,
+   "address": "政协大酒店西门西北50米",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "【朱家水盆】地址：建国路 省政协对面 推荐：水盆羊肉、杂肝、肉末辣子",
+   "authors": [
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-14"
+  },
+  {
+   "id": "B0FFGZPDIV",
+   "name": "虎子水盆羊肉",
+   "lat": 34.219989,
+   "lng": 108.956693,
+   "address": "曲江新区翠华南路229号擎友大厦综合楼临街商铺",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "【虎子水盆羊肉】地址：大唐通易坊与翠华路十字朝北150米 推荐：水盆羊肉、辣子蒜羊血、火爆羊杂",
+   "authors": [
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-14"
+  },
+  {
+   "id": "B0FFGK8NLA",
+   "name": "东府小杨澄城水盆羊肉",
+   "lat": 34.255584,
+   "lng": 108.937787,
+   "address": "陕西建苑大厦北门旁",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "【东府小杨澄城水盆羊肉】地址：五味十字西南侧 推荐：水盆羊肉、月牙饼、羊肉墩子",
+   "authors": [
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-14"
+  },
+  {
+   "id": "B0FFJ5OVIO",
+   "name": "清雅水盆羊肉",
+   "lat": 34.306378,
+   "lng": 108.941258,
+   "address": "名京·九合院锦荟苑西南门旁",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "【清雅水盆羊肉】地址：纬二十九街西口路北萧家巷内70米 推荐：水盆羊肉、锅盔、牛肉水盆",
+   "authors": [
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-14"
+  },
+  {
+   "id": "B0FFF65D9O",
+   "name": "雷记水盆羊肉",
+   "lat": 34.243151,
+   "lng": 108.93582,
+   "address": "红缨社区北门西70米",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "【雷记水盆羊肉】地址：报恩寺街西口路南 推荐：水盆羊肉、月牙饼、爽口小菜、青辣子和咸菜、羊肉、双合水盆",
+   "authors": [
+    "黄色的芒果"
+   ],
+   "verified": true,
+   "lastSeen": "2018-07-14"
+  },
+  {
+   "id": "B001D06BR4",
+   "name": "城南饺子馆",
+   "lat": 34.215156,
+   "lng": 108.950052,
+   "address": "红专南路115号",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "在西安，你要问哪家饺子馆最有名，十个人里至少有八个会提到“城南饺子馆”。",
+   "authors": [
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-30"
+  },
+  {
+   "id": "B0HA6S8IED",
+   "name": "樊记腊汁肉",
+   "lat": 34.260575,
+   "lng": 108.926625,
+   "address": "西举院巷69号西安市儿童医院对面",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "始于1925年的百年老字号，腊汁肉采用传统陶缸卤制，肉质红润香醇，肥而不腻",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-16"
+  },
+  {
+   "id": "B0FFKW88GH",
+   "name": "王华峰潼关肉夹馍",
+   "lat": 34.319827,
+   "lng": 108.964449,
+   "address": "颐和郡北门旁",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "北郊居民的“早餐首选”，馍皮柔软有嚼劲，腊汁肉炖得软烂入味，汤汁渗透到馍的每一层。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-16"
+  },
+  {
+   "id": "B0FFK2ZQ76",
+   "name": "赵亚东腊汁肉店",
+   "lat": 34.251065,
+   "lng": 108.900479,
+   "address": "桃园南路38号",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "低调实力派，肉极嫩卤香透骨，电饼铛烘馍酥脆加倍，配生汆丸子汤是隐藏吃法。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-16"
+  },
+  {
+   "id": "B0JKTM3XC5",
+   "name": "东关吉祥腊汁肉夹馍",
+   "lat": 34.223083,
+   "lng": 108.929737,
+   "address": "吉祥路21号1幢1层10104号",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "馍皮偏软但肉量扎实，腊汁肉肥瘦相间，汤汁浓郁，搭配店内自制的辣椒酱，香辣过瘾。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-16"
+  },
+  {
+   "id": "B0LRM4XO8N",
+   "name": "李老四腊牛肉夹馍",
+   "lat": 34.258798,
+   "lng": 109.005694,
+   "address": "公园南路290号",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "主打腊牛肉夹馍，选用牛腱子肉经多道工序腌制炖煮，肉质紧实纹理清晰，咸香醇厚。馍皮偏软，能充分吸收肉汁。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-04-16"
+  },
+  {
+   "id": "B0HKPDARLM",
+   "name": "老李家肉夹馍",
+   "lat": 34.481641,
+   "lng": 108.977644,
+   "address": "姜李村卫生室西南侧50米",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老李家肉夹馍（腊汁肉肥瘦相间会爆汁）",
+   "authors": [
+    "风景同行游天下"
+   ],
+   "verified": true,
+   "lastSeen": "2025-03-13"
+  },
+  {
+   "id": "B0FFJ3SOVR",
+   "name": "云老四凉皮",
+   "lat": 34.269203,
+   "lng": 108.997413,
+   "address": "西北国际茶城北门1层东",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "凉皮口感筋道，味道那叫一个香，入口先是一阵清凉，随之而来的是浓烈的辣子香，吃起来真心过瘾。",
+   "authors": [
+    "崔小满"
+   ],
+   "verified": true,
+   "lastSeen": "2016-11-16"
+  },
+  {
+   "id": "B001D06ZDS",
+   "name": "铁头凉皮",
+   "lat": 34.261787,
+   "lng": 108.964921,
+   "address": "东一路56号(大差市地铁站D东北口步行410米)",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "店家在调辣子的时候会抓几根凉皮在辣子油上蘸一下，之后放到碗里和其他调料一起搅拌",
+   "authors": [
+    "崔小满"
+   ],
+   "verified": true,
+   "lastSeen": "2016-11-16"
+  },
+  {
+   "id": "B0JK568HWD",
+   "name": "史玉林凉皮",
+   "lat": 34.326825,
+   "lng": 108.941825,
+   "address": "六十六中家属院东侧",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "史玉林凉皮在三桥、土门小树林都有店，纯手工现蒸，米皮滑爽，红油层次分明，干拌和带汤两种吃法都有。",
+   "authors": [
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-22"
+  },
+  {
+   "id": "B001D10VEE",
+   "name": "胖嫂秦镇大米面皮",
+   "lat": 34.215445,
+   "lng": 108.955524,
+   "address": "红专南路23号(师大附中斜对面)",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "想吃现蒸的热米皮，胖嫂秦镇大米面皮在红专南路，中午去晚了可能就卖完了。",
+   "authors": [
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-22"
+  },
+  {
+   "id": "B0FFGZU11T",
+   "name": "七七家手工秘制擀面皮",
+   "lat": 34.253822,
+   "lng": 108.966848,
+   "address": "政协大酒店西门西北50米",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "擀面皮调的味道比较正，辣椒很辣，但是却不会烧胃，擀面皮劲道好吃……",
+   "authors": [
+    "崔小满"
+   ],
+   "verified": true,
+   "lastSeen": "2016-11-16"
+  },
+  {
+   "id": "B0H2DUEVKO",
+   "name": "拴马桩擀面皮",
+   "lat": 34.329303,
+   "lng": 108.939587,
+   "address": "西安经济技术开发区凤城五路海璟时代小区2号楼109-2号商铺",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "擀面皮味道很正，辣子和醋水的味道很棒，也可以来上一份面皮和呱呱的混搭。",
+   "authors": [
+    "崔小满"
+   ],
+   "verified": true,
+   "lastSeen": "2016-11-16"
+  },
+  {
+   "id": "B0H32L7C00",
+   "name": "岐风烙面皮",
+   "lat": 34.44561,
+   "lng": 109.003467,
+   "address": "长庆西路12号",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "是一家连锁店，主打岐山擀面皮，味道算是比较正宗的",
+   "authors": [
+    "星尘故事会"
+   ],
+   "verified": true,
+   "lastSeen": "2020-03-11"
+  },
+  {
+   "id": "B0KUCRZ49E",
+   "name": "张凌峰肉夹馍",
+   "lat": 34.262213,
+   "lng": 108.965186,
+   "address": "尚俭路与东一路十字东北角",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "凉皮、米线、肉夹馍，三秦套餐里的排队王，不少陕西老餮心里的肉夹馍TOP3。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2025-07-30"
+  },
+  {
+   "id": "B0FFFA8G33",
+   "name": "阿伊莎过桥米线",
+   "lat": 34.262949,
+   "lng": 108.965224,
+   "address": "尚俭路9号隔壁",
+   "category": "米线",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老网红了，每次提到五路口美食，他家一定赫然在榜。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2025-07-30"
+  },
+  {
+   "id": "B0G3XAFNGF",
+   "name": "豫宾楼",
+   "lat": 34.261957,
+   "lng": 108.965546,
+   "address": "尚俭路53号(大差市地铁站D东北口步行480米)",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家是清真餐厅，主做民族菜，花样非常多，五大必点样样不踩雷。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2025-07-30"
+  },
+  {
+   "id": "B0K0G4AI8A",
+   "name": "老花家饺子",
+   "lat": 34.290049,
+   "lng": 108.939144,
+   "address": "文景南路",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家店开了少说也有十几二十年了，在很多西安人心目中，尤其是中医医院人的心目中，吃饺子来老花家，早已成了一种习惯。",
+   "authors": [
+    "西安美食频道"
+   ],
+   "verified": true,
+   "lastSeen": "2016-09-29"
+  },
+  {
+   "id": "B0HUPROFAH",
+   "name": "饺子王",
+   "lat": 34.264385,
+   "lng": 108.942685,
+   "address": "北院门125号1-51回民街",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "多年来店面变化不大，饺子的口味变化也不大，酸汤上飘满了辣子，看上去油汪汪的，但汤喝起来却很是清爽。",
+   "authors": [
+    "西安美食频道"
+   ],
+   "verified": true,
+   "lastSeen": "2016-09-29"
+  },
+  {
+   "id": "B001D06UFR",
+   "name": "三姐妹饺子",
+   "lat": 34.255827,
+   "lng": 108.950014,
+   "address": "集贤巷10号(钟楼地铁站F口步行280米)",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "虾肉饺子尤其好吃，每一个饺子里都有完整的虾仁，嚼起来口感很不错。",
+   "authors": [
+    "西安美食频道"
+   ],
+   "verified": true,
+   "lastSeen": "2016-09-29"
+  },
+  {
+   "id": "B0JAKDHRY0",
+   "name": "军嫂饺子馆",
+   "lat": 34.291149,
+   "lng": 108.979395,
+   "address": "八府庄园F区",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "饺子种类很多，馅儿多，圆滚滚，不坑人。店不大，但人气很旺，中午通常满座，不过服务员人手比较足，翻台很快。",
+   "authors": [
+    "西安美食频道"
+   ],
+   "verified": true,
+   "lastSeen": "2016-09-29"
+  },
+  {
+   "id": "B001D07UE2",
+   "name": "海荣锅贴馆",
+   "lat": 34.255716,
+   "lng": 108.936027,
+   "address": "五星街与四府街十字东南角五味68号",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安五味什字东南角是海荣锅贴馆开创之初的老店。",
+   "authors": [
+    "李连源"
+   ],
+   "verified": true,
+   "lastSeen": "2023-06-28"
+  },
+  {
+   "id": "B0HAA75VPH",
+   "name": "东仪路饺子馆",
+   "lat": 34.203583,
+   "lng": 108.928394,
+   "address": "东仪路39号(石油大学正门南)",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "推荐菜品：韭黄牛肉、韭菜鸡蛋、茴香牛肉...",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-21"
+  },
+  {
+   "id": "B0MD5LWQ93",
+   "name": "清真瑞宝斋马峰酸汤水饺",
+   "lat": 34.266508,
+   "lng": 108.938917,
+   "address": "北广济街274号",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "推荐菜品：韭黄牛肉、牛奶鸡蛋醪糟、韭黄牛肉饼...",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-21"
+  },
+  {
+   "id": "B0HDX9B69G",
+   "name": "老陈家蒸饺",
+   "lat": 34.260333,
+   "lng": 108.934511,
+   "address": "小学习巷南36号(桥梓口地铁站E口步行400米)",
+   "category": "饺子蒸饺",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "店小但是价格实惠，而且现包现蒸，真材实料看得见，14元一笼牛肉韭黄蒸饺，可以说是西安性价比zui高的蒸饺了。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2021-11-23"
+  },
+  {
+   "id": "B0FFIGX742",
+   "name": "姜家三鲜煮馍",
+   "lat": 34.2423,
+   "lng": 108.929223,
+   "address": "友谊西路263号",
+   "category": "汉民泡馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "姜家三鲜煮馍：1993年开始经营，口味多年保持稳定。",
+   "authors": [
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-27"
+  },
+  {
+   "id": "B0H65COS7N",
+   "name": "老朋友三鲜煮馍",
+   "lat": 34.233788,
+   "lng": 108.984888,
+   "address": "青龙北路西安铁一中分校南门西行200米路北",
+   "category": "汉民泡馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老朋友三鲜煮馍：老爷子曾是西安饭庄的特一级厨师，他家的“三鲜小炒”被不少老顾客认为是西安独一份。",
+   "authors": [
+    "浪西安"
+   ],
+   "verified": true,
+   "lastSeen": "2026-08-27"
+  },
+  {
+   "id": "B0I30SKVQR",
+   "name": "方记葫芦头泡馍馆",
+   "lat": 34.238619,
+   "lng": 108.972743,
+   "address": "铁永坊20号楼商铺01号",
+   "category": "汉民泡馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家肥肠处理的特别仔细，去掉了肥厚的肠油",
+   "authors": [
+    "吃喝玩乐在西安"
+   ],
+   "verified": true,
+   "lastSeen": "2017-01-20"
+  },
+  {
+   "id": "B0FFGFTVQF",
+   "name": "老南院门葫芦头",
+   "lat": 34.273733,
+   "lng": 108.943056,
+   "address": "立新街北口(糖坊街43-5)",
+   "category": "汉民泡馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "葫芦头是老派做法，很多人都好这一口",
+   "authors": [
+    "吃喝玩乐在西安"
+   ],
+   "verified": true,
+   "lastSeen": "2017-01-20"
+  },
+  {
+   "id": "B0L2DS8BC5",
+   "name": "叼蒲城水盆羊肉",
+   "lat": 34.333518,
+   "lng": 108.938331,
+   "address": "海荣雅庭花园南1门西120米",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "汤头好，味道很浓，整体还是很鲜的，羊肉不是很多，但是吃起来紧致，不散，而且完全没有膻味，不加辣子喝起来也是别有一番风味~",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2019-02-28"
+  },
+  {
+   "id": "B001D12P6I",
+   "name": "澄城会馆",
+   "lat": 34.256175,
+   "lng": 108.937944,
+   "address": "五味十字21号(博海书店东50米)",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "超大一份的水盆羊肉，满满的浓汤，保证喝到舒服！",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2019-02-28"
+  },
+  {
+   "id": "B0FFF655DQ",
+   "name": "吕记澄城水盆羊肉",
+   "lat": 34.239299,
+   "lng": 109.013452,
+   "address": "西影路与万寿路交叉口西80米",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "汤头好，味道很浓，羊肉不是很多。但是吃起来紧致，不散，而且完全没有膻味，不加辣子喝起来也是别有一番风味",
+   "authors": [
+    "西安吃喝玩乐杂志"
+   ],
+   "verified": true,
+   "lastSeen": "2017-12-27"
+  },
+  {
+   "id": "B0L6GSTJ1X",
+   "name": "澄城学斌水盆（大唐不夜城总店）",
+   "lat": 34.211729,
+   "lng": 108.956645,
+   "address": "雁南一路61号",
+   "category": "水盆羊肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "而步行5分钟到旁边雁南一路的澄城学斌水盆总店，一碗水盆羊肉仅40元，汤鲜肉烂，还是40年非遗传承",
+   "authors": [
+    "新浪生活服务社"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-20"
+  },
+  {
+   "id": "B0JA7ZP1V5",
+   "name": "苏乞儿",
+   "lat": 34.249274,
+   "lng": 108.952645,
+   "address": "文艺路东新村小区3号楼9102号",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "因为是苏福记旗下的川餐馆，所以环境差不多是一个风格，各种暖色系，空间特别大，各式的桌位都有。",
+   "authors": [
+    "西安美食达人圈"
+   ],
+   "verified": true,
+   "lastSeen": "2017-08-18"
+  },
+  {
+   "id": "B0HUCMVYPZ",
+   "name": "昶丰臭桂鱼",
+   "lat": 34.333229,
+   "lng": 108.944217,
+   "address": "凤城六路雅荷春天17号楼与18号楼通道02商铺一二层",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "一家因 “臭” 闻名的馆子，主打徽菜，其中以臭桂鱼最为知名。",
+   "authors": [
+    "搜狐城市-陕西"
+   ],
+   "verified": true,
+   "lastSeen": "2023-09-28"
+  },
+  {
+   "id": "B0JA74OT7O",
+   "name": "朝花里川菜小馆",
+   "lat": 34.337975,
+   "lng": 108.945125,
+   "address": "凤城七路8号CityOn熙地港西安购物中心F5层",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "现炒川菜最讲究的是「锅气」。朝花里川菜小馆这点做得比较扎实：菜品现点现做、明火现炒。",
+   "authors": [
+    "城市美食名片"
+   ],
+   "verified": true,
+   "lastSeen": "2026-09-16"
+  },
+  {
+   "id": "B0I2B5YG37",
+   "name": "湘君家常菜馆",
+   "lat": 34.235178,
+   "lng": 108.964019,
+   "address": "雁塔北路与建设路东段交叉口南60米",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "从小窗口开成门店，是被建大学子推荐了无数次的小店。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2025-05-26"
+  },
+  {
+   "id": "B001D08O8X",
+   "name": "富顺豆花（鹿塬街）",
+   "lat": 34.270277,
+   "lng": 109.071796,
+   "address": "纺三路与鹿原街交叉口西南20米",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这不，刷到一个做自贡菜的苍蝇馆子，坐标西安灞桥区，网上就一条评价，一张爆炒猪肝的图，看着就很家常的那种可口",
+   "authors": [
+    "老城探店"
+   ],
+   "verified": true,
+   "lastSeen": "2022-08-10"
+  },
+  {
+   "id": "B0HGKMHVJL",
+   "name": "宁夏特色炒肉片",
+   "lat": 34.321754,
+   "lng": 108.958984,
+   "address": "西安经济开发区凤城三路6号大院东北角",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "宁夏炒肉片，我愿称之为无敌下饭王！啥叫锅气，啥叫实在，一大盘端上来就能感受到了。",
+   "authors": [
+    "西安扑通生活君"
+   ],
+   "verified": true,
+   "lastSeen": "2025-08-22"
+  },
+  {
+   "id": "B0H6X6THDB",
+   "name": "棠季·长沙市井菜",
+   "lat": 34.226436,
+   "lng": 108.957698,
+   "address": "育才路2号育才大厦F1层",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "没有外卖，没有团购，只可以打包的一家馆子，位于育才路这个单行线路上",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "B0H2ODD33W",
+   "name": "蜀乐翘脚牛肉",
+   "lat": 34.235495,
+   "lng": 108.96261,
+   "address": "建设西路科技大学一层门面房2号星程酒店旁",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "不到70元的双人套餐，有肉有菜有米饭，米饭肉汤无限续，宝藏啊！",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "B0FFLK77NA",
+   "name": "虞丰一小馆",
+   "lat": 34.256236,
+   "lng": 108.947656,
+   "address": "南大街8号森源实业大楼东南侧二楼(东木头市街西口)",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "朋友推荐了好几次的店，一对小夫妻开的，老板主后厨，老板娘小姐姐主前厅，店不大，七八张桌子。",
+   "authors": [
+    "吃喝玩乐西安精选"
+   ],
+   "verified": true,
+   "lastSeen": "2019-03-08"
+  },
+  {
+   "id": "B001D0WHVS",
+   "name": "渔美菜香",
+   "lat": 34.295702,
+   "lng": 108.945383,
+   "address": "龙首商业街服装大厦2层",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "走进这条街的时候，很多人内心是拒绝的，大排档般的门，城隍庙般的门头和老式的格局的装修难免让人略有失望。",
+   "authors": [
+    "吃喝玩乐西安精选"
+   ],
+   "verified": true,
+   "lastSeen": "2019-03-08"
+  },
+  {
+   "id": "B001D0918V",
+   "name": "大千麻辣鱼",
+   "lat": 34.032747,
+   "lng": 108.814142,
+   "address": "滦镇沣峪口公安检查站对面",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "要说他家最大的特点，莫过于所有的鱼都是由顾客自己选择，而后活鱼现杀，所以味道尤为鲜美。",
+   "authors": [
+    "村长带你逛西安"
+   ],
+   "verified": true,
+   "lastSeen": "2019-04-18"
+  },
+  {
+   "id": "B0FFG494SO",
+   "name": "一一面馆(融鑫路店)",
+   "lat": 34.225295,
+   "lng": 108.914207,
+   "address": "融鑫路3号自力大厦F1层",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "吃了他家的素臊子拉条子！首先，拉条子是现做的，透过玻璃窗可以看到一个盆面！",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2021-02-05"
+  },
+  {
+   "id": "B0FFL8TGPB",
+   "name": "郭老三面庄(大雁塔店)",
+   "lat": 34.220501,
+   "lng": 108.956767,
+   "address": "大雁塔小学南隔壁",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "十五年的品牌老店了，本地人都爱吃，味道是真不错",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2025-11-11"
+  },
+  {
+   "id": "B0LD74XO5M",
+   "name": "马安安油泼面",
+   "lat": 34.384275,
+   "lng": 109.017925,
+   "address": "灞渭大道与望云巷交叉口西北180米",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家马安安油泼面店的规模不小，店里除了常规的面条以外，还兼顾烧烤生意",
+   "authors": [
+    "嬉游（什么值得买）"
+   ],
+   "verified": true,
+   "lastSeen": "2025-03-26"
+  },
+  {
+   "id": "B0FFG3NFYI",
+   "name": "眼镜张牛肉块扯面",
+   "lat": 34.258327,
+   "lng": 108.967135,
+   "address": "建国路89号(大差市地铁站C东南口步行430米)",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安老店，本地人好评的面馆，面条软硬适中，分量不错，性价比高。",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": true,
+   "lastSeen": "2025-12-04"
+  },
+  {
+   "id": "B001D0WMPR",
+   "name": "清真德海牛肉面(含光路店)",
+   "lat": 34.233463,
+   "lng": 108.931357,
+   "address": "含光路46号兴化东巷交叉口",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安四大正宗兰州拉面之一，汤底醇厚浓郁，面条筋道，牛肉软烂入味，辣椒红亮却不燥。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-28"
+  },
+  {
+   "id": "B0J1OHKSSR",
+   "name": "汪茂元羊肉面(雁塔区育才路店)",
+   "lat": 34.226709,
+   "lng": 108.957272,
+   "address": "育才路185号",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "榆林老字号西安分店，陕北横山羊肉+手工揪面片，羊肉奶香无膻，汤头清鲜，配辣酱与香菜升华风味。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-28"
+  },
+  {
+   "id": "B0FFIQF6V4",
+   "name": "清真巷子深面(汇鑫家园店)",
+   "lat": 34.263206,
+   "lng": 108.930656,
+   "address": "北院门街道东举院巷120号",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "30年以上老店，每天仅营业4小时，招牌鸡丁面和牛肉面配菜丰富，五香炸鸡腿限量供应。",
+   "authors": [
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-02-28"
+  },
+  {
+   "id": "B0FFF64WOP",
+   "name": "清真高坷台坤坤菠菜面(夏家什字店)",
+   "lat": 34.257159,
+   "lng": 108.930016,
+   "address": "夏家十字与北夏家十字路口南50米",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "西安的面食多种多样，想要来碗绿色的菠菜面，菠菜面既有白面条的口感，也有蔬菜的营养。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": true,
+   "lastSeen": "2020-07-30"
+  },
+  {
+   "id": "B0MUGROBB1",
+   "name": "小阁楼湘菜",
+   "lat": 34.351225,
+   "lng": 108.953425,
+   "address": "开元农贸市场南门西180米",
+   "category": "炒菜",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "小阁楼湘菜—地址：科技路与白沙路交叉口西北角—电话：68823555—人均：￥33",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "B001D0ZQTS",
+   "name": "关中老碗",
+   "lat": 34.243381,
+   "lng": 109.003805,
+   "address": "建工路33号",
+   "category": "面",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "推荐：三合一臊子面、油泼面。地址：高新一路创业大厦一楼",
+   "authors": [
+    "小王讲择校"
+   ],
+   "verified": true,
+   "lastSeen": "2018-04-09"
+  },
+  {
+   "id": "B0FFI7O6WT",
+   "name": "六婆串串香火锅(沙井村店)",
+   "lat": 34.111404,
+   "lng": 108.615469,
+   "address": "鄠邑区画展路4号崇立·上林华府",
+   "category": "烤肉",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "六婆串串香火锅(沙井村店) — 地址：科技二路沙井村—电话：88221518—人均：￥46",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": true,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "B0FFHZTLMJ",
+   "name": "小孟华精专擀面皮",
+   "lat": 34.222372,
+   "lng": 108.961174,
+   "address": "曲江新区小寨东路8号大雁塔北广场西侧一号楼一层A133号",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "他家的擀面很正宗面皮晶莹剔透，凉皮很劲道，又不会很硬，也很薄，配菜用的是芹菜和黄豆芽",
+   "authors": [
+    "西安美食达人圈"
+   ],
+   "verified": true,
+   "lastSeen": "2017-05-14"
+  },
+  {
+   "id": "B0L0CDXYS2",
+   "name": "汉中特色热米皮",
+   "lat": 34.376615,
+   "lng": 108.917527,
+   "address": "雨润·星雨华府北1门旁",
+   "category": "凉皮酿皮",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "米皮很厚实，量很大，汤汁调的很好，里面的配菜有豆芽，青菜，面皮刚蒸出来的时候，热的很软糯",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": true,
+   "lastSeen": "2018-01-09"
+  },
+  {
+   "id": "B0FFK0AY34",
+   "name": "刘峰肉夹馍",
+   "lat": 34.244972,
+   "lng": 108.940383,
+   "address": "朱雀东坊西安公馆3号楼1层",
+   "category": "肉夹馍",
+   "trust": 28.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "刘峰肉夹馍：高新一路13号和颐酒店一层(创业大厦对面)",
+   "authors": [
+    "然的美食"
+   ],
+   "verified": true,
+   "lastSeen": "2018-04-25"
+  },
+  {
+   "id": "name:唐道碗菜(锦业路店)",
+   "name": "唐道碗菜(锦业路店)",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "炒菜",
+   "trust": 25.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "唐道碗菜(锦业路店)—地址：雁塔区丈八三路锦业路餐界A区10108号铺—电话：87970111—人均：￥43",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": false,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "name:红红米线店",
+   "name": "红红米线店",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "米线",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "一个人不知道该吃啥的时候，第一个想到的就是红红米线，一碗麻辣米线再来一小把烤肉，简直了。",
+   "authors": [
+    "自立米线老潘"
+   ],
+   "verified": false,
+   "lastSeen": "2021-01-21"
+  },
+  {
+   "id": "name:海家粉蒸肉砂锅米线",
+   "name": "海家粉蒸肉砂锅米线",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "米线",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "满满的一层油泼辣子+芝麻，配菜和肉的量也很足，吃的很过瘾，美中不足是排队时间有点长。",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": false,
+   "lastSeen": "2025-11-15"
+  },
+  {
+   "id": "name:大串烧肉",
+   "name": "大串烧肉",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "烤肉",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老牌夜市里的老牌烤肉，老板负责烤肉，老板娘负责招呼客人，很典型的苍蝇小馆，没人带很难找到。",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": false,
+   "lastSeen": "2020-12-03"
+  },
+  {
+   "id": "name:刘宝老家铜锅串串",
+   "name": "刘宝老家铜锅串串",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "烤肉",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这附近爱吃串串的小伙伴一定对刘宝串串不陌生，而南稍门这家可是刘宝串串的总店。他家的味道很辣很重",
+   "authors": [
+    "星尘故事会"
+   ],
+   "verified": false,
+   "lastSeen": "2020-06-19"
+  },
+  {
+   "id": "name:大清花饺子馆",
+   "name": "大清花饺子馆",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "饺子蒸饺",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "东北风味的饺子馆，人非常多，饭点去经常没座位。饺子馅种类比较多，鲅鱼馅儿很有特色。",
+   "authors": [
+    "西安美食频道"
+   ],
+   "verified": false,
+   "lastSeen": "2016-09-29"
+  },
+  {
+   "id": "name:大麦市街酸汤饺子馆",
+   "name": "大麦市街酸汤饺子馆",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "饺子蒸饺",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "推荐菜品：牛肉虾仁、牛肉韭黄...",
+   "authors": [
+    "西安本地宝"
+   ],
+   "verified": false,
+   "lastSeen": "2026-02-21"
+  },
+  {
+   "id": "name:老金家水盆羊肉",
+   "name": "老金家水盆羊肉",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "水盆羊肉",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "老金家水盆羊肉是典型的回民老店。水盆汤鲜肉烂，绿油油的蒜苗叶，不仅祛了羊汤的膻味儿，还带来了一丝美感。",
+   "authors": [
+    "三秦人文地理"
+   ],
+   "verified": false,
+   "lastSeen": "2017-11-19"
+  },
+  {
+   "id": "name:清真老望家常炒菜",
+   "name": "清真老望家常炒菜",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "炒菜",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "李记搅团、乐乐餐厅、传家菜、杨超炒菜馆、清真老望家常炒菜、王凯老菜馆、金魁川菜馆都是口碑不错实惠下饭的馆子",
+   "authors": [
+    "秦腔广播西安乱弹"
+   ],
+   "verified": false,
+   "lastSeen": "2023-03-10"
+  },
+  {
+   "id": "name:湘子门小炒",
+   "name": "湘子门小炒",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "牛羊肉小炒",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "这家店是除了坊上的那些个外，一个很拿得出手的选择。",
+   "authors": [
+    "吃喝玩乐在西安"
+   ],
+   "verified": false,
+   "lastSeen": "2017-12-09"
+  },
+  {
+   "id": "name:辣呦中国菜",
+   "name": "辣呦中国菜",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "炒菜",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "辣呦靠着地道的川菜，和几年未变的超低人均，这样良心的性价比，一路在西安俘获万千粉丝",
+   "authors": [
+    "得劲儿"
+   ],
+   "verified": false,
+   "lastSeen": "2019-07-13"
+  },
+  {
+   "id": "name:皮薄村味园",
+   "name": "皮薄村味园",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "饺子蒸饺",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "皮薄饺子开业到现在已经有30年了，从原来单一的卖饺子发展成了现在的饺子炒菜。",
+   "authors": [
+    "村长带你逛西安"
+   ],
+   "verified": false,
+   "lastSeen": "2019-04-18"
+  },
+  {
+   "id": "name:丹妹手工面馆(富力城南区店)",
+   "name": "丹妹手工面馆(富力城南区店)",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "面",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "傍晚一个人来吃面，点了一碗肉臊子干拌。手擀面真的特别劲道，裹着满满的臊子，每一口都很扎实。",
+   "authors": [
+    "携程美食点评用户"
+   ],
+   "verified": false,
+   "lastSeen": "2026-03-21"
+  },
+  {
+   "id": "name:两湖人家",
+   "name": "两湖人家",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "炒菜",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "两湖人家—地址：高新路108号枫林绿洲西门—电话：68909311—人均：￥47",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": false,
+   "lastSeen": "2017-02-21"
+  },
+  {
+   "id": "name:香泉羊肉汤",
+   "name": "香泉羊肉汤",
+   "lat": null,
+   "lng": null,
+   "address": null,
+   "category": "水盆羊肉",
+   "trust": 10.0,
+   "consensus": 30.0,
+   "endorsement": 0.0,
+   "sources": 1,
+   "mentions": 1,
+   "reason": "香泉羊肉汤—地址：西高新科技四路西口路北—电话：88746228—人均：24",
+   "authors": [
+    "长安范儿《高新吃货地图》"
+   ],
+   "verified": false,
+   "lastSeen": "2017-02-21"
+  }
+ ]
+}

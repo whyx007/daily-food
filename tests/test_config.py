@@ -3,7 +3,9 @@ from app.config import Settings
 
 def test_defaults_and_radius_list():
     s = Settings(amap_key="k", _env_file=None)
-    assert s.default_lat == 39.90923
+    # 默认出发点在西安高新区，保证无定位环境下打开就是西安
+    assert s.default_lat == 34.172176
+    assert s.default_lng == 108.862074
     assert s.daily_call_limit == 500
     assert s.radius_list == [500, 1000, 2000, 3000]
 

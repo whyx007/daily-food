@@ -15,7 +15,8 @@ def load_key() -> str:
         return key
     env = ROOT / ".env"
     if env.exists():
-        for line in env.read_text(encoding="utf-8").splitlines():
+        # utf-8-sig：兼容带 BOM 的 .env（PowerShell 的 Set-Content 会加 BOM）
+        for line in env.read_text(encoding="utf-8-sig").splitlines():
             if line.startswith("AMAP_KEY="):
                 return line.split("=", 1)[1].strip()
     return ""

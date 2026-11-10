@@ -11,7 +11,7 @@ OUT = Path(__file__).resolve().parent / "out"
 
 _COLS = ("poiid,name,address,category,trust,consensus,endorsement,"
          "source_count,mention_count,reason,authors_json,first_seen,last_seen,"
-         "lat,lng,verified")
+         "lat,lng,verified,area")
 
 
 def _rows(conn):
@@ -173,7 +173,7 @@ document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{{
     for r in rows:
         items.append({
             "id": r["poiid"], "name": r["name"], "lat": r["lat"], "lng": r["lng"],
-            "address": r["address"], "category": r["category"],
+            "address": r["address"], "category": r["category"], "area": r["area"],
             "trust": r["trust"], "consensus": r["consensus"],
             "endorsement": r["endorsement"],
             "sources": r["source_count"], "mentions": r["mention_count"],

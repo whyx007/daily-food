@@ -4,7 +4,8 @@ const state = {
   originMarker: null, minRating: 0, menuTarget: null, originSource: 'default', lastQuery: null, menuFix: null,
   lastMeta: null, originLabel: null, originLabelKey: null,
   showClassicOnMap: false, classicMarkers: [],
-  showRadarOnMap: false, radarMarkers: [], radarItems: null, radarPickId: null,
+  showRadarOnMap: false, radarMarkers: [], radarItems: null, radarItemsAll: null,
+  radarPickId: null, radarFilter: null, radarData: null,
   sortBy: 'distance',
 };
 
@@ -592,6 +593,11 @@ function setMode(mode) {
   });
   const row = $('#radius-row');
   if (row) row.classList.toggle('disabled', mode === 'classic' || mode === 'radar');
+  // 网络推荐不继承其它模式之前的词片选择：进入时清空高亮，展示全量
+  if (mode === 'radar') {
+    $('#chips').querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+    state.radarFilter = null;
+  }
   loadToday();
 }
 
@@ -739,6 +745,7 @@ function navigate(poi) {
 function updateListCount(data) {
   const el = $('#list-count');
   if (!el) return;
+  if (state.mode === 'radar') { updateRadarCount(); return; }  // 网络推荐自己管计数，避免被普通模式覆盖
   const matched = data.matched != null ? data.matched : (data.candidates || []).length;
   const pool = data.poolSize;
   if (state.mode === 'weighted') {
@@ -793,9 +800,70 @@ function fmtKm(r) {
   return r >= 1000 ? `${Math.round(r / 100) / 10}km` : `${Math.round(r)}m`;
 }
 
+/** 网络推荐按词片筛选：词片 -> 雷达品类 + 名称关键词 */
+const RADAR_CHIP_RULES = {
+  '饺子': { cats: ['饺子蒸饺'], kws: ['饺子', '蒸饺', '锅贴'] },
+  '凉皮': { cats: ['凉皮酿皮'], kws: ['凉皮', '米皮', '酿皮', '擀面皮', '夹馍'] },
+  '面': { cats: ['面'], kws: ['面', 'biangbiang', '臊子', '油泼'] },
+  '火锅': { cats: [], kws: ['火锅', '串串'] },
+  '快餐': { cats: ['炒菜'], kws: ['快餐', '盖浇'] },
+  '牛羊肉泡馍': { cats: ['牛羊肉小炒'], kws: ['泡馍', '小炒', '羊肉'] },
+  '葫芦头': { cats: ['汉民泡馍'], kws: ['葫芦头', '梆梆肉', '煮馍', '粉汤羊血'] },
+  '炒菜': { cats: ['炒菜'], kws: ['炒菜', '川菜', '湘菜'] },
+  '烧烤': { cats: ['烤肉'], kws: ['烤肉', '烧烤', '串串'] },
+};
+
+function matchRadarChip(item, keyword) {
+  const rule = RADAR_CHIP_RULES[keyword];
+  if (!rule) return true;
+  if (rule.cats.length && rule.cats.includes(item.category)) return true;
+  const text = `${item.name || ''}${item.category || ''}`;
+  return rule.kws.some((k) => text.includes(k));
+}
+
+/** 只筛选本地已加载的雷达数据，不打接口、不动地图（除非要重画标识） */
+function applyRadarFilter(keyword) {
+  const all = state.radarItemsAll || [];
+  const items = keyword ? all.filter((i) => matchRadarChip(i, keyword)) : all.slice();
+  state.radarItems = items;
+  state.radarFilter = keyword || null;
+
+  if (!items.length) {
+    $('#daily-card').innerHTML = `<div class="notice">网络推荐里没有「${esc(keyword)}」，换个词片或点取消</div>`;
+    $('#list').innerHTML = '';
+    updateRadarCount();
+    if (state.showRadarOnMap) renderRadarMarkers();
+    renderMarkers([]);
+    return;
+  }
+  const pick = items.find((i) => i.lat != null && i.lng != null) || items[0];
+  state.radarPickId = pick.id;
+  renderRadarCard(pick, state.lastMeta);
+  renderRadarList(items);
+  updateRadarCount();
+  renderMarkers([]);
+  if (state.showRadarOnMap) renderRadarMarkers();
+}
+
+function updateRadarCount() {
+  const el = $('#list-count');
+  if (!el) return;
+  if (state.mode !== 'radar') return;   // 切走了就别再改文案
+  const shown = (state.radarItems || []).length;
+  const total = (state.radarItemsAll || []).length;
+  const gen = ((state.radarData && state.radarData.generatedAt) || '').slice(0, 10);
+  const filter = state.radarFilter ? ` · 词片「${state.radarFilter}」` : '';
+  el.textContent = state.radarFilter
+    ? `网络推荐 ${shown} / ${total} 家${filter}（列表显示前 ${Math.min(60, shown)}，数据更新 ${gen}）`
+    : `网络推荐 ${shown} 家（列表显示前 ${Math.min(60, shown)}，数据更新 ${gen}）`;
+}
+
 async function loadRadar() {
   const body = await api('/api/radar', { lat: state.lat, lng: state.lng });
   const items = body.data.items || [];
+  state.radarItemsAll = items;
+  state.radarData = body.data;
+  state.radarFilter = null;
   state.radarItems = items;
   state.selectionActive = false;
   if (!items.length) {
@@ -810,8 +878,8 @@ async function loadRadar() {
   renderRadarCard(pick, body.data);
   renderRadarList(items);
   renderMarkers([]);
-  $('#list-count').textContent =
-    `网络推荐 ${items.length} 家（列表显示前 ${Math.min(60, items.length)}，数据更新 ${(body.data.generatedAt || '').slice(0, 10)}）`;
+  updateRadarCount();
+  if (state.showRadarOnMap) renderRadarMarkers();
 }
 
 function renderRadarCard(pick, meta) {
@@ -976,6 +1044,7 @@ function clearFilter() {
   loadToday();
 }
 
+
 const chips = [['饺子', '饺子'], ['凉皮夹馍', '凉皮'], ['面', '面'], ['火锅', '火锅'], ['快餐', '快餐'],
                ['牛羊肉泡馍', '牛羊肉泡馍'], ['葫芦头', '葫芦头'], ['炒菜', '炒菜'], ['烧烤', '烧烤']];
   $('#chips').innerHTML = chips
@@ -985,7 +1054,8 @@ const chips = [['饺子', '饺子'], ['凉皮夹馍', '凉皮'], ['面', '面'],
     el.onclick = () => {
       $('#chips').querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
       el.classList.add('active');
-      if (state.mode === 'classic') filterClassicsByKeyword(el.dataset.q);
+      if (state.mode === 'radar') applyRadarFilter(el.dataset.q);
+      else if (state.mode === 'classic') filterClassicsByKeyword(el.dataset.q);
       else search(el.dataset.q, false);  // 词片：周边搜索，受距离档位约束
     };
   });

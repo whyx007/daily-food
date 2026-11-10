@@ -58,6 +58,17 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.client = AmapClient(key=settings.amap_key, max_concurrency=settings.qps)
     app.state.limiter = RateLimiter(limit=settings.rate_limit_per_min, window=60)
     app.include_router(router)
+
+    @app.middleware("http")
+    async def no_cache_static(request, call_next):
+        """前端文件禁止浏览器缓存，否则改了 JS/CSS 后用户看到的还是旧版。"""
+        response = await call_next(request)
+        path = request.url.path
+        if path == "/" or path.endswith((".html", ".js", ".css")):
+            response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+            response.headers["Pragma"] = "no-cache"
+        return response
+
     web_dir = Path(__file__).resolve().parent.parent / "web"
     if web_dir.exists():
         app.mount("/", StaticFiles(directory=str(web_dir), html=True), name="web")

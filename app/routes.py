@@ -15,6 +15,36 @@ from app.models import Envelope, Meta, Poi
 router = APIRouter()
 TZ = ZoneInfo("Asia/Shanghai")
 
+# 候选池缓存版本标记：改动抓取上限（页数/max_items）后改这个值，旧池自动失效
+POOL_CATEGORY = "all2"
+
+# 「高分优先」排除的快餐/饮品/烘焙连锁：这类店铺评分虚高，不是大家要找的馆子
+CHAIN_HINTS = (
+    "肯德基", "麦当劳", "必胜客", "汉堡王", "德克士", "华莱士", "塔斯汀", "正新鸡排",
+    "蜜雪冰城", "瑞幸", "库迪", "星巴克", "COSTA", "幸运咖", "茶百道", "古茗",
+    "一点点", "喜茶", "奈雪", "益禾堂", "甜啦啦",
+    "米旗", "好利来", "面包新语", "85度C",
+    "沙县小吃", "兰州拉面", "魏家凉皮", "袁记肉夹馍", "老潼关", "绝味", "紫燕",
+)
+
+
+def _is_chain(name: str | None) -> bool:
+    text = name or ""
+    return any(hint in text for hint in CHAIN_HINTS)
+
+
+# 高德偶尔把非餐饮 POI 标成「餐饮服务;中餐厅」（数据错误），按店名排掉
+NON_FOOD_HINTS = (
+    "头疗", "养生", "SPA", "按摩", "足浴", "足道", "洗浴", "美容", "美发", "理发",
+    "酒店", "宾馆", "公寓", "超市", "便利店", "药店", "洗衣", "洗车", "宠物",
+    "健身", "瑜伽", "摄影", "茶艺", "棋牌", "网吧", "KTV",
+)
+
+
+def _is_non_food(name: str | None) -> bool:
+    text = (name or "").upper()
+    return any(hint.upper() in text for hint in NON_FOOD_HINTS)
+
 
 def today_key() -> str:
     return datetime.now(TZ).date().isoformat()
@@ -117,7 +147,8 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
     if mode == "classic":
         pool = [_classic_poi(item) for item in store.list_classics()]
     else:
-        cached = store.get_pool(day, grid, radius)
+        pool_cat = POOL_CATEGORY
+        cached = store.get_pool(day, grid, radius, pool_cat)
         if cached is not None:
             pool, fetched_at = cached
         elif degraded != "daily_limit_reached":
@@ -125,13 +156,13 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
                 fetched = await request.app.state.client.around(lat, lng, radius)
                 store.bump_calls(day)
                 payload = [p.model_dump() for p in fetched]
-                store.put_pool(day, grid, radius, "all", payload, _now())
+                store.put_pool(day, grid, radius, pool_cat, payload, _now())
                 pool, fetched_at = payload, _now()
             except AmapError as exc:
                 if exc.info in {"INVALID_USER_KEY", "USERKEY_PLAT_NOMATCH"}:
                     degraded = "misconfigured"
         if not pool:
-            latest = store.get_latest_pool(grid, radius)
+            latest = store.get_latest_pool(grid, radius, pool_cat)
             if latest is not None:
                 pool, fetched_at, _ = latest
                 stale = True
@@ -140,12 +171,18 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
         return JSONResponse(status_code=404, content={
             "data": None, "meta": {"stale": False, "degraded": degraded or "no_data"}})
 
+    pool_size = len(pool)
+    if mode != "classic":
+        pool = [item for item in pool if not _is_non_food(item.get("name"))]
+    if mode == "weighted":
+        # 高分优先不看快餐/饮品/烘焙连锁（评分虚高，且不是「馆子」）
+        pool = [item for item in pool if not _is_chain(item.get("name"))]
     if mode == "weighted" and min_rating is not None:
         pool = [item for item in pool
                 if (_rating_float(item.get("rating")) or 0) >= min_rating]
-        if not pool:
-            return JSONResponse(status_code=404, content={
-                "data": None, "meta": {"stale": stale, "degraded": "no_match"}})
+    if not pool:
+        return JSONResponse(status_code=404, content={
+            "data": None, "meta": {"stale": stale, "degraded": "no_match"}})
 
     pool = _apply_fixes(store, pool)
 
@@ -160,11 +197,34 @@ async def today(request: Request, lat: float, lng: float, mode: str = "area",
     if chosen.distance is None:
         chosen.distance = haversine_m(lat, lng, chosen.lat, chosen.lng)
 
-    candidates = _with_distance(_pois(pool)[:20], lat, lng, keep_distance=False)
+    candidates_all = _with_distance(_pois(pool), lat, lng, keep_distance=False)
+    if mode == "weighted":
+        # 高分优先：与 picker 的权重同口径排序（评分 0.65 + 距离 0.35），近且好的排前面
+        def score(p):
+            rating = _rating_float(p.rating) or 0
+            decay = 1.0 - min((p.distance or 0) / max(radius, 1), 1.0)
+            return -(0.65 * (rating / 5.0) + 0.35 * decay)
+        candidates_all.sort(key=score)
+    else:
+        candidates_all.sort(key=lambda p: p.distance or 0)
+
+    # 同一家店在高德可能有重复条目（同名、位置几乎重合），按「店名 + 50m 网格」去重
+    seen_keys: set[tuple[str, int]] = set()
+    deduped: list[Poi] = []
+    for poi in candidates_all:
+        key = (poi.name.strip(), int((poi.distance or 0) // 50))
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        deduped.append(poi)
+    candidates = deduped[:40]
+
     return _envelope({
         "pick": chosen.model_dump(),
         "candidates": [p.model_dump() for p in candidates],
         "mode": mode,
+        "matched": len(deduped),
+        "poolSize": pool_size,
     }, Meta(cachedAt=fetched_at, stale=stale, degraded=picked_degraded or degraded,
             seed=picker.seed_text(day, grid, mode, radius, nonce)))
 

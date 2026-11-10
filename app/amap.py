@@ -145,9 +145,9 @@ class AmapClient:
 
     async def around(self, lat: float, lng: float, radius: int,
                      keywords: str | None = None, types: str | None = "050000",
-                     max_items: int = 60) -> list[Poi]:
+                     max_items: int = 150) -> list[Poi]:
         out: list[Poi] = []
-        for page in range(1, 4):
+        for page in range(1, 8):
             params = {
                 "location": f"{lng:.6f},{lat:.6f}",
                 "radius": radius,

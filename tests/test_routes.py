@@ -9,7 +9,7 @@ from app.config import Settings
 from app.geo import quantize_grid
 from app.main import create_app
 from app.models import Poi
-from app.routes import today_key
+from app.routes import POOL_CATEGORY, today_key
 
 
 class FakeAmap:
@@ -83,7 +83,7 @@ def test_today_breaker_returns_stale_pool(client):
     store = client.app.state.store
     day = today_key()
     yesterday = (date_cls.fromisoformat(day) - timedelta(days=1)).isoformat()
-    store.put_pool(yesterday, quantize_grid(39.91, 116.40), 1000, "all",
+    store.put_pool(yesterday, quantize_grid(39.91, 116.40), 1000, POOL_CATEGORY,
                    [Poi(id="B900", name="昨日店", distance=300, lat=39.91, lng=116.40,
                         rating="4.0").model_dump()], 1)
     for _ in range(501):

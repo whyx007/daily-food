@@ -681,6 +681,23 @@ function navigate(poi) {
   window.location.href = buildNavUrl(poi);
 }
 
+function updateListCount(data) {
+  const el = $('#list-count');
+  if (!el) return;
+  const matched = data.matched != null ? data.matched : (data.candidates || []).length;
+  const pool = data.poolSize;
+  if (state.mode === 'weighted') {
+    const label = state.minRating ? `${state.minRating} 分以上` : '不限评分';
+    el.textContent = pool != null
+      ? `${label}：匹配 ${matched} 家（附近餐饮共 ${pool} 家，列表显示前 ${Math.min(40, matched)}）`
+      : `${label}：匹配 ${matched} 家`;
+  } else if (state.mode === 'classic') {
+    el.textContent = `经典馆子：${matched} 家`;
+  } else {
+    el.textContent = `附近餐饮 ${matched} 家（列表显示前 ${Math.min(40, matched)}）`;
+  }
+}
+
 async function loadToday() {
   if (state.lock) return;
   state.lock = true;
@@ -694,6 +711,7 @@ async function loadToday() {
     renderDaily(body.data.pick, body.meta);
     renderList(body.data.candidates);
     renderMarkers(body.data.candidates);
+    updateListCount(body.data);
     state.retries = 0;
   } catch (e) {
     if (e.status === 429 && (state.retries || 0) < 2) {

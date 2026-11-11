@@ -467,5 +467,21 @@
     "tier": "official",
     "note": "地铁三号线沿线美食盘点，逐店给人均与地址；2016 年文，年份老需注意店面变动",
     "trust_prior": 0.5
+  },
+  {
+    "id": "trip_review",
+    "name": "Trip.com 餐厅评价",
+    "platform": "Trip.com",
+    "tier": "media",
+    "note": "携程海外站点餐厅点评页，真实到店食客留言",
+    "trust_prior": 0.45
+  },
+  {
+    "id": "baijiahao_rong",
+    "name": "容都o岑颜（百家号）",
+    "platform": "百家号",
+    "tier": "media",
+    "note": "百家号探店图文，写韦曲北街皇城轩葫芦头并附地址",
+    "trust_prior": 0.45
   }
 ]

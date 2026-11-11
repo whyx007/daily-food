@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-10T21:05:35+08:00",
+ "generatedAt": "2026-11-11T18:43:21+08:00",
  "count": 216,
  "items": [
   {
@@ -23,6 +23,28 @@
    ],
    "verified": true,
    "lastSeen": "2024-05-07"
+  },
+  {
+   "id": "B001D08DBR",
+   "name": "刘信牛羊肉泡馍小炒",
+   "lat": 34.266505,
+   "lng": 108.93275,
+   "address": "洒金桥129号(老关庙什字旁)",
+   "category": "牛羊肉小炒",
+   "area": null,
+   "trust": 91.6,
+   "consensus": 88.0,
+   "endorsement": 72.0,
+   "sources": 3,
+   "mentions": 3,
+   "reason": "西安苍蝇馆子排行榜第一名，被无数网友誉为西安最好吃的小炒！肉块大，酸辣、料香、牛油气搭配，味道霸气十足的味道让人欲罢不能。",
+   "authors": [
+    "Trip.com 餐厅评价",
+    "老妖带你吃西安",
+    "花路旅游"
+   ],
+   "verified": true,
+   "lastSeen": "2026-01-09"
   },
   {
    "id": "B0FFIL3QXQ",
@@ -178,27 +200,6 @@
    "lastSeen": "2026-08-24"
   },
   {
-   "id": "B001D08DBR",
-   "name": "刘信牛羊肉泡馍小炒",
-   "lat": 34.266505,
-   "lng": 108.93275,
-   "address": "洒金桥129号(老关庙什字旁)",
-   "category": "牛羊肉小炒",
-   "area": null,
-   "trust": 76.6,
-   "consensus": 63.0,
-   "endorsement": 72.0,
-   "sources": 2,
-   "mentions": 2,
-   "reason": "西安苍蝇馆子排行榜第一名，被无数网友誉为西安最好吃的小炒！肉块大，酸辣、料香、牛油气搭配，味道霸气十足的味道让人欲罢不能。",
-   "authors": [
-    "老妖带你吃西安",
-    "花路旅游"
-   ],
-   "verified": true,
-   "lastSeen": "2026-01-09"
-  },
-  {
    "id": "B0FFFRIT7W",
    "name": "皇城轩葫芦头",
    "lat": 34.162559,
@@ -209,16 +210,17 @@
    "trust": 74.8,
    "consensus": 88.0,
    "endorsement": 0.0,
-   "sources": 3,
-   "mentions": 3,
+   "sources": 4,
+   "mentions": 4,
    "reason": "这家将近20年的老字号葫芦头应该是很多长安小伙伴们的集体记忆。",
    "authors": [
+    "容都o岑颜（百家号）",
     "村长带你逛西安",
     "陕西小喇叭",
     "陕西美食篇"
    ],
    "verified": true,
-   "lastSeen": "2019-04-18"
+   "lastSeen": "2020-06-09"
   },
   {
    "id": "B0HG3CD2JX",

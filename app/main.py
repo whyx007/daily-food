@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from pathlib import Path
 import json
+import time
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -58,6 +59,34 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.client = AmapClient(key=settings.amap_key, max_concurrency=settings.qps)
     app.state.limiter = RateLimiter(limit=settings.rate_limit_per_min, window=60)
     app.include_router(router)
+
+    @app.middleware("http")
+    async def access_log_middleware(request, call_next):
+        """记录每次访问（访问日志见 /admin.html 或 logs/access.log）。"""
+        started = time.perf_counter()
+        response = await call_next(request)
+        try:
+            import os
+
+            if os.environ.get("PYTEST_CURRENT_TEST") or os.environ.get("ACCESS_LOG_OFF"):
+                return response        # 跑测试时不要把用例请求写进真实日志
+            from app import accesslog
+
+            client = request.client.host if request.client else "unknown"
+            ip = request.headers.get("X-Real-IP") or client
+            accesslog.log_request(
+                ip=ip,
+                method=request.method,
+                path=request.url.path,
+                query=list(request.query_params.multi_items()),
+                status=response.status_code,
+                ms=(time.perf_counter() - started) * 1000,
+                ua=request.headers.get("User-Agent", ""),
+                referer=request.headers.get("Referer", ""),
+            )
+        except Exception:
+            pass       # 日志失败绝不能影响正常请求
+        return response
 
     @app.middleware("http")
     async def no_cache_static(request, call_next):

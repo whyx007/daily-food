@@ -317,6 +317,49 @@ def _load_radar() -> dict:
     return cache["payload"]
 
 
+@router.get("/api/admin/logs")
+def admin_logs(request: Request, limit: int = 200, path: str = "", status: str = "",
+               ip: str = "", files: int = 1):
+    """访问日志（需要密码：X-Admin-Password 头或 ?token=）。"""
+    admin = request.app.state.settings.admin_token
+    given = request.headers.get("X-Admin-Password", "") or request.query_params.get("token", "")
+    if not admin or given != admin:
+        return JSONResponse(status_code=403, content={"detail": "forbidden"})
+    from app import accesslog
+
+    limit = max(1, min(2000, int(limit)))
+    items = accesslog.tail(limit, path_prefix=path, status=status, ip=ip, files=max(1, min(5, files)))
+    stats = {"total": len(items)}
+    if items:
+        stats["errors"] = sum(1 for i in items if int(i.get("status", 0)) >= 400)
+        stats["avgMs"] = round(sum(float(i.get("ms", 0)) for i in items) / len(items), 1)
+    return _envelope({"items": items, "stats": stats,
+                      "file": str(accesslog.LOG_FILE)}, Meta())
+
+
+@router.get("/api/admin/logs/stats")
+def admin_logs_stats(request: Request):
+    """按路径/状态汇总最近的请求（方便看哪个接口被刷）。"""
+    admin = request.app.state.settings.admin_token
+    given = request.headers.get("X-Admin-Password", "") or request.query_params.get("token", "")
+    if not admin or given != admin:
+        return JSONResponse(status_code=403, content={"detail": "forbidden"})
+    from collections import Counter
+
+    from app import accesslog
+
+    items = accesslog.tail(2000, files=5)
+    by_path = Counter(i.get("path", "") for i in items).most_common(20)
+    by_ip = Counter(i.get("ip", "") for i in items).most_common(20)
+    by_status = Counter(str(i.get("status", "")) for i in items).most_common(20)
+    return _envelope({
+        "count": len(items),
+        "byPath": [{"path": p, "n": n} for p, n in by_path],
+        "byIp": [{"ip": p, "n": n} for p, n in by_ip],
+        "byStatus": [{"status": p, "n": n} for p, n in by_status],
+    }, Meta())
+
+
 @router.get("/api/radar")
 def radar(request: Request, lat: float | None = None, lng: float | None = None,
           category: str | None = None, min_trust: float = 0):

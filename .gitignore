@@ -8,3 +8,4 @@ __pycache__/
 .conda-env/
 .chrome-tmp*/
 pip-unpack-*/
+logs/

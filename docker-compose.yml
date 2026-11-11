@@ -11,3 +11,4 @@ services:
       - "9000:8000"
     volumes:
       - ./data-store:/data
+      - ./logs:/app/logs        # 访问日志持久化，重建容器不丢

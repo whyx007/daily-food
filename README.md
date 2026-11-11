@@ -139,7 +139,30 @@ Nginx 配置见 `deploy/nginx.conf.example`，把 `REPLACE_WITH_SECURITY_CODE` �
 - 数据：`/opt/daily-food/data-store/daily-food.db`（含 8 家名人堂），容器内 `/data`；
 - 重新部署：`python scripts/deploy_docker.py`（SSH 信息用环境变量 `DSH_SSH_HOST/PORT/USER/PASSWORD` 提供）。
 
-## 额度与降级
+## 访问日志
+
+每次请求都会记一条 JSON Lines 到 `logs/access.log`（单文件 5MB 自动滚动，保留 5 个历史文件）：
+
+```json
+{"t":"2026-11-11 18:49:06","ip":"1.2.3.4","method":"GET","path":"/api/radar","query":"lat=34.17&lng=108.86","status":200,"ms":7.8,"ua":"Mozilla/5.0 …","ref":""}
+```
+
+**查看方式（三种任选）**
+
+1. **浏览器**：打开 `http://127.0.0.1:8123/admin.html`（线上 `https://www.whyx.site/admin.html`），输入管理密码（`ADMIN_TOKEN`）后可筛选路径/IP/状态码，可开 5 秒自动刷新，顶部显示热点路径与来源 IP；
+2. **命令行**：
+   ```powershell
+   python scripts/tail_logs.py              # 最近 20 条
+   python scripts/tail_logs.py 100          # 最近 100 条
+   python scripts/tail_logs.py --path /api  # 只看某前缀
+   python scripts/tail_logs.py --status 500 # 只看 5xx
+   python scripts/tail_logs.py --stats      # 按路径/IP/状态码汇总
+   ```
+3. **看原始文件**：`logs/access.log`（Docker 部署时映射到宿主 `/opt/daily-food/logs`），可用 `tail -f` 或 `jq` 过滤。
+
+**安全**：查询串里若出现 `token`、`password`、`key` 等参数名，值会被替换成 `<hidden>`，密码不会进日志；`/api/admin/logs` 本身需要密码。跑测试时（`PYTEST_CURRENT_TEST`）不写日志，避免用例污染真实记录。
+
+
 
 - 周边池按「日期 + 网格（约 500m）+ 半径」缓存，跨日失效；同一区域的人共用一次外部调用；
 - 搜索缓存 5 分钟；每 IP 20 次/分钟；
@@ -155,3 +178,8 @@ tests/   pytest（全部 mock）
 scripts/ 真实链路冒烟脚本
 deploy/  systemd 与 Nginx 示例
 ```
+
+## 额度与降级
+
+高德免费额度按日计算，服务端有 DAILY_CALL_LIMIT（默认 500）熔断与 RATE_LIMIT_PER_MIN（默认 120）限流；
+超出时会返回缓存结果并把 `meta.degraded` 置为 `daily_limit_reached` 或 `too_many_requests`。

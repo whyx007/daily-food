@@ -6,13 +6,17 @@ import json
 import os
 import threading
 import time
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent.parent
 LOG_DIR = ROOT / "logs"
 LOG_FILE = LOG_DIR / "access.log"
 MAX_BYTES = 5 * 1024 * 1024   # 单文件 5MB
 KEEP = 5                      # 保留 5 个历史文件
+
+TZ = ZoneInfo("Asia/Shanghai")
 
 _lock = threading.Lock()
 
@@ -57,9 +61,10 @@ def write(entry: dict) -> None:
 
 def log_request(*, ip: str, method: str, path: str, query: list[tuple[str, str]],
                 status: int, ms: float, ua: str, referer: str) -> None:
+    now = datetime.now(TZ)
     write({
-        "t": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
-        "ts": round(time.time(), 3),
+        "t": now.strftime("%Y-%m-%d %H:%M:%S"),
+        "ts": round(now.timestamp(), 3),
         "ip": ip,
         "method": method,
         "path": path,

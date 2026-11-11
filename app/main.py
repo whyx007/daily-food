@@ -73,7 +73,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             from app import accesslog
 
             client = request.client.host if request.client else "unknown"
-            ip = request.headers.get("X-Real-IP") or client
+            # 反向代理（Caddy/Nginx）后面，真实 IP 在 X-Forwarded-For 里
+            fwd = request.headers.get("X-Forwarded-For", "")
+            if fwd:
+                ip = fwd.split(",")[0].strip()
+            else:
+                ip = request.headers.get("X-Real-IP") or client
             accesslog.log_request(
                 ip=ip,
                 method=request.method,

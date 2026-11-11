@@ -3,84 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>访问日志 · 今天吃啥</title>
+<title>访问记录 · 今天吃啥</title>
 <style>
 * { box-sizing: border-box; }
 body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   background: #f6f7f9; color: #1f2328; }
-header { padding: 14px 20px; background: #fff; border-bottom: 1px solid #e5e7eb; }
+header { padding: 14px 18px; background: #fff; border-bottom: 1px solid #e5e7eb; }
 h1 { margin: 0; font-size: 17px; }
-.sub { color: #57606a; font-size: 12px; margin-top: 3px; }
-#gate { padding: 20px; max-width: 520px; }
-#gate label { display: block; font-size: 13px; color: #57606a; margin-bottom: 6px; }
-#gate input { width: 100%; padding: 8px 10px; border: 1px solid #d0d7de; border-radius: 8px; font-size: 14px; }
-#gate button { margin-top: 10px; padding: 8px 16px; border: 0; border-radius: 8px;
-  background: #1f2328; color: #fff; cursor: pointer; }
+.sub { color: #8b949e; font-size: 12px; margin-top: 3px; }
+#gate { padding: 18px; max-width: 460px; }
+#gate input { width: 100%; padding: 9px 11px; border: 1px solid #d0d7de; border-radius: 8px; font-size: 15px; }
+#gate button { margin-top: 10px; padding: 9px 18px; border: 0; border-radius: 8px;
+  background: #1f2328; color: #fff; cursor: pointer; font-size: 14px; }
 #app { display: none; }
-#bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-  padding: 10px 20px; background: #fff; border-bottom: 1px solid #e5e7eb; }
-#bar input, #bar select { padding: 6px 9px; border: 1px solid #d0d7de; border-radius: 7px; font-size: 13px; }
-#bar button { padding: 6px 12px; border: 1px solid #d0d7de; border-radius: 7px;
-  background: #fff; cursor: pointer; font-size: 13px; }
+#bar { display: flex; gap: 10px; align-items: center; padding: 10px 18px;
+  background: #fff; border-bottom: 1px solid #e5e7eb; font-size: 13px; color: #57606a; }
+#bar button { padding: 6px 12px; border: 1px solid #d0d7de; border-radius: 7px; background: #fff;
+  cursor: pointer; font-size: 13px; }
 #bar button.on { background: #1f2328; color: #fff; border-color: #1f2328; }
-#stats { padding: 8px 20px; color: #57606a; font-size: 12px; }
-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 12.5px; }
-th, td { padding: 7px 10px; text-align: left; border-bottom: 1px solid #f0f2f5; vertical-align: top; }
-th { position: sticky; top: 0; background: #fafbfc; color: #57606a; font-weight: 600; }
-td.mono { font-family: ui-monospace, Consolas, monospace; }
-.s2 { color: #1a7f37; font-weight: 600; }
-.s3 { color: #9a6700; font-weight: 600; }
-.s4, .s5 { color: #cf222e; font-weight: 600; }
-tr.err { background: #fff5f5; }
-.wrap { overflow-x: auto; }
-#cats { display: flex; gap: 18px; padding: 8px 20px; background: #fff; border-bottom: 1px solid #e5e7eb;
-  font-size: 12px; color: #57606a; flex-wrap: wrap; }
-#cats b { color: #1f2328; }
+#list { padding: 6px 0 20px; }
+.row { display: flex; align-items: baseline; gap: 10px; padding: 9px 18px;
+  border-bottom: 1px solid #f2f4f7; background: #fff; font-size: 14px; }
+.row .time { color: #57606a; font-variant-numeric: tabular-nums; width: 108px; flex: none; }
+.row .ip { font-family: ui-monospace, Consolas, monospace; font-size: 13px; color: #0b62d0;
+  flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .dev { flex: none; font-size: 12px; color: #57606a; width: 52px; text-align: right; }
+.row .page { flex: none; font-size: 12px; color: #8b949e; width: 74px; text-align: right; }
+.empty { padding: 20px 18px; color: #8b949e; font-size: 13px; }
 </style>
 </head>
 <body>
 <header>
-  <h1>📊 访问日志</h1>
-  <div class="sub">每行是一次请求；密码就是删除经典馆子用的那个</div>
+  <h1>👀 访问记录</h1>
+  <div class="sub">最近谁来看过这个站 · 密码同删除经典馆子</div>
 </header>
 
 <div id="gate">
-  <label for="pw">管理密码</label>
   <input id="pw" type="password" placeholder="输入密码后回车" autocomplete="off">
-  <button id="go">查看</button>
+  <button id="go">进入</button>
 </div>
 
 <div id="app">
   <div id="bar">
-    <input id="f-path" placeholder="路径前缀，如 /api" size="16">
-    <select id="f-status">
-      <option value="">全部状态</option>
-      <option value="200">200</option>
-      <option value="404">404</option>
-      <option value="403">403</option>
-      <option value="429">429</option>
-      <option value="500">500+</option>
-    </select>
-    <input id="f-ip" placeholder="IP 含…" size="12">
-    <select id="f-limit">
-      <option value="100">最近 100</option>
-      <option value="200" selected>最近 200</option>
-      <option value="500">最近 500</option>
-      <option value="1000">最近 1000</option>
-    </select>
-    <select id="f-files">
-      <option value="1">仅当前日志</option>
-      <option value="5">含历史滚动文件</option>
-    </select>
+    <span>最近 <b id="n">—</b> 次访问</span>
     <button id="btn-refresh">刷新</button>
-    <button id="btn-auto">自动刷新 5s</button>
+    <button id="btn-auto">自动刷新</button>
   </div>
-  <div id="cats"></div>
-  <div id="stats"></div>
-  <div class="wrap"><table>
-    <thead><tr><th>时间</th><th>IP</th><th>方法</th><th>路径</th><th>状态</th><th>耗时</th><th>UA</th></tr></thead>
-    <tbody id="rows"></tbody>
-  </table></div>
+  <div id="list"></div>
 </div>
 
 <script>
@@ -89,51 +58,45 @@ let token = sessionStorage.getItem('df_token') || '';
 let timer = null;
 
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-function fmtMs(ms) { const n = Number(ms || 0); return n >= 1000 ? (n/1000).toFixed(1) + 's' : Math.round(n) + 'ms'; }
-function statusClass(s) { const n = Number(s); if (n >= 500) return 's5'; if (n >= 400) return 's4'; if (n >= 300) return 's3'; return 's2'; }
 
-async function load() {
-  const q = new URLSearchParams({
-    limit: $('#f-limit').value,
-    path: $('#f-path').value.trim(),
-    ip: $('#f-ip').value.trim(),
-    files: $('#f-files').value,
-  });
-  const st = $('#f-status').value;
-  if (st) q.set('status', st === '500' ? '' : st);
-  try {
-    const r = await fetch('/api/admin/logs?' + q.toString(), {
-      headers: { 'X-Admin-Password': token },
-      cache: 'no-store',
-    });
-    if (r.status === 403) { sessionStorage.removeItem('df_token'); location.reload(); return; }
-    const body = await r.json();
-    const items = body.data.items || [];
-    const stats = body.data.stats || {};
-    $('#stats').innerHTML = `共 <b>${stats.total ?? 0}</b> 条 · 错误 <b>${stats.errors ?? 0}</b> 条 · 平均 <b>${fmtMs(stats.avgMs)}</b> · 文件 <code>${esc(body.data.file || '')}</code>`;
-    $('#rows').innerHTML = items.map((e, i) => `
-      <tr class="${Number(e.status) >= 400 ? 'err' : ''}">
-        <td class="mono">${esc(e.t)}</td>
-        <td class="mono">${esc(e.ip)}</td>
-        <td class="mono">${esc(e.method)}</td>
-        <td class="mono">${esc(e.path)}${e.query ? '<div style="color:#8b949e">?' + esc(e.query) + '</div>' : ''}</td>
-        <td class="${statusClass(e.status)}">${esc(e.status)}</td>
-        <td class="mono">${fmtMs(e.ms)}</td>
-        <td style="color:#8b949e;max-width:280px;overflow:hidden;text-overflow:ellipsis">${esc(e.ua)}</td>
-      </tr>`).join('') || '<tr><td colspan="7" style="color:#8b949e">没有匹配的记录</td></tr>';
-    await loadCats();
-  } catch (e) {
-    $('#stats').textContent = '加载失败：' + e.message;
-  }
+function device(ua) {
+  const u = (ua || '').toLowerCase();
+  if (!u) return '未知';
+  if (/python|curl|wget|httpx|okhttp|go-http|bot|spider/.test(u)) return '机器';
+  if (/iphone|android|harmony|miui|huawei|mobile/.test(u)) return '手机';
+  if (/ipad|tablet/.test(u)) return '平板';
+  return '电脑';
 }
 
-async function loadCats() {
-  const r = await fetch('/api/admin/logs/stats', { headers: { 'X-Admin-Password': token }, cache: 'no-store' });
-  if (!r.ok) return;
-  const d = (await r.json()).data;
-  const paths = (d.byPath || []).slice(0, 6).map(x => `<span>${esc(x.path)} <b>${x.n}</b></span>`).join('');
-  const ips = (d.byIp || []).slice(0, 4).map(x => `<span>${esc(x.ip)} <b>${x.n}</b></span>`).join('');
-  $('#cats').innerHTML = `<div>热点路径：${paths || '-'}</div><div>来源 IP：${ips || '-'}</div>`;
+function pageName(path) {
+  if (path === '/') return '主页';
+  if (path === '/admin.html') return '日志页';
+  if (path.startsWith('/api/')) return '接口';
+  if (path === '/app.js' || path === '/style.css' || path.startsWith('/favicon')) return '资源';
+  return '其它';
+}
+
+async function load() {
+  try {
+    const r = await fetch('/api/admin/logs?limit=60&files=1', {
+      headers: { 'X-Admin-Password': token }, cache: 'no-store',
+    });
+    if (r.status === 403) { sessionStorage.removeItem('df_token'); location.reload(); return; }
+    const items = (await r.json()).data.items || [];
+    // 只显示“看页面”的访问，接口/资源噪音去掉
+    const visits = items.filter(e => e.method === 'GET' && (e.path === '/' || e.path === '/admin.html' || e.path.startsWith('/api/')));
+    const people = visits.filter(e => pageName(e.path) !== '接口');
+    $('#n').textContent = people.length || visits.length;
+    $('#list').innerHTML = (people.length ? people : visits).slice(0, 40).map(e => `
+      <div class="row">
+        <span class="time">${esc((e.t || '').slice(5))}</span>
+        <span class="ip" title="${esc(e.ip)}">${esc(e.ip)}</span>
+        <span class="dev">${device(e.ua)}</span>
+        <span class="page">${pageName(e.path)}</span>
+      </div>`).join('') || '<div class="empty">还没有访问记录</div>';
+  } catch (e) {
+    $('#list').innerHTML = '<div class="empty">加载失败：' + esc(e.message) + '</div>';
+  }
 }
 
 function start() {
@@ -149,15 +112,10 @@ $('#go').onclick = () => {
 };
 $('#pw').onkeydown = (e) => { if (e.key === 'Enter') $('#go').click(); };
 $('#btn-refresh').onclick = load;
-['#f-path', '#f-ip', '#f-status', '#f-limit', '#f-files'].forEach(sel => {
-  $(sel).onchange = load;
-});
-$('#f-path').onkeydown = (e) => { if (e.key === 'Enter') load(); };
-$('#f-ip').onkeydown = (e) => { if (e.key === 'Enter') load(); };
 $('#btn-auto').onclick = () => {
-  const btn = $('#btn-auto');
-  if (timer) { clearInterval(timer); timer = null; btn.classList.remove('on'); return; }
-  timer = setInterval(load, 5000); btn.classList.add('on');
+  const b = $('#btn-auto');
+  if (timer) { clearInterval(timer); timer = null; b.classList.remove('on'); return; }
+  timer = setInterval(load, 8000); b.classList.add('on');
 };
 if (token) start();
 </script>
